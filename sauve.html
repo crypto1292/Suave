@@ -1,0 +1,2482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color" content="#17130f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>SAUVE — Cinema</title>
+
+<style>
+:root{
+  --bg:#15110e;
+  --paper:#f1e5cf;
+  --paper2:#e5d5b9;
+  --ink:#211a15;
+  --muted:#a99b88;
+  --red:#b94b35;
+  --orange:#d9783b;
+  --gold:#d8aa52;
+  --dark:#201914;
+  --line:rgba(241,229,207,.13);
+  --glass:rgba(27,21,17,.82);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  background:var(--bg);
+}
+
+body{
+  margin:0;
+  color:var(--paper);
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(217,120,59,.16),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #1a1410 0%,
+      #15110e 65%,
+      #100d0b 100%
+    );
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  min-height:100vh;
+}
+
+/* RETRO GRAIN */
+
+body::before{
+  content:"";
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  opacity:.035;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* APP */
+
+.app{
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:
+    calc(15px + env(safe-area-inset-top))
+    18px
+    14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21,17,14,.97),
+      rgba(21,17,14,.78)
+    );
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+  font-size:34px;
+  letter-spacing:4px;
+  transform:scaleY(.9);
+  color:var(--paper);
+  text-shadow:
+    2px 2px 0 var(--red);
+}
+
+.logo small{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:7px;
+  letter-spacing:4px;
+  text-align:center;
+  color:var(--gold);
+  margin-top:-3px;
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#211914;
+  color:var(--paper);
+  font-size:18px;
+}
+
+/* SEARCH */
+
+.search{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.search input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#211914;
+  color:var(--paper);
+  padding:13px 14px;
+  outline:none;
+}
+
+.search input::placeholder{
+  color:#8f8271;
+}
+
+.search button{
+  border:0;
+  border-radius:4px;
+  background:var(--red);
+  color:#fff4e2;
+  padding:0 17px;
+  font-weight:bold;
+}
+
+/* MAIN */
+
+main{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:18px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+  border-radius:5px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:flex-end;
+  padding:28px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(12,9,7,.98),
+      rgba(12,9,7,.72) 48%,
+      rgba(12,9,7,.18)
+    ),
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(185,75,53,.45),
+      transparent 35%
+    ),
+    #251a14;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border:1px solid rgba(255,255,255,.05);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:570px;
+}
+
+.kicker{
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.hero h1{
+  font-size:clamp(38px,8vw,78px);
+  line-height:.9;
+  margin:0 0 16px;
+  text-transform:uppercase;
+  letter-spacing:-2px;
+}
+
+.hero p{
+  color:#c8bba8;
+  line-height:1.6;
+  max-width:540px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.primary{
+  background:var(--red);
+  border:0;
+  color:#fff7eb;
+  padding:13px 21px;
+  border-radius:4px;
+  font-weight:bold;
+}
+
+.secondary{
+  background:rgba(255,255,255,.07);
+  border:1px solid var(--line);
+  color:var(--paper);
+  padding:12px 18px;
+  border-radius:4px;
+}
+
+/* SECTIONS */
+
+section{
+  margin:30px 0;
+}
+
+.section-heading{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:9px;
+  margin-bottom:15px;
+}
+
+.section-heading h2{
+  margin:0;
+  font-size:22px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.section-heading span{
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+/* CARDS */
+
+.grid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.card{
+  appearance:none;
+  padding:0;
+  overflow:hidden;
+  text-align:left;
+  color:var(--paper);
+  border:1px solid var(--line);
+  background:#1d1713;
+  border-radius:4px;
+  transition:
+    transform .2s ease,
+    border-color .2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(216,170,82,.5);
+}
+
+.poster{
+  display:block;
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  background:#271e18;
+}
+
+.card-info{
+  padding:10px;
+}
+
+.card-title{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.card-sub{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:50;
+  display:none;
+  align-items:flex-end;
+  background:rgba(0,0,0,.72);
+}
+
+.modal.open{
+  display:flex;
+}
+
+.sheet{
+  width:100%;
+  max-height:94vh;
+  overflow:auto;
+  background:
+    linear-gradient(
+      180deg,
+      #211914,
+      #15110e
+    );
+  border-top:
+    1px solid
+    rgba(216,170,82,.35);
+  border-radius:
+    18px
+    18px
+    0
+    0;
+  padding:
+    20px
+    18px
+    calc(30px + env(safe-area-inset-bottom));
+}
+
+.sheet-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.sheet-header h2{
+  margin:0;
+  font-size:25px;
+}
+
+.close{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#2a211b;
+  color:var(--paper);
+  border:1px solid var(--line);
+}
+
+/* DETAILS */
+
+.details{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:17px;
+}
+
+.details img{
+  width:110px;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:4px;
+}
+
+.details p{
+  color:#c2b5a2;
+  line-height:1.55;
+}
+
+.meta-line{
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+/* SOURCE */
+
+.source-list{
+  margin-top:20px;
+}
+
+.source{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#201914;
+  border:1px solid var(--line);
+  color:var(--paper);
+  padding:14px;
+  margin-top:8px;
+  border-radius:5px;
+}
+
+.source strong{
+  display:block;
+}
+
+.source small{
+  display:block;
+  color:var(--muted);
+  margin-top:5px;
+}
+
+/* SETTINGS */
+
+.field{
+  margin:17px 0;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.field input{
+  width:100%;
+  padding:14px;
+  border-radius:4px;
+  border:1px solid var(--line);
+  background:#0f0c0a;
+  color:var(--paper);
+  outline:none;
+}
+
+.notice{
+  border:
+    1px solid
+    rgba(216,170,82,.16);
+  background:#1b1511;
+  border-radius:5px;
+  padding:13px;
+  color:#afa08c;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.status{
+  font-size:13px;
+  margin-top:12px;
+}
+
+/* PLAYER */
+
+.player-wrap{
+  background:#000;
+  border-radius:5px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+
+video{
+  display:block;
+  width:100%;
+  max-height:70vh;
+  background:#000;
+}
+
+.player-info{
+  padding:12px;
+  background:#18120f;
+}
+
+.player-info strong{
+  display:block;
+}
+
+.player-info small{
+  color:var(--muted);
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  z-index:40;
+  left:0;
+  right:0;
+  bottom:0;
+  height:76px;
+  padding-bottom:
+    env(safe-area-inset-bottom);
+  background:
+    rgba(20,15,12,.94);
+  backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav-btn{
+  background:none;
+  border:0;
+  color:#817465;
+  font-size:10px;
+  letter-spacing:.5px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-items:center;
+}
+
+.nav-btn span{
+  font-size:21px;
+}
+
+.nav-btn.active{
+  color:var(--gold);
+}
+
+/* EMPTY */
+
+.empty{
+  color:var(--muted);
+  padding:25px 0;
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+  .grid{
+    grid-template-columns:
+      repeat(5,minmax(0,1fr));
+  }
+
+  .hero{
+    min-height:500px;
+  }
+
+  .details{
+    grid-template-columns:190px 1fr;
+  }
+
+  .details img{
+    width:190px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+  <div class="header-row">
+
+    <div class="logo">
+      SAUVE
+      <small>CINEMA • TELEVISION</small>
+    </div>
+
+    <div class="header-actions">
+
+      <button
+        class="icon-btn"
+        id="searchFocus">
+        ⌕
+      </button>
+
+      <button
+        class="icon-btn"
+        id="settingsButton">
+        ⚙
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="search">
+
+    <input
+      id="searchInput"
+      autocomplete="off"
+      placeholder="Search films & television">
+
+    <button id="searchButton">
+      SEARCH
+    </button>
+
+  </div>
+
+</header>
+
+
+<main id="main">
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <div class="kicker">
+        Welcome to SAUVE
+      </div>
+
+      <h1>
+        Cinema<br>
+        Reimagined.
+      </h1>
+
+      <p>
+        A retro-inspired media player that
+        combines your metadata catalog with
+        your own compatible streaming addons.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button
+          class="primary"
+          id="heroSearch">
+
+          SEARCH MOVIES
+
+        </button>
+
+        <button
+          class="secondary"
+          id="heroSettings">
+
+          ADD STREAM ADDON
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <section>
+
+    <div class="section-heading">
+
+      <h2>
+        Trending
+      </h2>
+
+      <span>
+        AIO METADATA
+      </span>
+
+    </div>
+
+    <div
+      id="trending"
+      class="empty">
+
+      Loading cinema…
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="section-heading">
+
+      <h2>
+        Television
+      </h2>
+
+      <span>
+        SERIES
+      </span>
+
+    </div>
+
+    <div
+      id="series"
+      class="empty">
+
+      Loading television…
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<nav class="bottom-nav">
+
+  <button
+    class="nav-btn active"
+    data-page="home">
+
+    <span>⌂</span>
+    HOME
+
+  </button>
+
+  <button
+    class="nav-btn"
+    data-page="search">
+
+    <span>⌕</span>
+    SEARCH
+
+  </button>
+
+  <button
+    class="nav-btn"
+    data-page="library">
+
+    <span>♡</span>
+    LIBRARY
+
+  </button>
+
+  <button
+    class="nav-btn"
+    data-page="settings">
+
+    <span>⚙</span>
+    SETTINGS
+
+  </button>
+
+</nav>
+
+</div>
+
+
+<div
+  class="modal"
+  id="modal">
+
+  <div
+    class="sheet"
+    id="sheet">
+  </div>
+
+</div>
+
+
+<script>
+
+/*
+=========================================================
+ SAUVE
+ Retro Media Client
+=========================================================
+
+ Built around the Stremio addon protocol.
+
+ Metadata:
+ AIO Metadata manifest supplied by the user.
+
+ Streams:
+ User supplies their own compatible addon manifest.
+
+ This client does not host media.
+=========================================================
+*/
+
+
+/* ======================================================
+   DEFAULT METADATA
+====================================================== */
+
+const DEFAULT_META_MANIFEST =
+"https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+
+
+/* ======================================================
+   STATE
+====================================================== */
+
+const state = {
+
+  metaManifest:
+    localStorage.getItem(
+      "sauve_meta"
+    ) ||
+    DEFAULT_META_MANIFEST,
+
+  streamManifest:
+    localStorage.getItem(
+      "sauve_stream"
+    ) ||
+    "",
+
+  favorites:
+    JSON.parse(
+      localStorage.getItem(
+        "sauve_favorites"
+      ) ||
+      "[]"
+    ),
+
+  history:
+    JSON.parse(
+      localStorage.getItem(
+        "sauve_history"
+      ) ||
+      "[]"
+    )
+
+};
+
+
+/* ======================================================
+   DOM
+====================================================== */
+
+const $ =
+  selector =>
+    document.querySelector(
+      selector
+    );
+
+
+/* ======================================================
+   ESCAPE HTML
+====================================================== */
+
+function esc(value = ""){
+
+  return String(value)
+    .replace(
+      /[&<>"']/g,
+
+      char => ({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+
+      }[char])
+
+    );
+
+}
+
+
+/* ======================================================
+   FETCH JSON
+====================================================== */
+
+async function getJSON(url){
+
+  const response =
+    await fetch(
+      url,
+      {
+        headers:{
+          "Accept":
+            "application/json"
+        }
+      }
+    );
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " +
+      response.status
+    );
+
+  }
+
+  return response.json();
+
+}
+
+
+/* ======================================================
+   MANIFEST BASE
+====================================================== */
+
+function manifestBase(url){
+
+  return url.replace(
+    /\/manifest\.json(?:\?.*)?$/,
+    "/"
+  );
+
+}
+
+
+/* ======================================================
+   STREMIO REQUEST
+====================================================== */
+
+function addonURL(
+  manifest,
+  resource,
+  type,
+  id,
+  extra = ""
+){
+
+  const base =
+    manifestBase(
+      manifest
+    );
+
+  let url =
+    `${base}${resource}/${type}/${encodeURIComponent(id)}.json`;
+
+  if(extra){
+
+    url += "?" + extra;
+
+  }
+
+  return url;
+
+}
+
+
+/* ======================================================
+   IMAGE
+====================================================== */
+
+function poster(item){
+
+  if(item?.poster){
+
+    return item.poster;
+
+  }
+
+  if(item?.logo){
+
+    return item.logo;
+
+  }
+
+  return "";
+
+}
+
+
+/* ======================================================
+   CARD
+====================================================== */
+
+function createCard(item){
+
+  return `
+
+    <button
+      class="card"
+      data-type="${esc(
+        item.type ||
+        "movie"
+      )}"
+      data-id="${esc(
+        item.id ||
+        ""
+      )}">
+
+      <img
+        class="poster"
+        src="${esc(
+          poster(item)
+        )}"
+        loading="lazy"
+        onerror="
+          this.style.opacity='.2'
+        ">
+
+      <div class="card-info">
+
+        <div class="card-title">
+
+          ${esc(
+            item.name ||
+            "Untitled"
+          )}
+
+        </div>
+
+        <div class="card-sub">
+
+          ${esc(
+            item.releaseInfo ||
+            item.year ||
+            item.type ||
+            ""
+          )}
+
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* ======================================================
+   CARD GRID
+====================================================== */
+
+function renderGrid(items){
+
+  if(!items?.length){
+
+    return `
+      <div class="empty">
+        Nothing found.
+      </div>
+    `;
+
+  }
+
+  return `
+
+    <div class="grid">
+
+      ${items
+        .map(createCard)
+        .join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* ======================================================
+   CATALOG
+====================================================== */
+
+async function getCatalog(
+  catalogId,
+  type,
+  extra = ""
+){
+
+  return getJSON(
+
+    addonURL(
+      state.metaManifest,
+      "catalog",
+      type,
+      catalogId,
+      extra
+    )
+
+  );
+
+}
+
+
+/* ======================================================
+   HOME
+====================================================== */
+
+async function loadHome(){
+
+  try{
+
+    const movies =
+      await getCatalog(
+        "tmdb.trending_movie",
+        "movie",
+        "genre=Day"
+      );
+
+    $("#trending").innerHTML =
+      renderGrid(
+        movies.metas ||
+        []
+      );
+
+  }
+  catch(error){
+
+    $("#trending").innerHTML = `
+
+      <div class="empty">
+
+        Unable to load AIO Metadata.
+
+        <br><br>
+
+        ${esc(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+
+  try{
+
+    const shows =
+      await getCatalog(
+        "tmdb.trending",
+        "series",
+        "genre=Day"
+      );
+
+    $("#series").innerHTML =
+      renderGrid(
+        shows.metas ||
+        []
+      );
+
+  }
+  catch(error){
+
+    $("#series").innerHTML = `
+
+      <div class="empty">
+
+        Unable to load television.
+
+        <br><br>
+
+        ${esc(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* ======================================================
+   SEARCH
+====================================================== */
+
+async function search(query){
+
+  $("#main").innerHTML = `
+
+    <section>
+
+      <div class="section-heading">
+
+        <h2>
+          Search
+        </h2>
+
+        <span>
+          ${esc(query)}
+        </span>
+
+      </div>
+
+      <div
+        id="searchResults"
+        class="empty">
+
+        Searching…
+
+      </div>
+
+    </section>
+
+  `;
+
+
+  try{
+
+    const [
+      movies,
+      shows
+    ] = await Promise.all([
+
+      getCatalog(
+        "search.movie",
+        "movie",
+        "search=" +
+        encodeURIComponent(query)
+      ),
+
+      getCatalog(
+        "search.series",
+        "series",
+        "search=" +
+        encodeURIComponent(query)
+      )
+
+    ]);
+
+
+    const results = [
+
+      ...(movies.metas || []),
+
+      ...(shows.metas || [])
+
+    ];
+
+
+    $("#searchResults").innerHTML =
+      renderGrid(
+        results
+      );
+
+  }
+  catch(error){
+
+    $("#searchResults").innerHTML = `
+
+      <div class="empty">
+
+        Search failed.
+
+        <br><br>
+
+        ${esc(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* ======================================================
+   DETAILS
+====================================================== */
+
+async function openDetails(
+  type,
+  id
+){
+
+  openModal(`
+
+    <div class="empty">
+      Loading…
+    </div>
+
+  `);
+
+
+  try{
+
+    const response =
+      await getJSON(
+
+        addonURL(
+          state.metaManifest,
+          "meta",
+          type,
+          id
+        )
+
+      );
+
+
+    const item =
+      response.meta ||
+      response;
+
+
+    const favorite =
+      state.favorites
+        .includes(id);
+
+
+    let episodes = "";
+
+
+    if(
+      item.videos &&
+      item.videos.length
+    ){
+
+      episodes = `
+
+        <section>
+
+          <div class="section-heading">
+
+            <h2>
+              Episodes
+            </h2>
+
+          </div>
+
+          ${item.videos
+            .map(
+              episode => `
+
+                <button
+                  class="source"
+                  data-episode-id="${esc(
+                    episode.id
+                  )}"
+                  data-episode-type="${esc(
+                    episode.type ||
+                    "series"
+                  )}">
+
+                  <strong>
+
+                    ${esc(
+                      episode.name ||
+                      episode.title ||
+                      "Episode"
+                    )}
+
+                  </strong>
+
+                  <small>
+
+                    ${esc(
+                      episode.season
+                        ? "Season " +
+                          episode.season +
+                          " • "
+                        : ""
+                    )}
+
+                    ${esc(
+                      episode.episode
+                        ? "Episode " +
+                          episode.episode
+                        : ""
+                    )}
+
+                  </small>
+
+                </button>
+
+              `
+            )
+            .join("")}
+
+        </section>
+
+      `;
+
+    }
+
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          ${esc(
+            item.name ||
+            "Details"
+          )}
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="details">
+
+        <img
+          src="${esc(
+            poster(item)
+          )}">
+
+        <div>
+
+          <div class="meta-line">
+
+            ${esc(
+              item.releaseInfo ||
+              item.year ||
+              ""
+            )}
+
+            ${
+              item.runtime
+                ? " • " +
+                  esc(item.runtime)
+                : ""
+            }
+
+          </div>
+
+
+          <p>
+
+            ${esc(
+              item.description ||
+              "No description available."
+            )}
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <button
+              class="primary"
+              id="watchButton">
+
+              ▶ WATCH
+
+            </button>
+
+
+            <button
+              class="secondary"
+              id="favoriteButton">
+
+              ${
+                favorite
+                  ? "♥"
+                  : "♡"
+              }
+
+              ${favorite
+                ? " SAVED"
+                : " SAVE"}
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      ${episodes}
+
+
+      <div
+        id="sourceArea"
+        class="source-list">
+
+      </div>
+
+    `);
+
+
+    $("#watchButton")
+      ?.addEventListener(
+        "click",
+        () =>
+          loadStreams(
+            type,
+            id
+          )
+      );
+
+
+    $("#favoriteButton")
+      ?.addEventListener(
+        "click",
+        () =>
+          toggleFavorite(
+            id
+          )
+      );
+
+
+    document
+      .querySelectorAll(
+        "[data-episode-id]"
+      )
+      .forEach(
+        button => {
+
+          button.onclick =
+            () =>
+              loadStreams(
+                button.dataset
+                  .episodeType,
+
+                button.dataset
+                  .episodeId
+              );
+
+        }
+      );
+
+  }
+  catch(error){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          Couldn't load
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        ${esc(
+          error.message
+        )}
+
+      </div>
+
+    `);
+
+  }
+
+}
+
+
+/* ======================================================
+   STREAMS
+====================================================== */
+
+async function loadStreams(
+  type,
+  id
+){
+
+  if(
+    !state.streamManifest
+  ){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          Add your stream addon
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        SAUVE needs a compatible
+        stream-addon manifest before
+        it can request sources.
+
+        <br><br>
+
+        Open Settings and paste your
+        own manifest URL.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        Available Sources
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      id="sources"
+      class="empty">
+
+      Finding sources…
+
+    </div>
+
+  `);
+
+
+  try{
+
+    const response =
+      await getJSON(
+
+        addonURL(
+          state.streamManifest,
+          "stream",
+          type,
+          id
+        )
+
+      );
+
+
+    const streams =
+      response.streams ||
+      [];
+
+
+    if(!streams.length){
+
+      $("#sources").innerHTML = `
+
+        <div class="empty">
+
+          No sources were returned
+          for this title.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    $("#sources").innerHTML =
+
+      streams
+        .map(
+          (stream,index) => {
+
+            const url =
+              stream.url ||
+              stream.externalUrl ||
+              "";
+
+
+            return `
+
+              <button
+                class="source"
+                data-stream-url="${esc(
+                  url
+                )}">
+
+                <strong>
+
+                  ${esc(
+                    stream.name ||
+                    stream.title ||
+                    "Source " +
+                    (index + 1)
+                  )}
+
+                </strong>
+
+                <small>
+
+                  ${esc(
+                    stream.description ||
+                    stream.quality ||
+                    stream.type ||
+                    "Available stream"
+                  )}
+
+                </small>
+
+              </button>
+
+            `;
+
+          }
+        )
+        .join("");
+
+
+    document
+      .querySelectorAll(
+        "[data-stream-url]"
+      )
+      .forEach(
+        button => {
+
+          button.onclick =
+            () =>
+              play(
+                button.dataset
+                  .streamUrl
+              );
+
+        }
+      );
+
+  }
+  catch(error){
+
+    $("#sources").innerHTML = `
+
+      <div class="notice">
+
+        Stream request failed.
+
+        <br><br>
+
+        ${esc(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* ======================================================
+   PLAYBACK
+====================================================== */
+
+function play(url){
+
+  if(!url){
+
+    alert(
+      "The addon did not return a playable URL."
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Browser playback is intentionally
+    limited to URLs compatible with the
+    browser.
+
+    Unsupported schemes are offered as
+    an external source rather than
+    attempting to bypass the provider.
+  */
+
+
+  if(
+    /^https?:\/\//i.test(url)
+  ){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          Now Playing
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="player-wrap">
+
+        <video
+          controls
+          playsinline
+          autoplay
+          src="${esc(url)}">
+
+        </video>
+
+
+        <div class="player-info">
+
+          <strong>
+            SAUVE PLAYER
+          </strong>
+
+          <small>
+            Browser-compatible source
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="notice"
+        style="margin-top:12px">
+
+        If playback doesn't start,
+        the returned source may require
+        a different player or protocol
+        that your browser doesn't support.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        External Source
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="notice">
+
+      This addon returned a source that
+      isn't directly playable by the
+      browser.
+
+    </div>
+
+
+    <div
+      class="hero-buttons">
+
+      <button
+        class="primary"
+        onclick="
+          location.href='${esc(url)}'
+        ">
+
+        OPEN SOURCE
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+/* ======================================================
+   FAVORITES
+====================================================== */
+
+function toggleFavorite(id){
+
+  if(
+    state.favorites
+      .includes(id)
+  ){
+
+    state.favorites =
+      state.favorites.filter(
+        x => x !== id
+      );
+
+  }
+  else{
+
+    state.favorites.push(
+      id
+    );
+
+  }
+
+
+  localStorage.setItem(
+    "sauve_favorites",
+    JSON.stringify(
+      state.favorites
+    )
+  );
+
+
+  closeModal();
+
+}
+
+
+/* ======================================================
+   SETTINGS
+====================================================== */
+
+function settings(){
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        SAUVE Settings
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Metadata Manifest
+      </label>
+
+      <input
+        id="metadataInput"
+        value="${esc(
+          state.metaManifest
+        )}">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Your Stream Addon Manifest
+      </label>
+
+      <input
+        id="streamInput"
+        placeholder="Paste your configured addon manifest"
+        value="${esc(
+          state.streamManifest
+        )}">
+
+    </div>
+
+
+    <div class="notice">
+
+      SAUVE does not provide a stream
+      catalog itself.
+
+      <br><br>
+
+      Add a compatible manifest from a
+      provider you are authorized to use.
+      The manifest URL is stored locally
+      on this device.
+
+    </div>
+
+
+    <div class="hero-buttons">
+
+      <button
+        class="primary"
+        id="saveSettings">
+
+        SAVE & TEST
+
+      </button>
+
+
+      <button
+        class="secondary"
+        id="disconnect">
+
+        DISCONNECT
+
+      </button>
+
+    </div>
+
+
+    <div
+      id="settingsStatus"
+      class="status">
+
+    </div>
+
+  `);
+
+
+  $("#saveSettings")
+    .onclick =
+    async () => {
+
+      const metadata =
+        $("#metadataInput")
+          .value
+          .trim();
+
+
+      const stream =
+        $("#streamInput")
+          .value
+          .trim();
+
+
+      $("#settingsStatus")
+        .textContent =
+        "Testing manifests…";
+
+
+      try{
+
+        await getJSON(
+          metadata
+        );
+
+
+        if(stream){
+
+          await getJSON(
+            stream
+          );
+
+        }
+
+
+        state.metaManifest =
+          metadata;
+
+        state.streamManifest =
+          stream;
+
+
+        localStorage.setItem(
+          "sauve_meta",
+          metadata
+        );
+
+
+        localStorage.setItem(
+          "sauve_stream",
+          stream
+        );
+
+
+        $("#settingsStatus")
+          .innerHTML =
+          `<span style="
+             color:#78d890
+           ">
+             ✓ Connected
+           </span>`;
+
+
+        setTimeout(
+          () => {
+
+            closeModal();
+
+            loadHome();
+
+          },
+          650
+        );
+
+      }
+      catch(error){
+
+        $("#settingsStatus")
+          .innerHTML = `
+
+            <span style="
+              color:#e56d55
+            ">
+
+              Connection failed:
+              ${esc(
+                error.message
+              )}
+
+            </span>
+
+          `;
+
+      }
+
+    };
+
+
+  $("#disconnect")
+    .onclick =
+    () => {
+
+      state.streamManifest =
+        "";
+
+      localStorage.removeItem(
+        "sauve_stream"
+      );
+
+      settings();
+
+    };
+
+}
+
+
+/* ======================================================
+   MODALS
+====================================================== */
+
+function openModal(html){
+
+  $("#sheet").innerHTML =
+    html;
+
+  $("#modal")
+    .classList
+    .add("open");
+
+}
+
+
+function closeModal(){
+
+  $("#modal")
+    .classList
+    .remove("open");
+
+  $("#sheet").innerHTML =
+    "";
+
+}
+
+
+/* ======================================================
+   NAVIGATION
+====================================================== */
+
+document
+  .querySelectorAll(
+    ".nav-btn"
+  )
+  .forEach(
+    button => {
+
+      button.onclick =
+        () => {
+
+          document
+            .querySelectorAll(
+              ".nav-btn"
+            )
+            .forEach(
+              item =>
+                item.classList
+                  .remove(
+                    "active"
+                  )
+            );
+
+
+          button.classList
+            .add(
+              "active"
+            );
+
+
+          const page =
+            button.dataset.page;
+
+
+          if(
+            page === "home"
+          ){
+
+            location.reload();
+
+          }
+
+
+          if(
+            page === "search"
+          ){
+
+            $("#searchInput")
+              .focus();
+
+          }
+
+
+          if(
+            page === "library"
+          ){
+
+            $("#main").innerHTML = `
+
+              <section>
+
+                <div class="section-heading">
+
+                  <h2>
+                    Library
+                  </h2>
+
+                  <span>
+                    YOUR COLLECTION
+                  </span>
+
+                </div>
+
+                <div class="empty">
+
+                  Your saved titles will
+                  appear here.
+
+                </div>
+
+              </section>
+
+            `;
+
+          }
+
+
+          if(
+            page === "settings"
+          ){
+
+            settings();
+
+          }
+
+        };
+
+    }
+  );
+
+
+/* ======================================================
+   SEARCH EVENTS
+====================================================== */
+
+$("#searchButton")
+  .onclick =
+  () => {
+
+    const query =
+      $("#searchInput")
+        .value
+        .trim();
+
+
+    if(query){
+
+      search(
+        query
+      );
+
+    }
+
+  };
+
+
+$("#searchInput")
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if(
+        event.key === "Enter"
+      ){
+
+        $("#searchButton")
+          .click();
+
+      }
+
+    }
+  );
+
+
+$("#searchFocus")
+  .onclick =
+  () =>
+    $("#searchInput")
+      .focus();
+
+
+$("#heroSearch")
+  .onclick =
+  () =>
+    $("#searchInput")
+      .focus();
+
+
+$("#heroSettings")
+  .onclick =
+  settings;
+
+
+$("#settingsButton")
+  .onclick =
+  settings;
+
+
+/* ======================================================
+   MODAL BACKDROP
+====================================================== */
+
+$("#modal")
+  .onclick =
+  event => {
+
+    if(
+      event.target.id ===
+      "modal"
+    ){
+
+      closeModal();
+
+    }
+
+  };
+
+
+/* ======================================================
+   CARD EVENTS
+====================================================== */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const card =
+      event.target.closest(
+        ".card"
+      );
+
+
+    if(!card){
+
+      return;
+
+    }
+
+
+    openDetails(
+      card.dataset.type,
+      card.dataset.id
+    );
+
+  }
+);
+
+
+/* ======================================================
+   START
+====================================================== */
+
+loadHome();
+
+</script>
+
+</body>
+</html>
