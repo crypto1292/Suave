@@ -1,0 +1,2012 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color" content="#080a0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>QuackStream</title>
+
+<style>
+:root{
+  --bg:#080a0f;
+  --panel:#11151d;
+  --panel2:#171c26;
+  --text:#f5f7fb;
+  --muted:#9ca6b8;
+  --accent:#ffd84d;
+  --line:#242b38;
+  --danger:#ff6b6b;
+  --success:#78e08f;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:
+    linear-gradient(180deg,#090b10,#080a0f 55%);
+  color:var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  min-height:100vh;
+  padding-bottom:84px;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  padding:
+    18px
+    16px
+    14px;
+  background:rgba(8,10,15,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:-.5px;
+}
+
+.brand span{
+  color:var(--accent);
+}
+
+.icon{
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:#fff;
+  border-radius:13px;
+}
+
+.search{
+  margin-top:14px;
+  display:flex;
+  gap:8px;
+}
+
+.search input{
+  flex:1;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:#fff;
+  padding:13px 14px;
+  border-radius:14px;
+  outline:none;
+}
+
+.search button,
+.primary{
+  background:var(--accent);
+  color:#111;
+  border:0;
+  font-weight:800;
+  border-radius:13px;
+  padding:12px 16px;
+}
+
+/* MAIN */
+
+main{
+  padding:18px 16px;
+}
+
+.hero{
+  border:1px solid var(--line);
+  background:
+    linear-gradient(
+      135deg,
+      #151a24,
+      #0e1118
+    );
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:30px;
+  margin:0 0 8px;
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.chips{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  padding:8px 11px;
+  border-radius:999px;
+  background:#1b212c;
+  color:#dce2ec;
+  border:1px solid var(--line);
+}
+
+section{
+  margin:22px 0;
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.section-head h2{
+  font-size:19px;
+  margin:0;
+}
+
+/* POSTER GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:15px;
+  overflow:hidden;
+  min-width:0;
+}
+
+.poster{
+  aspect-ratio:2/3;
+  background:#171b24;
+  display:block;
+  width:100%;
+  object-fit:cover;
+}
+
+.cardbody{
+  padding:10px;
+}
+
+.title{
+  font-weight:700;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.sub{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.empty{
+  color:var(--muted);
+  padding:24px 4px;
+}
+
+.status{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.ok{
+  color:var(--success);
+}
+
+.bad{
+  color:var(--danger);
+}
+
+/* BOTTOM NAV */
+
+.bottom{
+  position:fixed;
+  z-index:20;
+  left:0;
+  right:0;
+  bottom:0;
+  height:72px;
+  background:rgba(12,15,21,.94);
+  backdrop-filter:blur(20px);
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+.nav{
+  background:none;
+  border:0;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  font-size:11px;
+}
+
+.nav.active{
+  color:var(--accent);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:30;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:flex-end;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.sheet{
+  width:100%;
+  max-height:92vh;
+  overflow:auto;
+  background:#0d1118;
+  border-radius:24px 24px 0 0;
+  padding:20px 16px 28px;
+  border-top:1px solid var(--line);
+}
+
+.sheethead{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+}
+
+.close{
+  background:#1a202a;
+  border:0;
+  color:#fff;
+  width:38px;
+  height:38px;
+  border-radius:12px;
+}
+
+.detail{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:16px;
+}
+
+.detail img{
+  width:120px;
+  border-radius:14px;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  background:#171b24;
+}
+
+.meta{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+  flex-wrap:wrap;
+}
+
+.source{
+  width:100%;
+  text-align:left;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:#fff;
+  border-radius:14px;
+  padding:13px;
+  margin-top:8px;
+}
+
+.source small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.field{
+  margin:14px 0;
+}
+
+.field label{
+  display:block;
+  color:#c8cfdb;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.field input{
+  width:100%;
+  background:#090c11;
+  border:1px solid var(--line);
+  color:#fff;
+  border-radius:12px;
+  padding:13px;
+}
+
+.notice{
+  background:#151b24;
+  border:1px solid var(--line);
+  padding:12px;
+  border-radius:13px;
+  color:#b8c1cf;
+  font-size:13px;
+  line-height:1.45;
+}
+
+.player{
+  width:100%;
+  background:#000;
+  border-radius:14px;
+  max-height:65vh;
+}
+
+@media(min-width:700px){
+
+  main{
+    max-width:1100px;
+    margin:auto;
+  }
+
+  .grid{
+    grid-template-columns:
+      repeat(5,minmax(0,1fr));
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+  <div class="top">
+
+    <div class="brand">
+      Quack<span>Stream</span>
+    </div>
+
+    <button
+      class="icon"
+      id="settingsBtn">
+      ⚙︎
+    </button>
+
+  </div>
+
+  <div class="search">
+
+    <input
+      id="searchInput"
+      placeholder="Search movies & shows">
+
+    <button id="searchBtn">
+      Search
+    </button>
+
+  </div>
+
+</header>
+
+<main id="main"></main>
+
+<nav class="bottom">
+
+  <button
+    class="nav active"
+    data-page="home">
+    ⌂
+    <span>Home</span>
+  </button>
+
+  <button
+    class="nav"
+    data-page="search">
+    ⌕
+    <span>Search</span>
+  </button>
+
+  <button
+    class="nav"
+    data-page="library">
+    ♡
+    <span>Library</span>
+  </button>
+
+  <button
+    class="nav"
+    data-page="settings">
+    ⚙︎
+    <span>Settings</span>
+  </button>
+
+</nav>
+
+</div>
+
+<div
+  class="modal"
+  id="modal">
+
+  <div
+    class="sheet"
+    id="sheet">
+  </div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   CONFIGURATION
+   ===================================================== */
+
+const DEFAULT_META =
+"https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+
+
+/* =====================================================
+   APP STATE
+   ===================================================== */
+
+const state = {
+
+  metaManifest:
+    localStorage.getItem("qs_meta")
+    || DEFAULT_META,
+
+  streamManifest:
+    localStorage.getItem("qs_stream")
+    || "",
+
+  favorites:
+    JSON.parse(
+      localStorage.getItem("qs_fav") || "[]"
+    ),
+
+  history:
+    JSON.parse(
+      localStorage.getItem("qs_history") || "[]"
+    ),
+
+  meta:null,
+
+  stream:null
+
+};
+
+
+/* =====================================================
+   HELPERS
+   ===================================================== */
+
+const $ =
+  selector =>
+    document.querySelector(selector);
+
+
+function esc(value=""){
+
+  return String(value)
+    .replace(
+      /[&<>"']/g,
+
+      character => ({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+
+      }[character])
+    );
+
+}
+
+
+function baseFromManifest(url){
+
+  return url.replace(
+    /\/manifest\.json(?:\?.*)?$/,
+    "/"
+  );
+
+}
+
+
+async function getJSON(url){
+
+  const response =
+    await fetch(
+      url,
+      {
+        headers:{
+          "Accept":
+            "application/json"
+        }
+      }
+    );
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " + response.status
+    );
+
+  }
+
+  return response.json();
+
+}
+
+
+/* =====================================================
+   LOAD MANIFESTS
+   ===================================================== */
+
+async function loadManifests(){
+
+  state.meta =
+    await getJSON(
+      state.metaManifest
+    );
+
+  if(state.streamManifest){
+
+    state.stream =
+      await getJSON(
+        state.streamManifest
+      );
+
+  }
+
+}
+
+
+/* =====================================================
+   STREMIO ADDON URL
+   ===================================================== */
+
+function addonURL(
+  manifest,
+  kind,
+  type,
+  id,
+  extra=""
+){
+
+  const base =
+    baseFromManifest(manifest);
+
+  let url =
+    `${base}${kind}/${type}/${encodeURIComponent(id)}.json`;
+
+  if(extra){
+
+    url += "?" + extra;
+
+  }
+
+  return url;
+
+}
+
+
+/* =====================================================
+   IMAGE
+   ===================================================== */
+
+function img(item){
+
+  if(item.poster){
+
+    return item.poster;
+
+  }
+
+  if(item.logo){
+
+    return item.logo;
+
+  }
+
+  return "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(`
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="300"
+        height="450">
+
+        <rect
+          width="100%"
+          height="100%"
+          fill="#171b24"/>
+
+        <text
+          x="50%"
+          y="50%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          fill="#8d98aa"
+          font-size="18">
+
+          No Poster
+
+        </text>
+
+      </svg>
+
+    `);
+
+}
+
+
+/* =====================================================
+   MOVIE CARD
+   ===================================================== */
+
+function card(item){
+
+  return `
+
+    <button
+      class="card"
+      data-type="${esc(item.type || "movie")}"
+      data-id="${esc(item.id || "")}"
+      style="
+        padding:0;
+        text-align:left;
+        color:inherit;
+      ">
+
+      <img
+        class="poster"
+        src="${esc(img(item))}"
+        loading="lazy"
+        onerror="this.style.opacity=.25">
+
+      <div class="cardbody">
+
+        <div class="title">
+          ${esc(item.name || "Untitled")}
+        </div>
+
+        <div class="sub">
+          ${esc(
+            item.releaseInfo ||
+            item.year ||
+            item.type ||
+            ""
+          )}
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+function renderCards(items){
+
+  return `
+
+    <div class="grid">
+
+      ${items.map(card).join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================================
+   CATALOG
+   ===================================================== */
+
+async function catalog(
+  id,
+  type,
+  extra=""
+){
+
+  const url =
+    addonURL(
+      state.metaManifest,
+      "catalog",
+      type,
+      id,
+      extra
+    );
+
+  return getJSON(url);
+
+}
+
+
+/* =====================================================
+   HOME
+   ===================================================== */
+
+async function home(){
+
+  $("#main").innerHTML = `
+
+    <div class="hero">
+
+      <h1>
+        Your streaming hub.
+      </h1>
+
+      <p>
+        QuackMeta supplies metadata.
+        Each user can connect their own
+        compatible stream manifest.
+      </p>
+
+      <div class="chips">
+
+        <span class="chip">
+          QuackMeta
+        </span>
+
+        <span class="chip">
+
+          ${
+            state.streamManifest
+              ? "Stream manifest connected"
+              : "Add your stream manifest"
+          }
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <section>
+
+      <div class="section-head">
+
+        <h2>
+          Trending Movies
+        </h2>
+
+        <span
+          class="status">
+          Loading…
+        </span>
+
+      </div>
+
+      <div
+        id="trending"
+        class="empty">
+
+        Loading catalog…
+
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <div class="section-head">
+
+        <h2>
+          Trending Series
+        </h2>
+
+      </div>
+
+      <div
+        id="series"
+        class="empty">
+
+        Loading catalog…
+
+      </div>
+
+    </section>
+
+  `;
+
+
+  try{
+
+    const movies =
+      await catalog(
+        "tmdb.trending_movie",
+        "movie",
+        "genre=Day"
+      );
+
+    $("#trending").outerHTML =
+      renderCards(
+        movies.metas || []
+      );
+
+  }
+  catch(error){
+
+    $("#trending").textContent =
+      "Could not load movies: " +
+      error.message;
+
+  }
+
+
+  try{
+
+    const series =
+      await catalog(
+        "tmdb.trending",
+        "series",
+        "genre=Day"
+      );
+
+    $("#series").outerHTML =
+      renderCards(
+        series.metas || []
+      );
+
+  }
+  catch(error){
+
+    $("#series").textContent =
+      "Could not load series: " +
+      error.message;
+
+  }
+
+}
+
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
+
+async function search(query){
+
+  $("#main").innerHTML = `
+
+    <section>
+
+      <div class="section-head">
+
+        <h2>
+          Results for
+          “${esc(query)}”
+        </h2>
+
+      </div>
+
+      <div
+        id="results"
+        class="empty">
+
+        Searching…
+
+      </div>
+
+    </section>
+
+  `;
+
+
+  try{
+
+    const [
+      movies,
+      series
+    ] = await Promise.all([
+
+      catalog(
+        "search.movie",
+        "movie",
+        "search=" +
+        encodeURIComponent(query)
+      ),
+
+      catalog(
+        "search.series",
+        "series",
+        "search=" +
+        encodeURIComponent(query)
+      )
+
+    ]);
+
+
+    const items = [
+
+      ...(movies.metas || []),
+
+      ...(series.metas || [])
+
+    ];
+
+
+    $("#results").outerHTML =
+      items.length
+
+        ? renderCards(items)
+
+        : `
+          <div class="empty">
+            No results found.
+          </div>
+        `;
+
+  }
+  catch(error){
+
+    $("#results").textContent =
+      "Search failed: " +
+      error.message;
+
+  }
+
+}
+
+
+/* =====================================================
+   MOVIE DETAILS
+   ===================================================== */
+
+async function openMeta(
+  type,
+  id
+){
+
+  showSheet(`
+
+    <div class="empty">
+      Loading details…
+    </div>
+
+  `);
+
+
+  try{
+
+    const data =
+      await getJSON(
+        addonURL(
+          state.metaManifest,
+          "meta",
+          type,
+          id
+        )
+      );
+
+
+    const movie =
+      data.meta || data;
+
+
+    const favorite =
+      state.favorites.includes(id);
+
+
+    let episodes = "";
+
+
+    if(movie.videos?.length){
+
+      episodes = `
+
+        <h3>
+          Episodes
+        </h3>
+
+        ${movie.videos
+          .slice(0,100)
+          .map(
+            episode => `
+
+              <button
+                class="source"
+                data-episode="${esc(episode.id)}"
+                data-type="${esc(
+                  episode.type || type
+                )}">
+
+                <b>
+                  ${esc(
+                    episode.name ||
+                    episode.title ||
+                    "Episode"
+                  )}
+                </b>
+
+                <small>
+                  ${esc(
+                    episode.episode
+                      ? "Episode " +
+                        episode.episode
+                      : ""
+                  )}
+                </small>
+
+              </button>
+
+            `
+          )
+          .join("")}
+
+      `;
+
+    }
+
+
+    showSheet(`
+
+      <div class="sheethead">
+
+        <h2>
+          ${esc(
+            movie.name ||
+            "Details"
+          )}
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeSheet()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="detail">
+
+        <img
+          src="${esc(img(movie))}">
+
+
+        <div>
+
+          <div class="meta">
+
+            ${esc(
+              movie.releaseInfo ||
+              movie.year ||
+              ""
+            )}
+
+            ${
+              movie.runtime
+                ? " • " +
+                  esc(movie.runtime)
+                : ""
+            }
+
+          </div>
+
+
+          <p>
+
+            ${esc(
+              movie.description ||
+              "No description available."
+            )}
+
+          </p>
+
+
+          <div class="actions">
+
+            <button
+              class="primary"
+              id="watchBtn">
+
+              ▶ Watch
+
+            </button>
+
+
+            <button
+              class="close"
+              id="favBtn">
+
+              ${
+                favorite
+                  ? "♥"
+                  : "♡"
+              }
+
+              Favorite
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      ${episodes}
+
+      <div
+        id="sources"
+        style="margin-top:18px">
+      </div>
+
+    `);
+
+
+    $("#watchBtn")?.addEventListener(
+      "click",
+      () => loadStreams(
+        type,
+        id
+      )
+    );
+
+
+    $("#favBtn")?.addEventListener(
+      "click",
+      () => toggleFav(id)
+    );
+
+
+    document
+      .querySelectorAll(
+        "[data-episode]"
+      )
+      .forEach(button => {
+
+        button.onclick = () =>
+          loadStreams(
+            button.dataset.type,
+            button.dataset.episode
+          );
+
+      });
+
+  }
+  catch(error){
+
+    showSheet(`
+
+      <div class="sheethead">
+
+        <h2>
+          Unable to load
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeSheet()">
+
+          ×
+
+        </button>
+
+      </div>
+
+      <div class="notice">
+
+        ${esc(error.message)}
+
+      </div>
+
+    `);
+
+  }
+
+}
+
+
+/* =====================================================
+   STREAM LOOKUP
+   ===================================================== */
+
+async function loadStreams(
+  type,
+  id
+){
+
+  if(!state.streamManifest){
+
+    showSheet(`
+
+      <div class="sheethead">
+
+        <h2>
+          Connect a stream manifest
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeSheet()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        Open Settings and paste your
+        own compatible stream manifest
+        URL first.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  showSheet(`
+
+    <div class="sheethead">
+
+      <h2>
+        Available streams
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeSheet()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      id="streamList"
+      class="empty">
+
+      Finding sources…
+
+    </div>
+
+  `);
+
+
+  try{
+
+    const data =
+      await getJSON(
+        addonURL(
+          state.streamManifest,
+          "stream",
+          type,
+          id
+        )
+      );
+
+
+    const streams =
+      data.streams || [];
+
+
+    if(!streams.length){
+
+      $("#streamList").textContent =
+        "No streams were returned.";
+
+      return;
+
+    }
+
+
+    $("#streamList").innerHTML =
+
+      streams.map(
+        (stream,index) => {
+
+          const url =
+            stream.url ||
+            stream.externalUrl ||
+            "";
+
+
+          return `
+
+            <button
+              class="source"
+              data-stream="${esc(url)}">
+
+              <b>
+
+                ${esc(
+                  stream.name ||
+                  stream.title ||
+                  stream.behaviorHints
+                    ?.filename ||
+                  "Source " +
+                  (index + 1)
+                )}
+
+              </b>
+
+
+              <small>
+
+                ${esc(
+                  stream.description ||
+                  stream.quality ||
+                  stream.type ||
+                  ""
+                )}
+
+              </small>
+
+            </button>
+
+          `;
+
+        }
+      ).join("");
+
+
+    document
+      .querySelectorAll(
+        "[data-stream]"
+      )
+      .forEach(button => {
+
+        button.onclick = () =>
+          playStream(
+            button.dataset.stream
+          );
+
+      });
+
+  }
+  catch(error){
+
+    $("#streamList").textContent =
+      "Stream lookup failed: " +
+      error.message;
+
+  }
+
+}
+
+
+/* =====================================================
+   PLAYER
+   ===================================================== */
+
+function playStream(url){
+
+  if(!url){
+
+    alert(
+      "This source did not return a playable URL."
+    );
+
+    return;
+
+  }
+
+
+  closeSheet();
+
+
+  if(
+    /^https?:/i.test(url)
+  ){
+
+    showSheet(`
+
+      <div class="sheethead">
+
+        <h2>
+          Player
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeSheet()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <video
+        class="player"
+        controls
+        playsinline
+        autoplay
+        src="${esc(url)}">
+      </video>
+
+
+      <div
+        class="notice"
+        style="margin-top:10px">
+
+        If playback fails, the source
+        may require a player or protocol
+        that Safari does not support.
+
+      </div>
+
+    `);
+
+  }
+  else{
+
+    showSheet(`
+
+      <div class="sheethead">
+
+        <h2>
+          External source
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeSheet()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        This source uses a non-browser
+        URL scheme and may require its
+        supported player.
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="primary"
+          onclick="location.href='${esc(url)}'">
+
+          Open Source
+
+        </button>
+
+      </div>
+
+    `);
+
+  }
+
+}
+
+
+/* =====================================================
+   MODALS
+   ===================================================== */
+
+function showSheet(html){
+
+  $("#sheet").innerHTML =
+    html;
+
+  $("#modal")
+    .classList
+    .add("show");
+
+}
+
+
+function closeSheet(){
+
+  $("#modal")
+    .classList
+    .remove("show");
+
+  $("#sheet").innerHTML = "";
+
+}
+
+
+/* =====================================================
+   FAVORITES
+   ===================================================== */
+
+function toggleFav(id){
+
+  if(
+    state.favorites.includes(id)
+  ){
+
+    state.favorites =
+      state.favorites.filter(
+        item => item !== id
+      );
+
+  }
+  else{
+
+    state.favorites.push(id);
+
+  }
+
+
+  localStorage.setItem(
+    "qs_fav",
+    JSON.stringify(
+      state.favorites
+    )
+  );
+
+
+  alert(
+    "Library updated."
+  );
+
+}
+
+
+/* =====================================================
+   SETTINGS
+   ===================================================== */
+
+function settings(){
+
+  showSheet(`
+
+    <div class="sheethead">
+
+      <h2>
+        Settings
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeSheet()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        QuackMeta Manifest
+      </label>
+
+      <input
+        id="metaField"
+        value="${esc(
+          state.metaManifest
+        )}">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        My Stream Manifest
+      </label>
+
+      <input
+        id="streamField"
+        value="${esc(
+          state.streamManifest
+        )}"
+        placeholder="Paste your own manifest.json URL">
+
+    </div>
+
+
+    <div class="notice">
+
+      Your stream manifest is stored
+      locally in this browser.
+
+      <br><br>
+
+      The app does not send your
+      manifest URL to a separate
+      QuackStream server.
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="primary"
+        id="saveSettings">
+
+        Save & Test
+
+      </button>
+
+
+      <button
+        class="close"
+        id="disconnectBtn">
+
+        Disconnect Stream
+
+      </button>
+
+    </div>
+
+
+    <p
+      class="status"
+      id="setStatus">
+    </p>
+
+  `);
+
+
+  $("#saveSettings").onclick =
+    async () => {
+
+      const meta =
+        $("#metaField")
+          .value
+          .trim();
+
+      const stream =
+        $("#streamField")
+          .value
+          .trim();
+
+
+      $("#setStatus")
+        .textContent =
+        "Testing…";
+
+
+      try{
+
+        const metaData =
+          await getJSON(meta);
+
+
+        let streamData = null;
+
+
+        if(stream){
+
+          streamData =
+            await getJSON(stream);
+
+        }
+
+
+        state.metaManifest =
+          meta;
+
+        state.streamManifest =
+          stream;
+
+        state.meta =
+          metaData;
+
+        state.stream =
+          streamData;
+
+
+        localStorage.setItem(
+          "qs_meta",
+          meta
+        );
+
+
+        localStorage.setItem(
+          "qs_stream",
+          stream
+        );
+
+
+        $("#setStatus")
+          .innerHTML =
+          '<span class="ok">' +
+          '✓ Connected' +
+          '</span>';
+
+
+        setTimeout(
+          () => {
+
+            closeSheet();
+
+            home();
+
+          },
+          500
+        );
+
+      }
+      catch(error){
+
+        $("#setStatus")
+          .innerHTML =
+          '<span class="bad">' +
+          'Connection failed: ' +
+          esc(error.message) +
+          '</span>';
+
+      }
+
+    };
+
+
+  $("#disconnectBtn").onclick =
+    () => {
+
+      localStorage.removeItem(
+        "qs_stream"
+      );
+
+      state.streamManifest = "";
+
+      state.stream = null;
+
+      settings();
+
+    };
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+$("#settingsBtn")
+  .onclick =
+  settings;
+
+
+$("#modal")
+  .onclick =
+  event => {
+
+    if(
+      event.target.id === "modal"
+    ){
+
+      closeSheet();
+
+    }
+
+  };
+
+
+$("#searchBtn")
+  .onclick =
+  () => {
+
+    const query =
+      $("#searchInput")
+        .value
+        .trim();
+
+    if(query){
+
+      search(query);
+
+    }
+
+  };
+
+
+$("#searchInput")
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if(
+        event.key === "Enter"
+      ){
+
+        $("#searchBtn")
+          .click();
+
+      }
+
+    }
+  );
+
+
+document
+  .querySelectorAll(".nav")
+  .forEach(button => {
+
+    button.onclick = () => {
+
+      document
+        .querySelectorAll(".nav")
+        .forEach(
+          item =>
+            item.classList
+              .remove("active")
+        );
+
+
+      button
+        .classList
+        .add("active");
+
+
+      if(
+        button.dataset.page ===
+        "settings"
+      ){
+
+        settings();
+
+      }
+
+      else if(
+        button.dataset.page ===
+        "search"
+      ){
+
+        $("#searchInput")
+          .focus();
+
+      }
+
+      else if(
+        button.dataset.page ===
+        "library"
+      ){
+
+        $("#main").innerHTML = `
+
+          <section>
+
+            <h2>
+              Library
+            </h2>
+
+            <div class="empty">
+
+              Favorites and watch
+              history will appear here
+              as you use the app.
+
+            </div>
+
+          </section>
+
+        `;
+
+      }
+
+      else{
+
+        home();
+
+      }
+
+    };
+
+  });
+
+
+/* =====================================================
+   CARD CLICK
+   ===================================================== */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const card =
+      event.target.closest(
+        ".card"
+      );
+
+
+    if(card){
+
+      openMeta(
+        card.dataset.type,
+        card.dataset.id
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+loadManifests()
+  .then(home)
+  .catch(home);
+
+</script>
+
+</body>
+</html>
