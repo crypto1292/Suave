@@ -143,12 +143,7 @@ main{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(5,3,11,.98),
-    rgba(5,3,11,.72) 48%,
-    rgba(5,3,11,.05)
-  );
+  background:linear-gradient(90deg,rgba(5,3,11,.98),rgba(5,3,11,.72) 48%,rgba(5,3,11,.05));
 }
 
 .hero:after{
@@ -156,12 +151,7 @@ main{
   position:absolute;
   inset:0;
   opacity:.08;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 3px,
-    rgba(255,255,255,.18) 4px
-  );
+  background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.18) 4px);
 }
 
 .hero-content{
@@ -222,10 +212,6 @@ main{
   margin:30px 0 0;
 }
 
-.catalog-section.snoak{
-  margin-top:38px;
-}
-
 .catalog-heading{
   display:flex;
   align-items:center;
@@ -248,18 +234,6 @@ main{
   font-size:9px;
   font-weight:900;
   letter-spacing:2px;
-}
-
-.snoak .catalog-title{
-  color:#fff;
-  text-shadow:
-    0 0 8px var(--pink),
-    0 0 18px rgba(138,77,255,.7);
-}
-
-.snoak-tag{
-  color:var(--pink);
-  text-shadow:0 0 8px var(--pink);
 }
 
 .row{
@@ -338,17 +312,17 @@ main{
   letter-spacing:1px;
 }
 
-.poster-badge{
+.mdb-badge{
   position:absolute;
-  top:7px;
   right:7px;
+  top:7px;
   padding:4px 6px;
   border-radius:4px;
-  background:rgba(255,22,216,.80);
-  color:white;
+  background:rgba(255,22,216,.82);
+  color:#fff;
   font-size:7px;
   font-weight:900;
-  letter-spacing:.6px;
+  letter-spacing:.8px;
   box-shadow:0 0 10px rgba(255,22,216,.35);
 }
 
@@ -366,31 +340,6 @@ main{
   color:#c8bacf;
   line-height:1.6;
   font-size:12px;
-}
-
-.loading-row{
-  display:flex;
-  gap:13px;
-  overflow:hidden;
-}
-
-.loading-card{
-  flex:0 0 145px;
-  aspect-ratio:2/3;
-  border-radius:8px;
-  background:
-    linear-gradient(
-      110deg,
-      #10091c 20%,
-      #211332 40%,
-      #10091c 60%
-    );
-  background-size:200% 100%;
-  animation:loading 1.2s infinite;
-}
-
-@keyframes loading{
-  to{background-position:-200% 0}
 }
 
 .modal{
@@ -624,7 +573,8 @@ iframe{
   text-transform:uppercase;
 }
 
-.field input{
+.field input,
+.field select{
   width:100%;
   padding:13px;
   border-radius:7px;
@@ -634,25 +584,22 @@ iframe{
   outline:none;
 }
 
-.snoak-settings{
-  margin-top:20px;
-  padding:15px;
-  border-radius:10px;
-  background:linear-gradient(135deg,rgba(255,22,216,.08),rgba(138,77,255,.08));
-  border:1px solid rgba(255,22,216,.20);
+.settings-divider{
+  margin:24px 0;
+  border:0;
+  border-top:1px solid rgba(255,22,216,.16);
 }
 
-.snoak-settings h3{
-  margin:0 0 8px;
+.settings-title{
   font-family:Impact,Haettenschweiler,sans-serif;
-  font-size:20px;
+  font-size:21px;
+  margin-bottom:5px;
 }
 
-.snoak-settings p{
-  margin:0;
-  color:#aaa;
+.settings-sub{
+  color:#93869c;
   font-size:11px;
-  line-height:1.6;
+  line-height:1.5;
 }
 
 .nav{
@@ -691,9 +638,29 @@ iframe{
   text-shadow:0 0 10px var(--pink);
 }
 
+.loading-row{
+  display:flex;
+  gap:13px;
+  overflow:hidden;
+  padding:4px 0 12px;
+}
+
+.loading-card{
+  flex:0 0 145px;
+  aspect-ratio:2/3;
+  border-radius:8px;
+  background:linear-gradient(110deg,#10091c,#1c1030,#10091c);
+  background-size:200% 100%;
+  animation:shimmer 1.4s infinite;
+}
+
+@keyframes shimmer{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+
 @media(min-width:700px){
-  .poster-card{flex-basis:180px}
-  .loading-card{flex-basis:180px}
+  .poster-card,.loading-card{flex-basis:180px}
   .details{grid-template-columns:190px 1fr}
   .details img{width:190px}
   .hero{min-height:580px}
@@ -704,7 +671,6 @@ iframe{
 <body>
 
 <header>
-
   <div class="logo">SAUVE</div>
 
   <div class="logo-sub">
@@ -712,28 +678,19 @@ iframe{
   </div>
 
   <div class="searchbar">
-
-    <input
-      id="searchInput"
+    <input id="searchInput"
       type="search"
       autocomplete="off"
       placeholder="Search movies & television">
-
     <button id="searchButton">SEARCH</button>
-
   </div>
-
 </header>
 
 <main id="main">
 
   <div class="hero">
-
     <div class="hero-content">
-
-      <div class="hero-kicker">
-        WELCOME TO SAUVE
-      </div>
+      <div class="hero-kicker">WELCOME TO SAUVE</div>
 
       <h1>
         CINEMA<br>
@@ -741,14 +698,12 @@ iframe{
       </h1>
 
       <p>
-        Discover movies and television,
-        browse your catalogs, explore Snoak
-        curated lists, find available sources
-        and play compatible streams.
+        Discover movies and television, browse your
+        catalogs, explore your Snoaks/MDBList collections,
+        find available sources and play compatible streams.
       </p>
 
       <div class="hero-buttons">
-
         <button class="primary" onclick="focusSearch()">
           ⌕ SEARCH
         </button>
@@ -756,39 +711,25 @@ iframe{
         <button class="secondary" onclick="openSettings()">
           ⚙ SETTINGS
         </button>
-
       </div>
-
     </div>
-
   </div>
 
   <div id="catalogContainer">
 
     <div class="catalog-section">
-
       <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-          LOADING
-        </h2>
-
-        <span class="catalog-label">
-          SAUVE
-        </span>
-
+        <h2 class="catalog-title">SAUVE</h2>
+        <span class="catalog-label">LOADING</span>
       </div>
 
       <div class="loading-row">
-
         <div class="loading-card"></div>
         <div class="loading-card"></div>
         <div class="loading-card"></div>
         <div class="loading-card"></div>
         <div class="loading-card"></div>
-
       </div>
-
     </div>
 
   </div>
@@ -815,15 +756,13 @@ iframe{
 </nav>
 
 <div class="modal" id="modal">
-
   <div class="sheet" id="sheet"></div>
-
 </div>
 
 <script>
 
 /* ============================================================
-   SAUVE CONFIGURATION
+   SAUVE CONFIG
 ============================================================ */
 
 const DEFAULT_METADATA =
@@ -837,7 +776,24 @@ const state = {
 
   stream:
     localStorage.getItem("sauve_stream") ||
-    ""
+    "",
+
+  mdbKey:
+    localStorage.getItem("sauve_mdblist_key") ||
+    "",
+
+  mdbListUrl:
+    localStorage.getItem("sauve_mdblist_list") ||
+    "",
+
+  mdbEnabled:
+    localStorage.getItem("sauve_mdblist_enabled") !== "false",
+
+  mdbLimit:
+    Number(
+      localStorage.getItem("sauve_mdblist_limit") ||
+      20
+    )
 
 };
 
@@ -855,16 +811,14 @@ function $(id){
 }
 
 function escapeHTML(value=""){
-  return String(value).replace(
-    /[&<>"']/g,
-    c => ({
+  return String(value)
+    .replace(/[&<>"']/g,c=>({
       "&":"&amp;",
       "<":"&lt;",
       ">":"&gt;",
       '"':"&quot;",
       "'":"&#039;"
-    }[c])
-  );
+    }[c]));
 }
 
 function normalizeManifest(url){
@@ -877,23 +831,20 @@ function addonRoot(url){
   return normalizeManifest(url) + "/";
 }
 
-async function fetchJSON(url){
-
-  const response = await fetch(
-    url,
-    {
+async function fetchJSON(url,options={}){
+  const response =
+    await fetch(url,{
       method:"GET",
+      ...options,
       headers:{
-        Accept:"application/json"
+        Accept:"application/json",
+        ...(options.headers || {})
       },
       cache:"no-store"
-    }
-  );
+    });
 
   if(!response.ok){
-    throw new Error(
-      "HTTP " + response.status
-    );
+    throw new Error("HTTP " + response.status);
   }
 
   return response.json();
@@ -901,7 +852,47 @@ async function fetchJSON(url){
 
 
 /* ============================================================
-   CATALOG HELPERS
+   SAFE URL FETCH
+============================================================ */
+
+async function fetchWithTimeout(
+  url,
+  options={},
+  timeout=12000
+){
+
+  const controller =
+    new AbortController();
+
+  const timer =
+    setTimeout(
+      ()=>controller.abort(),
+      timeout
+    );
+
+  try{
+
+    return await fetch(
+      url,
+      {
+        ...options,
+        signal:
+          controller.signal
+      }
+    );
+
+  }
+  finally{
+
+    clearTimeout(timer);
+
+  }
+
+}
+
+
+/* ============================================================
+   CATALOG SUPPORT
 ============================================================ */
 
 function supportsSearch(catalog){
@@ -910,10 +901,12 @@ function supportsSearch(catalog){
     return false;
   }
 
-  return catalog.extra.some(extra =>
-    typeof extra === "string"
-      ? extra === "search"
-      : extra && extra.name === "search"
+  return catalog.extra.some(
+    extra =>
+      typeof extra === "string"
+        ? extra === "search"
+        : extra &&
+          extra.name === "search"
   );
 }
 
@@ -928,13 +921,17 @@ function makeExtraProps(values){
     )
     .map(
       ([key,value]) =>
-        key + "=" +
+        key +
+        "=" +
         encodeURIComponent(String(value))
     )
     .join("&");
 }
 
-function buildCatalogURL(catalog,extra={}){
+function buildCatalogURL(
+  catalog,
+  extra={}
+){
 
   let url =
     addonRoot(state.metadata) +
@@ -943,75 +940,14 @@ function buildCatalogURL(catalog,extra={}){
     "/" +
     encodeURIComponent(catalog.id);
 
-  const props = makeExtraProps(extra);
+  const props =
+    makeExtraProps(extra);
 
   if(props){
     url += "/" + props;
   }
 
   return url + ".json";
-}
-
-
-/* ============================================================
-   SNOAK DETECTION
-============================================================ */
-
-/*
-  Snoak lists are normally imported into AIOMetadata through
-  MDBList.
-
-  We DO NOT fetch mdblist.com directly.
-
-  Instead, we detect catalogs advertised by the AIOMetadata
-  manifest whose metadata identifies Snoak as the author.
-
-  This makes them ordinary catalog rows and avoids browser
-  CORS failures.
-*/
-
-function isSnoakCatalog(catalog){
-
-  if(!catalog){
-    return false;
-  }
-
-  const metadata =
-    catalog.metadata || {};
-
-  const author =
-    String(
-      metadata.author ||
-      ""
-    ).toLowerCase();
-
-  const url =
-    String(
-      metadata.url ||
-      ""
-    ).toLowerCase();
-
-  const source =
-    String(
-      catalog.source ||
-      ""
-    ).toLowerCase();
-
-  const name =
-    String(
-      catalog.name ||
-      catalog.id ||
-      ""
-    ).toLowerCase();
-
-  return (
-    author === "snoak" ||
-    url.includes("/snoak/") ||
-    (
-      source === "mdblist" &&
-      name.includes("snoak")
-    )
-  );
 }
 
 
@@ -1033,25 +969,11 @@ function prettyCatalogName(catalog){
 
   const mappings = [
 
-    ["latest netflix","LATEST NETFLIX"],
-    ["latest disney","LATEST DISNEY+"],
-    ["latest amazon","LATEST PRIME VIDEO"],
-    ["latest prime","LATEST PRIME VIDEO"],
-    ["latest hbo","LATEST HBO MAX"],
-    ["latest apple","LATEST APPLE TV+"],
-
-    ["trending anime","TRENDING ANIME"],
-    ["trending kids","TRENDING KIDS"],
-    ["trending","TRENDING"],
-
-    ["latest movies","LATEST MOVIES"],
-    ["latest tv","LATEST TELEVISION"],
-    ["latest","LATEST"],
-
     ["netflix","NETFLIX"],
+    ["disney+","DISNEY+"],
     ["disney","DISNEY+"],
-    ["apple","APPLE TV+"],
     ["apple tv","APPLE TV+"],
+    ["apple","APPLE TV+"],
     ["hbo","HBO"],
     ["max","MAX"],
     ["hulu","HULU"],
@@ -1061,8 +983,8 @@ function prettyCatalogName(catalog){
     ["peacock","PEACOCK"],
     ["marvel","MARVEL"],
     ["dc","DC"],
-
     ["popular","POPULAR"],
+    ["trending","TRENDING"],
     ["featured","FEATURED"],
     ["top","TOP PICKS"],
     ["new","NEW RELEASES"]
@@ -1080,11 +1002,6 @@ function prettyCatalogName(catalog){
   return raw.toUpperCase();
 }
 
-
-/* ============================================================
-   CATALOG SORT
-============================================================ */
-
 function catalogPriority(catalog){
 
   const name =
@@ -1095,11 +1012,9 @@ function catalogPriority(catalog){
     ).toLowerCase();
 
   const priority = [
-
     "featured",
     "trending",
     "popular",
-
     "netflix",
     "disney",
     "apple",
@@ -1112,424 +1027,527 @@ function catalogPriority(catalog){
     "peacock",
     "marvel",
     "dc",
-
-    "latest",
     "top",
     "new"
-
   ];
 
   const index =
     priority.findIndex(
-      word => name.includes(word)
+      word =>
+        name.includes(word)
     );
 
   return index < 0 ? 999 : index;
 }
 
 
-/*
-  Snoak catalogs are placed after the regular catalogs,
-  creating a dedicated curated section.
-*/
+/* ============================================================
+   NORMALIZE MDBLIST ITEMS
+============================================================ */
 
-function sortCatalogs(a,b){
+function normalizeMDBItem(item){
 
-  const aSnoak = isSnoakCatalog(a);
-  const bSnoak = isSnoakCatalog(b);
+  if(!item) return null;
 
-  if(aSnoak && !bSnoak){
-    return 1;
+  const movie =
+    item.movie ||
+    item.show ||
+    item;
+
+  const typeRaw =
+    String(
+      item.mediatype ||
+      item.media_type ||
+      movie.mediatype ||
+      movie.media_type ||
+      movie.type ||
+      ""
+    ).toLowerCase();
+
+  let type =
+    typeRaw.includes("show") ||
+    typeRaw.includes("tv") ||
+    typeRaw.includes("series")
+      ? "series"
+      : "movie";
+
+  const tmdbId =
+    movie.tmdb_id ||
+    movie.tmdbid ||
+    item.tmdb_id ||
+    item.tmdbid ||
+    "";
+
+  const imdbId =
+    movie.imdb_id ||
+    movie.imdbid ||
+    item.imdb_id ||
+    item.imdbid ||
+    "";
+
+  const id =
+    tmdbId
+      ? "tmdb:" + tmdbId
+      : imdbId
+        ? imdbId
+        : "";
+
+  const title =
+    movie.title ||
+    movie.name ||
+    item.title ||
+    item.name ||
+    "";
+
+  if(!title) return null;
+
+  const poster =
+    movie.poster ||
+    movie.poster_path ||
+    item.poster ||
+    item.poster_path ||
+    "";
+
+  let posterURL =
+    String(poster);
+
+  if(
+    posterURL &&
+    !posterURL.startsWith("http")
+  ){
+
+    posterURL =
+      "https://image.tmdb.org/t/p/w500" +
+      (
+        posterURL.startsWith("/")
+          ? posterURL
+          : "/" + posterURL
+      );
+
   }
 
-  if(!aSnoak && bSnoak){
-    return -1;
-  }
+  return {
 
-  return catalogPriority(a) -
-         catalogPriority(b);
+    id:id || title,
+
+    type,
+
+    name:title,
+
+    poster:posterURL,
+
+    year:
+      movie.year ||
+      movie.release_year ||
+      movie.release_date ||
+      item.year ||
+      "",
+
+    imdb_id:imdbId,
+
+    tmdb_id:tmdbId,
+
+    source:"MDBLIST"
+
+  };
+
 }
 
 
 /* ============================================================
-   DEDUPE
+   MDBLIST URL PARSER
 ============================================================ */
 
-function dedupeMetas(metas){
+function parseMDBListURL(url){
 
-  const seen = new Set();
+  const value =
+    String(url || "").trim();
 
-  return metas.filter(item => {
+  if(!value) return null;
 
-    const key =
-      String(item.type || "") +
-      "|" +
-      String(item.id || "");
+  /*
+    Supports URLs such as:
 
-    if(seen.has(key)){
-      return false;
-    }
+    https://mdblist.com/lists/user/list-name
 
-    seen.add(key);
+    https://mdblist.com/lists/123
 
-    return true;
-  });
-}
-
-
-/* ============================================================
-   HOME LOADER
-============================================================ */
-
-async function loadHome(){
-
-  const container =
-    $("catalogContainer");
+    https://mdblist.com/lists/official/movies/...
+  */
 
   try{
 
-    const manifest =
-      await fetchJSON(
-        state.metadata
-      );
+    const parsed =
+      new URL(value);
 
-    const catalogs =
-      Array.isArray(manifest.catalogs)
-        ? manifest.catalogs
-        : [];
+    const parts =
+      parsed.pathname
+        .split("/")
+        .filter(Boolean);
 
-    if(!catalogs.length){
+    const index =
+      parts.indexOf("lists");
 
-      container.innerHTML = `
-        <div class="notice">
-          Your metadata addon did not advertise
-          any catalogs.
-        </div>
-      `;
-
-      return;
+    if(index === -1){
+      return null;
     }
 
-    const usable =
-      catalogs
-        .filter(
-          catalog =>
-            catalog &&
-            catalog.id &&
-            catalog.type
-        )
-        .sort(sortCatalogs);
-
-    /*
-      Prevent one broken catalog from stopping
-      every other row.
-    */
-
-    const selected =
-      usable.slice(0,40);
-
-    const regularCatalogs =
-      selected.filter(
-        catalog =>
-          !isSnoakCatalog(catalog)
-      );
-
-    const snoakCatalogs =
-      selected.filter(
-        catalog =>
-          isSnoakCatalog(catalog)
-      );
-
-    let html = "";
-
-    /*
-      REGULAR CATALOGS
-    */
-
-    html += await renderCatalogGroup(
-      regularCatalogs,
-      false
-    );
-
-    /*
-      SNOAK SECTION
-    */
-
-    if(snoakCatalogs.length){
-
-      html += `
-
-        <section class="catalog-section snoak">
-
-          <div class="catalog-heading">
-
-            <h2 class="catalog-title">
-              SNOAK'S PICKS
-            </h2>
-
-            <span class="catalog-label snoak-tag">
-              CURATED
-            </span>
-
-          </div>
-
-        </section>
-
-      `;
-
-      html += await renderCatalogGroup(
-        snoakCatalogs,
-        true
-      );
-
-    }
-
-    if(!html){
-
-      html = `
-        <div class="notice">
-          No catalog content was returned.
-          Check your AIOMetadata configuration.
-        </div>
-      `;
-
-    }
-
-    container.innerHTML = html;
+    return {
+      parts,
+      afterLists:
+        parts.slice(index + 1)
+    };
 
   }
-  catch(error){
-
-    container.innerHTML = `
-
-      <div class="notice">
-
-        <strong>
-          SAUVE METADATA ERROR
-        </strong>
-
-        <br><br>
-
-        ${escapeHTML(error.message)}
-
-        <br><br>
-
-        Check your metadata manifest under
-        Settings.
-
-      </div>
-
-    `;
-
+  catch{
+    return null;
   }
+
 }
 
 
 /* ============================================================
-   CATALOG GROUP
+   MDBLIST API
 ============================================================ */
 
-async function renderCatalogGroup(
-  catalogs,
-  snoak
-){
+async function fetchMDBList(){
 
-  if(!catalogs.length){
-    return "";
+  if(!state.mdbEnabled){
+    return {
+      rows:[],
+      error:null
+    };
   }
 
-  const results =
-    await Promise.allSettled(
-      catalogs.map(
-        async catalog => {
+  if(!state.mdbKey){
+    return {
+      rows:[],
+      error:
+        "Add your MDBList API key in Settings to enable Snoaks."
+    };
+  }
 
-          const data =
-            await fetchJSON(
-              buildCatalogURL(catalog)
-            );
+  if(!state.mdbListUrl){
 
-          return {
-            catalog,
-            metas:
-              Array.isArray(data.metas)
-                ? data.metas
-                : []
-          };
+    return {
+      rows:[],
+      error:
+        "Add an MDBList list URL in Settings."
+    };
 
+  }
+
+  const parsed =
+    parseMDBListURL(
+      state.mdbListUrl
+    );
+
+  if(!parsed){
+
+    return {
+      rows:[],
+      error:
+        "The MDBList URL does not look valid."
+    };
+
+  }
+
+  /*
+    MDBList's current API uses /lists/
+    endpoints and supports cursor-based
+    pagination.
+
+    We first resolve the public list URL
+    into its API list path.
+  */
+
+  const after =
+    parsed.afterLists;
+
+  let apiPath = "";
+
+  if(
+    after.length >= 2 &&
+    after[0] === "official"
+  ){
+
+    apiPath =
+      "/lists/official/" +
+      after.slice(1).join("/");
+
+  }
+  else{
+
+    apiPath =
+      "/lists/" +
+      after.join("/");
+
+  }
+
+  /*
+    If the supplied URL already points to
+    a list item endpoint, strip that part.
+  */
+
+  apiPath =
+    apiPath
+      .replace(/\/items\/?$/,"");
+
+  const listURL =
+    "https://api.mdblist.com" +
+    apiPath +
+    "/items";
+
+  const query =
+    new URLSearchParams();
+
+  query.set(
+    "limit",
+    String(
+      Math.min(
+        Math.max(
+          state.mdbLimit || 20,
+          1
+        ),
+        100
+      )
+    )
+  );
+
+  /*
+    API-key authentication is kept in
+    browser storage rather than source code.
+  */
+
+  query.set(
+    "apikey",
+    state.mdbKey
+  );
+
+  const response =
+    await fetchWithTimeout(
+      listURL +
+      "?" +
+      query.toString(),
+      {
+        headers:{
+          Accept:"application/json"
         }
+      },
+      12000
+    );
+
+  if(!response.ok){
+
+    const text =
+      await response.text()
+        .catch(()=> "");
+
+    throw new Error(
+      "MDBList HTTP " +
+      response.status +
+      (
+        text
+          ? " — " + text.slice(0,120)
+          : ""
       )
     );
 
-  let html = "";
+  }
 
-  results.forEach(result => {
+  const data =
+    await response.json();
 
-    if(result.status !== "fulfilled"){
-      return;
-    }
+  const rawItems =
+    Array.isArray(data)
+      ? data
+      : (
+          data.items ||
+          data.results ||
+          data.data ||
+          []
+        );
 
-    const {
-      catalog,
-      metas
-    } = result.value;
+  const items =
+    rawItems
+      .map(normalizeMDBItem)
+      .filter(Boolean);
 
-    if(!metas.length){
-      return;
-    }
+  /*
+    Separate Movies and TV so the homepage
+    feels like a real streaming service.
+  */
 
-    html += renderCatalogRow(
-      catalog,
-      metas,
-      snoak
+  const movies =
+    items.filter(
+      item =>
+        item.type === "movie"
     );
 
-  });
+  const shows =
+    items.filter(
+      item =>
+        item.type === "series"
+    );
 
-  return html;
+  const rows = [];
+
+  if(movies.length){
+
+    rows.push({
+      title:"SNOAKS • MOVIES",
+      label:"MDBLIST",
+      items:movies
+    });
+
+  }
+
+  if(shows.length){
+
+    rows.push({
+      title:"SNOAKS • TV SHOWS",
+      label:"MDBLIST",
+      items:shows
+    });
+
+  }
+
+  return {
+    rows,
+    error:null
+  };
+
 }
 
 
 /* ============================================================
-   CATALOG ROW
+   MDBLIST FALLBACK
 ============================================================ */
 
-function renderCatalogRow(
-  catalog,
-  metas,
-  snoak=false
-){
+function renderMDBError(error){
 
-  const unique =
-    dedupeMetas(metas)
-      .slice(0,30);
-
-  if(!unique.length){
+  if(!state.mdbEnabled){
     return "";
   }
 
-  const title =
-    prettyCatalogName(catalog);
-
-  const type =
-    String(
-      catalog.type || ""
-    ).toUpperCase();
-
-  const snoakBadge =
-    snoak
-      ? `
-        <span class="catalog-label snoak-tag">
-          SNOAK
-        </span>
-      `
-      : `
-        <span class="catalog-label">
-          ${escapeHTML(type)}
-        </span>
-      `;
-
   return `
 
-    <section class="
-      catalog-section
-      ${snoak ? "snoak" : ""}
-    ">
+    <section class="catalog-section">
 
       <div class="catalog-heading">
 
         <h2 class="catalog-title">
-          ${escapeHTML(title)}
+          SNOAKS
         </h2>
 
-        ${snoakBadge}
+        <span class="catalog-label">
+          MDBLIST
+        </span>
 
       </div>
 
-      <div class="row">
+      <div class="notice">
 
-        ${unique.map(
-          renderPosterCard
-        ).join("")}
+        ${escapeHTML(error || "MDBList unavailable.")}
+
+        <br><br>
+
+        Open
+        <strong>Settings → Snoaks / MDBList</strong>
+        to configure it.
 
       </div>
 
     </section>
 
   `;
+
 }
 
 
 /* ============================================================
-   POSTER CARD
+   MDBLIST ROW
 ============================================================ */
 
-function renderPosterCard(item){
+function renderMDBRow(row){
 
-  const type =
-    String(
-      item.type ||
-      "movie"
+  if(!row.items.length){
+    return "";
+  }
+
+  return `
+
+    <section class="catalog-section">
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+          ${escapeHTML(row.title)}
+        </h2>
+
+        <span class="catalog-label">
+          ${escapeHTML(row.label)}
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        ${row.items
+          .slice(0,30)
+          .map(renderMDBPoster)
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* ============================================================
+   MDBLIST POSTER
+============================================================ */
+
+function renderMDBPoster(item){
+
+  const safe =
+    encodeURIComponent(
+      JSON.stringify(item)
     );
-
-  const id =
-    String(
-      item.id ||
-      ""
-    );
-
-  const poster =
-    item.poster ||
-    item.logo ||
-    "";
-
-  const year =
-    item.releaseInfo ||
-    item.year ||
-    "";
-
-  const kind =
-    type.toUpperCase();
-
-  /*
-    Store the values in data attributes rather than putting
-    complicated JavaScript strings inside onclick handlers.
-  */
-
-  const safeType =
-    encodeURIComponent(type);
-
-  const safeId =
-    encodeURIComponent(id);
 
   return `
 
     <button
       class="poster-card"
-      data-type="${escapeHTML(safeType)}"
-      data-id="${escapeHTML(safeId)}">
+      onclick="openMDBTitle('${safe}')">
 
       <img
-        src="${escapeHTML(poster)}"
+        src="${escapeHTML(item.poster || "")}"
         loading="lazy"
-        onerror="
-          this.style.opacity='.25';
-        ">
+        onerror="this.style.opacity='.25'">
 
       <div class="poster-type">
-        ${escapeHTML(kind)}
+        ${item.type === "series" ? "TV" : "MOVIE"}
+      </div>
+
+      <div class="mdb-badge">
+        SNOAKS
       </div>
 
       <div class="poster-overlay">
 
         <div class="poster-name">
-          ${escapeHTML(
-            item.name ||
-            "Untitled"
-          )}
+          ${escapeHTML(item.name)}
         </div>
 
         <div class="poster-year">
-          ${escapeHTML(year)}
+          ${escapeHTML(
+            String(item.year || "")
+              .slice(0,10)
+          )}
         </div>
 
       </div>
@@ -1537,204 +1555,79 @@ function renderPosterCard(item){
     </button>
 
   `;
+
 }
 
 
 /* ============================================================
-   SEARCH
+   OPEN MDBLIST TITLE
 ============================================================ */
 
-async function performSearch(){
+async function openMDBTitle(encoded){
 
-  const query =
-    $("searchInput")
-      .value
-      .trim();
+  let item;
 
-  if(!query){
+  try{
 
-    focusSearch();
+    item =
+      JSON.parse(
+        decodeURIComponent(
+          encoded
+        )
+      );
+
+  }
+  catch{
+
     return;
 
   }
 
-  $("main").innerHTML = `
+  /*
+    If the item already has a TMDb ID,
+    convert it into the same Stremio
+    metadata ID format used by the rest
+    of SAUVE.
+  */
 
-    <div class="hero">
+  const type =
+    item.type === "series"
+      ? "series"
+      : "movie";
 
-      <div class="hero-content">
+  const id =
+    item.tmdb_id
+      ? "tmdb:" + item.tmdb_id
+      : item.imdb_id || item.id;
 
-        <div class="hero-kicker">
-          SAUVE SEARCH
-        </div>
+  await openTitleByID(
+    type,
+    id,
+    item
+  );
 
-        <h1>
-          ${escapeHTML(query)}
-        </h1>
-
-        <p>
-          Searching movies and television…
-        </p>
-
-      </div>
-
-    </div>
-
-    <div
-      id="searchResults"
-      class="empty">
-
-      Searching…
-
-    </div>
-
-  `;
-
-  try{
-
-    const manifest =
-      await fetchJSON(
-        state.metadata
-      );
-
-    const catalogs =
-      Array.isArray(manifest.catalogs)
-        ? manifest.catalogs
-        : [];
-
-    const searchable =
-      catalogs.filter(
-        supportsSearch
-      );
-
-    if(!searchable.length){
-
-      throw new Error(
-        "No searchable catalogs were advertised."
-      );
-
-    }
-
-    const responses =
-      await Promise.allSettled(
-        searchable.map(
-          catalog =>
-            fetchJSON(
-              buildCatalogURL(
-                catalog,
-                {search:query}
-              )
-            )
-        )
-      );
-
-    const metas = [];
-
-    responses.forEach(result => {
-
-      if(result.status === "fulfilled"){
-
-        metas.push(
-          ...(result.value.metas || [])
-        );
-
-      }
-
-    });
-
-    const results =
-      dedupeMetas(metas);
-
-    $("searchResults").outerHTML =
-      results.length
-
-        ? `
-
-          <section class="catalog-section">
-
-            <div class="catalog-heading">
-
-              <h2 class="catalog-title">
-                RESULTS
-              </h2>
-
-              <span class="catalog-label">
-                ${results.length}
-              </span>
-
-            </div>
-
-            <div class="row">
-
-              ${results
-                .map(renderPosterCard)
-                .join("")}
-
-            </div>
-
-          </section>
-
-        `
-
-        : `
-
-          <div class="notice">
-
-            No results found for
-            <strong>
-              ${escapeHTML(query)}
-            </strong>.
-
-          </div>
-
-        `;
-
-  }
-  catch(error){
-
-    $("searchResults").outerHTML = `
-
-      <div class="notice">
-
-        <strong>
-          SEARCH FAILED
-        </strong>
-
-        <br><br>
-
-        ${escapeHTML(error.message)}
-
-      </div>
-
-    `;
-
-  }
 }
 
 
 /* ============================================================
-   TITLE DETAILS
+   OPEN TITLE DIRECTLY
 ============================================================ */
 
-async function openTitle(
-  encodedType,
-  encodedId
+async function openTitleByID(
+  type,
+  id,
+  fallback={}
 ){
-
-  const type =
-    decodeURIComponent(encodedType);
-
-  const id =
-    decodeURIComponent(encodedId);
 
   openModal(`
 
     <div class="sheet-header">
 
-      <h2>LOADING</h2>
+      <h2>
+        LOADING
+      </h2>
 
-      <button
-        class="close"
+      <button class="close"
         onclick="closeModal()">
         ×
       </button>
@@ -1761,115 +1654,166 @@ async function openTitle(
       await fetchJSON(url);
 
     const meta =
-      data.meta || data;
+      data.meta ||
+      data;
 
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          ${escapeHTML(
-            meta.name ||
-            "TITLE"
-          )}
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="details">
-
-        <img
-          src="${escapeHTML(
-            meta.poster ||
-            meta.logo ||
-            ""
-          )}">
-
-        <div>
-
-          <div class="meta">
-            ${escapeHTML(
-              meta.releaseInfo ||
-              meta.year ||
-              type
-            )}
-          </div>
-
-          <p>
-            ${escapeHTML(
-              meta.description ||
-              "No description available."
-            )}
-          </p>
-
-          <button
-            class="primary"
-            id="sourceButton">
-
-            ▶ FIND SOURCES
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <div
-        id="sources"
-        style="margin-top:25px">
-
-      </div>
-
-    `);
-
-    $("sourceButton").onclick =
-      () =>
-        findSources(type,id);
+    renderTitleDetails(
+      type,
+      id,
+      meta
+    );
 
   }
   catch(error){
 
-    openModal(`
+    /*
+      If the metadata addon doesn't
+      understand the MDBList ID, still
+      display the MDBList information and
+      allow the user to try sources.
+    */
 
-      <div class="sheet-header">
-
-        <h2>ERROR</h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="notice">
-
-        ${escapeHTML(error.message)}
-
-      </div>
-
-    `);
+    renderTitleDetails(
+      type,
+      id,
+      fallback
+    );
 
   }
+
 }
 
 
 /* ============================================================
-   STREAM
+   ORIGINAL TITLE
 ============================================================ */
 
-function buildStreamURL(type,id){
+async function openTitle(
+  encodedType,
+  encodedId
+){
 
-  if(!state.stream){
-    return "";
+  const type =
+    decodeURIComponent(
+      encodedType
+    );
+
+  const id =
+    decodeURIComponent(
+      encodedId
+    );
+
+  await openTitleByID(
+    type,
+    id,
+    {}
+  );
+
+}
+
+
+/* ============================================================
+   TITLE DETAILS
+============================================================ */
+
+function renderTitleDetails(
+  type,
+  id,
+  meta
+){
+
+  const poster =
+    meta.poster ||
+    meta.logo ||
+    "";
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        ${escapeHTML(
+          meta.name ||
+          "TITLE"
+        )}
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(poster)}"
+        onerror="this.style.opacity='.25'">
+
+      <div>
+
+        <div class="meta">
+
+          ${escapeHTML(
+            meta.releaseInfo ||
+            meta.year ||
+            type
+          )}
+
+        </div>
+
+        <p>
+          ${escapeHTML(
+            meta.description ||
+            "No description available."
+          )}
+        </p>
+
+        <button
+          class="primary"
+          id="sourceButton">
+          ▶ FIND SOURCES
+        </button>
+
+      </div>
+
+    </div>
+
+    <div
+      id="sources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
+
+  const sourceButton =
+    $("sourceButton");
+
+  if(sourceButton){
+
+    sourceButton.onclick =
+      () =>
+        findSources(
+          type,
+          id
+        );
+
   }
+
+}
+
+
+/* ============================================================
+   STREAM URL
+============================================================ */
+
+function buildStreamURL(
+  type,
+  id
+){
 
   return (
     addonRoot(state.stream) +
@@ -1879,13 +1823,20 @@ function buildStreamURL(type,id){
     encodeURIComponent(id) +
     ".json"
   );
+
 }
+
+
+/* ============================================================
+   STREAM DETECTION
+============================================================ */
 
 function getStreamURL(stream){
 
   return String(
     stream?.url || ""
   ).trim();
+
 }
 
 function isPlayerFrame(stream){
@@ -1921,6 +1872,7 @@ function isHLS(stream){
     type.includes("m3u8") ||
     type.includes("mpegurl")
   );
+
 }
 
 function isMP4(stream){
@@ -1937,6 +1889,7 @@ function isMP4(stream){
     url.includes(".mp4") ||
     type.includes("mp4")
   );
+
 }
 
 function isWebM(stream){
@@ -1953,6 +1906,7 @@ function isWebM(stream){
     url.includes(".webm") ||
     type.includes("webm")
   );
+
 }
 
 function isPlayableCandidate(stream){
@@ -1970,6 +1924,7 @@ function isPlayableCandidate(stream){
     isHLS(stream) ||
     isWebM(stream)
   );
+
 }
 
 
@@ -2032,10 +1987,13 @@ function compatibilityScore(stream){
 
 
 /* ============================================================
-   SOURCE BADGES
+   SOURCE UI
 ============================================================ */
 
-function renderSource(stream,index){
+function renderSource(
+  stream,
+  index
+){
 
   const playable =
     isPlayableCandidate(stream);
@@ -2052,11 +2010,12 @@ function renderSource(stream,index){
 
     <button
       class="source"
-      onclick="${
+
+      ${
         playable
-          ? `playSource(${index})`
-          : `explainSource(${index})`
-      }">
+          ? `onclick="playSource(${index})"`
+          : `onclick="explainSource(${index})"`
+      }>
 
       <div class="source-top">
 
@@ -2067,21 +2026,17 @@ function renderSource(stream,index){
         <div>
 
           <div class="source-name">
-
             ${escapeHTML(
               stream.name ||
               stream.title ||
               "SOURCE"
             )}
-
           </div>
 
           <div class="provider">
-
             ${escapeHTML(
               providerName(stream)
             )}
-
           </div>
 
         </div>
@@ -2094,9 +2049,7 @@ function renderSource(stream,index){
           badge
           ${playable ? "good" : "warning"}
         ">
-
           ${format}
-
         </span>
 
         ${
@@ -2117,9 +2070,7 @@ function renderSource(stream,index){
           stream.quality
             ? `
               <span class="badge blue">
-                ${escapeHTML(
-                  stream.quality
-                )}
+                ${escapeHTML(stream.quality)}
               </span>
             `
             : ""
@@ -2129,33 +2080,17 @@ function renderSource(stream,index){
           stream.resolution
             ? `
               <span class="badge blue">
-                ${escapeHTML(
-                  stream.resolution
-                )}
+                ${escapeHTML(stream.resolution)}
               </span>
             `
             : ""
         }
 
         ${
-          stream.videoCodec
+          stream.language
             ? `
               <span class="badge">
-                ${escapeHTML(
-                  stream.videoCodec
-                )}
-              </span>
-            `
-            : ""
-        }
-
-        ${
-          stream.audioCodec
-            ? `
-              <span class="badge">
-                ${escapeHTML(
-                  stream.audioCodec
-                )}
+                ${escapeHTML(stream.language)}
               </span>
             `
             : ""
@@ -2167,15 +2102,15 @@ function renderSource(stream,index){
 
         ${
           isExternal(stream)
-            ? "External destination."
+            ? "External destination — SAUVE cannot treat this as a direct video file."
             :
           isNotWebReady(stream)
-            ? "Provider marked this source as not web-ready."
+            ? "Provider marked this source as not web-ready. SAUVE has not automatically disabled it."
             :
           playable
             ? "Tap to attempt playback inside SAUVE."
             :
-            "Browser-compatible media URL not detected."
+            "This source does not expose a browser-compatible media URL."
         }
 
       </div>
@@ -2183,6 +2118,7 @@ function renderSource(stream,index){
     </button>
 
   `;
+
 }
 
 
@@ -2190,19 +2126,38 @@ function renderSource(stream,index){
    FIND SOURCES
 ============================================================ */
 
-async function findSources(type,id){
+async function findSources(
+  type,
+  id
+){
 
   if(!state.stream){
 
-    openSettings();
+    $("sources").innerHTML = `
+
+      <div class="notice">
+
+        No stream addon is configured.
+
+        <br><br>
+
+        Open Settings and enter your
+        stream manifest.
+
+      </div>
+
+    `;
+
     return;
 
   }
 
   $("sources").innerHTML = `
+
     <div class="empty">
       Loading stream sources…
     </div>
+
   `;
 
   try{
@@ -2220,13 +2175,16 @@ async function findSources(type,id){
     if(!currentStreams.length){
 
       $("sources").innerHTML = `
+
         <div class="notice">
           No stream sources were returned
           for this title.
         </div>
+
       `;
 
       return;
+
     }
 
     currentStreams.sort(
@@ -2282,18 +2240,49 @@ async function findSources(type,id){
 
         <br><br>
 
-        ${escapeHTML(error.message)}
+        ${escapeHTML(
+          error.message
+        )}
 
       </div>
 
     `;
 
   }
+
 }
 
 
 /* ============================================================
-   PLAYBACK
+   SOURCE EXPLANATION
+============================================================ */
+
+function explainSource(index){
+
+  const stream =
+    currentStreams[index];
+
+  if(!stream) return;
+
+  if(isExternal(stream)){
+
+    alert(
+      "This source is an external destination rather than a direct media stream."
+    );
+
+    return;
+
+  }
+
+  alert(
+    "SAUVE could not identify a browser-compatible video URL for this source."
+  );
+
+}
+
+
+/* ============================================================
+   PLAY SOURCE
 ============================================================ */
 
 function playSource(index){
@@ -2301,9 +2290,7 @@ function playSource(index){
   const stream =
     currentStreams[index];
 
-  if(!stream){
-    return;
-  }
+  if(!stream) return;
 
   currentPlayerIndex =
     currentPlayableStreams.indexOf(stream);
@@ -2313,12 +2300,21 @@ function playSource(index){
   }
 
   if(isPlayerFrame(stream)){
+
     openEmbeddedPlayer(stream);
+
     return;
+
   }
 
   playDirectStream(stream);
+
 }
+
+
+/* ============================================================
+   DIRECT PLAYER
+============================================================ */
 
 function playDirectStream(stream){
 
@@ -2326,7 +2322,9 @@ function playDirectStream(stream){
 
     <div class="sheet-header">
 
-      <h2>NOW PLAYING</h2>
+      <h2>
+        NOW PLAYING
+      </h2>
 
       <button
         class="close"
@@ -2349,9 +2347,7 @@ function playDirectStream(stream){
       <div
         id="playerStatus"
         class="player-status">
-
         Preparing playback…
-
       </div>
 
     </div>
@@ -2361,25 +2357,24 @@ function playDirectStream(stream){
       <button
         class="player-button primary"
         onclick="tryNextSource()">
-
         ▶ TRY NEXT SOURCE
-
       </button>
 
       <button
         class="player-button"
         onclick="showSourcesAgain()">
-
         SOURCES
-
       </button>
 
     </div>
 
   `);
 
-  const video = $("sauveVideo");
-  const status = $("playerStatus");
+  const video =
+    $("sauveVideo");
+
+  const status =
+    $("playerStatus");
 
   const url =
     getStreamURL(stream);
@@ -2391,60 +2386,57 @@ function playDirectStream(stream){
     );
 
     return;
+
   }
 
   video.src = url;
 
   video.addEventListener(
     "loadedmetadata",
-    () => {
-
+    ()=>{
       status.textContent =
         "Ready — press play";
 
       status.className =
         "player-status ready";
-
     },
     {once:true}
   );
 
   video.addEventListener(
     "playing",
-    () => {
-
-      status.textContent =
-        "Playing";
-
+    ()=>{
+      status.textContent = "Playing";
       status.className =
         "player-status ready";
-
     }
   );
 
   video.addEventListener(
     "waiting",
-    () => {
-
+    ()=>{
       status.textContent =
         "Buffering…";
-
     }
   );
 
   video.addEventListener(
     "error",
-    () => {
-
+    ()=>{
       showPlayerError(
         "Safari could not decode or access this video source."
       );
-
     }
   );
 
   video.load();
+
 }
+
+
+/* ============================================================
+   EMBED PLAYER
+============================================================ */
 
 function openEmbeddedPlayer(stream){
 
@@ -2461,6 +2453,7 @@ function openEmbeddedPlayer(stream){
     );
 
     return;
+
   }
 
   openModal(`
@@ -2510,23 +2503,25 @@ function openEmbeddedPlayer(stream){
       <button
         class="player-button primary"
         onclick="tryNextSource()">
-
         TRY NEXT SOURCE
-
       </button>
 
       <button
         class="player-button"
         onclick="showSourcesAgain()">
-
         SOURCES
-
       </button>
 
     </div>
 
   `);
+
 }
+
+
+/* ============================================================
+   PLAYER ERROR
+============================================================ */
 
 function showPlayerError(message){
 
@@ -2542,7 +2537,13 @@ function showPlayerError(message){
       "player-status error";
 
   }
+
 }
+
+
+/* ============================================================
+   NEXT SOURCE
+============================================================ */
 
 function tryNextSource(){
 
@@ -2553,6 +2554,7 @@ function tryNextSource(){
     );
 
     return;
+
   }
 
   let next =
@@ -2573,7 +2575,13 @@ function tryNextSource(){
   else{
     playDirectStream(stream);
   }
+
 }
+
+
+/* ============================================================
+   SHOW SOURCES
+============================================================ */
 
 function showSourcesAgain(){
 
@@ -2581,7 +2589,9 @@ function showSourcesAgain(){
 
     <div class="sheet-header">
 
-      <h2>SOURCES</h2>
+      <h2>
+        SOURCES
+      </h2>
 
       <button
         class="close"
@@ -2593,12 +2603,12 @@ function showSourcesAgain(){
 
     ${
       currentStreams.length
-
-        ? currentStreams
-            .map(renderSource)
-            .join("")
-
-        : `
+        ?
+        currentStreams
+          .map(renderSource)
+          .join("")
+        :
+        `
           <div class="empty">
             No sources available.
           </div>
@@ -2606,29 +2616,502 @@ function showSourcesAgain(){
     }
 
   `);
+
 }
 
-function explainSource(index){
 
-  const stream =
-    currentStreams[index];
+/* ============================================================
+   HOME CATALOGS
+============================================================ */
 
-  if(!stream){
+async function loadNormalCatalogs(){
+
+  const container =
+    $("catalogContainer");
+
+  let html = "";
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.metadata
+      );
+
+    const catalogs =
+      Array.isArray(manifest.catalogs)
+        ? manifest.catalogs
+        : [];
+
+    const usable =
+      catalogs
+        .filter(
+          catalog =>
+            catalog &&
+            catalog.id &&
+            catalog.type
+        )
+        .sort(
+          (a,b) =>
+            catalogPriority(a) -
+            catalogPriority(b)
+        )
+        .slice(0,30);
+
+    const results =
+      await Promise.allSettled(
+        usable.map(
+          async catalog => {
+
+            const data =
+              await fetchJSON(
+                buildCatalogURL(catalog)
+              );
+
+            return {
+              catalog,
+              metas:
+                Array.isArray(data.metas)
+                  ? data.metas
+                  : []
+            };
+
+          }
+        )
+      );
+
+    results.forEach(result=>{
+
+      if(result.status !== "fulfilled"){
+        return;
+      }
+
+      const {
+        catalog,
+        metas
+      } = result.value;
+
+      if(!metas.length){
+        return;
+      }
+
+      html +=
+        renderCatalogRow(
+          catalog,
+          metas
+        );
+
+    });
+
+  }
+  catch(error){
+
+    html += `
+
+      <section class="catalog-section">
+
+        <div class="notice">
+
+          <strong>
+            SAUVE METADATA
+          </strong>
+
+          <br><br>
+
+          ${escapeHTML(error.message)}
+
+        </div>
+
+      </section>
+
+    `;
+
+  }
+
+  /*
+    IMPORTANT:
+
+    MDBList is loaded separately.
+
+    Therefore it can never keep the
+    normal SAUVE catalog request waiting.
+  */
+
+  if(!html){
+
+    html = `
+
+      <section class="catalog-section">
+
+        <div class="notice">
+          No standard catalogs were returned
+          by your metadata addon.
+        </div>
+
+      </section>
+
+    `;
+
+  }
+
+  container.innerHTML = html;
+
+}
+
+
+/* ============================================================
+   MDBLIST HOME
+============================================================ */
+
+async function loadMDBHome(){
+
+  if(!state.mdbEnabled){
     return;
   }
 
-  if(isExternal(stream)){
+  try{
 
-    alert(
-      "This source is an external destination rather than a direct media stream."
+    const result =
+      await fetchMDBList();
+
+    const container =
+      $("catalogContainer");
+
+    if(result.rows.length){
+
+      const rowsHTML =
+        result.rows
+          .map(renderMDBRow)
+          .join("");
+
+      container.insertAdjacentHTML(
+        "beforeend",
+        rowsHTML
+      );
+
+    }
+    else if(result.error){
+
+      container.insertAdjacentHTML(
+        "beforeend",
+        renderMDBError(
+          result.error
+        )
+      );
+
+    }
+
+  }
+  catch(error){
+
+    const container =
+      $("catalogContainer");
+
+    container.insertAdjacentHTML(
+      "beforeend",
+      renderMDBError(
+        "MDBList could not be loaded: " +
+        error.message
+      )
     );
 
-    return;
   }
 
-  alert(
-    "SAUVE could not identify a browser-compatible video URL for this source."
-  );
+}
+
+
+/* ============================================================
+   HOME
+============================================================ */
+
+async function loadHome(){
+
+  /*
+    Load standard SAUVE content first.
+
+    MDBList is intentionally launched
+    independently.
+  */
+
+  await loadNormalCatalogs();
+
+  /*
+    Do not await this.
+
+    This is what prevents MDBList from
+    blocking the homepage.
+  */
+
+  loadMDBHome();
+
+}
+
+
+/* ============================================================
+   SEARCH
+============================================================ */
+
+async function performSearch(){
+
+  const query =
+    $("searchInput")
+      .value
+      .trim();
+
+  if(!query){
+
+    focusSearch();
+    return;
+
+  }
+
+  $("main").innerHTML = `
+
+    <div class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-kicker">
+          SAUVE SEARCH
+        </div>
+
+        <h1>
+          ${escapeHTML(query)}
+        </h1>
+
+        <p>
+          Searching movies and television…
+        </p>
+
+      </div>
+
+    </div>
+
+    <div
+      id="searchResults"
+      class="empty">
+      Searching…
+    </div>
+
+  `;
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.metadata
+      );
+
+    const catalogs =
+      Array.isArray(manifest.catalogs)
+        ? manifest.catalogs
+        : [];
+
+    const searchable =
+      catalogs.filter(
+        supportsSearch
+      );
+
+    const responses =
+      await Promise.allSettled(
+        searchable.map(
+          catalog =>
+            fetchJSON(
+              buildCatalogURL(
+                catalog,
+                {
+                  search:query
+                }
+              )
+            )
+        )
+      );
+
+    const metas = [];
+
+    responses.forEach(result=>{
+
+      if(result.status === "fulfilled"){
+
+        metas.push(
+          ...(result.value.metas || [])
+        );
+
+      }
+
+    });
+
+    const results =
+      dedupeMetas(metas);
+
+    $("searchResults").outerHTML =
+      results.length
+
+        ?
+
+        `
+
+        <section>
+
+          <div class="catalog-heading">
+
+            <h2 class="catalog-title">
+              RESULTS
+            </h2>
+
+            <span class="catalog-label">
+              ${results.length}
+            </span>
+
+          </div>
+
+          <div class="row">
+
+            ${results
+              .map(renderPosterCard)
+              .join("")}
+
+          </div>
+
+        </section>
+
+        `
+
+        :
+
+        `
+
+        <div class="notice">
+
+          No results found for
+          <strong>
+            ${escapeHTML(query)}
+          </strong>.
+
+        </div>
+
+        `;
+
+  }
+  catch(error){
+
+    $("searchResults").outerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          SEARCH FAILED
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(error.message)}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* ============================================================
+   NORMAL POSTER
+============================================================ */
+
+function renderPosterCard(item){
+
+  const type =
+    encodeURIComponent(
+      item.type || "movie"
+    );
+
+  const id =
+    encodeURIComponent(
+      item.id || ""
+    );
+
+  return `
+
+    <button
+      class="poster-card"
+      onclick="
+        openTitle(
+          '${type}',
+          '${id}'
+        )
+      ">
+
+      <img
+        src="${escapeHTML(
+          item.poster ||
+          item.logo ||
+          ""
+        )}"
+        loading="lazy"
+        onerror="this.style.opacity='.25'">
+
+      <div class="poster-type">
+        ${escapeHTML(
+          String(
+            item.type ||
+            "movie"
+          ).toUpperCase()
+        )}
+      </div>
+
+      <div class="poster-overlay">
+
+        <div class="poster-name">
+          ${escapeHTML(
+            item.name ||
+            "Untitled"
+          )}
+        </div>
+
+        <div class="poster-year">
+          ${escapeHTML(
+            item.releaseInfo ||
+            item.year ||
+            ""
+          )}
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* ============================================================
+   DEDUPE
+============================================================ */
+
+function dedupeMetas(metas){
+
+  const seen =
+    new Set();
+
+  return metas.filter(item=>{
+
+    const key =
+      String(item.type || "") +
+      "|" +
+      String(item.id || "");
+
+    if(seen.has(key)){
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+
+  });
+
 }
 
 
@@ -2642,7 +3125,9 @@ function openSettings(){
 
     <div class="sheet-header">
 
-      <h2>SAUVE SETTINGS</h2>
+      <h2>
+        SAUVE SETTINGS
+      </h2>
 
       <button
         class="close"
@@ -2652,6 +3137,7 @@ function openSettings(){
 
     </div>
 
+
     <div class="field">
 
       <label>
@@ -2660,11 +3146,10 @@ function openSettings(){
 
       <input
         id="metadataURL"
-        value="${escapeHTML(
-          state.metadata
-        )}">
-      
+        value="${escapeHTML(state.metadata)}">
+
     </div>
+
 
     <div class="field">
 
@@ -2674,68 +3159,265 @@ function openSettings(){
 
       <input
         id="streamURL"
-        value="${escapeHTML(
-          state.stream
-        )}"
+        value="${escapeHTML(state.stream)}"
         placeholder="Paste your stream manifest">
 
     </div>
 
-    <div class="snoak-settings">
 
-      <h3>
-        SNOAK'S LISTS
-      </h3>
+    <hr class="settings-divider">
 
-      <p>
 
-        Snoak lists are automatically detected
-        when your AIOMetadata configuration
-        contains Snoak/MDBList catalogs.
+    <div class="settings-title">
+      SNOAKS / MDBLIST
+    </div>
 
-        <br><br>
+    <div class="settings-sub">
+      Add an MDBList collection to the SAUVE
+      homepage as separate Netflix-style
+      movie and TV rows.
+    </div>
 
-        Once enabled in AIOMetadata, they will
-        automatically appear on the SAUVE
-        homepage under the dedicated
-        <strong>SNOAK'S PICKS</strong> section.
 
-        <br><br>
+    <div class="field">
 
-        No separate Snoak API key is required
-        by SAUVE.
+      <label>
+        MDBList API Key
+      </label>
 
-      </p>
+      <input
+        id="mdbKey"
+        type="password"
+        autocomplete="off"
+        value="${escapeHTML(state.mdbKey)}"
+        placeholder="Paste your MDBList API key">
 
     </div>
 
-    <br>
+
+    <div class="field">
+
+      <label>
+        MDBList List URL
+      </label>
+
+      <input
+        id="mdbListURL"
+        value="${escapeHTML(state.mdbListUrl)}"
+        placeholder="https://mdblist.com/lists/username/list-name">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Titles Per List
+      </label>
+
+      <select id="mdbLimit">
+
+        <option value="10"
+          ${state.mdbLimit===10?"selected":""}>
+          10
+        </option>
+
+        <option value="20"
+          ${state.mdbLimit===20?"selected":""}>
+          20
+        </option>
+
+        <option value="30"
+          ${state.mdbLimit===30?"selected":""}>
+          30
+        </option>
+
+        <option value="50"
+          ${state.mdbLimit===50?"selected":""}>
+          50
+        </option>
+
+        <option value="100"
+          ${state.mdbLimit===100?"selected":""}>
+          100
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Snoaks Status
+      </label>
+
+      <select id="mdbEnabled">
+
+        <option value="true"
+          ${state.mdbEnabled?"selected":""}>
+          ENABLED
+        </option>
+
+        <option value="false"
+          ${!state.mdbEnabled?"selected":""}>
+          DISABLED
+        </option>
+
+      </select>
+
+    </div>
+
 
     <div class="notice">
 
-      Your metadata and stream addresses are
-      stored locally in this browser.
+      <strong>
+        Security
+      </strong>
 
       <br><br>
 
-      SAUVE reads the catalogs advertised by
-      your metadata addon instead of
-      hard-coding individual lists.
+      The API key is stored only in this
+      browser's local storage. It is not
+      written into this HTML file.
+
+      <br><br>
+
+      Because this is a client-side GitHub
+      Pages app, the key is still exposed
+      to browser developer tools while the
+      MDBList feature is enabled.
+
+      <br><br>
+
+      For a truly private key, move the
+      MDBList request behind a small server
+      or serverless proxy.
 
     </div>
 
+
     <br>
+
 
     <button
       class="primary"
       onclick="saveSettings()">
+      ✓ SAVE & RELOAD
+    </button>
 
-      ✓ SAVE SETTINGS
 
+    <button
+      class="player-button"
+      style="margin-top:10px"
+      onclick="testMDBList()">
+      TEST MDBLIST
     </button>
 
   `);
+
 }
+
+
+/* ============================================================
+   TEST MDBLIST
+============================================================ */
+
+async function testMDBList(){
+
+  const key =
+    $("mdbKey")
+      .value
+      .trim();
+
+  const list =
+    $("mdbListURL")
+      .value
+      .trim();
+
+  if(!key){
+
+    alert(
+      "Enter your MDBList API key first."
+    );
+
+    return;
+
+  }
+
+  if(!list){
+
+    alert(
+      "Enter your MDBList list URL first."
+    );
+
+    return;
+
+  }
+
+  const oldKey =
+    state.mdbKey;
+
+  const oldList =
+    state.mdbListUrl;
+
+  state.mdbKey = key;
+  state.mdbListUrl = list;
+
+  try{
+
+    const result =
+      await fetchMDBList();
+
+    if(result.rows.length){
+
+      alert(
+        "MDBList connected successfully.\n\n" +
+        result.rows.map(
+          row =>
+            row.title +
+            ": " +
+            row.items.length +
+            " titles"
+        ).join("\n")
+      );
+
+    }
+    else{
+
+      alert(
+        result.error ||
+        "MDBList connected but returned no titles."
+      );
+
+    }
+
+  }
+  catch(error){
+
+    alert(
+      "MDBList test failed:\n\n" +
+      error.message
+    );
+
+  }
+  finally{
+
+    state.mdbKey =
+      oldKey || key;
+
+    state.mdbListUrl =
+      oldList || list;
+
+  }
+
+}
+
+
+/* ============================================================
+   SAVE SETTINGS
+============================================================ */
 
 function saveSettings(){
 
@@ -2749,6 +3431,26 @@ function saveSettings(){
       .value
       .trim();
 
+  const mdbKey =
+    $("mdbKey")
+      .value
+      .trim();
+
+  const mdbListURL =
+    $("mdbListURL")
+      .value
+      .trim();
+
+  const mdbLimit =
+    Number(
+      $("mdbLimit")
+        .value
+    );
+
+  const mdbEnabled =
+    $("mdbEnabled")
+      .value === "true";
+
   if(!metadata){
 
     alert(
@@ -2756,6 +3458,7 @@ function saveSettings(){
     );
 
     return;
+
   }
 
   state.metadata =
@@ -2763,6 +3466,18 @@ function saveSettings(){
 
   state.stream =
     stream;
+
+  state.mdbKey =
+    mdbKey;
+
+  state.mdbListUrl =
+    mdbListURL;
+
+  state.mdbLimit =
+    mdbLimit;
+
+  state.mdbEnabled =
+    mdbEnabled;
 
   localStorage.setItem(
     "sauve_metadata",
@@ -2774,9 +3489,30 @@ function saveSettings(){
     stream
   );
 
+  localStorage.setItem(
+    "sauve_mdblist_key",
+    mdbKey
+  );
+
+  localStorage.setItem(
+    "sauve_mdblist_list",
+    mdbListURL
+  );
+
+  localStorage.setItem(
+    "sauve_mdblist_limit",
+    String(mdbLimit)
+  );
+
+  localStorage.setItem(
+    "sauve_mdblist_enabled",
+    String(mdbEnabled)
+  );
+
   closeModal();
 
   loadHome();
+
 }
 
 
@@ -2813,82 +3549,44 @@ function closeModal(){
     .classList
     .remove("open");
 
-  $("sheet").innerHTML = "";
+  $("sheet").innerHTML =
+    "";
 
 }
 
+$("modal")
+  .addEventListener(
+    "click",
+    event => {
 
-/* ============================================================
-   POSTER CLICK HANDLER
-============================================================ */
+      if(
+        event.target.id === "modal"
+      ){
 
-document.addEventListener(
-  "click",
-  event => {
+        closeModal();
 
-    const card =
-      event.target.closest(
-        ".poster-card"
-      );
+      }
 
-    if(!card){
-      return;
     }
+  );
 
-    const type =
-      card.dataset.type;
+$("searchButton")
+  .addEventListener(
+    "click",
+    performSearch
+  );
 
-    const id =
-      card.dataset.id;
+$("searchInput")
+  .addEventListener(
+    "keydown",
+    event => {
 
-    if(!type || !id){
-      return;
+      if(event.key === "Enter"){
+        performSearch();
+      }
+
     }
-
-    openTitle(
-      type,
-      id
-    );
-
-  }
-);
-
-
-/* ============================================================
-   MODAL
-============================================================ */
-
-$("modal").addEventListener(
-  "click",
-  event => {
-
-    if(event.target.id === "modal"){
-      closeModal();
-    }
-
-  }
-);
-
-
-/* ============================================================
-   SEARCH EVENTS
-============================================================ */
-
-$("searchButton").addEventListener(
-  "click",
-  performSearch
-);
-
-$("searchInput").addEventListener(
-  "keydown",
-  event => {
-
-    if(event.key === "Enter"){
-      performSearch();
-    }
-
-  }
-);
+  );
 
 
 /* ============================================================
