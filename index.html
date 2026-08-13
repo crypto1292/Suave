@@ -13,19 +13,17 @@
 :root{
   --bg:#05030b;
   --panel:#0d0718;
-  --panel2:#170b2a;
+  --panel2:#160b27;
   --pink:#ff16d8;
   --purple:#8a4dff;
   --cyan:#19eaff;
   --yellow:#ffd45a;
   --green:#42ffb0;
   --red:#ff5577;
-  --muted:#9d91a7;
+  --muted:#a999b0;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html,body{
   margin:0;
@@ -35,75 +33,38 @@ html,body{
 
 body{
   color:#fff;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "Segoe UI",
-    sans-serif;
-
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
   background:
-    radial-gradient(circle at 50% -10%,rgba(138,77,255,.38),transparent 35%),
+    radial-gradient(circle at 50% -10%,rgba(138,77,255,.35),transparent 36%),
     radial-gradient(circle at 0 45%,rgba(255,22,216,.13),transparent 30%),
     radial-gradient(circle at 100% 55%,rgba(25,234,255,.10),transparent 30%),
     #05030b;
 }
 
-button,
-input,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-button:active{
-  transform:scale(.98);
-}
-
-/* HEADER */
+button,input{font:inherit}
+button{cursor:pointer}
+button:active{transform:scale(.98)}
 
 header{
   position:sticky;
   top:0;
   z-index:100;
-
-  padding:
-    calc(14px + env(safe-area-inset-top))
-    14px
-    15px;
-
+  padding:calc(12px + env(safe-area-inset-top)) 14px 14px;
   background:rgba(5,3,11,.94);
-
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
-
   border-bottom:1px solid rgba(255,22,216,.18);
 }
 
 .logo{
   text-align:center;
-
-  font-family:
-    Impact,
-    Haettenschweiler,
-    "Arial Narrow Bold",
-    sans-serif;
-
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-style:italic;
-
-  font-size:clamp(70px,19vw,125px);
-
+  font-size:clamp(65px,18vw,115px);
   line-height:.78;
-
   letter-spacing:7px;
-
   transform:skewX(-7deg);
-
   color:#fff;
-
   text-shadow:
     0 0 4px #fff,
     0 0 9px var(--pink),
@@ -114,90 +75,62 @@ header{
 
 .logo-sub{
   margin-top:14px;
-
   text-align:center;
-
   color:var(--cyan);
-
   font-size:9px;
-
   font-weight:900;
-
   letter-spacing:4px;
-
   text-shadow:0 0 10px var(--cyan);
 }
 
 .searchbar{
   display:flex;
   gap:8px;
-
   max-width:900px;
-
   margin:18px auto 0;
 }
 
 .searchbar input{
   flex:1;
   min-width:0;
-
   padding:14px;
-
   border-radius:8px;
-
   background:#0c0715;
-
-  color:#fff;
-
+  color:white;
   border:1px solid rgba(138,77,255,.45);
-
   outline:none;
+}
+
+.searchbar input:focus{
+  border-color:var(--pink);
+  box-shadow:0 0 18px rgba(255,22,216,.18);
 }
 
 .searchbar button{
   padding:0 18px;
-
   border:0;
   border-radius:8px;
-
-  color:#fff;
-
+  color:white;
   font-weight:900;
-
-  background:linear-gradient(
-    135deg,
-    var(--pink),
-    var(--purple)
-  );
+  background:linear-gradient(135deg,var(--pink),var(--purple));
 }
-
-/* MAIN */
 
 main{
   width:100%;
-  max-width:1450px;
-
+  max-width:1400px;
   margin:auto;
-
   padding:16px 16px 105px;
 }
 
 .hero{
   position:relative;
-
   min-height:clamp(390px,58vh,600px);
-
   overflow:hidden;
-
   display:flex;
   align-items:flex-end;
-
   padding:clamp(25px,5vw,60px);
-
   border-radius:18px;
-
   border:1px solid rgba(255,22,216,.25);
-
   background:
     radial-gradient(circle at 75% 35%,rgba(25,234,255,.13),transparent 25%),
     radial-gradient(circle at 70% 75%,rgba(255,22,216,.20),transparent 32%),
@@ -206,727 +139,485 @@ main{
 
 .hero:before{
   content:"";
-
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5,3,11,.98),
-      rgba(5,3,11,.72) 50%,
-      rgba(5,3,11,.05)
-    );
+  background:linear-gradient(90deg,rgba(5,3,11,.98),rgba(5,3,11,.72) 50%,rgba(5,3,11,.05));
 }
 
 .hero:after{
   content:"";
-
   position:absolute;
   inset:0;
-
-  opacity:.09;
-
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 3px,
-      rgba(255,255,255,.18) 4px
-    );
+  opacity:.10;
+  background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.18) 4px);
 }
 
 .hero-content{
   position:relative;
   z-index:3;
-
   max-width:720px;
 }
 
 .hero-kicker{
   color:var(--cyan);
-
   font-size:10px;
-
   font-weight:900;
-
   letter-spacing:3px;
 }
 
 .hero h1{
   margin:15px 0;
-
   font-family:Impact,Haettenschweiler,sans-serif;
-
   font-size:clamp(46px,9vw,95px);
-
   line-height:.85;
-
   text-transform:uppercase;
-
   text-shadow:0 0 20px rgba(255,22,216,.35);
 }
 
 .hero p{
   color:#c7b9ce;
-
   line-height:1.6;
-
   font-size:14px;
 }
 
 .hero-buttons{
   display:flex;
   flex-wrap:wrap;
-
   gap:10px;
-
   margin-top:20px;
 }
 
-.primary,
-.secondary{
+.primary,.secondary{
   padding:13px 18px;
-
   border-radius:8px;
-
   font-weight:900;
 }
 
 .primary{
   border:0;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-
-  box-shadow:
-    0 0 18px rgba(255,22,216,.25);
+  color:white;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 0 18px rgba(255,22,216,.25);
 }
 
 .secondary{
   color:var(--cyan);
-
   background:rgba(25,234,255,.04);
-
   border:1px solid rgba(25,234,255,.38);
 }
 
-/* SECTIONS */
-
-section{
-  margin:32px 0;
-}
+section{margin:32px 0}
 
 .heading{
   display:flex;
-
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
-
   margin-bottom:15px;
   padding-bottom:10px;
-
   border-bottom:1px solid rgba(255,22,216,.18);
 }
 
 .heading h2{
   margin:0;
-
   font-family:Impact,Haettenschweiler,sans-serif;
-
   font-size:25px;
-
   letter-spacing:1px;
 }
 
 .heading span{
   color:var(--cyan);
-
   font-size:9px;
-
   font-weight:900;
-
   letter-spacing:2px;
 }
 
 .empty{
   padding:28px 5px;
-
   color:var(--muted);
-
   font-size:13px;
 }
 
 .notice{
   padding:16px;
-
   border-radius:9px;
-
   background:rgba(255,22,216,.045);
-
   border:1px solid rgba(255,22,216,.17);
-
   color:#c8bacf;
-
   line-height:1.6;
-
   font-size:12px;
 }
 
-/* GRID */
-
 .grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:13px;
 }
 
 .card{
   padding:0;
-
   overflow:hidden;
-
   text-align:left;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      180deg,
-      #170d27,
-      #0d0717
-    );
-
+  color:white;
+  background:linear-gradient(180deg,#170d27,#0d0717);
   border:1px solid rgba(255,255,255,.08);
-
   border-radius:10px;
+}
+
+.card:hover{
+  border-color:rgba(255,22,216,.55);
+  box-shadow:0 0 18px rgba(255,22,216,.12);
 }
 
 .poster{
   display:block;
-
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   background:#171027;
 }
 
-.card-info{
-  padding:11px;
-}
+.card-info{padding:11px}
 
 .card-title{
   font-size:14px;
-
   font-weight:850;
-
   white-space:nowrap;
-
   overflow:hidden;
-
   text-overflow:ellipsis;
 }
 
 .card-sub{
   margin-top:5px;
-
   color:var(--muted);
-
   font-size:10px;
 }
 
-/* MODAL */
-
 .modal{
   position:fixed;
-
   inset:0;
-
   z-index:500;
-
   display:none;
-
   align-items:flex-end;
-
-  background:rgba(0,0,0,.88);
-
+  background:rgba(0,0,0,.86);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
 }
 
-.modal.open{
-  display:flex;
-}
+.modal.open{display:flex}
 
 .sheet{
   width:100%;
-
   max-height:95vh;
-
   overflow:auto;
-
-  padding:
-    20px
-    18px
-    calc(30px + env(safe-area-inset-bottom));
-
+  padding:20px 18px calc(30px + env(safe-area-inset-bottom));
   border-radius:22px 22px 0 0;
-
   background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(138,77,255,.18),
-      transparent 40%
-    ),
+    radial-gradient(circle at 50% 0,rgba(138,77,255,.18),transparent 40%),
     #0c0718;
-
   border-top:1px solid rgba(255,22,216,.35);
 }
 
 .sheet-header{
   display:flex;
-
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
-
   margin-bottom:18px;
 }
 
 .sheet-header h2{
   margin:0;
-
   font-family:Impact,Haettenschweiler,sans-serif;
-
   font-size:27px;
 }
 
 .close{
   width:40px;
   height:40px;
-
   border-radius:50%;
-
   background:#170d27;
-
   color:var(--cyan);
-
   border:1px solid rgba(25,234,255,.3);
-
   font-size:22px;
 }
 
-/* DETAILS */
-
 .details{
   display:grid;
-
   grid-template-columns:105px 1fr;
-
   gap:16px;
 }
 
 .details img{
   width:105px;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:8px;
 }
 
 .details p{
   color:#c3b5cb;
-
   line-height:1.55;
-
   font-size:13px;
 }
 
 .meta{
   color:var(--cyan);
-
   font-size:10px;
-
   letter-spacing:1px;
-
   margin-bottom:7px;
 }
 
-/* SERIES */
-
-.season-select{
-  width:100%;
-
-  padding:13px;
-
-  margin:20px 0 12px;
-
-  border-radius:8px;
-
-  background:#10091d;
-
-  color:#fff;
-
-  border:1px solid rgba(138,77,255,.4);
-
-  outline:none;
-}
-
-.episode{
-  width:100%;
-
-  display:flex;
-
-  gap:12px;
-
-  align-items:center;
-
-  margin-top:9px;
-
-  padding:13px;
-
-  text-align:left;
-
-  color:#fff;
-
-  background:#120a20;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  border-radius:9px;
-}
-
-.episode-number{
-  min-width:38px;
-  height:38px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:8px;
-
-  color:var(--cyan);
-
-  background:rgba(25,234,255,.08);
-
-  font-weight:900;
-}
-
-.episode-title{
-  font-weight:800;
-
-  font-size:13px;
-}
-
-.episode-desc{
-  margin-top:4px;
-
-  color:#8e8198;
-
-  font-size:10px;
-}
-
-/* SOURCES */
+/* ============================================================
+   FUSION / NUVIO STYLE BADGES
+============================================================ */
 
 .source{
   width:100%;
-
   margin-top:9px;
-
   padding:14px;
-
   text-align:left;
-
-  color:#fff;
-
-  border-radius:9px;
-
-  background:
-    linear-gradient(
-      100deg,
-      #150c29,
-      #0d0819
-    );
-
+  color:white;
+  border-radius:11px;
+  background:linear-gradient(100deg,#150c29,#0d0819);
   border:1px solid rgba(25,234,255,.15);
+  transition:.2s;
+}
+
+.source:hover{
+  border-color:var(--cyan);
+  box-shadow:0 0 16px rgba(25,234,255,.14);
 }
 
 .source:disabled{
-  cursor:not-allowed;
+  opacity:.55;
 }
 
 .source-top{
   display:flex;
-
   align-items:center;
-
   gap:12px;
 }
 
 .source-icon{
-  width:36px;
-  height:36px;
-
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   border-radius:50%;
-
   color:var(--cyan);
-
   background:rgba(25,234,255,.08);
+  border:1px solid rgba(25,234,255,.12);
 }
 
 .source-name{
   font-weight:900;
+  font-size:13px;
 }
 
 .provider{
   margin-top:4px;
-
   color:var(--cyan);
-
   font-size:9px;
-
   font-weight:900;
-
   letter-spacing:1px;
-
   text-transform:uppercase;
 }
 
+.fusion-badges{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:5px;
+  margin-top:11px;
+  min-height:0;
+}
+
+.fusion-badge{
+  height:22px;
+  max-width:100px;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
+  border-radius:4px;
+}
+
+.fusion-text-badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:21px;
+  padding:3px 7px;
+  border-radius:4px;
+  background:#1a1a1a;
+  border:1px solid #858283;
+  color:#a0a0a0;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
 .badges{
-  margin-top:8px;
+  margin-top:9px;
 }
 
 .badge{
   display:inline-block;
-
   padding:4px 7px;
-
   margin-right:5px;
-
   border-radius:5px;
-
   background:rgba(255,22,216,.10);
-
   color:#ff7be4;
-
   font-size:8px;
-
   font-weight:900;
-
   letter-spacing:.7px;
 }
 
 .badge.good{
   background:rgba(66,255,176,.10);
-
   color:var(--green);
 }
 
 .badge.warning{
   background:rgba(255,212,90,.10);
-
   color:var(--yellow);
 }
 
-/* PLAYER */
+.source-desc{
+  margin-top:8px;
+  color:#91859b;
+  font-size:10px;
+  line-height:1.45;
+}
 
 .player-shell{
   position:relative;
-
   width:100%;
-
   overflow:hidden;
-
   border-radius:12px;
-
   background:#000;
-
   border:1px solid rgba(25,234,255,.25);
-
   box-shadow:0 0 30px rgba(25,234,255,.08);
 }
 
 video{
   display:block;
-
   width:100%;
-
   height:auto;
-
-  min-height:180px;
-
   max-height:70vh;
+  background:#000;
+}
 
+iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+  background:#000;
+}
+
+.iframe-player{
+  width:100%;
+  aspect-ratio:16/9;
   background:#000;
 }
 
 .player-status{
   padding:11px 13px;
-
   background:#0e0818;
-
   border-top:1px solid rgba(255,255,255,.07);
-
   color:#aaa;
-
   font-size:11px;
 }
 
-.player-status.ready{
-  color:var(--green);
-}
-
-.player-status.error{
-  color:var(--red);
-}
+.player-status.ready{color:var(--green)}
+.player-status.error{color:var(--red)}
 
 .player-controls{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:8px;
-
   margin-top:12px;
 }
 
 .player-button{
   padding:10px 13px;
-
   border-radius:7px;
-
-  color:#fff;
-
+  color:white;
   background:#170d27;
-
   border:1px solid rgba(255,255,255,.1);
-
   font-weight:800;
-
   font-size:11px;
 }
 
-/* SETTINGS */
-
-.field{
-  margin:18px 0;
+.player-button.primary{
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  border:0;
 }
+
+.field{margin:18px 0}
 
 .field label{
   display:block;
-
   margin-bottom:8px;
-
   color:var(--cyan);
-
   font-size:9px;
-
   font-weight:900;
-
   letter-spacing:2px;
-
   text-transform:uppercase;
 }
 
 .field input{
   width:100%;
-
   padding:13px;
-
   border-radius:7px;
-
   background:#080510;
-
-  color:#fff;
-
+  color:white;
   border:1px solid rgba(138,77,255,.3);
-
   outline:none;
 }
 
-/* NAV */
-
 .nav{
   position:fixed;
-
   z-index:400;
-
   left:0;
   right:0;
   bottom:0;
-
   height:76px;
-
   padding-bottom:env(safe-area-inset-bottom);
-
   display:flex;
-
   align-items:center;
   justify-content:space-around;
-
   background:rgba(8,5,17,.96);
-
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
-
   border-top:1px solid rgba(255,22,216,.18);
 }
 
 .nav button{
   border:0;
-
   background:none;
-
   color:#766a80;
-
   font-size:9px;
-
   letter-spacing:1px;
 }
 
 .nav button span{
   display:block;
-
   font-size:22px;
-
   margin-bottom:4px;
 }
 
 .nav button.active{
   color:var(--pink);
-
   text-shadow:0 0 10px var(--pink);
 }
 
 @media(min-width:700px){
 
   .grid{
-    grid-template-columns:
-      repeat(5,minmax(0,1fr));
+    grid-template-columns:repeat(5,minmax(0,1fr));
   }
 
   .details{
@@ -983,21 +674,18 @@ video{
 
       <p>
         Discover movies and television,
-        explore seasons and episodes,
-        and find available sources.
+        find available sources, and play
+        compatible streams directly inside
+        SAUVE.
       </p>
 
       <div class="hero-buttons">
 
-        <button
-          class="primary"
-          onclick="focusSearch()">
+        <button class="primary" onclick="focusSearch()">
           ⌕ SEARCH
         </button>
 
-        <button
-          class="secondary"
-          onclick="openSettings()">
+        <button class="secondary" onclick="openSettings()">
           ⚙ SETTINGS
         </button>
 
@@ -1010,19 +698,12 @@ video{
   <section>
 
     <div class="heading">
-
       <h2>DISCOVER</h2>
-
       <span>AIO METADATA</span>
-
     </div>
 
-    <div
-      id="homeResults"
-      class="empty">
-
+    <div id="homeResults" class="empty">
       Loading…
-
     </div>
 
   </section>
@@ -1031,42 +712,25 @@ video{
 
 <nav class="nav">
 
-  <button
-    class="active"
-    onclick="goHome()">
-
+  <button class="active" onclick="goHome()">
     <span>⌂</span>
     HOME
-
   </button>
 
-  <button
-    onclick="focusSearch()">
-
+  <button onclick="focusSearch()">
     <span>⌕</span>
     SEARCH
-
   </button>
 
-  <button
-    onclick="openSettings()">
-
+  <button onclick="openSettings()">
     <span>⚙</span>
     SETTINGS
-
   </button>
 
 </nav>
 
-<div
-  class="modal"
-  id="modal">
-
-  <div
-    class="sheet"
-    id="sheet">
-  </div>
-
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet"></div>
 </div>
 
 <script>
@@ -1078,29 +742,28 @@ video{
 const DEFAULT_METADATA =
 "https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
 
+const FUSION_CONFIG_URL =
+"https://pastebin.com/raw/gyj0HUuE";
+
 const state = {
 
   metadata:
-    localStorage.getItem("sauve_metadata")
-    ||
+    localStorage.getItem("sauve_metadata") ||
     DEFAULT_METADATA,
 
   stream:
-    localStorage.getItem("sauve_stream")
-    ||
+    localStorage.getItem("sauve_stream") ||
     ""
 
 };
+
+let fusionFilters = [];
 
 let currentStreams = [];
 
 let currentPlayableStreams = [];
 
 let currentPlayerIndex = 0;
-
-let currentTitleType = "";
-
-let currentTitleId = "";
 
 
 /* ============================================================
@@ -1114,16 +777,13 @@ function $(id){
 function escapeHTML(value=""){
 
   return String(value)
-    .replace(
-      /[&<>"']/g,
-      c => ({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-      }[c])
-    );
+    .replace(/[&<>"']/g,c=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[c]));
 
 }
 
@@ -1131,41 +791,380 @@ function normalizeManifest(url){
 
   return String(url || "")
     .trim()
-    .replace(
-      /\/manifest\.json\/?$/i,
-      ""
-    );
+    .replace(/\/manifest\.json\/?$/i,"");
 
 }
 
 function addonRoot(url){
-
   return normalizeManifest(url) + "/";
 }
 
 async function fetchJSON(url){
 
-  const response =
-    await fetch(
-      url,
-      {
-        method:"GET",
-        headers:{
-          Accept:"application/json"
-        },
-        cache:"no-store"
-      }
-    );
+  const response = await fetch(url,{
+    method:"GET",
+    headers:{
+      Accept:"application/json"
+    },
+    cache:"no-store"
+  });
 
   if(!response.ok){
-
-    throw new Error(
-      "HTTP " + response.status
-    );
-
+    throw new Error("HTTP " + response.status);
   }
 
   return response.json();
+}
+
+
+/* ============================================================
+   LOAD FUSION BADGES
+============================================================ */
+
+async function loadFusionFilters(){
+
+  try{
+
+    const data =
+      await fetchJSON(
+        FUSION_CONFIG_URL
+      );
+
+    fusionFilters =
+      Array.isArray(data.filters)
+        ? data.filters.filter(
+            filter =>
+              filter &&
+              filter.isEnabled !== false &&
+              filter.pattern
+          )
+        : [];
+
+  }
+  catch(error){
+
+    console.warn(
+      "Fusion badges could not be loaded:",
+      error
+    );
+
+    fusionFilters = [];
+
+  }
+
+}
+
+
+/* ============================================================
+   FUSION MATCHING
+============================================================ */
+
+function streamSearchText(stream){
+
+  return [
+    stream?.name,
+    stream?.title,
+    stream?.description,
+    stream?.url,
+    stream?.filename,
+    stream?.behaviorHints?.filename,
+    stream?.behaviorHints?.videoSize,
+    stream?.quality,
+    stream?.type
+  ]
+  .filter(Boolean)
+  .join(" ");
+
+}
+
+
+function fusionMatches(
+  filter,
+  text
+){
+
+  try{
+
+    /*
+      The supplied Fusion configuration uses
+      JavaScript-compatible regex patterns.
+
+      Remove the leading (?i) because JavaScript
+      RegExp doesn't support inline flags.
+    */
+
+    let pattern =
+      String(filter.pattern)
+        .replace(/^\(\?i\)/i,"");
+
+    /*
+      Some imported patterns contain escaped
+      backslashes from JSON.
+    */
+
+    pattern =
+      pattern.replace(
+        /\\\\/g,
+        "\\"
+      );
+
+    const regex =
+      new RegExp(
+        pattern,
+        "i"
+      );
+
+    return regex.test(text);
+
+  }
+  catch(error){
+
+    return false;
+
+  }
+
+}
+
+
+/* ============================================================
+   BADGE PRIORITIES
+============================================================ */
+
+const badgePriority = {
+
+  "4K":100,
+  "2160p":100,
+  "1080p":95,
+  "720p":90,
+
+  "Remux":100,
+  "BluRay":90,
+  "WebDL":80,
+  "SeaDex":70,
+
+  "Atmos+DV":100,
+  "TrueHD+DV":98,
+  "DD+DV":96,
+  "DV":90,
+
+  "HDR10+":88,
+  "HDR10":86,
+  "HDR":84,
+  "IMAX Enhanced":80,
+  "IMAX":78,
+
+  "DTS:X":75,
+  "DTS-HD MA":74,
+  "TrueHD":72,
+  "Atmos":70,
+  "DD+":68,
+  "DD":66,
+
+  "7.1":60,
+  "5.1":58,
+
+  "🍿 NETFLIX":40,
+  "🍿 PRIME VIDEO":40,
+  "🍿 APPLE TV+":40,
+  "🍿 DISNEY+":40,
+  "🍿 MAX":40,
+  "🍿 HULU":40,
+  "🍿 PEACOCK":40
+};
+
+
+/* ============================================================
+   CREATE BADGES
+============================================================ */
+
+function getFusionBadges(
+  stream
+){
+
+  if(!fusionFilters.length){
+    return [];
+  }
+
+  const text =
+    streamSearchText(
+      stream
+    );
+
+  const matches = [];
+
+  for(
+    const filter
+    of fusionFilters
+  ){
+
+    if(
+      !filter ||
+      !filter.name ||
+      !filter.pattern
+    ){
+      continue;
+    }
+
+    if(
+      fusionMatches(
+        filter,
+        text
+      )
+    ){
+
+      matches.push(
+        filter
+      );
+
+    }
+
+  }
+
+  /*
+    Prevent contradictory resolution
+    badges from piling up.
+
+    4K wins over 1080p/720p.
+  */
+
+  const has4K =
+    matches.some(
+      x =>
+        x.name === "4K"
+    );
+
+  const has1080 =
+    matches.some(
+      x =>
+        x.name === "1080p"
+    );
+
+  const has720 =
+    matches.some(
+      x =>
+        x.name === "720p"
+    );
+
+  let filtered =
+    matches.filter(
+      badge => {
+
+        if(
+          has4K &&
+          (
+            badge.name === "1080p" ||
+            badge.name === "720p"
+          )
+        ){
+          return false;
+        }
+
+        if(
+          has1080 &&
+          badge.name === "720p"
+        ){
+          return false;
+        }
+
+        return true;
+
+      }
+    );
+
+  filtered.sort(
+    (a,b) =>
+      (badgePriority[b.name] || 0) -
+      (badgePriority[a.name] || 0)
+  );
+
+  /*
+    Don't flood a small iPhone source card.
+  */
+
+  return filtered.slice(
+    0,
+    12
+  );
+
+}
+
+
+/* ============================================================
+   RENDER FUSION BADGES
+============================================================ */
+
+function renderFusionBadges(
+  stream
+){
+
+  const badges =
+    getFusionBadges(
+      stream
+    );
+
+  if(!badges.length){
+    return "";
+  }
+
+  return `
+
+    <div class="fusion-badges">
+
+      ${badges.map(
+        badge => {
+
+          /*
+            Some language badges in the supplied
+            configuration intentionally have no
+            imageURL. Those become compact text
+            badges.
+          */
+
+          if(
+            badge.imageURL
+          ){
+
+            return `
+
+              <img
+                class="fusion-badge"
+                src="${escapeHTML(
+                  badge.imageURL
+                )}"
+                alt="${escapeHTML(
+                  badge.name
+                )}"
+                title="${escapeHTML(
+                  badge.name
+                )}"
+                loading="lazy"
+                onerror="
+                  this.style.display='none'
+                ">
+
+            `;
+
+          }
+
+          return `
+
+            <span
+              class="fusion-text-badge">
+
+              ${escapeHTML(
+                badge.name
+              )}
+
+            </span>
+
+          `;
+
+        }
+      ).join("")}
+
+    </div>
+
+  `;
 
 }
 
@@ -1175,81 +1174,101 @@ async function fetchJSON(url){
 ============================================================ */
 
 async function getManifest(){
+  return fetchJSON(state.metadata);
+}
 
-  return fetchJSON(
-    state.metadata
+function supportsExtra(
+  catalog,
+  name
+){
+
+  return Array.isArray(
+    catalog.extra
+  ) &&
+  catalog.extra.some(
+    extra =>
+      typeof extra === "string"
+        ? extra === name
+        : extra &&
+          extra.name === name
   );
 
 }
 
-function supportsSearch(catalog){
+function getSearchCatalogs(
+  manifest
+){
 
-  return Array.isArray(catalog.extra)
-    &&
-    catalog.extra.some(
-      extra =>
-        typeof extra === "string"
-          ? extra === "search"
-          : extra &&
-            extra.name === "search"
-    );
-
-}
-
-function getSearchCatalogs(manifest){
-
-  return (
-    Array.isArray(manifest.catalogs)
+  const catalogs =
+    Array.isArray(
+      manifest.catalogs
+    )
       ? manifest.catalogs
-      : []
-  )
-  .filter(
+      : [];
+
+  return catalogs.filter(
     catalog =>
       catalog &&
       catalog.id &&
       catalog.type &&
-      supportsSearch(catalog)
+      supportsExtra(
+        catalog,
+        "search"
+      )
   );
 
 }
 
-function makeExtraProps(values){
+function makeExtraProps(
+  values
+){
 
-  return Object.entries(values)
-    .filter(
-      ([,value]) =>
-        value !== undefined &&
-        value !== null &&
-        String(value).length
-    )
-    .map(
-      ([key,value]) =>
-        key +
-        "=" +
-        encodeURIComponent(
-          String(value)
-        )
-    )
-    .join("&");
+  return Object.entries(
+    values
+  )
+  .filter(
+    ([,value]) =>
+      value !== undefined &&
+      value !== null &&
+      String(value).length
+  )
+  .map(
+    ([key,value]) =>
+      key +
+      "=" +
+      encodeURIComponent(
+        String(value)
+      )
+  )
+  .join("&");
 
 }
 
-function buildCatalogURL(catalog,extra={}){
+function buildCatalogURL(
+  catalog,
+  extra={}
+){
 
   let url =
-    addonRoot(state.metadata) +
+    addonRoot(
+      state.metadata
+    ) +
     "catalog/" +
-    encodeURIComponent(catalog.type) +
+    encodeURIComponent(
+      catalog.type
+    ) +
     "/" +
-    encodeURIComponent(catalog.id);
+    encodeURIComponent(
+      catalog.id
+    );
 
   const props =
-    makeExtraProps(extra);
+    makeExtraProps(
+      extra
+    );
 
   if(props){
-
     url += "/" + props;
-
   }
 
   return url + ".json";
@@ -1272,39 +1291,44 @@ async function loadHome(){
       await getManifest();
 
     const catalogs =
-      Array.isArray(manifest.catalogs)
+      Array.isArray(
+        manifest.catalogs
+      )
         ? manifest.catalogs
         : [];
 
     const selected = [];
 
     ["movie","series"]
-      .forEach(type => {
+      .forEach(
+        type => {
 
-        const catalog =
-          catalogs.find(
-            c =>
-              c &&
-              c.type === type
-          );
+          const catalog =
+            catalogs.find(
+              c =>
+                c &&
+                c.type === type
+            );
 
-        if(catalog){
-          selected.push(catalog);
+          if(catalog){
+            selected.push(catalog);
+          }
+
         }
-
-      });
+      );
 
     if(!selected.length){
 
       box.innerHTML = `
+
         <div class="notice">
           No movie or series catalogs
           were advertised by the metadata addon.
         </div>
+
       `;
 
       return;
-
     }
 
     const responses =
@@ -1312,36 +1336,44 @@ async function loadHome(){
         selected.map(
           catalog =>
             fetchJSON(
-              buildCatalogURL(catalog)
+              buildCatalogURL(
+                catalog
+              )
             )
         )
       );
 
     const metas = [];
 
-    responses.forEach(result => {
+    responses.forEach(
+      result => {
 
-      if(
-        result.status === "fulfilled"
-      ){
+        if(
+          result.status ===
+          "fulfilled"
+        ){
 
-        metas.push(
-          ...(result.value.metas || [])
-        );
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
 
       }
-
-    });
+    );
 
     box.innerHTML =
       renderGrid(
-        dedupeMetas(metas)
+        dedupeMetas(
+          metas
+        )
       );
 
   }
   catch(error){
 
     box.innerHTML = `
+
       <div class="notice">
 
         <strong>
@@ -1350,9 +1382,12 @@ async function loadHome(){
 
         <br><br>
 
-        ${escapeHTML(error.message)}
+        ${escapeHTML(
+          error.message
+        )}
 
       </div>
+
     `;
 
   }
@@ -1372,11 +1407,8 @@ async function performSearch(){
       .trim();
 
   if(!query){
-
     focusSearch();
-
     return;
-
   }
 
   $("main").innerHTML = `
@@ -1393,12 +1425,8 @@ async function performSearch(){
 
       </div>
 
-      <div
-        id="searchResults"
-        class="empty">
-
+      <div id="searchResults" class="empty">
         Searching…
-
       </div>
 
     </section>
@@ -1440,51 +1468,66 @@ async function performSearch(){
 
     const metas = [];
 
-    responses.forEach(result => {
+    responses.forEach(
+      result => {
 
-      if(
-        result.status === "fulfilled"
-      ){
+        if(
+          result.status ===
+          "fulfilled"
+        ){
 
-        metas.push(
-          ...(result.value.metas || [])
-        );
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
 
       }
-
-    });
+    );
 
     const results =
-      dedupeMetas(metas);
+      dedupeMetas(
+        metas
+      );
 
-    $("searchResults").innerHTML =
+    $("searchResults")
+      .innerHTML =
       results.length
         ? renderGrid(results)
         : `
+
           <div class="notice">
+
             No results found for
             <strong>
               ${escapeHTML(query)}
             </strong>.
+
           </div>
+
         `;
 
   }
   catch(error){
 
-    $("searchResults").innerHTML = `
-      <div class="notice">
+    $("searchResults")
+      .innerHTML = `
 
-        <strong>
-          SEARCH FAILED
-        </strong>
+        <div class="notice">
 
-        <br><br>
+          <strong>
+            SEARCH FAILED
+          </strong>
 
-        ${escapeHTML(error.message)}
+          <br><br>
 
-      </div>
-    `;
+          ${escapeHTML(
+            error.message
+          )}
+
+        </div>
+
+      `;
 
   }
 
@@ -1495,31 +1538,41 @@ async function performSearch(){
    GRID
 ============================================================ */
 
-function dedupeMetas(metas){
+function dedupeMetas(
+  metas
+){
 
   const seen =
     new Set();
 
-  return metas.filter(item => {
+  return metas.filter(
+    item => {
 
-    const key =
-      String(item.type || "") +
-      "|" +
-      String(item.id || "");
+      const key =
+        String(
+          item.type || ""
+        ) +
+        "|" +
+        String(
+          item.id || ""
+        );
 
-    if(seen.has(key)){
-      return false;
+      if(seen.has(key)){
+        return false;
+      }
+
+      seen.add(key);
+
+      return true;
+
     }
-
-    seen.add(key);
-
-    return true;
-
-  });
+  );
 
 }
 
-function renderGrid(metas){
+function renderGrid(
+  metas
+){
 
   if(
     !metas ||
@@ -1535,67 +1588,76 @@ function renderGrid(metas){
   }
 
   return `
+
     <div class="grid">
 
-      ${metas.map(item => {
+      ${metas.map(
+        item => {
 
-        const type =
-          encodeURIComponent(
-            item.type || "movie"
-          );
+          const type =
+            encodeURIComponent(
+              item.type ||
+              "movie"
+            );
 
-        const id =
-          encodeURIComponent(
-            item.id || ""
-          );
+          const id =
+            encodeURIComponent(
+              item.id ||
+              ""
+            );
 
-        return `
+          return `
 
-          <button
-            class="card"
-            onclick="openTitle('${type}','${id}')">
+            <button
+              class="card"
+              onclick="
+                openTitle(
+                  '${type}',
+                  '${id}'
+                )
+              ">
 
-            <img
-              class="poster"
-              src="${escapeHTML(
-                item.poster ||
-                item.logo ||
-                ""
-              )}"
-              loading="lazy"
-              onerror="this.style.opacity='0'">
-
-            <div class="card-info">
-
-              <div class="card-title">
-
-                ${escapeHTML(
-                  item.name ||
-                  "Untitled"
-                )}
-
-              </div>
-
-              <div class="card-sub">
-
-                ${escapeHTML(
-                  item.releaseInfo ||
-                  item.year ||
-                  item.type ||
+              <img
+                class="poster"
+                src="${escapeHTML(
+                  item.poster ||
+                  item.logo ||
                   ""
-                )}
+                )}"
+                loading="lazy"
+                onerror="
+                  this.style.opacity='0'
+                ">
+
+              <div class="card-info">
+
+                <div class="card-title">
+                  ${escapeHTML(
+                    item.name ||
+                    "Untitled"
+                  )}
+                </div>
+
+                <div class="card-sub">
+                  ${escapeHTML(
+                    item.releaseInfo ||
+                    item.year ||
+                    item.type ||
+                    ""
+                  )}
+                </div>
 
               </div>
 
-            </div>
+            </button>
 
-          </button>
+          `;
 
-        `;
-
-      }).join("")}
+        }
+      ).join("")}
 
     </div>
+
   `;
 
 }
@@ -1611,13 +1673,14 @@ async function openTitle(
 ){
 
   const type =
-    decodeURIComponent(encodedType);
+    decodeURIComponent(
+      encodedType
+    );
 
   const id =
-    decodeURIComponent(encodedId);
-
-  currentTitleType = type;
-  currentTitleId = id;
+    decodeURIComponent(
+      encodedId
+    );
 
   openModal(`
 
@@ -1642,21 +1705,25 @@ async function openTitle(
   try{
 
     const url =
-      addonRoot(state.metadata) +
+      addonRoot(
+        state.metadata
+      ) +
       "meta/" +
-      encodeURIComponent(type) +
+      encodeURIComponent(
+        type
+      ) +
       "/" +
-      encodeURIComponent(id) +
+      encodeURIComponent(
+        id
+      ) +
       ".json";
 
     const data =
       await fetchJSON(url);
 
     const meta =
-      data.meta || data;
-
-    const isSeries =
-      type === "series";
+      data.meta ||
+      data;
 
     openModal(`
 
@@ -1664,7 +1731,8 @@ async function openTitle(
 
         <h2>
           ${escapeHTML(
-            meta.name || "TITLE"
+            meta.name ||
+            "TITLE"
           )}
         </h2>
 
@@ -1688,66 +1756,47 @@ async function openTitle(
         <div>
 
           <div class="meta">
-
             ${escapeHTML(
               meta.releaseInfo ||
               meta.year ||
-              type
+              meta.type ||
+              ""
             )}
-
           </div>
 
           <p>
-
             ${escapeHTML(
               meta.description ||
               "No description available."
             )}
-
           </p>
 
-          ${
-            isSeries
-              ?
-              `
-                <button
-                  class="primary"
-                  onclick="showSeriesEpisodes()">
+          <button
+            class="primary"
+            id="sourceButton">
 
-                  ▶ SELECT EPISODE
+            ▶ FIND SOURCES
 
-                </button>
-              `
-              :
-              `
-                <button
-                  class="primary"
-                  onclick="findSources(
-                    '${escapeHTML(type)}',
-                    '${escapeHTML(id)}'
-                  )">
-
-                  ▶ FIND SOURCES
-
-                </button>
-              `
-          }
+          </button>
 
         </div>
 
       </div>
 
-      <div id="seriesArea"></div>
-
-      <div id="sources"></div>
+      <div
+        id="sources"
+        style="margin-top:25px">
+      </div>
 
     `);
 
-    if(isSeries){
-
-      await showSeriesEpisodes();
-
-    }
+    $("sourceButton")
+      .onclick =
+      () =>
+        findSources(
+          type,
+          id
+        );
 
   }
   catch(error){
@@ -1767,9 +1816,9 @@ async function openTitle(
       </div>
 
       <div class="notice">
-
-        ${escapeHTML(error.message)}
-
+        ${escapeHTML(
+          error.message
+        )}
       </div>
 
     `);
@@ -1780,214 +1829,7 @@ async function openTitle(
 
 
 /* ============================================================
-   SERIES / EPISODES
-============================================================ */
-
-async function showSeriesEpisodes(){
-
-  const area =
-    $("seriesArea");
-
-  if(!area){
-    return;
-  }
-
-  area.innerHTML = `
-    <div class="empty">
-      Loading seasons…
-    </div>
-  `;
-
-  try{
-
-    const url =
-      addonRoot(state.metadata) +
-      "meta/" +
-      encodeURIComponent(currentTitleType) +
-      "/" +
-      encodeURIComponent(currentTitleId) +
-      ".json";
-
-    const data =
-      await fetchJSON(url);
-
-    const meta =
-      data.meta || data;
-
-    const videos =
-      Array.isArray(meta.videos)
-        ? meta.videos
-        : [];
-
-    if(!videos.length){
-
-      area.innerHTML = `
-        <div class="notice">
-          This series did not return
-          episode information.
-        </div>
-      `;
-
-      return;
-
-    }
-
-    const seasons =
-      [...new Set(
-        videos.map(
-          v => Number(v.season || 1)
-        )
-      )]
-      .sort(
-        (a,b) => a-b
-      );
-
-    area.innerHTML = `
-
-      <select
-        class="season-select"
-        id="seasonSelect">
-
-        ${seasons.map(
-          season => `
-            <option value="${season}">
-              Season ${season}
-            </option>
-          `
-        ).join("")}
-
-      </select>
-
-      <div id="episodeList"></div>
-
-    `;
-
-    $("seasonSelect")
-      .addEventListener(
-        "change",
-        () =>
-          renderEpisodes(
-            videos,
-            Number(
-              $("seasonSelect").value
-            )
-          )
-      );
-
-    renderEpisodes(
-      videos,
-      seasons[0]
-    );
-
-  }
-  catch(error){
-
-    area.innerHTML = `
-      <div class="notice">
-
-        ${escapeHTML(error.message)}
-
-      </div>
-    `;
-
-  }
-
-}
-
-function renderEpisodes(
-  videos,
-  season
-){
-
-  const list =
-    $("episodeList");
-
-  if(!list){
-    return;
-  }
-
-  const episodes =
-    videos
-      .filter(
-        v =>
-          Number(v.season || 1)
-          === season
-      )
-      .sort(
-        (a,b) =>
-          Number(a.episode || 0)
-          -
-          Number(b.episode || 0)
-      );
-
-  list.innerHTML =
-    episodes.length
-      ?
-      episodes.map(
-        episode => {
-
-          const episodeId =
-            episode.id ||
-            `${currentTitleId}:${season}:${episode.episode}`;
-
-          return `
-
-            <button
-              class="episode"
-              onclick="findEpisodeSources(
-                'series',
-                '${escapeHTML(episodeId)}'
-              )">
-
-              <div class="episode-number">
-
-                ${escapeHTML(
-                  episode.episode ||
-                  "?"
-                )}
-
-              </div>
-
-              <div>
-
-                <div class="episode-title">
-
-                  ${escapeHTML(
-                    episode.title ||
-                    `Episode ${episode.episode || ""}`
-                  )}
-
-                </div>
-
-                <div class="episode-desc">
-
-                  ${escapeHTML(
-                    episode.overview ||
-                    ""
-                  )}
-
-                </div>
-
-              </div>
-
-            </button>
-
-          `;
-
-        }
-      ).join("")
-      :
-      `
-        <div class="empty">
-          No episodes found.
-        </div>
-      `;
-
-}
-
-
-/* ============================================================
-   STREAM
+   STREAM URL
 ============================================================ */
 
 function buildStreamURL(
@@ -1996,7 +1838,9 @@ function buildStreamURL(
 ){
 
   return (
-    addonRoot(state.stream) +
+    addonRoot(
+      state.stream
+    ) +
     "stream/" +
     encodeURIComponent(type) +
     "/" +
@@ -2006,48 +1850,68 @@ function buildStreamURL(
 
 }
 
-async function findEpisodeSources(
-  type,
-  id
-){
-
-  await findSources(
-    type,
-    id
-  );
-
-}
-
 
 /* ============================================================
-   SOURCE DETECTION
+   STREAM IDENTIFICATION
 ============================================================ */
 
-function getStreamURL(stream){
+function getStreamURL(
+  stream
+){
 
   return String(
-    stream?.url || ""
+    stream?.url ||
+    ""
   ).trim();
 
 }
 
-function getStreamType(stream){
+function isNotWebReady(
+  stream
+){
 
-  return String(
-    stream?.type ||
-    ""
-  ).toLowerCase();
+  return Boolean(
+    stream
+      ?.behaviorHints
+      ?.notWebReady
+  );
 
 }
 
-function isHLS(stream){
+function isPlayerFrame(
+  stream
+){
+
+  return Boolean(
+    stream?.playerFrameUrl
+  );
+
+}
+
+function isExternal(
+  stream
+){
+
+  return Boolean(
+    stream?.externalUrl
+  );
+
+}
+
+function isHLS(
+  stream
+){
 
   const url =
-    getStreamURL(stream)
-      .toLowerCase();
+    getStreamURL(
+      stream
+    ).toLowerCase();
 
   const type =
-    getStreamType(stream);
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
 
   return (
     type.includes("mpegurl") ||
@@ -2057,41 +1921,61 @@ function isHLS(stream){
 
 }
 
-function isMP4(stream){
+function isMP4(
+  stream
+){
 
   const url =
-    getStreamURL(stream)
-      .toLowerCase();
+    getStreamURL(
+      stream
+    ).toLowerCase();
 
   const type =
-    getStreamType(stream);
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
 
   return (
     type.includes("mp4") ||
-    type.includes("video/mp4") ||
     url.includes(".mp4")
   );
 
 }
 
-function isWebM(stream){
+function isWebM(
+  stream
+){
 
   const url =
-    getStreamURL(stream)
-      .toLowerCase();
+    getStreamURL(
+      stream
+    ).toLowerCase();
 
   const type =
-    getStreamType(stream);
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
 
   return (
     type.includes("webm") ||
-    type.includes("video/webm") ||
     url.includes(".webm")
   );
 
 }
 
-function isDirectVideo(stream){
+function isPlayableCandidate(
+  stream
+){
+
+  if(isPlayerFrame(stream)){
+    return true;
+  }
+
+  if(isExternal(stream)){
+    return false;
+  }
 
   return (
     isHLS(stream) ||
@@ -2101,23 +1985,14 @@ function isDirectVideo(stream){
 
 }
 
-function hasPlayerFrame(stream){
 
-  return Boolean(
-    stream?.playerFrameUrl
-  );
+/* ============================================================
+   PROVIDER
+============================================================ */
 
-}
-
-function isExternal(stream){
-
-  return Boolean(
-    stream?.externalUrl
-  );
-
-}
-
-function providerName(stream){
+function providerName(
+  stream
+){
 
   const text =
     [
@@ -2138,17 +2013,16 @@ function providerName(stream){
     "vidplay",
     "streamwish",
     "filemoon",
-    "megacloud",
-    "pengu",
-    "penguplay"
+    "megacloud"
   ];
 
   for(
-    const provider of providers
+    const name
+    of providers
   ){
 
-    if(text.includes(provider)){
-      return provider;
+    if(text.includes(name)){
+      return name;
     }
 
   }
@@ -2162,31 +2036,26 @@ function providerName(stream){
    SOURCE SCORE
 ============================================================ */
 
-function compatibilityScore(stream){
+function compatibilityScore(
+  stream
+){
 
   let score = 0;
 
   if(isMP4(stream)){
-    score += 100;
+    score += 80;
   }
 
   if(isHLS(stream)){
-    score += 95;
+    score += 75;
   }
 
   if(isWebM(stream)){
-    score += 85;
+    score += 70;
   }
 
-  if(hasPlayerFrame(stream)){
-    score += 60;
-  }
-
-  if(
-    stream?.behaviorHints
-      ?.notWebReady
-  ){
-    score -= 10;
+  if(isPlayerFrame(stream)){
+    score += 65;
   }
 
   if(isExternal(stream)){
@@ -2199,7 +2068,7 @@ function compatibilityScore(stream){
 
 
 /* ============================================================
-   SOURCE UI
+   SOURCE RENDERING
 ============================================================ */
 
 function renderSource(
@@ -2207,14 +2076,10 @@ function renderSource(
   index
 ){
 
-  const direct =
-    isDirectVideo(stream);
-
-  const frame =
-    hasPlayerFrame(stream);
-
   const playable =
-    direct || frame;
+    isPlayableCandidate(
+      stream
+    );
 
   let format =
     "SOURCE";
@@ -2228,56 +2093,52 @@ function renderSource(
   else if(isWebM(stream)){
     format = "WEBM";
   }
-  else if(frame){
+  else if(isPlayerFrame(stream)){
     format = "PLAYER";
+  }
+  else if(isExternal(stream)){
+    format = "EXTERNAL";
   }
 
   return `
 
     <button
       class="source"
-      ${playable
-        ? `onclick="playSource(${index})"`
-        : `disabled`
-      }
-      style="
-        ${playable
-          ? ""
-          : "opacity:.48;cursor:not-allowed;"
-        }
-      ">
+      ${
+        playable
+          ? `onclick="playSource(${index})"`
+          : `disabled`
+      }>
 
       <div class="source-top">
 
         <div class="source-icon">
-
           ${playable ? "▶" : "×"}
-
         </div>
 
         <div>
 
           <div class="source-name">
-
             ${escapeHTML(
               stream.name ||
               stream.title ||
               "SOURCE"
             )}
-
           </div>
 
           <div class="provider">
-
             ${escapeHTML(
-              providerName(stream)
+              providerName(
+                stream
+              )
             )}
-
           </div>
 
         </div>
 
       </div>
+
+      ${renderFusionBadges(stream)}
 
       <div class="badges">
 
@@ -2285,26 +2146,51 @@ function renderSource(
           badge
           ${playable ? "good" : ""}
         ">
-
           ${format}
-
         </span>
 
         ${
-          stream?.behaviorHints
-            ?.notWebReady
+          isNotWebReady(stream)
             ?
-            `
-              <span class="badge warning">
-                PROVIDER FLAG
-              </span>
-            `
+            `<span class="badge warning">
+              NOT WEB READY
+            </span>`
             :
-            `
-              <span class="badge good">
-                DETECTED
-              </span>
-            `
+            `<span class="badge good">
+              WEB READY
+            </span>`
+        }
+
+        ${
+          stream.quality
+            ?
+            `<span class="badge">
+              ${escapeHTML(
+                stream.quality
+              )}
+            </span>`
+            :
+            ""
+        }
+
+      </div>
+
+      <div class="source-desc">
+
+        ${
+          isNotWebReady(stream)
+            ?
+            "Provider marked this source not web-ready. SAUVE will still attempt compatible playback."
+            :
+          isExternal(stream)
+            ?
+            "External destination — not a direct video source."
+            :
+          playable
+            ?
+            "Tap to attempt playback inside SAUVE."
+            :
+            "This source does not expose a recognized browser media URL."
         }
 
       </div>
@@ -2333,40 +2219,42 @@ async function findSources(
 
   }
 
-  const box =
-    $("sources");
+  $("sources").innerHTML = `
 
-  if(!box){
-    return;
-  }
-
-  box.innerHTML = `
     <div class="empty">
       Loading stream sources…
     </div>
+
   `;
 
   try{
 
     const data =
       await fetchJSON(
-        buildStreamURL(type,id)
+        buildStreamURL(
+          type,
+          id
+        )
       );
 
     currentStreams =
-      Array.isArray(data.streams)
+      Array.isArray(
+        data.streams
+      )
         ? data.streams
         : [];
 
     if(!currentStreams.length){
 
-      box.innerHTML = `
+      $("sources").innerHTML = `
+
         <div class="notice">
 
           No stream sources were returned
-          for this title or episode.
+          for this title.
 
         </div>
+
       `;
 
       return;
@@ -2381,12 +2269,10 @@ async function findSources(
 
     currentPlayableStreams =
       currentStreams.filter(
-        stream =>
-          isDirectVideo(stream) ||
-          hasPlayerFrame(stream)
+        isPlayableCandidate
       );
 
-    box.innerHTML = `
+    $("sources").innerHTML = `
 
       <div class="heading">
 
@@ -2400,15 +2286,16 @@ async function findSources(
 
       <div class="notice">
 
-        ${currentPlayableStreams.length}
-        source(s) can be attempted by
-        the SAUVE player.
+        <strong>
+          ${currentPlayableStreams.length}
+        </strong>
+        compatible source(s) detected.
 
         <br><br>
 
-        Sources that aren't directly
-        browser-playable are shown separately
-        rather than pretending they are video.
+        Fusion badges are generated from
+        the stream's title, filename,
+        description and metadata.
 
       </div>
 
@@ -2421,7 +2308,8 @@ async function findSources(
   }
   catch(error){
 
-    box.innerHTML = `
+    $("sources").innerHTML = `
+
       <div class="notice">
 
         <strong>
@@ -2435,6 +2323,7 @@ async function findSources(
         )}
 
       </div>
+
     `;
 
   }
@@ -2446,7 +2335,9 @@ async function findSources(
    PLAY SOURCE
 ============================================================ */
 
-function playSource(index){
+function playSource(
+  index
+){
 
   const stream =
     currentStreams[index];
@@ -2456,21 +2347,27 @@ function playSource(index){
   }
 
   currentPlayerIndex =
-    currentPlayableStreams.indexOf(stream);
+    currentPlayableStreams.indexOf(
+      stream
+    );
 
   if(currentPlayerIndex < 0){
     currentPlayerIndex = 0;
   }
 
-  if(hasPlayerFrame(stream)){
+  if(isPlayerFrame(stream)){
 
-    openEmbeddedPlayer(stream);
+    openEmbeddedPlayer(
+      stream
+    );
 
     return;
 
   }
 
-  playDirectStream(stream);
+  playDirectStream(
+    stream
+  );
 
 }
 
@@ -2479,32 +2376,9 @@ function playSource(index){
    DIRECT PLAYER
 ============================================================ */
 
-function playDirectStream(stream){
-
-  const url =
-    getStreamURL(stream);
-
-  if(!url){
-
-    showPlayerError(
-      "The source did not return a media URL."
-    );
-
-    return;
-
-  }
-
-  let mime = "";
-
-  if(isHLS(stream)){
-    mime = "application/vnd.apple.mpegurl";
-  }
-  else if(isMP4(stream)){
-    mime = "video/mp4";
-  }
-  else if(isWebM(stream)){
-    mime = "video/webm";
-  }
+function playDirectStream(
+  stream
+){
 
   openModal(`
 
@@ -2527,18 +2401,14 @@ function playDirectStream(stream){
         controls
         playsinline
         webkit-playsinline
-        preload="metadata"
-        ${mime
-          ? `type="${mime}"`
-          : ""
-        }>
+        preload="metadata">
       </video>
 
       <div
         id="playerStatus"
         class="player-status">
 
-        Checking source…
+        Preparing playback…
 
       </div>
 
@@ -2547,7 +2417,7 @@ function playDirectStream(stream){
     <div class="player-controls">
 
       <button
-        class="player-button"
+        class="player-button primary"
         onclick="tryNextSource()">
 
         ▶ TRY NEXT SOURCE
@@ -2572,76 +2442,23 @@ function playDirectStream(stream){
   const status =
     $("playerStatus");
 
-  if(!video){
-    return;
-  }
+  const url =
+    getStreamURL(
+      stream
+    );
 
-  if(
-    isHLS(stream) &&
-    !video.canPlayType(
-      "application/vnd.apple.mpegurl"
-    )
-  ){
-
-    status.textContent =
-      "Safari does not report native HLS support for this source.";
-
-    status.className =
-      "player-status error";
-
-    return;
-
-  }
-
-  if(
-    isMP4(stream) &&
-    !video.canPlayType("video/mp4")
-  ){
-
-    status.textContent =
-      "Safari does not report MP4 support for this source.";
-
-    status.className =
-      "player-status error";
-
-    return;
-
-  }
-
-  if(
-    isWebM(stream) &&
-    !video.canPlayType("video/webm")
-  ){
-
-    status.textContent =
-      "Safari does not report WebM support for this source.";
-
-    status.className =
-      "player-status error";
-
-    return;
-
-  }
-
-  status.textContent =
-    "Loading video…";
-
-  try{
-
-    video.src = url;
-
-    video.load();
-
-  }
-  catch(error){
+  if(!url){
 
     showPlayerError(
-      error.message
+      "No direct media URL was returned."
     );
 
     return;
 
   }
+
+  video.src =
+    url;
 
   video.addEventListener(
     "loadedmetadata",
@@ -2649,20 +2466,6 @@ function playDirectStream(stream){
 
       status.textContent =
         "Ready — press play";
-
-      status.className =
-        "player-status ready";
-
-    },
-    {once:true}
-  );
-
-  video.addEventListener(
-    "canplay",
-    () => {
-
-      status.textContent =
-        "Ready";
 
       status.className =
         "player-status ready";
@@ -2698,63 +2501,36 @@ function playDirectStream(stream){
     "error",
     () => {
 
-      const error =
-        video.error;
-
-      let message =
-        "Safari could not play this source.";
-
-      if(error){
-
-        switch(error.code){
-
-          case MediaError.MEDIA_ERR_ABORTED:
-            message =
-              "Playback was aborted.";
-            break;
-
-          case MediaError.MEDIA_ERR_NETWORK:
-            message =
-              "The video server or network rejected the media request.";
-            break;
-
-          case MediaError.MEDIA_ERR_DECODE:
-            message =
-              "Safari received the source but could not decode its video format or codec.";
-            break;
-
-          case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
-            message =
-              "Safari does not support the returned media format, MIME type, or source URL.";
-            break;
-
-        }
-
-      }
-
-      showPlayerError(message);
+      showPlayerError(
+        "Safari could not decode or access this source."
+      );
 
     }
   );
+
+  video.load();
 
 }
 
 
 /* ============================================================
-   EMBEDDED PROVIDER PLAYER
+   EMBEDDED PLAYER
 ============================================================ */
 
-function openEmbeddedPlayer(stream){
+function openEmbeddedPlayer(
+  stream
+){
 
   const url =
     String(
-      stream.playerFrameUrl || ""
+      stream.playerFrameUrl ||
+      ""
     ).trim();
 
   if(!url){
 
     showPlayerError(
-      "No provider player URL was returned."
+      "No player URL was returned."
     );
 
     return;
@@ -2765,7 +2541,12 @@ function openEmbeddedPlayer(stream){
 
     <div class="sheet-header">
 
-      <h2>PROVIDER PLAYER</h2>
+      <h2>
+        ${escapeHTML(
+          stream.name ||
+          "PLAYER"
+        )}
+      </h2>
 
       <button
         class="close"
@@ -2777,20 +2558,10 @@ function openEmbeddedPlayer(stream){
 
     <div class="player-shell">
 
-      <div
-        style="
-          width:100%;
-          aspect-ratio:16/9;
-          background:#000;
-        ">
+      <div class="iframe-player">
 
         <iframe
           src="${escapeHTML(url)}"
-          style="
-            width:100%;
-            height:100%;
-            border:0;
-          "
           allow="
             autoplay;
             fullscreen;
@@ -2803,9 +2574,7 @@ function openEmbeddedPlayer(stream){
       </div>
 
       <div class="player-status ready">
-
-        Provider player loaded.
-
+        Provider player loaded inside SAUVE.
       </div>
 
     </div>
@@ -2813,10 +2582,10 @@ function openEmbeddedPlayer(stream){
     <div class="player-controls">
 
       <button
-        class="player-button"
+        class="player-button primary"
         onclick="tryNextSource()">
 
-        ▶ TRY NEXT SOURCE
+        TRY NEXT SOURCE
 
       </button>
 
@@ -2836,23 +2605,25 @@ function openEmbeddedPlayer(stream){
 
 
 /* ============================================================
-   PLAYER ERRORS
+   PLAYER ERROR
 ============================================================ */
 
-function showPlayerError(message){
+function showPlayerError(
+  message
+){
 
   const status =
     $("playerStatus");
 
-  if(!status){
-    return;
+  if(status){
+
+    status.textContent =
+      message;
+
+    status.className =
+      "player-status error";
+
   }
-
-  status.textContent =
-    message;
-
-  status.className =
-    "player-status error";
 
 }
 
@@ -2868,7 +2639,7 @@ function tryNextSource(){
   ){
 
     showPlayerError(
-      "No browser-playable sources were detected."
+      "No compatible sources were detected."
     );
 
     return;
@@ -2882,25 +2653,29 @@ function tryNextSource(){
     next >=
     currentPlayableStreams.length
   ){
-
     next = 0;
-
   }
 
   currentPlayerIndex =
     next;
 
   const stream =
-    currentPlayableStreams[next];
+    currentPlayableStreams[
+      next
+    ];
 
-  if(hasPlayerFrame(stream)){
+  if(isPlayerFrame(stream)){
 
-    openEmbeddedPlayer(stream);
+    openEmbeddedPlayer(
+      stream
+    );
 
   }
   else{
 
-    playDirectStream(stream);
+    playDirectStream(
+      stream
+    );
 
   }
 
@@ -2929,15 +2704,19 @@ function showSourcesAgain(){
 
     ${
       currentStreams.length
+
         ?
+
         currentStreams
           .map(renderSource)
           .join("")
+
         :
+
         `
-          <div class="empty">
-            No sources available.
-          </div>
+        <div class="empty">
+          No sources available.
+        </div>
         `
     }
 
@@ -2997,14 +2776,19 @@ function openSettings(){
 
     <div class="notice">
 
-      Your manifest addresses are stored
-      locally in this browser.
+      <strong>FUSION BADGES</strong>
 
       <br><br>
 
-      SAUVE does not bypass DRM,
-      authentication, CORS, or provider
-      restrictions.
+      SAUVE automatically reads the
+      Fusion badge configuration and
+      matches badges against source
+      information.
+
+      <br><br>
+
+      The badge configuration is loaded
+      from your Fusion configuration.
 
     </div>
 
@@ -3073,19 +2857,8 @@ function saveSettings(){
 
 function focusSearch(){
 
-  const input =
-    $("searchInput");
-
-  if(input){
-
-    input.focus();
-
-    input.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    });
-
-  }
+  $("searchInput")
+    .focus();
 
 }
 
@@ -3095,7 +2868,9 @@ function goHome(){
 
 }
 
-function openModal(html){
+function openModal(
+  html
+){
 
   $("sheet").innerHTML =
     html;
@@ -3107,22 +2882,6 @@ function openModal(html){
 }
 
 function closeModal(){
-
-  const video =
-    $("sauveVideo");
-
-  if(video){
-
-    try{
-      video.pause();
-    }
-    catch(e){}
-
-    video.removeAttribute("src");
-
-    video.load();
-
-  }
 
   $("modal")
     .classList
@@ -3162,7 +2921,8 @@ $("searchInput")
     event => {
 
       if(
-        event.key === "Enter"
+        event.key ===
+        "Enter"
       ){
 
         performSearch();
@@ -3177,7 +2937,13 @@ $("searchInput")
    START
 ============================================================ */
 
-loadHome();
+(async function(){
+
+  await loadFusionFilters();
+
+  loadHome();
+
+})();
 
 </script>
 
