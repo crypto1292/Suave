@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <meta name="theme-color" content="#05030b">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,11 +22,13 @@
   --yellow:#ffd45a;
   --green:#42ffb0;
   --red:#ff5577;
+  --text:#fff;
   --muted:#a999b0;
 }
 
 *{
   box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
@@ -35,7 +38,7 @@ html,body{
 }
 
 body{
-  color:#fff;
+  color:var(--text);
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -43,41 +46,39 @@ body{
     "Segoe UI",
     sans-serif;
 
+  overflow-x:hidden;
+
   background:
     radial-gradient(
       circle at 50% -10%,
-      rgba(138,77,255,.35),
-      transparent 36%
+      rgba(138,77,255,.38),
+      transparent 34%
     ),
     radial-gradient(
-      circle at 0 45%,
-      rgba(255,22,216,.13),
+      circle at 0 35%,
+      rgba(255,22,216,.12),
       transparent 30%
     ),
     radial-gradient(
-      circle at 100% 55%,
+      circle at 100% 50%,
       rgba(25,234,255,.10),
       transparent 30%
     ),
     #05030b;
 }
 
-button,
-input{
+button,input{
   font:inherit;
 }
 
 button{
   cursor:pointer;
+  color:inherit;
 }
 
-button:active{
-  transform:scale(.98);
-}
-
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
   position:sticky;
@@ -89,10 +90,10 @@ header{
     14px
     14px;
 
-  background:rgba(5,3,11,.94);
+  background:rgba(5,3,11,.91);
 
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
 
   border-bottom:
     1px solid rgba(255,22,216,.18);
@@ -110,11 +111,11 @@ header{
   font-style:italic;
 
   font-size:
-    clamp(65px,18vw,115px);
+    clamp(70px,19vw,125px);
 
   line-height:.78;
 
-  letter-spacing:7px;
+  letter-spacing:8px;
 
   transform:skewX(-7deg);
 
@@ -122,10 +123,10 @@ header{
 
   text-shadow:
     0 0 4px #fff,
-    0 0 9px var(--pink),
-    0 0 20px var(--pink),
-    0 0 45px var(--purple),
-    6px 5px 0 rgba(25,234,255,.55);
+    0 0 10px var(--pink),
+    0 0 24px var(--pink),
+    0 0 48px var(--purple),
+    7px 5px 0 rgba(25,234,255,.5);
 }
 
 .logo-sub{
@@ -144,10 +145,6 @@ header{
   text-shadow:0 0 10px var(--cyan);
 }
 
-/* =========================
-   SEARCH
-========================= */
-
 .searchbar{
   display:flex;
   gap:8px;
@@ -163,11 +160,11 @@ header{
 
   padding:14px;
 
-  border-radius:8px;
+  border-radius:9px;
 
   background:#0c0715;
 
-  color:white;
+  color:#fff;
 
   border:
     1px solid rgba(138,77,255,.45);
@@ -179,16 +176,16 @@ header{
   border-color:var(--pink);
 
   box-shadow:
-    0 0 18px rgba(255,22,216,.18);
+    0 0 18px rgba(255,22,216,.2);
 }
 
 .searchbar button{
   padding:0 18px;
 
   border:0;
-  border-radius:8px;
+  border-radius:9px;
 
-  color:white;
+  color:#fff;
 
   font-weight:900;
 
@@ -198,57 +195,84 @@ header{
       var(--pink),
       var(--purple)
     );
+
+  box-shadow:
+    0 0 18px rgba(255,22,216,.18);
 }
 
-/* =========================
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 
 main{
-  width:100%;
-  max-width:1400px;
+  max-width:1500px;
 
   margin:auto;
 
-  padding:16px 16px 105px;
+  padding:
+    14px
+    14px
+    105px;
 }
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
   position:relative;
 
   min-height:
-    clamp(390px,58vh,600px);
+    clamp(400px,62vh,650px);
 
   overflow:hidden;
 
   display:flex;
   align-items:flex-end;
 
-  padding:
-    clamp(25px,5vw,60px);
-
   border-radius:18px;
+
+  margin-bottom:30px;
 
   border:
     1px solid rgba(255,22,216,.25);
 
   background:
     radial-gradient(
-      circle at 75% 35%,
-      rgba(25,234,255,.13),
-      transparent 25%
+      circle at 75% 30%,
+      rgba(25,234,255,.18),
+      transparent 28%
     ),
     radial-gradient(
-      circle at 70% 75%,
-      rgba(255,22,216,.20),
-      transparent 32%
+      circle at 75% 80%,
+      rgba(255,22,216,.25),
+      transparent 35%
     ),
     linear-gradient(
       110deg,
-      #090511,
-      #190c2e,
-      #07121e
+      #08040f,
+      #190a2c,
+      #07131d
     );
+}
+
+.hero-image{
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:.7;
+
+  display:none;
+}
+
+.hero.has-image .hero-image{
+  display:block;
 }
 
 .hero:before{
@@ -260,10 +284,13 @@ main{
   background:
     linear-gradient(
       90deg,
-      rgba(5,3,11,.98),
-      rgba(5,3,11,.72) 50%,
-      rgba(5,3,11,.05)
+      rgba(5,3,11,.98) 0%,
+      rgba(5,3,11,.82) 35%,
+      rgba(5,3,11,.3) 75%,
+      rgba(5,3,11,.1)
     );
+
+  z-index:1;
 }
 
 .hero:after{
@@ -272,22 +299,26 @@ main{
   position:absolute;
   inset:0;
 
-  opacity:.10;
-
   background:
-    repeating-linear-gradient(
+    linear-gradient(
       0deg,
-      transparent 0,
-      transparent 3px,
-      rgba(255,255,255,.18) 4px
+      rgba(5,3,11,.98),
+      transparent 55%
     );
+
+  z-index:2;
 }
 
 .hero-content{
   position:relative;
   z-index:3;
 
-  max-width:720px;
+  width:100%;
+
+  max-width:700px;
+
+  padding:
+    clamp(25px,6vw,60px);
 }
 
 .hero-kicker{
@@ -298,10 +329,13 @@ main{
   font-weight:900;
 
   letter-spacing:3px;
+
+  text-shadow:
+    0 0 12px var(--cyan);
 }
 
 .hero h1{
-  margin:15px 0;
+  margin:13px 0;
 
   font-family:
     Impact,
@@ -309,26 +343,29 @@ main{
     sans-serif;
 
   font-size:
-    clamp(46px,9vw,95px);
+    clamp(46px,10vw,100px);
 
-  line-height:.85;
+  line-height:.84;
 
   text-transform:uppercase;
 
   text-shadow:
-    0 0 20px rgba(255,22,216,.35);
+    0 0 20px rgba(255,22,216,.4);
 }
 
 .hero p{
-  color:#c7b9ce;
+  color:#d0c3d6;
 
   line-height:1.6;
 
   font-size:14px;
+
+  max-width:620px;
 }
 
 .hero-buttons{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:10px;
@@ -348,8 +385,6 @@ main{
 .primary{
   border:0;
 
-  color:white;
-
   background:
     linear-gradient(
       135deg,
@@ -358,43 +393,44 @@ main{
     );
 
   box-shadow:
-    0 0 18px rgba(255,22,216,.25);
+    0 0 20px rgba(255,22,216,.25);
 }
 
 .secondary{
-  color:var(--cyan);
-
   background:
-    rgba(25,234,255,.04);
+    rgba(25,234,255,.05);
 
   border:
-    1px solid rgba(25,234,255,.38);
+    1px solid rgba(25,234,255,.4);
+
+  color:var(--cyan);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* =========================================================
+   ROWS
+========================================================= */
 
-section{
-  margin:32px 0;
+.content-section{
+  margin:
+    28px 0
+    34px;
 }
 
-.heading{
+.section-heading{
   display:flex;
 
   align-items:center;
   justify-content:space-between;
 
-  gap:10px;
+  margin-bottom:12px;
 
-  margin-bottom:15px;
-  padding-bottom:10px;
+  padding-bottom:9px;
 
   border-bottom:
-    1px solid rgba(255,22,216,.18);
+    1px solid rgba(255,22,216,.15);
 }
 
-.heading h2{
+.section-heading h2{
   margin:0;
 
   font-family:
@@ -407,7 +443,7 @@ section{
   letter-spacing:1px;
 }
 
-.heading span{
+.section-heading span{
   color:var(--cyan);
 
   font-size:9px;
@@ -417,93 +453,194 @@ section{
   letter-spacing:2px;
 }
 
-.empty{
-  padding:28px 5px;
+.row{
+  display:flex;
 
-  color:var(--muted);
+  gap:12px;
 
-  font-size:13px;
+  overflow-x:auto;
+
+  overflow-y:hidden;
+
+  padding:
+    3px
+    3px
+    13px;
+
+  scroll-snap-type:x proximity;
+
+  scrollbar-width:none;
 }
 
-.notice{
-  padding:16px;
-
-  border-radius:9px;
-
-  background:
-    rgba(255,22,216,.045);
-
-  border:
-    1px solid rgba(255,22,216,.17);
-
-  color:#c8bacf;
-
-  line-height:1.6;
-
-  font-size:12px;
+.row::-webkit-scrollbar{
+  display:none;
 }
 
-/* =========================
-   GRID
-========================= */
+.poster-card{
+  flex:
+    0 0
+    145px;
 
-.grid{
-  display:grid;
+  width:145px;
 
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
+  border:0;
 
-  gap:13px;
-}
-
-.card{
   padding:0;
 
-  overflow:hidden;
+  background:transparent;
 
   text-align:left;
 
-  color:white;
+  scroll-snap-align:start;
+}
 
-  background:
-    linear-gradient(
-      180deg,
-      #170d27,
-      #0d0717
-    );
+.poster-wrap{
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  overflow:hidden;
+
+  border-radius:9px;
+
+  background:#150c24;
 
   border:
     1px solid rgba(255,255,255,.08);
 
-  border-radius:10px;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.35);
 }
 
-.card:hover{
-  border-color:
-    rgba(255,22,216,.55);
+.poster-card:hover .poster-wrap,
+.poster-card:active .poster-wrap{
+  border-color:var(--pink);
 
   box-shadow:
-    0 0 18px rgba(255,22,216,.12);
+    0 0 18px rgba(255,22,216,.25);
 }
 
 .poster{
   display:block;
 
   width:100%;
-
-  aspect-ratio:2/3;
+  height:100%;
 
   object-fit:cover;
-
-  background:#171027;
 }
 
-.card-info{
-  padding:11px;
+.poster-fallback{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  width:100%;
+  height:100%;
+
+  padding:10px;
+
+  text-align:center;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #180a2b,
+      #07131d
+    );
+}
+
+.poster-gradient{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:35%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.9)
+    );
+}
+
+.poster-type{
+  position:absolute;
+
+  top:7px;
+  left:7px;
+
+  padding:4px 6px;
+
+  border-radius:5px;
+
+  background:
+    rgba(0,0,0,.7);
+
+  color:var(--cyan);
+
+  font-size:7px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+}
+
+.poster-badges{
+  position:absolute;
+
+  left:6px;
+  right:6px;
+  bottom:7px;
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:4px;
+
+  z-index:3;
+}
+
+.poster-badge{
+  max-width:100%;
+
+  padding:4px 6px;
+
+  border-radius:4px;
+
+  background:
+    rgba(0,0,0,.78);
+
+  border:
+    1px solid rgba(255,255,255,.16);
+
+  font-size:7px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
 }
 
 .card-title{
-  font-size:14px;
+  margin-top:8px;
+
+  font-size:12px;
 
   font-weight:850;
 
@@ -515,16 +652,100 @@ section{
 }
 
 .card-sub{
-  margin-top:5px;
+  margin-top:4px;
 
   color:var(--muted);
 
-  font-size:10px;
+  font-size:9px;
 }
 
-/* =========================
+/* =========================================================
+   BADGES
+========================================================= */
+
+.fusion-badges{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:5px;
+
+  margin-top:8px;
+}
+
+.fusion-badge{
+  display:inline-flex;
+
+  align-items:center;
+
+  max-width:130px;
+
+  min-height:22px;
+
+  overflow:hidden;
+
+  border-radius:5px;
+
+  background:
+    rgba(255,255,255,.05);
+
+  border:
+    1px solid rgba(255,255,255,.12);
+}
+
+.fusion-badge img{
+  display:block;
+
+  max-width:120px;
+
+  max-height:28px;
+
+  object-fit:contain;
+}
+
+.fusion-badge span{
+  padding:
+    4px
+    7px;
+
+  font-size:8px;
+
+  font-weight:900;
+}
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.notice{
+  padding:15px;
+
+  border-radius:9px;
+
+  background:
+    rgba(255,22,216,.045);
+
+  border:
+    1px solid rgba(255,22,216,.16);
+
+  color:#c8bacf;
+
+  line-height:1.6;
+
+  font-size:12px;
+}
+
+.empty{
+  padding:25px 5px;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 .modal{
   position:fixed;
@@ -538,10 +759,10 @@ section{
   align-items:flex-end;
 
   background:
-    rgba(0,0,0,.86);
+    rgba(0,0,0,.87);
 
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
 }
 
 .modal.open{
@@ -551,7 +772,7 @@ section{
 .sheet{
   width:100%;
 
-  max-height:95vh;
+  max-height:96vh;
 
   overflow:auto;
 
@@ -561,12 +782,15 @@ section{
     calc(30px + env(safe-area-inset-bottom));
 
   border-radius:
-    22px 22px 0 0;
+    22px
+    22px
+    0
+    0;
 
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(138,77,255,.18),
+      rgba(138,77,255,.2),
       transparent 40%
     ),
     #0c0718;
@@ -579,7 +803,6 @@ section{
   display:flex;
 
   align-items:center;
-
   justify-content:space-between;
 
   gap:10px;
@@ -595,12 +818,14 @@ section{
     Haettenschweiler,
     sans-serif;
 
-  font-size:27px;
+  font-size:28px;
 }
 
 .close{
   width:40px;
   height:40px;
+
+  flex:0 0 auto;
 
   border-radius:50%;
 
@@ -614,9 +839,9 @@ section{
   font-size:22px;
 }
 
-/* =========================
+/* =========================================================
    DETAILS
-========================= */
+========================================================= */
 
 .details{
   display:grid;
@@ -655,85 +880,9 @@ section{
   margin-bottom:7px;
 }
 
-/* =========================
-   EPISODES
-========================= */
-
-.season-title{
-  margin-top:24px;
-  margin-bottom:10px;
-
-  color:var(--pink);
-
-  font-family:Impact, sans-serif;
-
-  font-size:20px;
-}
-
-.episode{
-  width:100%;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
-  padding:13px;
-
-  margin-bottom:8px;
-
-  text-align:left;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      100deg,
-      #160b27,
-      #0b0714
-    );
-
-  border:
-    1px solid rgba(255,255,255,.08);
-
-  border-radius:9px;
-}
-
-.episode:hover{
-  border-color:var(--cyan);
-
-  box-shadow:
-    0 0 15px rgba(25,234,255,.10);
-}
-
-.episode-number{
-  min-width:42px;
-
-  color:var(--cyan);
-
-  font-weight:900;
-
-  font-size:12px;
-}
-
-.episode-title{
-  font-weight:850;
-
-  font-size:13px;
-}
-
-.episode-meta{
-  margin-top:4px;
-
-  color:#8f8397;
-
-  font-size:10px;
-}
-
-/* =========================
-   SOURCES
-========================= */
+/* =========================================================
+   SOURCE LIST
+========================================================= */
 
 .source{
   width:100%;
@@ -746,7 +895,7 @@ section{
 
   color:white;
 
-  border-radius:10px;
+  border-radius:9px;
 
   background:
     linear-gradient(
@@ -757,15 +906,16 @@ section{
 
   border:
     1px solid rgba(25,234,255,.15);
-
-  transition:.18s;
 }
 
-.source:hover{
-  border-color:var(--cyan);
+.source:not(:disabled):active{
+  transform:scale(.985);
+}
 
-  box-shadow:
-    0 0 16px rgba(25,234,255,.14);
+.source:disabled{
+  opacity:.55;
+
+  cursor:not-allowed;
 }
 
 .source-top{
@@ -785,7 +935,7 @@ section{
   align-items:center;
   justify-content:center;
 
-  flex-shrink:0;
+  flex:0 0 auto;
 
   border-radius:50%;
 
@@ -793,14 +943,12 @@ section{
 
   background:
     rgba(25,234,255,.08);
-
-  font-weight:900;
 }
 
 .source-name{
   font-weight:900;
 
-  font-size:13px;
+  word-break:break-word;
 }
 
 .provider{
@@ -817,120 +965,62 @@ section{
   text-transform:uppercase;
 }
 
-/* =========================
-   BADGES
-========================= */
-
 .badges{
   display:flex;
 
   flex-wrap:wrap;
 
-  gap:6px;
+  gap:5px;
 
-  margin-top:10px;
+  margin-top:9px;
 }
 
 .badge{
-  display:inline-flex;
+  display:inline-block;
 
-  align-items:center;
-
-  min-height:22px;
-
-  padding:3px 7px;
+  padding:4px 7px;
 
   border-radius:5px;
 
   background:
-    rgba(255,255,255,.07);
+    rgba(255,22,216,.10);
 
-  border:
-    1px solid rgba(255,255,255,.10);
-
-  color:white;
+  color:#ff7be4;
 
   font-size:8px;
 
   font-weight:900;
 
-  letter-spacing:.4px;
-
-  overflow:hidden;
+  letter-spacing:.7px;
 }
 
-.badge img{
-  display:block;
+.badge.good{
+  background:
+    rgba(66,255,176,.10);
 
-  max-width:72px;
-  max-height:22px;
-
-  object-fit:contain;
-}
-
-.badge.text-only{
-  color:#ddd;
+  color:var(--green);
 }
 
 .badge.warning{
+  background:
+    rgba(255,212,90,.10);
+
   color:var(--yellow);
-
-  border-color:
-    rgba(255,212,90,.25);
-}
-
-.badge.ready{
-  color:var(--green);
-
-  border-color:
-    rgba(66,255,176,.25);
 }
 
 .source-desc{
-  margin-top:9px;
+  margin-top:8px;
 
   color:#91859b;
 
   font-size:10px;
 
-  line-height:1.5;
+  line-height:1.45;
 }
 
-/* =========================
-   STREAM INFO
-========================= */
-
-.stream-info{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,minmax(0,1fr));
-
-  gap:6px;
-
-  margin-top:10px;
-}
-
-.stream-info-item{
-  padding:7px 8px;
-
-  border-radius:6px;
-
-  background:
-    rgba(255,255,255,.035);
-
-  color:#a99cad;
-
-  font-size:9px;
-}
-
-.stream-info-item strong{
-  color:#fff;
-}
-
-/* =========================
+/* =========================================================
    PLAYER
-========================= */
+========================================================= */
 
 .player-shell{
   position:relative;
@@ -1038,9 +1128,9 @@ iframe{
   border:0;
 }
 
-/* =========================
+/* =========================================================
    SETTINGS
-========================= */
+========================================================= */
 
 .field{
   margin:18px 0;
@@ -1079,9 +1169,9 @@ iframe{
   outline:none;
 }
 
-/* =========================
+/* =========================================================
    NAV
-========================= */
+========================================================= */
 
 .nav{
   position:fixed;
@@ -1100,7 +1190,6 @@ iframe{
   display:flex;
 
   align-items:center;
-
   justify-content:space-around;
 
   background:
@@ -1140,11 +1229,20 @@ iframe{
     0 0 10px var(--pink);
 }
 
+/* =========================================================
+   DESKTOP
+========================================================= */
+
 @media(min-width:700px){
 
-  .grid{
-    grid-template-columns:
-      repeat(5,minmax(0,1fr));
+  main{
+    padding-left:28px;
+    padding-right:28px;
+  }
+
+  .poster-card{
+    flex-basis:180px;
+    width:180px;
   }
 
   .details{
@@ -1154,11 +1252,6 @@ iframe{
 
   .details img{
     width:190px;
-  }
-
-  .stream-info{
-    grid-template-columns:
-      repeat(4,minmax(0,1fr));
   }
 }
 </style>
@@ -1195,7 +1288,14 @@ iframe{
 
 <main id="main">
 
-  <div class="hero">
+  <div
+    id="hero"
+    class="hero">
+
+    <img
+      id="heroImage"
+      class="hero-image"
+      alt="">
 
     <div class="hero-content">
 
@@ -1209,10 +1309,10 @@ iframe{
       </h1>
 
       <p>
-        Discover movies and television,
-        explore episodes, compare sources,
-        and attempt compatible playback
-        directly inside SAUVE.
+        Your neon cinema for movies,
+        television and streaming sources.
+        Browse titles, explore categories
+        and find available sources.
       </p>
 
       <div class="hero-buttons">
@@ -1236,29 +1336,13 @@ iframe{
   </div>
 
 
-  <section>
+  <div id="contentRows">
 
-    <div class="heading">
-
-      <h2>
-        DISCOVER
-      </h2>
-
-      <span>
-        SAUVE
-      </span>
-
+    <div class="empty">
+      Loading SAUVE…
     </div>
 
-    <div
-      id="homeResults"
-      class="empty">
-
-      Loading…
-
-    </div>
-
-  </section>
+  </div>
 
 </main>
 
@@ -1307,12 +1391,16 @@ iframe{
 
 <script>
 
-/* ============================================================
+/* =========================================================
    CONFIG
-============================================================ */
+========================================================= */
 
 const DEFAULT_METADATA =
 "https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+
+
+const DEFAULT_BADGES =
+"https://pastebin.com/raw/gyj0HUuE";
 
 
 const state = {
@@ -1327,10 +1415,18 @@ const state = {
     localStorage.getItem(
       "sauve_stream"
     ) ||
-    ""
+    "",
+
+  badges:
+    localStorage.getItem(
+      "sauve_badges"
+    ) ||
+    DEFAULT_BADGES
 
 };
 
+
+let badgeData = {};
 
 let currentStreams = [];
 
@@ -1338,198 +1434,10 @@ let currentPlayableStreams = [];
 
 let currentPlayerIndex = 0;
 
-let currentTitleType = "";
 
-let currentTitleId = "";
-
-
-/* ============================================================
-   FUSION BADGES
-   Based on the badge configuration supplied
-============================================================ */
-
-const FUSION_BADGES = [
-
-  {
-    name:"Remux",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-remux.png",
-    regex:/\bremux\b/i
-  },
-
-  {
-    name:"BluRay",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-bluray.png",
-    regex:/\bblu[\s._-]?ray\b/i
-  },
-
-  {
-    name:"WebDL",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-webdl.png",
-    regex:/\b(?:web[\s._-]?dl|webdl|webrip|web[\s._-]?rip)\b/i
-  },
-
-  {
-    name:"SeaDex",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-SeaDex.png",
-    regex:/\b(?:seadex|best[\s._-]?release|alt[\s._-]?(?:best[\s._-]?)?release)\b/i
-  },
-
-  {
-    name:"4K",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/4k.png",
-    regex:/(?:2160p?|4k|uhd)/i
-  },
-
-  {
-    name:"1080p",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/1080p.png",
-    regex:/\b1080p?\b/i
-  },
-
-  {
-    name:"720p",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/720p.png",
-    regex:/\b720p?\b/i
-  },
-
-  {
-    name:"DTS:X",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtsx.png",
-    regex:/\bdts[\s._:-]?x\b/i
-  },
-
-  {
-    name:"DTS-HD MA",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtshdma.png",
-    regex:/\bdts[\s._-]?hd[\s._-]?ma\b/i
-  },
-
-  {
-    name:"DTS-HD",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtshd.png",
-    regex:/\bdts[\s._-]?hd\b/i
-  },
-
-  {
-    name:"DTS",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dts.png",
-    regex:/\bdts\b/i
-  },
-
-  {
-    name:"HDR10+",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR10Plus.png",
-    regex:/\bhdr[\s._-]?10[\s._-]?(?:\+|plus|p)\b/i
-  },
-
-  {
-    name:"HDR10",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR10.png",
-    regex:/\bhdr[\s._-]?10\b/i
-  },
-
-  {
-    name:"HDR",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR.png",
-    regex:/\bhdr\b/i
-  },
-
-  {
-    name:"IMAX Enhanced",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/IMAX-enhanced.png",
-    regex:/\bimax[\s._-]?enhanced\b/i
-  },
-
-  {
-    name:"IMAX",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/IMAX.png",
-    regex:/\bimax\b/i
-  },
-
-  {
-    name:"Atmos",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/atmos.png",
-    regex:/\batmos\b/i
-  },
-
-  {
-    name:"TrueHD",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/truehd.png",
-    regex:/\btrue[\s._-]?hd\b/i
-  },
-
-  {
-    name:"Dolby Vision",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/vision.png",
-    regex:/\b(?:dv|dovi|dolby[\s._-]?vision)\b/i
-  },
-
-  {
-    name:"DD+",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/digitalplus.png",
-    regex:/\b(?:ddp|dd\+|eac-?3|e-?ac-?3)\b/i
-  },
-
-  {
-    name:"7.1",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/7dot1.png",
-    regex:/\b7[. ]1\b/i
-  },
-
-  {
-    name:"5.1",
-    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/5dot1.png",
-    regex:/\b5[. ]1\b/i
-  },
-
-  {
-    name:"NETFLIX",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/Netflix.png",
-    regex:/\b(?:nflx|nf|netflix)\b/i
-  },
-
-  {
-    name:"PRIME VIDEO",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/amazon%20prime.png",
-    regex:/\b(?:amzn|amazon|prime)\b/i
-  },
-
-  {
-    name:"APPLE TV+",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/atv%2B.png",
-    regex:/\b(?:atvp|appletv)\b/i
-  },
-
-  {
-    name:"DISNEY+",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/d%2B.png",
-    regex:/\b(?:dsnp|dsny|disney|disney\+)\b/i
-  },
-
-  {
-    name:"MAX",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/hmax.png",
-    regex:/\b(?:hmax|hbomax|hbo|max)\b/i
-  },
-
-  {
-    name:"HULU",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/hulu.png",
-    regex:/\bhulu\b/i
-  },
-
-  {
-    name:"PEACOCK",
-    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/peacock.png",
-    regex:/\b(?:pcok|peac|peacock)\b/i
-  }
-
-];
-
-
-/* ============================================================
+/* =========================================================
    HELPERS
-============================================================ */
+========================================================= */
 
 function $(id){
   return document.getElementById(id);
@@ -1579,11 +1487,12 @@ async function fetchJSON(url){
       {
         method:"GET",
         headers:{
-          Accept:"application/json"
+          Accept:"application/json,text/plain,*/*"
         },
         cache:"no-store"
       }
     );
+
 
   if(!response.ok){
 
@@ -1594,104 +1503,432 @@ async function fetchJSON(url){
 
   }
 
+
   return response.json();
 
 }
 
 
-/* ============================================================
-   BADGES
-============================================================ */
+/* =========================================================
+   BADGE LOADER
+========================================================= */
 
-function streamSearchText(stream){
+async function loadBadges(){
 
-  return [
-    stream?.name,
-    stream?.title,
-    stream?.description,
-    stream?.filename,
-    stream?.fileName,
-    stream?.url,
-    stream?.quality,
-    stream?.resolution,
-    stream?.videoHash,
-    stream?.behaviorHints?.filename
+  try{
+
+    const response =
+      await fetch(
+        state.badges,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Badge feed returned HTTP " +
+        response.status
+      );
+
+    }
+
+
+    const text =
+      await response.text();
+
+
+    /*
+      Accept several common Fusion
+      badge-feed structures.
+    */
+
+    let parsed = null;
+
+
+    try{
+
+      parsed =
+        JSON.parse(text);
+
+    }
+    catch{
+
+      parsed = null;
+
+    }
+
+
+    if(parsed){
+
+      if(Array.isArray(parsed)){
+
+        badgeData =
+          convertBadgeArray(parsed);
+
+      }
+      else if(parsed.badges){
+
+        badgeData =
+          convertBadgeArray(
+            parsed.badges
+          );
+
+      }
+      else{
+
+        badgeData =
+          parsed;
+
+      }
+
+    }
+    else{
+
+      badgeData =
+        parseBadgeText(text);
+
+    }
+
+  }
+  catch(error){
+
+    console.warn(
+      "Badge feed unavailable:",
+      error
+    );
+
+    badgeData = {};
+
+  }
+
+}
+
+
+function convertBadgeArray(
+  list
+){
+
+  const output = {};
+
+  list.forEach(
+    item => {
+
+      if(!item) return;
+
+
+      const id =
+        item.id ||
+        item.imdb_id ||
+        item.imdbId ||
+        item.title ||
+        item.name;
+
+
+      if(!id) return;
+
+
+      output[
+        String(id)
+      ] = item;
+
+    }
+  );
+
+
+  return output;
+
+}
+
+
+function parseBadgeText(
+  text
+){
+
+  const output = {};
+
+
+  /*
+    Basic support for lines such as:
+
+    tt1234567|https://example.com/badge.png
+
+    or
+
+    tt1234567,https://example.com/badge.png
+  */
+
+  text
+    .split(/\r?\n/)
+    .forEach(
+      line => {
+
+        const clean =
+          line.trim();
+
+
+        if(!clean) return;
+
+
+        const parts =
+          clean.split(
+            /[|,;]\s*/
+          );
+
+
+        if(parts.length >= 2){
+
+          output[
+            parts[0].trim()
+          ] = {
+            url:
+              parts[1].trim()
+          };
+
+        }
+
+      }
+    );
+
+
+  return output;
+
+}
+
+
+/* =========================================================
+   BADGE LOOKUP
+========================================================= */
+
+function badgeCandidates(
+  meta
+){
+
+  const values = [];
+
+
+  [
+    meta?.id,
+    meta?.imdb_id,
+    meta?.imdbId,
+    meta?.tmdb_id,
+    meta?.tmdbId
   ]
   .filter(Boolean)
-  .join(" ");
+  .forEach(
+    value =>
+      values.push(
+        String(value)
+      )
+  );
+
+
+  return values;
 
 }
 
 
-function getFusionBadges(stream){
+function findBadges(
+  meta
+){
 
-  const text =
-    streamSearchText(stream);
-
-
-  return FUSION_BADGES
-    .filter(
-      badge =>
-        badge.regex.test(text)
-    )
-    .slice(0,12);
-
-}
+  const candidates =
+    badgeCandidates(
+      meta
+    );
 
 
-function renderBadges(stream){
+  for(
+    const id
+    of candidates
+  ){
 
-  const badges =
-    getFusionBadges(stream);
+    if(
+      badgeData[id]
+    ){
 
+      return normalizeBadgeEntry(
+        badgeData[id]
+      );
 
-  if(!badges.length){
-
-    return `
-      <span class="badge text-only">
-        SOURCE
-      </span>
-    `;
+    }
 
   }
 
 
-  return badges
-    .map(
-      badge => `
-
-        <span
-          class="badge"
-          title="${escapeHTML(
-            badge.name
-          )}">
-
-          <img
-            src="${escapeHTML(
-              badge.image
-            )}"
-            alt="${escapeHTML(
-              badge.name
-            )}"
-            loading="lazy"
-            onerror="
-              this.parentElement.innerHTML='${escapeHTML(
-                badge.name
-              )}'
-            ">
-
-        </span>
-
-      `
-    )
-    .join("");
+  return [];
 
 }
 
 
-/* ============================================================
+function normalizeBadgeEntry(
+  entry
+){
+
+  if(!entry){
+
+    return [];
+
+  }
+
+
+  if(typeof entry === "string"){
+
+    return [
+      {
+        url:entry
+      }
+    ];
+
+  }
+
+
+  if(Array.isArray(entry)){
+
+    return entry
+      .map(
+        item =>
+          typeof item === "string"
+            ? {url:item}
+            : item
+      )
+      .filter(
+        item =>
+          item &&
+          (
+            item.url ||
+            item.image ||
+            item.src
+          )
+      );
+
+  }
+
+
+  const urls = [];
+
+
+  [
+    entry.url,
+    entry.image,
+    entry.src,
+    entry.badge,
+    entry.badgeUrl
+  ]
+  .filter(Boolean)
+  .forEach(
+    url =>
+      urls.push({
+        url
+      })
+  );
+
+
+  if(Array.isArray(entry.badges)){
+
+    entry.badges.forEach(
+      badge => {
+
+        if(
+          typeof badge === "string"
+        ){
+
+          urls.push({
+            url:badge
+          });
+
+        }
+        else if(badge){
+
+          urls.push(
+            badge
+          );
+
+        }
+
+      }
+    );
+
+  }
+
+
+  return urls;
+
+}
+
+
+function renderFusionBadges(
+  meta
+){
+
+  const badges =
+    findBadges(
+      meta
+    );
+
+
+  if(!badges.length){
+
+    return "";
+
+  }
+
+
+  return `
+
+    <div class="fusion-badges">
+
+      ${badges
+        .slice(0,5)
+        .map(
+          badge => {
+
+            const url =
+              badge.url ||
+              badge.image ||
+              badge.src ||
+              "";
+
+
+            if(!url){
+
+              return "";
+
+            }
+
+
+            return `
+
+              <div
+                class="fusion-badge">
+
+                <img
+                  src="${escapeHTML(url)}"
+                  alt=""
+                  onerror="
+                    this.parentElement.style.display='none'
+                  ">
+
+              </div>
+
+            `;
+
+          }
+        )
+        .join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
    METADATA
-============================================================ */
+========================================================= */
 
 async function getManifest(){
 
@@ -1813,17 +2050,499 @@ function buildCatalogURL(
 }
 
 
-/* ============================================================
+/* =========================================================
+   TITLE KEYS
+========================================================= */
+
+function titleText(
+  meta
+){
+
+  return String(
+    [
+      meta?.name,
+      meta?.title,
+      meta?.description,
+      meta?.genres?.join?.(" "),
+      meta?.genre?.join?.(" "),
+      meta?.director?.join?.(" "),
+      meta?.cast?.join?.(" "),
+      meta?.network,
+      meta?.studio
+    ]
+    .filter(Boolean)
+    .join(" ")
+  )
+  .toLowerCase();
+
+}
+
+
+function containsAny(
+  text,
+  values
+){
+
+  return values.some(
+    value =>
+      text.includes(
+        value
+      )
+  );
+
+}
+
+
+/* =========================================================
+   CATEGORY CLASSIFICATION
+========================================================= */
+
+function classifyTitle(
+  meta
+){
+
+  const text =
+    titleText(
+      meta
+    );
+
+
+  const rows = [];
+
+
+  /*
+    Provider/network metadata is used
+    when available. This does not claim
+    that a title is currently available
+    from that service.
+  */
+
+  if(
+    containsAny(
+      text,
+      [
+        "netflix",
+        "netflix original"
+      ]
+    )
+  ){
+
+    rows.push(
+      "Netflix"
+    );
+
+  }
+
+
+  if(
+    containsAny(
+      text,
+      [
+        "disney",
+        "disney+",
+        "disney plus",
+        "pixar",
+        "marvel",
+        "star wars"
+      ]
+    )
+  ){
+
+    rows.push(
+      "Disney+"
+    );
+
+  }
+
+
+  if(
+    containsAny(
+      text,
+      [
+        "apple tv",
+        "apple tv+",
+        "apple original"
+      ]
+    )
+  ){
+
+    rows.push(
+      "Apple TV+"
+    );
+
+  }
+
+
+  if(
+    containsAny(
+      text,
+      [
+        "hbo",
+        "max original",
+        "hbo max"
+      ]
+    )
+  ){
+
+    rows.push(
+      "HBO / Max"
+    );
+
+  }
+
+
+  if(
+    containsAny(
+      text,
+      [
+        "amazon",
+        "prime video",
+        "amazon original"
+      ]
+    )
+  ){
+
+    rows.push(
+      "Prime Video"
+    );
+
+  }
+
+
+  return rows;
+
+}
+
+
+/* =========================================================
+   DEDUPE
+========================================================= */
+
+function dedupeMetas(
+  metas
+){
+
+  const seen =
+    new Set();
+
+
+  return metas.filter(
+    item => {
+
+      if(!item) return false;
+
+
+      const key =
+        String(
+          item.type || ""
+        ) +
+        "|" +
+        String(
+          item.id || ""
+        );
+
+
+      if(
+        seen.has(key)
+      ){
+
+        return false;
+
+      }
+
+
+      seen.add(key);
+
+      return true;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   POSTER CARD
+========================================================= */
+
+function renderPosterCard(
+  item
+){
+
+  const type =
+    encodeURIComponent(
+      item.type ||
+      "movie"
+    );
+
+
+  const id =
+    encodeURIComponent(
+      item.id ||
+      ""
+    );
+
+
+  const badges =
+    findBadges(
+      item
+    );
+
+
+  const badgeHTML =
+    badges
+      .slice(0,3)
+      .map(
+        badge => {
+
+          const url =
+            badge.url ||
+            badge.image ||
+            badge.src ||
+            "";
+
+
+          if(!url){
+
+            return "";
+
+          }
+
+
+          return `
+
+            <div
+              class="poster-badge">
+
+              <img
+                src="${escapeHTML(url)}"
+                style="
+                  max-width:90px;
+                  max-height:18px;
+                  display:block;
+                "
+                alt=""
+                onerror="
+                  this.parentElement.style.display='none'
+                ">
+
+            </div>
+
+          `;
+
+        }
+      )
+      .join("");
+
+
+  const poster =
+    item.poster ||
+    item.background ||
+    "";
+
+
+  return `
+
+    <button
+      class="poster-card"
+      onclick="
+        openTitle(
+          '${type}',
+          '${id}'
+        )
+      ">
+
+      <div class="poster-wrap">
+
+        ${
+          poster
+
+            ?
+
+            `
+
+            <img
+              class="poster"
+              src="${escapeHTML(poster)}"
+              loading="lazy"
+              alt="${escapeHTML(
+                item.name || ""
+              )}"
+              onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+              ">
+
+            <div
+              class="poster-fallback"
+              style="display:none">
+
+              ${escapeHTML(
+                item.name ||
+                "SAUVE"
+              )}
+
+            </div>
+
+            `
+
+            :
+
+            `
+
+            <div
+              class="poster-fallback">
+
+              ${escapeHTML(
+                item.name ||
+                "SAUVE"
+              )}
+
+            </div>
+
+            `
+        }
+
+
+        <div class="poster-gradient"></div>
+
+
+        <div class="poster-type">
+
+          ${
+            String(
+              item.type ||
+              ""
+            ).toUpperCase()
+          }
+
+        </div>
+
+
+        ${
+          badgeHTML
+
+            ?
+
+            `
+
+            <div
+              class="poster-badges">
+
+              ${badgeHTML}
+
+            </div>
+
+            `
+
+            :
+
+            ""
+        }
+
+      </div>
+
+
+      <div class="card-title">
+
+        ${escapeHTML(
+          item.name ||
+          "Untitled"
+        )}
+
+      </div>
+
+
+      <div class="card-sub">
+
+        ${escapeHTML(
+          item.releaseInfo ||
+          item.year ||
+          item.type ||
+          ""
+        )}
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* =========================================================
+   ROW
+========================================================= */
+
+function renderRow(
+  title,
+  items,
+  label=""
+){
+
+  if(
+    !items ||
+    !items.length
+  ){
+
+    return "";
+
+  }
+
+
+  return `
+
+    <section class="content-section">
+
+      <div class="section-heading">
+
+        <h2>
+          ${escapeHTML(title)}
+        </h2>
+
+        <span>
+          ${escapeHTML(
+            label ||
+            "SAUVE"
+          )}
+        </span>
+
+      </div>
+
+
+      <div class="row">
+
+        ${items
+          .slice(0,25)
+          .map(
+            renderPosterCard
+          )
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
    HOME
-============================================================ */
+========================================================= */
 
 async function loadHome(){
 
-  const box =
-    $("homeResults");
+  const container =
+    $("contentRows");
 
 
   try{
+
+    await loadBadges();
+
 
     const manifest =
       await getManifest();
@@ -1837,40 +2556,30 @@ async function loadHome(){
         : [];
 
 
-    const selected = [];
+    const selected =
+      catalogs.filter(
+        catalog =>
+          catalog &&
+          (
+            catalog.type ===
+              "movie" ||
 
-
-    ["movie","series"]
-      .forEach(
-        type => {
-
-          const catalog =
-            catalogs.find(
-              c =>
-                c &&
-                c.type === type
-            );
-
-
-          if(catalog){
-
-            selected.push(
-              catalog
-            );
-
-          }
-
-        }
+            catalog.type ===
+              "series"
+          )
       );
 
 
     if(!selected.length){
 
-      box.innerHTML = `
+      container.innerHTML = `
 
         <div class="notice">
+
           No movie or television catalogs
-          were advertised by the metadata addon.
+          were advertised by your metadata
+          addon.
+
         </div>
 
       `;
@@ -1882,18 +2591,20 @@ async function loadHome(){
 
     const responses =
       await Promise.allSettled(
-        selected.map(
-          catalog =>
-            fetchJSON(
-              buildCatalogURL(
-                catalog
+        selected
+          .slice(0,10)
+          .map(
+            catalog =>
+              fetchJSON(
+                buildCatalogURL(
+                  catalog
+                )
               )
-            )
-        )
+          )
       );
 
 
-    const metas = [];
+    let metas = [];
 
 
     responses.forEach(
@@ -1914,22 +2625,319 @@ async function loadHome(){
     );
 
 
-    box.innerHTML =
-      renderGrid(
-        dedupeMetas(
-          metas
-        )
+    metas =
+      dedupeMetas(
+        metas
       );
+
+
+    if(!metas.length){
+
+      container.innerHTML = `
+
+        <div class="notice">
+
+          Your metadata addon responded,
+          but did not return titles for the
+          homepage catalogs.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    const movies =
+      metas.filter(
+        item =>
+          item.type === "movie"
+      );
+
+
+    const series =
+      metas.filter(
+        item =>
+          item.type === "series"
+      );
+
+
+    const netflix = [];
+
+    const disney = [];
+
+    const apple = [];
+
+    const hbo = [];
+
+    const prime = [];
+
+
+    metas.forEach(
+      item => {
+
+        const rows =
+          classifyTitle(
+            item
+          );
+
+
+        if(
+          rows.includes(
+            "Netflix"
+          )
+        ){
+
+          netflix.push(
+            item
+          );
+
+        }
+
+
+        if(
+          rows.includes(
+            "Disney+"
+          )
+        ){
+
+          disney.push(
+            item
+          );
+
+        }
+
+
+        if(
+          rows.includes(
+            "Apple TV+"
+          )
+        ){
+
+          apple.push(
+            item
+          );
+
+        }
+
+
+        if(
+          rows.includes(
+            "HBO / Max"
+          )
+        ){
+
+          hbo.push(
+            item
+          );
+
+        }
+
+
+        if(
+          rows.includes(
+            "Prime Video"
+          )
+        ){
+
+          prime.push(
+            item
+          );
+
+        }
+
+      }
+    );
+
+
+    const featured =
+      metas
+        .slice()
+        .sort(
+          (a,b) =>
+            (
+              Number(
+                b.imdbRating ||
+                b.rating ||
+                0
+              )
+            )
+            -
+            (
+              Number(
+                a.imdbRating ||
+                a.rating ||
+                0
+              )
+            )
+        )
+        .slice(
+          0,
+          12
+        );
+
+
+    const popularMovies =
+      movies.slice(
+        0,
+        25
+      );
+
+
+    const popularSeries =
+      series.slice(
+        0,
+        25
+      );
+
+
+    let html = "";
+
+
+    html +=
+      renderRow(
+        "Featured",
+        featured,
+        "SAUVE"
+      );
+
+
+    if(
+      netflix.length
+    ){
+
+      html +=
+        renderRow(
+          "Netflix",
+          netflix,
+          "NETFLIX"
+        );
+
+    }
+
+
+    if(
+      disney.length
+    ){
+
+      html +=
+        renderRow(
+          "Disney+",
+          disney,
+          "DISNEY"
+        );
+
+    }
+
+
+    if(
+      apple.length
+    ){
+
+      html +=
+        renderRow(
+          "Apple TV+",
+          apple,
+          "APPLE"
+        );
+
+    }
+
+
+    if(
+      hbo.length
+    ){
+
+      html +=
+        renderRow(
+          "HBO / Max",
+          hbo,
+          "MAX"
+        );
+
+    }
+
+
+    if(
+      prime.length
+    ){
+
+      html +=
+        renderRow(
+          "Prime Video",
+          prime,
+          "PRIME"
+        );
+
+    }
+
+
+    html +=
+      renderRow(
+        "Popular Movies",
+        popularMovies,
+        "MOVIES"
+      );
+
+
+    html +=
+      renderRow(
+        "Popular Television",
+        popularSeries,
+        "SERIES"
+      );
+
+
+    /*
+      Always give the user a useful
+      Netflix-style row even when provider
+      metadata isn't present.
+    */
+
+    if(
+      !netflix.length &&
+      !disney.length &&
+      !apple.length &&
+      !hbo.length &&
+      !prime.length
+    ){
+
+      html =
+        renderRow(
+          "Movies",
+          popularMovies,
+          "MOVIES"
+        ) +
+
+        renderRow(
+          "Television",
+          popularSeries,
+          "SERIES"
+        );
+
+    }
+
+
+    container.innerHTML =
+      html;
+
+
+    setupHero(
+      featured[0] ||
+      metas[0]
+    );
 
   }
   catch(error){
 
-    box.innerHTML = `
+    container.innerHTML = `
 
       <div class="notice">
 
         <strong>
-          METADATA ERROR
+          SAUVE COULD NOT LOAD
         </strong>
 
         <br><br>
@@ -1937,6 +2945,11 @@ async function loadHome(){
         ${escapeHTML(
           error.message
         )}
+
+        <br><br>
+
+        Open Settings and verify your
+        metadata manifest.
 
       </div>
 
@@ -1947,9 +2960,152 @@ async function loadHome(){
 }
 
 
-/* ============================================================
+/* =========================================================
+   HERO
+========================================================= */
+
+function setupHero(
+  meta
+){
+
+  if(!meta){
+
+    return;
+
+  }
+
+
+  const hero =
+    $("hero");
+
+  const image =
+    $("heroImage");
+
+
+  const background =
+    meta.background ||
+    meta.poster ||
+    "";
+
+
+  if(background){
+
+    image.src =
+      background;
+
+    image.onload =
+      () =>
+        hero.classList.add(
+          "has-image"
+        );
+
+  }
+
+
+  const title =
+    meta.name ||
+    "CINEMA";
+
+
+  const kicker =
+    $("hero")
+      .querySelector(
+        ".hero-kicker"
+      );
+
+
+  const h1 =
+    $("hero")
+      .querySelector(
+        "h1"
+      );
+
+
+  const p =
+    $("hero")
+      .querySelector(
+        "p"
+      );
+
+
+  if(kicker){
+
+    kicker.textContent =
+      "FEATURED ON SAUVE";
+
+  }
+
+
+  if(h1){
+
+    h1.innerHTML =
+      escapeHTML(
+        title
+      )
+      .replace(
+        /\s+/g,
+        "<br>"
+      );
+
+  }
+
+
+  if(p){
+
+    p.textContent =
+      meta.description ||
+      "Discover movies and television on SAUVE.";
+
+  }
+
+
+  const buttons =
+    $("hero")
+      .querySelector(
+        ".hero-buttons"
+      );
+
+
+  if(buttons){
+
+    buttons.innerHTML = `
+
+      <button
+        class="primary"
+        onclick="
+          openTitle(
+            '${encodeURIComponent(
+              meta.type || "movie"
+            )}',
+            '${encodeURIComponent(
+              meta.id || ""
+            )}'
+          )
+        ">
+
+        ▶ WATCH
+
+      </button>
+
+
+      <button
+        class="secondary"
+        onclick="focusSearch()">
+
+        ⌕ SEARCH
+
+      </button>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
    SEARCH
-============================================================ */
+========================================================= */
 
 async function performSearch(){
 
@@ -1972,7 +3128,7 @@ async function performSearch(){
 
     <section>
 
-      <div class="heading">
+      <div class="section-heading">
 
         <h2>
           SEARCH
@@ -1983,6 +3139,7 @@ async function performSearch(){
         </span>
 
       </div>
+
 
       <div
         id="searchResults"
@@ -1998,6 +3155,9 @@ async function performSearch(){
 
 
   try{
+
+    await loadBadges();
+
 
     const manifest =
       await getManifest();
@@ -2034,7 +3194,7 @@ async function performSearch(){
       );
 
 
-    const metas = [];
+    let metas = [];
 
 
     responses.forEach(
@@ -2055,34 +3215,59 @@ async function performSearch(){
     );
 
 
-    const results =
+    metas =
       dedupeMetas(
         metas
       );
 
 
     $("searchResults")
-      .innerHTML =
-      results.length
-        ? renderGrid(results)
-        : `
+      .outerHTML =
 
-          <div class="notice">
+      metas.length
 
-            No results found for
-            <strong>
-              ${escapeHTML(query)}
-            </strong>.
+        ?
 
-          </div>
+        `
+
+        <div
+          id="searchResults">
+
+          ${renderSearchRows(
+            metas
+          )}
+
+        </div>
+
+        `
+
+        :
+
+        `
+
+        <div
+          id="searchResults"
+          class="notice">
+
+          No results found for
+          <strong>
+            ${escapeHTML(query)}
+          </strong>.
+
+        </div>
 
         `;
 
   }
   catch(error){
 
-    $("searchResults")
-      .innerHTML = `
+    const results =
+      $("searchResults");
+
+
+    if(results){
+
+      results.innerHTML = `
 
         <div class="notice">
 
@@ -2100,170 +3285,70 @@ async function performSearch(){
 
       `;
 
-  }
-
-}
-
-
-/* ============================================================
-   GRID
-============================================================ */
-
-function dedupeMetas(
-  metas
-){
-
-  const seen =
-    new Set();
-
-
-  return metas.filter(
-    item => {
-
-      const key =
-        String(
-          item.type || ""
-        ) +
-        "|" +
-        String(
-          item.id || ""
-        );
-
-
-      if(
-        seen.has(key)
-      ){
-
-        return false;
-
-      }
-
-
-      seen.add(key);
-
-      return true;
-
     }
-  );
+
+  }
 
 }
 
 
-function renderGrid(
+function renderSearchRows(
   metas
 ){
 
-  if(
-    !metas ||
-    !metas.length
-  ){
+  const movies =
+    metas.filter(
+      item =>
+        item.type === "movie"
+    );
 
-    return `
-      <div class="empty">
-        No results.
-      </div>
-    `;
+
+  const series =
+    metas.filter(
+      item =>
+        item.type === "series"
+    );
+
+
+  let html = "";
+
+
+  html +=
+    renderRow(
+      "Movies",
+      movies,
+      "SEARCH"
+    );
+
+
+  html +=
+    renderRow(
+      "Television",
+      series,
+      "SEARCH"
+    );
+
+
+  if(!html){
+
+    html =
+      renderRow(
+        "Results",
+        metas,
+        "SEARCH"
+      );
 
   }
 
 
-  return `
-
-    <div class="grid">
-
-      ${metas.map(
-        item => {
-
-          const type =
-            encodeURIComponent(
-              item.type ||
-              "movie"
-            );
-
-
-          const id =
-            encodeURIComponent(
-              item.id ||
-              ""
-            );
-
-
-          return `
-
-            <button
-              class="card"
-              onclick="
-                openTitle(
-                  '${type}',
-                  '${id}'
-                )
-              ">
-
-              <img
-                class="poster"
-                src="${escapeHTML(
-                  item.poster ||
-                  item.logo ||
-                  ""
-                )}"
-                loading="lazy"
-                onerror="
-                  this.style.opacity='0'
-                ">
-
-
-              <div class="card-info">
-
-                <div class="card-title">
-
-                  ${escapeHTML(
-                    item.name ||
-                    "Untitled"
-                  )}
-
-                </div>
-
-
-                <div class="card-sub">
-
-                  ${
-                    item.type === "series"
-                      ? "TELEVISION"
-                      : "MOVIE"
-                  }
-
-                  ${
-                    item.releaseInfo ||
-                    item.year
-                      ? " • " +
-                        escapeHTML(
-                          item.releaseInfo ||
-                          item.year
-                        )
-                      : ""
-                  }
-
-                </div>
-
-              </div>
-
-            </button>
-
-          `;
-
-        }
-      ).join("")}
-
-    </div>
-
-  `;
+  return html;
 
 }
 
 
-/* ============================================================
+/* =========================================================
    TITLE
-============================================================ */
+========================================================= */
 
 async function openTitle(
   encodedType,
@@ -2280,13 +3365,6 @@ async function openTitle(
     decodeURIComponent(
       encodedId
     );
-
-
-  currentTitleType =
-    type;
-
-  currentTitleId =
-    id;
 
 
   openModal(`
@@ -2340,29 +3418,95 @@ async function openTitle(
       data;
 
 
-    /*
-      SERIES:
-      Show seasons and episodes instead
-      of trying to request streams for the
-      series root ID.
-    */
+    openModal(`
 
-    if(type === "series"){
+      <div class="sheet-header">
 
-      renderSeriesDetails(
-        meta
-      );
+        <h2>
+          ${escapeHTML(
+            meta.name ||
+            "TITLE"
+          )}
+        </h2>
 
-      return;
+        <button
+          class="close"
+          onclick="closeModal()">
+          ×
+        </button>
 
-    }
+      </div>
 
 
-    renderMovieDetails(
-      meta,
-      type,
-      id
-    );
+      <div class="details">
+
+        <img
+          src="${escapeHTML(
+            meta.poster ||
+            meta.logo ||
+            ""
+          )}"
+          alt="">
+
+
+        <div>
+
+          <div class="meta">
+
+            ${escapeHTML(
+              meta.releaseInfo ||
+              meta.year ||
+              meta.type ||
+              ""
+            )}
+
+          </div>
+
+
+          ${renderFusionBadges(
+            meta
+          )}
+
+
+          <p>
+
+            ${escapeHTML(
+              meta.description ||
+              "No description available."
+            )}
+
+          </p>
+
+
+          <button
+            class="primary"
+            id="sourceButton">
+
+            ▶ FIND SOURCES
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="sources"
+        style="margin-top:25px">
+
+      </div>
+
+    `);
+
+
+    $("sourceButton")
+      .onclick =
+      () =>
+        findSources(
+          type,
+          id
+        );
 
   }
   catch(error){
@@ -2399,376 +3543,9 @@ async function openTitle(
 }
 
 
-/* ============================================================
-   MOVIE DETAILS
-============================================================ */
-
-function renderMovieDetails(
-  meta,
-  type,
-  id
-){
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        ${escapeHTML(
-          meta.name ||
-          "TITLE"
-        )}
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="details">
-
-      <img
-        src="${escapeHTML(
-          meta.poster ||
-          meta.logo ||
-          ""
-        )}">
-
-
-      <div>
-
-        <div class="meta">
-
-          ${escapeHTML(
-            meta.releaseInfo ||
-            meta.year ||
-            "MOVIE"
-          )}
-
-        </div>
-
-
-        <p>
-
-          ${escapeHTML(
-            meta.description ||
-            "No description available."
-          )}
-
-        </p>
-
-
-        <button
-          class="primary"
-          id="sourceButton">
-
-          ▶ FIND SOURCES
-
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="sources"
-      style="margin-top:25px">
-
-    </div>
-
-  `);
-
-
-  $("sourceButton")
-    .onclick =
-      () =>
-        findSources(
-          type,
-          id
-        );
-
-}
-
-
-/* ============================================================
-   SERIES DETAILS
-============================================================ */
-
-function renderSeriesDetails(
-  meta
-){
-
-  const videos =
-    Array.isArray(
-      meta.videos
-    )
-      ? meta.videos
-      : [];
-
-
-  if(!videos.length){
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          ${escapeHTML(
-            meta.name ||
-            "SERIES"
-          )}
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="notice">
-
-        This television series did not
-        return episode information from
-        the metadata addon.
-
-      </div>
-
-    `);
-
-    return;
-
-  }
-
-
-  const grouped = {};
-
-
-  videos.forEach(
-    episode => {
-
-      const season =
-        Number(
-          episode.season ||
-          1
-        );
-
-
-      if(!grouped[season]){
-
-        grouped[season] = [];
-
-      }
-
-
-      grouped[season].push(
-        episode
-      );
-
-    }
-  );
-
-
-  const seasons =
-    Object.keys(
-      grouped
-    )
-    .sort(
-      (a,b) =>
-        Number(a) -
-        Number(b)
-    );
-
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        ${escapeHTML(
-          meta.name ||
-          "TELEVISION"
-        )}
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="details">
-
-      <img
-        src="${escapeHTML(
-          meta.poster ||
-          meta.logo ||
-          ""
-        )}">
-
-
-      <div>
-
-        <div class="meta">
-          TELEVISION SERIES
-        </div>
-
-
-        <p>
-
-          ${escapeHTML(
-            meta.description ||
-            "Select an episode to find available sources."
-          )}
-
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div
-      id="episodeList"
-      style="margin-top:20px">
-
-      ${seasons.map(
-        season => `
-
-          <div class="season-title">
-
-            SEASON ${escapeHTML(season)}
-
-          </div>
-
-
-          ${grouped[season]
-            .sort(
-              (a,b) =>
-                Number(
-                  a.episode ||
-                  0
-                ) -
-                Number(
-                  b.episode ||
-                  0
-                )
-            )
-            .map(
-              episode => {
-
-                const episodeId =
-                  encodeURIComponent(
-                    episode.id ||
-                    ""
-                  );
-
-
-                return `
-
-                  <button
-                    class="episode"
-                    onclick="
-                      findEpisodeSources(
-                        '${episodeId}',
-                        '${escapeHTML(
-                          episode.title ||
-                          episode.name ||
-                          "Episode"
-                        ).replace(
-                          /'/g,
-                          "\\'"
-                        )}'
-                      )
-                    ">
-
-                    <div class="episode-number">
-
-                      E${String(
-                        episode.episode ||
-                        ""
-                      ).padStart(
-                        2,
-                        "0"
-                      )}
-
-                    </div>
-
-
-                    <div>
-
-                      <div class="episode-title">
-
-                        ${escapeHTML(
-                          episode.title ||
-                          episode.name ||
-                          "Episode"
-                        )}
-
-                      </div>
-
-
-                      <div class="episode-meta">
-
-                        ${
-                          episode.released
-                            ? escapeHTML(
-                                episode.released
-                              )
-                            : ""
-                        }
-
-                        ${
-                          episode.runtime
-                            ? " • " +
-                              escapeHTML(
-                                episode.runtime
-                              )
-                            : ""
-                        }
-
-                      </div>
-
-                    </div>
-
-                  </button>
-
-                `;
-
-              }
-            )
-            .join("")}
-
-        `
-      ).join("")}
-
-    </div>
-
-
-    <div
-      id="sources"
-      style="margin-top:25px">
-
-    </div>
-
-  `);
-
-}
-
-
-/* ============================================================
+/* =========================================================
    STREAM URL
-============================================================ */
+========================================================= */
 
 function buildStreamURL(
   type,
@@ -2789,9 +3566,9 @@ function buildStreamURL(
 }
 
 
-/* ============================================================
-   STREAM INFORMATION
-============================================================ */
+/* =========================================================
+   STREAM HELPERS
+========================================================= */
 
 function getStreamURL(
   stream
@@ -2801,90 +3578,6 @@ function getStreamURL(
     stream?.url ||
     ""
   ).trim();
-
-}
-
-
-function streamType(
-  stream
-){
-
-  const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
-
-
-  const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
-
-
-  if(
-    type.includes("mpegurl") ||
-    type.includes("m3u8") ||
-    url.includes(".m3u8")
-  ){
-
-    return "HLS";
-
-  }
-
-
-  if(
-    type.includes("mp4") ||
-    url.includes(".mp4")
-  ){
-
-    return "MP4";
-
-  }
-
-
-  if(
-    type.includes("webm") ||
-    url.includes(".webm")
-  ){
-
-    return "WEBM";
-
-  }
-
-
-  if(
-    stream?.playerFrameUrl
-  ){
-
-    return "PLAYER";
-
-  }
-
-
-  return "SOURCE";
-
-}
-
-
-function isExternal(
-  stream
-){
-
-  return Boolean(
-    stream?.externalUrl
-  );
-
-}
-
-
-function isPlayerFrame(
-  stream
-){
-
-  return Boolean(
-    stream?.playerFrameUrl
-  );
 
 }
 
@@ -2902,14 +3595,134 @@ function isNotWebReady(
 }
 
 
-/*
- IMPORTANT:
+function isPlayerFrame(
+  stream
+){
 
- We intentionally DO NOT use a strict
- "playable" filter anymore.
+  return Boolean(
+    stream?.playerFrameUrl
+  );
 
- Every returned source is displayed.
-*/
+}
+
+
+function isExternal(
+  stream
+){
+
+  return Boolean(
+    stream?.externalUrl
+  );
+
+}
+
+
+function isHLS(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+
+  return (
+    type.includes("mpegurl") ||
+    type.includes("m3u8") ||
+    url.includes(".m3u8")
+  );
+
+}
+
+
+function isMP4(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+
+  return (
+    type.includes("mp4") ||
+    url.includes(".mp4")
+  );
+
+}
+
+
+function isWebM(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+
+  return (
+    type.includes("webm") ||
+    url.includes(".webm")
+  );
+
+}
+
+
+function isPlayableCandidate(
+  stream
+){
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    return true;
+
+  }
+
+
+  if(
+    isExternal(stream)
+  ){
+
+    return false;
+
+  }
+
+
+  return (
+    isHLS(stream) ||
+    isMP4(stream) ||
+    isWebM(stream)
+  );
+
+}
+
 
 function compatibilityScore(
   stream
@@ -2919,8 +3732,16 @@ function compatibilityScore(
 
 
   if(
-    streamType(stream) ===
-    "MP4"
+    isMP4(stream)
+  ){
+
+    score += 100;
+
+  }
+
+
+  if(
+    isHLS(stream)
   ){
 
     score += 90;
@@ -2929,18 +3750,7 @@ function compatibilityScore(
 
 
   if(
-    streamType(stream) ===
-    "HLS"
-  ){
-
-    score += 85;
-
-  }
-
-
-  if(
-    streamType(stream) ===
-    "WEBM"
+    isWebM(stream)
   ){
 
     score += 80;
@@ -2952,16 +3762,16 @@ function compatibilityScore(
     isPlayerFrame(stream)
   ){
 
-    score += 75;
+    score += 70;
 
   }
 
 
   if(
-    isNotWebReady(stream)
+    isExternal(stream)
   ){
 
-    score += 1;
+    score -= 100;
 
   }
 
@@ -2970,321 +3780,6 @@ function compatibilityScore(
 
 }
 
-
-/* ============================================================
-   STREAM DETAILS
-============================================================ */
-
-function getStreamInfo(
-  stream
-){
-
-  const hints =
-    stream?.behaviorHints ||
-    {};
-
-
-  const info = [];
-
-
-  const quality =
-    stream.quality ||
-    stream.resolution ||
-    hints.videoSize;
-
-
-  if(quality){
-
-    info.push({
-      label:"QUALITY",
-      value:String(quality)
-    });
-
-  }
-
-
-  if(stream.videoCodec){
-
-    info.push({
-      label:"VIDEO",
-      value:String(
-        stream.videoCodec
-      )
-    });
-
-  }
-
-
-  if(stream.audioCodec){
-
-    info.push({
-      label:"AUDIO",
-      value:String(
-        stream.audioCodec
-      )
-    });
-
-  }
-
-
-  if(stream.audio){
-
-    info.push({
-      label:"AUDIO",
-      value:String(
-        stream.audio
-      )
-    });
-
-  }
-
-
-  if(stream.language){
-
-    info.push({
-      label:"LANGUAGE",
-      value:String(
-        stream.language
-      )
-    });
-
-  }
-
-
-  if(stream.size){
-
-    info.push({
-      label:"SIZE",
-      value:String(
-        stream.size
-      )
-    });
-
-  }
-
-
-  if(stream.bitrate){
-
-    info.push({
-      label:"BITRATE",
-      value:String(
-        stream.bitrate
-      )
-    });
-
-  }
-
-
-  if(stream.container){
-
-    info.push({
-      label:"CONTAINER",
-      value:String(
-        stream.container
-      )
-    });
-
-  }
-
-
-  return info;
-
-}
-
-
-function renderStreamInfo(
-  stream
-){
-
-  const info =
-    getStreamInfo(
-      stream
-    );
-
-
-  if(!info.length){
-
-    return "";
-
-  }
-
-
-  return `
-
-    <div class="stream-info">
-
-      ${info.map(
-        item => `
-
-          <div class="stream-info-item">
-
-            ${escapeHTML(
-              item.label
-            )}
-
-            <br>
-
-            <strong>
-              ${escapeHTML(
-                item.value
-              )}
-            </strong>
-
-          </div>
-
-        `
-      ).join("")}
-
-    </div>
-
-  `;
-
-}
-
-
-/* ============================================================
-   SOURCE UI
-============================================================ */
-
-function renderSource(
-  stream,
-  index
-){
-
-  const format =
-    streamType(
-      stream
-    );
-
-
-  const warning =
-    isNotWebReady(
-      stream
-    );
-
-
-  const external =
-    isExternal(
-      stream
-    );
-
-
-  return `
-
-    <button
-      class="source"
-      onclick="playSource(${index})">
-
-
-      <div class="source-top">
-
-        <div class="source-icon">
-          ▶
-        </div>
-
-
-        <div>
-
-          <div class="source-name">
-
-            ${escapeHTML(
-              stream.name ||
-              stream.title ||
-              "STREAM SOURCE"
-            )}
-
-          </div>
-
-
-          <div class="provider">
-
-            ${escapeHTML(
-              providerName(
-                stream
-              )
-            )}
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="badges">
-
-        ${renderBadges(
-          stream
-        )}
-
-
-        <span class="
-          badge
-          ${warning
-            ? "warning"
-            : "ready"}
-        ">
-
-          ${
-            warning
-              ? "NOT WEB READY"
-              : "AVAILABLE"
-          }
-
-        </span>
-
-
-        <span class="badge">
-
-          ${format}
-
-        </span>
-
-      </div>
-
-
-      ${renderStreamInfo(
-        stream
-      )}
-
-
-      <div class="source-desc">
-
-        ${
-          external
-
-            ? "External destination returned by provider. SAUVE will not treat it as a normal direct media file."
-
-            :
-
-          isPlayerFrame(stream)
-
-            ? "Provider player detected. Tap to open the embedded player."
-
-            :
-
-          warning
-
-            ? "Provider marked this source not web-ready. SAUVE will still let you attempt it."
-
-            :
-
-          "Tap to attempt playback."
-
-        }
-
-      </div>
-
-    </button>
-
-  `;
-
-}
-
-
-/* ============================================================
-   PROVIDER
-============================================================ */
 
 function providerName(
   stream
@@ -3316,7 +3811,8 @@ function providerName(
 
 
   for(
-    const name of providers
+    const name
+    of providers
   ){
 
     if(
@@ -3335,9 +3831,237 @@ function providerName(
 }
 
 
-/* ============================================================
-   FIND MOVIE SOURCES
-============================================================ */
+/* =========================================================
+   SOURCE UI
+========================================================= */
+
+function renderSource(
+  stream,
+  index
+){
+
+  const playable =
+    isPlayableCandidate(
+      stream
+    );
+
+
+  let format =
+    "SOURCE";
+
+
+  if(
+    isMP4(stream)
+  ){
+
+    format =
+      "MP4";
+
+  }
+  else if(
+    isHLS(stream)
+  ){
+
+    format =
+      "HLS";
+
+  }
+  else if(
+    isWebM(stream)
+  ){
+
+    format =
+      "WEBM";
+
+  }
+  else if(
+    isPlayerFrame(stream)
+  ){
+
+    format =
+      "PLAYER";
+
+  }
+
+
+  return `
+
+    <button
+      class="source"
+      ${
+        playable
+          ?
+          `onclick="playSource(${index})"`
+          :
+          `disabled`
+      }>
+
+
+      <div class="source-top">
+
+        <div class="source-icon">
+
+          ${
+            playable
+              ? "▶"
+              : "×"
+          }
+
+        </div>
+
+
+        <div>
+
+          <div class="source-name">
+
+            ${escapeHTML(
+              stream.name ||
+              stream.title ||
+              "SOURCE"
+            )}
+
+          </div>
+
+
+          <div class="provider">
+
+            ${escapeHTML(
+              providerName(
+                stream
+              )
+            )}
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="badges">
+
+        <span class="
+          badge
+          ${playable ? "good" : ""}
+        ">
+
+          ${format}
+
+        </span>
+
+
+        ${
+          isNotWebReady(stream)
+
+            ?
+
+            `
+            <span class="badge warning">
+              NOT WEB READY
+            </span>
+            `
+
+            :
+
+            `
+            <span class="badge good">
+              WEB READY
+            </span>
+            `
+        }
+
+
+        ${
+          stream.quality
+
+            ?
+
+            `
+            <span class="badge">
+              ${escapeHTML(
+                stream.quality
+              )}
+            </span>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${
+          stream.size
+
+            ?
+
+            `
+            <span class="badge">
+              ${escapeHTML(
+                stream.size
+              )}
+            </span>
+            `
+
+            :
+
+            ""
+        }
+
+      </div>
+
+
+      <div class="source-desc">
+
+        ${
+          isExternal(stream)
+
+            ?
+
+            "External destination — not a direct media stream."
+
+            :
+
+          isPlayerFrame(stream)
+
+            ?
+
+            "Provider supplied an embedded player."
+
+            :
+
+          isNotWebReady(stream)
+
+            ?
+
+            "Provider marked this source not web-ready. Playback may still depend on browser compatibility."
+
+            :
+
+          playable
+
+            ?
+
+            "Compatible media source detected."
+
+            :
+
+            "No recognized browser media format."
+
+        }
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* =========================================================
+   FIND SOURCES
+========================================================= */
 
 async function findSources(
   type,
@@ -3353,7 +4077,18 @@ async function findSources(
   }
 
 
-  $("sources").innerHTML = `
+  const box =
+    $("sources");
+
+
+  if(!box){
+
+    return;
+
+  }
+
+
+  box.innerHTML = `
 
     <div class="empty">
 
@@ -3387,7 +4122,7 @@ async function findSources(
       !currentStreams.length
     ){
 
-      $("sources").innerHTML = `
+      box.innerHTML = `
 
         <div class="notice">
 
@@ -3410,18 +4145,15 @@ async function findSources(
     );
 
 
-    /*
-      EVERYTHING returned by the addon
-      remains visible.
-    */
-
     currentPlayableStreams =
-      currentStreams.slice();
+      currentStreams.filter(
+        isPlayableCandidate
+      );
 
 
-    $("sources").innerHTML = `
+    box.innerHTML = `
 
-      <div class="heading">
+      <div class="section-heading">
 
         <h2>
           SOURCES
@@ -3436,17 +4168,14 @@ async function findSources(
 
       <div class="notice">
 
-        <strong>
-          ${currentStreams.length}
-        </strong>
-        source(s) returned.
+        ${currentPlayableStreams.length}
+        compatible source(s) detected.
 
         <br><br>
 
-        Sources are no longer automatically
-        disabled because of
-        <strong>NOT WEB READY</strong>.
-        Tap any source to attempt playback.
+        MP4 and HLS sources are ranked
+        ahead of less browser-friendly
+        sources.
 
       </div>
 
@@ -3462,7 +4191,7 @@ async function findSources(
   }
   catch(error){
 
-    $("sources").innerHTML = `
+    box.innerHTML = `
 
       <div class="notice">
 
@@ -3485,186 +4214,9 @@ async function findSources(
 }
 
 
-/* ============================================================
-   FIND EPISODE SOURCES
-============================================================ */
-
-async function findEpisodeSources(
-  encodedId,
-  episodeTitle
-){
-
-  const episodeId =
-    decodeURIComponent(
-      encodedId
-    );
-
-
-  currentTitleType =
-    "series";
-
-
-  currentTitleId =
-    episodeId;
-
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        ${escapeHTML(
-          episodeTitle ||
-          "EPISODE"
-        )}
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div
-      id="sources"
-      style="margin-top:5px">
-
-      <div class="empty">
-
-        Loading episode sources…
-
-      </div>
-
-    </div>
-
-  `);
-
-
-  if(!state.stream){
-
-    openSettings();
-
-    return;
-
-  }
-
-
-  try{
-
-    const data =
-      await fetchJSON(
-        buildStreamURL(
-          "series",
-          episodeId
-        )
-      );
-
-
-    currentStreams =
-      Array.isArray(
-        data.streams
-      )
-        ? data.streams
-        : [];
-
-
-    currentStreams.sort(
-      (a,b) =>
-        compatibilityScore(b) -
-        compatibilityScore(a)
-    );
-
-
-    currentPlayableStreams =
-      currentStreams.slice();
-
-
-    if(!currentStreams.length){
-
-      $("sources").innerHTML = `
-
-        <div class="notice">
-
-          No sources were returned for
-          this episode.
-
-        </div>
-
-      `;
-
-      return;
-
-    }
-
-
-    $("sources").innerHTML = `
-
-      <div class="heading">
-
-        <h2>
-          SOURCES
-        </h2>
-
-        <span>
-          ${currentStreams.length}
-        </span>
-
-      </div>
-
-
-      <div class="notice">
-
-        ${currentStreams.length}
-        source(s) found for this episode.
-
-        <br><br>
-
-        All returned sources remain
-        selectable.
-
-      </div>
-
-
-      ${currentStreams
-        .map(
-          renderSource
-        )
-        .join("")}
-
-    `;
-
-  }
-  catch(error){
-
-    $("sources").innerHTML = `
-
-      <div class="notice">
-
-        <strong>
-          EPISODE STREAM ERROR
-        </strong>
-
-        <br><br>
-
-        ${escapeHTML(
-          error.message
-        )}
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* ============================================================
+/* =========================================================
    PLAY SOURCE
-============================================================ */
+========================================================= */
 
 function playSource(
   index
@@ -3682,12 +4234,19 @@ function playSource(
 
 
   currentPlayerIndex =
-    index;
+    currentPlayableStreams.indexOf(
+      stream
+    );
 
 
-  /*
-    Provider player gets priority.
-  */
+  if(
+    currentPlayerIndex < 0
+  ){
+
+    currentPlayerIndex = 0;
+
+  }
+
 
   if(
     isPlayerFrame(stream)
@@ -3702,11 +4261,6 @@ function playSource(
   }
 
 
-  /*
-    Direct URL gets sent to the
-    browser video element.
-  */
-
   playDirectStream(
     stream
   );
@@ -3714,52 +4268,13 @@ function playSource(
 }
 
 
-/* ============================================================
-   DIRECT PLAYBACK
-============================================================ */
+/* =========================================================
+   DIRECT PLAYER
+========================================================= */
 
 function playDirectStream(
   stream
 ){
-
-  const url =
-    getStreamURL(
-      stream
-    );
-
-
-  if(!url){
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          SOURCE
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="notice">
-
-        This source did not provide a
-        direct media URL.
-
-      </div>
-
-    `);
-
-    return;
-
-  }
-
 
   openModal(`
 
@@ -3769,13 +4284,10 @@ function playDirectStream(
         NOW PLAYING
       </h2>
 
-
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -3835,6 +4347,27 @@ function playDirectStream(
     $("playerStatus");
 
 
+  const url =
+    getStreamURL(
+      stream
+    );
+
+
+  if(!url){
+
+    showPlayerError(
+      "No direct media URL was returned."
+    );
+
+    return;
+
+  }
+
+
+  video.src =
+    url;
+
+
   video.addEventListener(
     "loadedmetadata",
     () => {
@@ -3881,18 +4414,12 @@ function playDirectStream(
     "error",
     () => {
 
-      status.textContent =
-        "Safari could not decode or access this source.";
-
-      status.className =
-        "player-status error";
+      showPlayerError(
+        "Safari could not decode or access this video source."
+      );
 
     }
   );
-
-
-  video.src =
-    url;
 
 
   video.load();
@@ -3900,9 +4427,9 @@ function playDirectStream(
 }
 
 
-/* ============================================================
+/* =========================================================
    EMBEDDED PLAYER
-============================================================ */
+========================================================= */
 
 function openEmbeddedPlayer(
   stream
@@ -3916,6 +4443,10 @@ function openEmbeddedPlayer(
 
 
   if(!url){
+
+    showPlayerError(
+      "No player URL was returned."
+    );
 
     return;
 
@@ -3999,15 +4530,44 @@ function openEmbeddedPlayer(
 }
 
 
-/* ============================================================
+/* =========================================================
+   PLAYER ERROR
+========================================================= */
+
+function showPlayerError(
+  message
+){
+
+  const status =
+    $("playerStatus");
+
+
+  if(status){
+
+    status.textContent =
+      message;
+
+    status.className =
+      "player-status error";
+
+  }
+
+}
+
+
+/* =========================================================
    NEXT SOURCE
-============================================================ */
+========================================================= */
 
 function tryNextSource(){
 
   if(
-    !currentStreams.length
+    !currentPlayableStreams.length
   ){
+
+    showPlayerError(
+      "No compatible sources were detected."
+    );
 
     return;
 
@@ -4019,7 +4579,8 @@ function tryNextSource(){
 
 
   if(
-    next >= currentStreams.length
+    next >=
+    currentPlayableStreams.length
   ){
 
     next = 0;
@@ -4031,16 +4592,35 @@ function tryNextSource(){
     next;
 
 
-  playSource(
-    next
-  );
+  const stream =
+    currentPlayableStreams[
+      next
+    ];
+
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    openEmbeddedPlayer(
+      stream
+    );
+
+  }
+  else{
+
+    playDirectStream(
+      stream
+    );
+
+  }
 
 }
 
 
-/* ============================================================
-   SOURCES AGAIN
-============================================================ */
+/* =========================================================
+   SOURCE LIST AGAIN
+========================================================= */
 
 function showSourcesAgain(){
 
@@ -4064,15 +4644,6 @@ function showSourcesAgain(){
     </div>
 
 
-    <div
-      class="notice">
-
-      All sources returned by the
-      stream addon are shown below.
-
-    </div>
-
-
     ${
       currentStreams.length
 
@@ -4087,9 +4658,9 @@ function showSourcesAgain(){
         :
 
         `
-          <div class="empty">
-            No sources available.
-          </div>
+        <div class="empty">
+          No sources available.
+        </div>
         `
     }
 
@@ -4098,9 +4669,9 @@ function showSourcesAgain(){
 }
 
 
-/* ============================================================
+/* =========================================================
    SETTINGS
-============================================================ */
+========================================================= */
 
 function openSettings(){
 
@@ -4157,17 +4728,32 @@ function openSettings(){
     </div>
 
 
+    <div class="field">
+
+      <label>
+        Fusion Badge Feed
+      </label>
+
+
+      <input
+        id="badgesURL"
+        value="${escapeHTML(
+          state.badges
+        )}">
+
+    </div>
+
+
     <div class="notice">
 
-      Your manifest addresses are stored
-      locally in this browser.
+      Your manifest and badge addresses
+      are stored locally in this browser.
 
       <br><br>
 
-      SAUVE now displays all sources returned
-      by the stream addon instead of
-      automatically removing sources marked
-      NOT WEB READY.
+      SAUVE does not bypass DRM,
+      authentication, CORS or provider
+      restrictions.
 
     </div>
 
@@ -4202,6 +4788,12 @@ function saveSettings(){
       .trim();
 
 
+  const badges =
+    $("badgesURL")
+      .value
+      .trim();
+
+
   if(!metadata){
 
     alert(
@@ -4221,6 +4813,10 @@ function saveSettings(){
     stream;
 
 
+  state.badges =
+    badges;
+
+
   localStorage.setItem(
     "sauve_metadata",
     metadata
@@ -4233,6 +4829,12 @@ function saveSettings(){
   );
 
 
+  localStorage.setItem(
+    "sauve_badges",
+    badges
+  );
+
+
   closeModal();
 
   location.reload();
@@ -4240,14 +4842,26 @@ function saveSettings(){
 }
 
 
-/* ============================================================
+/* =========================================================
    UI
-============================================================ */
+========================================================= */
 
 function focusSearch(){
 
-  $("searchInput")
-    .focus();
+  const input =
+    $("searchInput");
+
+
+  if(input){
+
+    input.focus();
+
+    input.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
 
 }
 
@@ -4328,9 +4942,9 @@ $("searchInput")
   );
 
 
-/* ============================================================
+/* =========================================================
    START
-============================================================ */
+========================================================= */
 
 loadHome();
 
