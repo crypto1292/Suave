@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
 <meta name="theme-color" content="#05030b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <title>SAUVE Cinema Television</title>
 
 <style>
@@ -27,13 +29,12 @@
 
 html,body{
   margin:0;
-  padding:0;
   min-height:100%;
   background:#05030b;
 }
 
 body{
-  color:white;
+  color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
   overflow-x:hidden;
   background:
@@ -66,9 +67,9 @@ header{
   line-height:.78;
   letter-spacing:7px;
   transform:skewX(-7deg);
-  color:white;
+  color:#fff;
   text-shadow:
-    0 0 4px white,
+    0 0 4px #fff,
     0 0 9px var(--pink),
     0 0 20px var(--pink),
     0 0 45px var(--purple),
@@ -98,7 +99,7 @@ header{
   padding:14px;
   border-radius:8px;
   background:#0c0715;
-  color:white;
+  color:#fff;
   border:1px solid rgba(138,77,255,.45);
   outline:none;
 }
@@ -112,7 +113,7 @@ header{
   padding:0 18px;
   border:0;
   border-radius:8px;
-  color:white;
+  color:#fff;
   font-weight:900;
   background:linear-gradient(135deg,var(--pink),var(--purple));
 }
@@ -144,14 +145,6 @@ main{
   position:absolute;
   inset:0;
   background:linear-gradient(90deg,rgba(5,3,11,.98),rgba(5,3,11,.72) 48%,rgba(5,3,11,.05));
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.08;
-  background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(255,255,255,.18) 4px);
 }
 
 .hero-content{
@@ -197,7 +190,7 @@ main{
 
 .primary{
   border:0;
-  color:white;
+  color:#fff;
   background:linear-gradient(135deg,var(--pink),var(--purple));
   box-shadow:0 0 18px rgba(255,22,216,.25);
 }
@@ -255,7 +248,7 @@ main{
   border:0;
   padding:0;
   text-align:left;
-  color:white;
+  color:#fff;
   background:#10091c;
   border-radius:8px;
   scroll-snap-align:start;
@@ -312,60 +305,16 @@ main{
   letter-spacing:1px;
 }
 
-.poster-score{
-  position:absolute;
-  top:7px;
-  right:7px;
-  padding:4px 6px;
-  border-radius:4px;
-  background:rgba(0,0,0,.78);
-  color:var(--yellow);
-  font-size:8px;
-  font-weight:900;
-}
-
-.poster-badges{
-  position:absolute;
-  left:7px;
-  bottom:42px;
-  display:flex;
-  gap:4px;
-  flex-wrap:wrap;
-}
-
-.mini-badge{
-  padding:3px 5px;
-  border-radius:4px;
-  background:rgba(25,234,255,.12);
-  color:var(--cyan);
-  font-size:6px;
-  font-weight:900;
+.list-count{
+  margin-left:8px;
+  color:#8d8096;
+  font-size:9px;
 }
 
 .empty{
   padding:28px 5px;
   color:var(--muted);
   font-size:13px;
-}
-
-.loading-row{
-  display:flex;
-  gap:13px;
-  overflow:hidden;
-}
-
-.loading-card{
-  flex:0 0 145px;
-  aspect-ratio:2/3;
-  border-radius:8px;
-  background:linear-gradient(100deg,#10091c 30%,#211333 45%,#10091c 60%);
-  background-size:300% 100%;
-  animation:shimmer 1.4s infinite;
-}
-
-@keyframes shimmer{
-  from{background-position:100% 0}
-  to{background-position:-100% 0}
 }
 
 .notice{
@@ -376,6 +325,14 @@ main{
   color:#c8bacf;
   line-height:1.6;
   font-size:12px;
+}
+
+.notice strong{
+  color:#fff;
+}
+
+.mdb-error{
+  color:#ff91aa;
 }
 
 .modal{
@@ -458,7 +415,7 @@ main{
   margin-top:9px;
   padding:14px;
   text-align:left;
-  color:white;
+  color:#fff;
   border-radius:9px;
   background:linear-gradient(100deg,#150c29,#0d0819);
   border:1px solid rgba(25,234,255,.15);
@@ -504,6 +461,7 @@ main{
   display:inline-block;
   padding:4px 7px;
   margin-right:5px;
+  margin-bottom:4px;
   border-radius:5px;
   background:rgba(255,22,216,.10);
   color:#ff7be4;
@@ -585,7 +543,7 @@ iframe{
 .player-button{
   padding:10px 13px;
   border-radius:7px;
-  color:white;
+  color:#fff;
   background:#170d27;
   border:1px solid rgba(255,255,255,.1);
   font-weight:800;
@@ -597,7 +555,9 @@ iframe{
   border:0;
 }
 
-.field{margin:18px 0}
+.field{
+  margin:18px 0;
+}
 
 .field label{
   display:block;
@@ -614,66 +574,47 @@ iframe{
   padding:13px;
   border-radius:7px;
   background:#080510;
-  color:white;
+  color:#fff;
   border:1px solid rgba(138,77,255,.3);
   outline:none;
 }
 
-.field textarea{
+.mdb-list-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.mdb-list-row input{
   width:100%;
-  min-height:100px;
-  padding:13px;
+}
+
+.remove-list{
+  min-width:44px;
   border-radius:7px;
-  resize:vertical;
-  background:#080510;
-  color:white;
-  border:1px solid rgba(138,77,255,.3);
-  outline:none;
-}
-
-.settings-list{
-  margin-top:10px;
-}
-
-.saved-list{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:12px;
-  margin-top:8px;
-  border-radius:8px;
-  background:#120a20;
-  border:1px solid rgba(255,22,216,.13);
-}
-
-.saved-list-name{
-  min-width:0;
-  font-size:11px;
-  font-weight:900;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.saved-list-url{
-  margin-top:3px;
-  color:#7d7187;
-  font-size:8px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.delete-list{
-  flex:none;
-  width:32px;
-  height:32px;
+  color:#ff7c98;
+  background:#170d20;
   border:1px solid rgba(255,85,119,.25);
-  background:rgba(255,85,119,.07);
-  color:var(--red);
-  border-radius:7px;
 }
+
+.small-button{
+  padding:10px 13px;
+  border-radius:7px;
+  border:1px solid rgba(25,234,255,.25);
+  background:#10091c;
+  color:var(--cyan);
+  font-weight:900;
+}
+
+.status-line{
+  margin-top:10px;
+  font-size:11px;
+  color:#94869d;
+}
+
+.status-line.ok{color:var(--green)}
+.status-line.error{color:var(--red)}
 
 .nav{
   position:fixed;
@@ -711,19 +652,30 @@ iframe{
   text-shadow:0 0 10px var(--pink);
 }
 
-.section-error{
-  margin-top:10px;
-  padding:12px;
-  border-radius:8px;
-  background:rgba(255,85,119,.06);
-  border:1px solid rgba(255,85,119,.16);
-  color:#caaeb8;
-  font-size:10px;
+.loading-bar{
+  height:3px;
+  width:100%;
+  overflow:hidden;
+  background:#10091a;
+  border-radius:20px;
+}
+
+.loading-bar:after{
+  content:"";
+  display:block;
+  width:40%;
+  height:100%;
+  background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));
+  animation:loading 1.2s infinite;
+}
+
+@keyframes loading{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(300%)}
 }
 
 @media(min-width:700px){
   .poster-card{flex-basis:180px}
-  .loading-card{flex-basis:180px}
   .details{grid-template-columns:190px 1fr}
   .details img{width:190px}
   .hero{min-height:580px}
@@ -746,7 +698,10 @@ iframe{
       type="search"
       autocomplete="off"
       placeholder="Search movies & television">
-    <button id="searchButton">SEARCH</button>
+
+    <button id="searchButton">
+      SEARCH
+    </button>
   </div>
 </header>
 
@@ -767,26 +722,36 @@ iframe{
       <p>
         Discover movies and television,
         browse your catalogs and MDBList
-        collections, then open a title to
-        find its available sources.
+        collections, find available sources
+        and play compatible streams directly
+        inside SAUVE.
       </p>
 
       <div class="hero-buttons">
 
-        <button class="primary" onclick="focusSearch()">
+        <button
+          class="primary"
+          onclick="focusSearch()">
           ⌕ SEARCH
         </button>
 
-        <button class="secondary" onclick="openSettings()">
+        <button
+          class="secondary"
+          onclick="openSettings()">
           ⚙ SETTINGS
         </button>
 
       </div>
+
     </div>
   </div>
 
   <div id="catalogContainer">
-    <div class="empty">Loading SAUVE…</div>
+    <div class="empty">
+      <div class="loading-bar"></div>
+      <br>
+      Loading SAUVE…
+    </div>
   </div>
 
 </main>
@@ -817,7 +782,7 @@ iframe{
 <script>
 
 /* ============================================================
-   SAUVE CONFIG
+   CONFIG
 ============================================================ */
 
 const DEFAULT_METADATA =
@@ -833,12 +798,12 @@ const state = {
     localStorage.getItem("sauve_stream") ||
     "",
 
-  mdblistKey:
-    localStorage.getItem("sauve_mdblist_key") ||
+  mdbApiKey:
+    localStorage.getItem("sauve_mdb_api") ||
     "",
 
-  mdblistLists:
-    loadMDBLists()
+  mdbLists:
+    loadStoredLists()
 
 };
 
@@ -848,88 +813,26 @@ let currentPlayerIndex = 0;
 
 
 /* ============================================================
-   BASIC HELPERS
+   STORAGE
 ============================================================ */
 
-function $(id){
-  return document.getElementById(id);
-}
-
-function escapeHTML(value=""){
-  return String(value)
-    .replace(/[&<>"']/g,c=>({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[c]));
-}
-
-function safeURL(value=""){
-  try{
-    const u = new URL(String(value));
-    if(
-      u.protocol === "http:" ||
-      u.protocol === "https:"
-    ){
-      return u.href;
-    }
-  }catch(e){}
-  return "";
-}
-
-function normalizeManifest(url){
-  return String(url || "")
-    .trim()
-    .replace(/\/manifest\.json\/?$/i,"");
-}
-
-function addonRoot(url){
-  return normalizeManifest(url) + "/";
-}
-
-async function fetchJSON(url,options={}){
-  const response =
-    await fetch(url,{
-      method:"GET",
-      headers:{
-        Accept:"application/json",
-        ...(options.headers || {})
-      },
-      cache:"no-store"
-    });
-
-  if(!response.ok){
-    throw new Error(
-      "HTTP " + response.status
-    );
-  }
-
-  return response.json();
-}
-
-
-/* ============================================================
-   MDBLIST STORAGE
-============================================================ */
-
-function loadMDBLists(){
+function loadStoredLists(){
 
   try{
 
     const saved =
       JSON.parse(
         localStorage.getItem(
-          "sauve_mdblist_lists"
+          "sauve_mdb_lists"
         ) || "[]"
       );
 
     return Array.isArray(saved)
-      ? saved
+      ? saved.filter(Boolean)
       : [];
 
-  }catch(e){
+  }
+  catch{
 
     return [];
 
@@ -937,12 +840,13 @@ function loadMDBLists(){
 
 }
 
-function saveMDBLists(){
+
+function saveStoredLists(){
 
   localStorage.setItem(
-    "sauve_mdblist_lists",
+    "sauve_mdb_lists",
     JSON.stringify(
-      state.mdblistLists
+      state.mdbLists
     )
   );
 
@@ -950,17 +854,112 @@ function saveMDBLists(){
 
 
 /* ============================================================
-   MDBLIST URL PARSING
+   HELPERS
 ============================================================ */
 
-function normalizeMDBListURL(url){
+function $(id){
+  return document.getElementById(id);
+}
+
+
+function escapeHTML(value=""){
+
+  return String(value)
+    .replace(
+      /[&<>"']/g,
+      c => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[c])
+    );
+
+}
+
+
+function normalizeManifest(url){
+
+  return String(url || "")
+    .trim()
+    .replace(
+      /\/manifest\.json\/?$/i,
+      ""
+    );
+
+}
+
+
+function addonRoot(url){
+
+  return normalizeManifest(url) + "/";
+}
+
+
+async function fetchJSON(url){
+
+  const response =
+    await fetch(
+      url,
+      {
+        method:"GET",
+        headers:{
+          Accept:"application/json"
+        },
+        cache:"no-store"
+      }
+    );
+
+  if(!response.ok){
+
+    let message =
+      "HTTP " +
+      response.status;
+
+    try{
+
+      const text =
+        await response.text();
+
+      if(text){
+
+        message +=
+          " — " +
+          text.slice(0,180);
+
+      }
+
+    }
+    catch{}
+
+    throw new Error(
+      message
+    );
+
+  }
+
+  return response.json();
+
+}
+
+
+/* ============================================================
+   MDBLIST URL PARSER
+============================================================ */
+
+function parseMDBListURL(input){
 
   let value =
-    String(url || "")
+    String(input || "")
       .trim();
 
   if(!value){
-    return "";
+
+    throw new Error(
+      "MDBList URL is empty."
+    );
+
   }
 
   if(
@@ -973,510 +972,276 @@ function normalizeMDBListURL(url){
 
   }
 
+  let parsed;
+
   try{
 
-    const parsed =
+    parsed =
       new URL(value);
 
-    if(
-      !parsed.hostname
-        .toLowerCase()
-        .includes("mdblist.com")
-    ){
+  }
+  catch{
 
-      return "";
-
-    }
-
-    parsed.hash = "";
-
-    /*
-      Remove API/json suffixes so the
-      same list can be identified cleanly.
-    */
-
-    parsed.pathname =
-      parsed.pathname
-        .replace(
-          /\/json\/?$/i,
-          ""
-        )
-        .replace(
-          /\/+$/,""
-        );
-
-    return parsed.href;
-
-  }catch(e){
-
-    return "";
+    throw new Error(
+      "Invalid MDBList URL."
+    );
 
   }
 
-}
+  const host =
+    parsed.hostname
+      .toLowerCase();
 
+  if(
+    host !== "mdblist.com" &&
+    host !== "www.mdblist.com"
+  ){
 
-function parseMDBListPath(url){
-
-  try{
-
-    const parsed =
-      new URL(
-        normalizeMDBListURL(url)
-      );
-
-    const parts =
-      parsed.pathname
-        .split("/")
-        .filter(Boolean);
-
-    const index =
-      parts.indexOf("lists");
-
-    if(index < 0){
-      return null;
-    }
-
-    const after =
-      parts.slice(index + 1);
-
-    if(!after.length){
-      return null;
-    }
-
-    /*
-      Supported:
-
-      /lists/username/listname
-      /lists/official/...
-      /lists/share/...
-    */
-
-    return {
-      parts:after,
-      username:
-        after.length >= 2
-          ? after[0]
-          : "",
-      slug:
-        after.length >= 2
-          ? after.slice(1).join("/")
-          : after[0]
-    };
-
-  }catch(e){
-
-    return null;
+    throw new Error(
+      "Use a public mdblist.com list URL."
+    );
 
   }
 
-}
+  const parts =
+    parsed.pathname
+      .split("/")
+      .filter(Boolean);
 
+  /*
+    Standard user list:
 
-/* ============================================================
-   MDBLIST API HELPERS
-============================================================ */
+    /lists/username/list-name
 
-function mdblistHeaders(){
+    Official list:
 
-  if(!state.mdblistKey){
-    return {};
+    /lists/official/slug
+  */
+
+  const index =
+    parts.indexOf("lists");
+
+  if(
+    index < 0 ||
+    !parts[index + 1] ||
+    !parts[index + 2]
+  ){
+
+    throw new Error(
+      "MDBList URL must look like https://mdblist.com/lists/username/list-name"
+    );
+
   }
+
+  const owner =
+    decodeURIComponent(
+      parts[index + 1]
+    );
+
+  const slug =
+    decodeURIComponent(
+      parts[index + 2]
+    );
 
   return {
-    Authorization:
-      "Bearer " +
-      state.mdblistKey
+    owner,
+    slug,
+    original:
+      "https://mdblist.com/lists/" +
+      encodeURIComponent(owner) +
+      "/" +
+      encodeURIComponent(slug)
   };
 
 }
 
-function mdblistQuery(extra={}){
 
-  const params =
-    new URLSearchParams();
+/* ============================================================
+   MDBLIST API
+============================================================ */
 
-  Object.entries(extra)
-    .forEach(
-      ([key,value])=>{
-
-        if(
-          value !== undefined &&
-          value !== null &&
-          String(value).length
-        ){
-
-          params.set(
-            key,
-            value
-          );
-
-        }
-
-      }
-    );
-
-  /*
-    MDBList still supports API key
-    authentication. We put it in the
-    query only when the user has chosen
-    to save one locally.
-  */
-
-  if(state.mdblistKey){
-    params.set(
-      "apikey",
-      state.mdblistKey
-    );
-  }
-
-  const text =
-    params.toString();
-
-  return text
-    ? "?" + text
-    : "";
-
-}
-
-
-/*
-  Attempt several current/public MDBList
-  routes. This makes the list loader
-  resilient to whether the supplied URL
-  represents a user list, official list,
-  or shared list.
-*/
-
-async function fetchMDBListItems(
+async function fetchMDBList(
   listURL
 ){
 
-  const parsed =
-    parseMDBListPath(
-      listURL
-    );
-
-  if(!parsed){
-    throw new Error(
-      "That does not look like a valid MDBList list URL."
-    );
-  }
-
-  const encodedParts =
-    parsed.parts
-      .map(
-        encodeURIComponent
-      );
-
-  const candidates = [];
-
-  /*
-    Direct list URL JSON.
-
-    MDBList lists have historically
-    exposed JSON forms and these are useful
-    as a fallback.
-  */
-
-  candidates.push(
-    normalizeMDBListURL(
-      listURL
-    ) + "/json" +
-    mdblistQuery({
-      limit:100
-    })
-  );
-
-  /*
-    API list routes.
-
-    The current MDBList API uses list
-    item endpoints and cursor pagination.
-  */
-
   if(
-    parsed.parts[0] === "official"
+    !state.mdbApiKey
   ){
 
-    const officialSlug =
-      parsed.parts
-        .slice(1)
-        .join("/");
-
-    candidates.push(
-      "https://api.mdblist.com/lists/official/" +
-      officialSlug +
-      "/items" +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-    candidates.push(
-      "https://api.mdblist.com/lists/official/" +
-      officialSlug +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-  }
-  else if(
-    parsed.parts[0] === "share"
-  ){
-
-    const token =
-      parsed.parts
-        .slice(1)
-        .join("/");
-
-    candidates.push(
-      "https://api.mdblist.com/lists/share/" +
-      token +
-      "/items" +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-    candidates.push(
-      "https://api.mdblist.com/lists/share/" +
-      token +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-  }
-  else if(
-    parsed.username &&
-    parsed.slug
-  ){
-
-    /*
-      Some MDBList API versions resolve
-      the user list through the list URL.
-    */
-
-    candidates.push(
-      "https://api.mdblist.com/lists/user/" +
-      encodeURIComponent(
-        parsed.username
-      ) +
-      "/" +
-      parsed.slug +
-      "/items" +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-    candidates.push(
-      "https://api.mdblist.com/lists/user/" +
-      encodeURIComponent(
-        parsed.username
-      ) +
-      "/" +
-      parsed.slug +
-      mdblistQuery({
-        limit:100
-      })
-    );
-
-    /*
-      User API lookup can return the
-      user's lists and lets us resolve the
-      numeric list ID if available.
-    */
-
-    candidates.push(
-      "https://api.mdblist.com/lists/user" +
-      mdblistQuery()
+    throw new Error(
+      "No MDBList API key has been added in Settings."
     );
 
   }
 
-  let lastError =
-    "MDBList did not return data.";
+  const parsed =
+    parseMDBListURL(
+      listURL
+    );
+
+  const items = [];
+
+  let cursor = "";
+
+  /*
+    MDBList now recommends cursor pagination.
+    We stop after 500 items per configured list
+    to avoid excessive API calls in a browser.
+  */
 
   for(
-    const candidate
-    of candidates
+    let page = 0;
+    page < 6;
+    page++
   ){
 
-    try{
+    const params =
+      new URLSearchParams();
 
-      const data =
-        await fetchJSON(
-          candidate,
-          {
-            headers:
-              mdblistHeaders()
-          }
-        );
+    params.set(
+      "apikey",
+      state.mdbApiKey
+    );
 
-      const normalized =
-        normalizeMDBResponse(
-          data
-        );
+    params.set(
+      "limit",
+      "100"
+    );
 
-      if(
-        normalized.items.length
-      ){
+    params.set(
+      "append_to_response",
+      "poster"
+    );
 
-        return {
-          ...normalized,
-          requestURL:candidate
-        };
+    if(cursor){
 
-      }
-
-      /*
-        A valid empty response is still
-        useful, but continue trying other
-        representations before giving up.
-      */
-
-    }catch(error){
-
-      lastError =
-        error.message ||
-        lastError;
+      params.set(
+        "cursor",
+        cursor
+      );
 
     }
 
-  }
+    const endpoint =
+      "https://api.mdblist.com/lists/" +
+      encodeURIComponent(
+        parsed.owner
+      ) +
+      "/" +
+      encodeURIComponent(
+        parsed.slug
+      ) +
+      "/items?" +
+      params.toString();
 
-  throw new Error(
-    lastError +
-    " Try opening the MDBList URL in MDBList first and make sure the list is public or that your API key has access."
-  );
+    const response =
+      await fetch(
+        endpoint,
+        {
+          method:"GET",
+          headers:{
+            Accept:"application/json"
+          },
+          cache:"no-store"
+        }
+      );
 
-}
+    if(!response.ok){
 
+      let body = "";
 
-/* ============================================================
-   NORMALIZE MDBLIST RESPONSES
-============================================================ */
+      try{
+        body =
+          await response.text();
+      }
+      catch{}
 
-function normalizeMDBResponse(
-  data
-){
+      if(
+        response.status === 401 ||
+        response.status === 403
+      ){
 
-  let items = [];
-  let title = "";
-  let mediaType = "";
+        throw new Error(
+          "MDBList rejected the API key."
+        );
 
-  if(
-    Array.isArray(data)
-  ){
+      }
 
-    items =
-      data;
+      if(
+        response.status === 429
+      ){
 
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.items
-    )
-  ){
+        throw new Error(
+          "MDBList API rate limit reached."
+        );
 
-    items =
-      data.items;
+      }
 
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.results
-    )
-  ){
+      throw new Error(
+        "MDBList returned HTTP " +
+        response.status +
+        (body
+          ? " — " +
+            body.slice(0,160)
+          : "")
+      );
 
-    items =
-      data.results;
+    }
 
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.metas
-    )
-  ){
+    const data =
+      await response.json();
 
-    items =
-      data.metas;
+    const pageItems =
+      Array.isArray(
+        data.items
+      )
+        ? data.items
+        : Array.isArray(
+            data.results
+          )
+          ? data.results
+          : [];
 
-  }
-  else if(
-    data &&
-    data.data &&
-    Array.isArray(
-      data.data
-    )
-  ){
+    items.push(
+      ...pageItems
+    );
 
-    items =
-      data.data;
+    const pagination =
+      data.pagination ||
+      {};
 
-  }
-  else if(
-    data &&
-    data.list &&
-    Array.isArray(
-      data.list.items
-    )
-  ){
+    const next =
+      pagination.next_cursor ||
+      data.next_cursor ||
+      response.headers.get(
+        "X-Next-Cursor"
+      );
 
-    items =
-      data.list.items;
+    const hasMore =
+      Boolean(
+        pagination.has_more ??
+        data.has_more ??
+        next
+      );
 
-  }
-  else if(
-    data &&
-    data.list &&
-    Array.isArray(
-      data.list.results
-    )
-  ){
+    if(
+      !hasMore ||
+      !next ||
+      pageItems.length === 0
+    ){
 
-    items =
-      data.list.results;
+      break;
 
-  }
+    }
 
-  if(data){
-
-    title =
-      data.name ||
-      data.title ||
-      data.list?.name ||
-      data.list?.title ||
-      "";
-
-    mediaType =
-      data.mediatype ||
-      data.media_type ||
-      data.type ||
-      data.list?.mediatype ||
-      "";
+    cursor =
+      next;
 
   }
 
   return {
-    title,
-    mediaType,
-    items:
-      items
-        .map(
-          normalizeMDBItem
-        )
-        .filter(
-          item =>
-            item.id ||
-            item.name
-        )
+    info:parsed,
+    items
   };
 
 }
@@ -1490,231 +1255,159 @@ function normalizeMDBItem(
   item
 ){
 
-  const obj =
-    item || {};
+  if(!item){
 
-  const nested =
-    obj.movie ||
-    obj.show ||
-    obj.meta ||
-    obj.media ||
-    obj.title_data ||
-    {};
-
-  const combined =
-    {
-      ...nested,
-      ...obj
-    };
-
-  const ids =
-    combined.ids ||
-    combined.id ||
-    {};
-
-  let type =
-    combined.type ||
-    combined.mediatype ||
-    combined.media_type ||
-    "";
-
-  type =
-    String(type)
-      .toLowerCase();
-
-  if(
-    type === "series" ||
-    type === "tv" ||
-    type === "show"
-  ){
-
-    type =
-      "series";
-
-  }
-  else if(
-    type === "movie"
-  ){
-
-    type =
-      "movie";
+    return null;
 
   }
 
-  const imdb =
-    combined.imdb_id ||
-    combined.imdb ||
-    ids.imdb ||
-    "";
+  const typeRaw =
+    String(
+      item.mediatype ||
+      item.media_type ||
+      item.type ||
+      ""
+    ).toLowerCase();
+
+  const type =
+    (
+      typeRaw.includes("show") ||
+      typeRaw.includes("series") ||
+      typeRaw === "tv"
+    )
+      ? "series"
+      : "movie";
 
   const tmdb =
-    combined.tmdb_id ||
-    combined.tmdb ||
-    ids.tmdb ||
+    item.tmdb_id ||
+    item.tmdbid ||
+    item.tmdbId ||
     "";
 
-  const tvdb =
-    combined.tvdb_id ||
-    combined.tvdb ||
-    ids.tvdb ||
+  const imdb =
+    item.imdb_id ||
+    item.imdbid ||
+    item.imdbId ||
     "";
 
-  const id =
-    combined.id ||
+  const title =
+    item.title ||
+    item.name ||
+    item.original_title ||
+    item.original_name ||
+    "Untitled";
+
+  const year =
+    item.year ||
     (
-      imdb
-        ? imdb
-        : tmdb
-          ? "tmdb:" + tmdb
-          : tvdb
-            ? "tvdb:" + tvdb
-            : ""
+      item.release_date
+        ? String(
+            item.release_date
+          ).slice(0,4)
+        : ""
+    ) ||
+    (
+      item.first_air_date
+        ? String(
+            item.first_air_date
+          ).slice(0,4)
+        : ""
     );
 
   let poster =
-    combined.poster ||
-    combined.poster_url ||
-    combined.image ||
-    combined.poster_path ||
-    combined.images?.poster ||
+    item.poster ||
+    item.poster_url ||
+    item.poster_path ||
     "";
 
   /*
-    Convert a TMDb poster path into a
-    usable public image URL when MDBList
-    supplies only /abc123.jpg.
+    Some responses can provide an object
+    rather than a string.
   */
 
   if(
     poster &&
-    String(poster).startsWith("/")
+    typeof poster === "object"
   ){
 
     poster =
-      "https://image.tmdb.org/t/p/w500" +
-      poster;
+      poster.url ||
+      poster.src ||
+      poster.poster ||
+      "";
 
   }
 
-  const name =
-    combined.title ||
-    combined.name ||
-    combined.original_title ||
-    combined.original_name ||
-    "Untitled";
-
-  const release =
-    combined.release_date ||
-    combined.first_air_date ||
-    combined.released ||
-    combined.releaseInfo ||
-    "";
-
-  const year =
-    String(
-      release || ""
-    ).slice(0,4);
-
-  const score =
-    combined.score ??
-    combined.imdb_rating ??
-    combined.rating ??
-    combined.tmdb_rating ??
-    "";
-
   return {
 
-    id:String(id || ""),
-
-    type:
-      type ||
-      inferMediaType(
-        combined
+    id:
+      String(
+        tmdb ||
+        imdb ||
+        item.id ||
+        (
+          title +
+          "|" +
+          year
+        )
       ),
 
-    name:String(name),
+    tmdb,
+    imdb,
 
-    poster:String(poster || ""),
+    type,
+
+    name:title,
 
     year,
 
-    score,
-
-    imdb,
-
-    tmdb,
-
-    tvdb,
+    poster,
 
     description:
-      combined.description ||
-      combined.overview ||
+      item.description ||
+      item.overview ||
       "",
 
-    raw:combined
+    rating:
+      item.score ||
+      item.rating ||
+      item.imdb_rating ||
+      "",
+
+    raw:item
 
   };
 
 }
 
 
-function inferMediaType(
-  item
-){
-
-  const value =
-    String(
-      item.mediatype ||
-      item.media_type ||
-      ""
-    ).toLowerCase();
-
-  if(
-    value.includes("show") ||
-    value.includes("tv") ||
-    value.includes("series")
-  ){
-
-    return "series";
-
-  }
-
-  return "movie";
-
-}
-
-
 /* ============================================================
-   POSTER FALLBACK
+   FALLBACK POSTER
 ============================================================ */
 
-function posterFallback(
+function posterURL(
   item
 ){
 
-  /*
-    If MDBList didn't return artwork,
-    try TMDb's public image path if the
-    item itself contains one.
-  */
+  if(
+    item.poster &&
+    /^https?:\/\//i.test(
+      item.poster
+    )
+  ){
 
-  if(item.poster){
     return item.poster;
+
   }
 
-  const raw =
-    item.raw || {};
-
-  const path =
-    raw.poster_path ||
-    raw.images?.poster_path ||
-    "";
-
-  if(path){
+  if(
+    item.poster &&
+    item.poster.startsWith("/")
+  ){
 
     return (
       "https://image.tmdb.org/t/p/w500" +
-      path
+      item.poster
     );
 
   }
@@ -1725,520 +1418,12 @@ function posterFallback(
 
 
 /* ============================================================
-   MDBLIST ROW
+   CATALOG SUPPORT
 ============================================================ */
 
-async function loadMDBListRow(
-  list
+function supportsSearch(
+  catalog
 ){
-
-  const sectionID =
-    "mdb_" +
-    Math.random()
-      .toString(36)
-      .slice(2);
-
-  const section =
-    document.createElement(
-      "section"
-    );
-
-  section.className =
-    "catalog-section";
-
-  section.id =
-    sectionID;
-
-  section.innerHTML = `
-
-    <div class="catalog-heading">
-
-      <h2 class="catalog-title">
-        ${escapeHTML(
-          list.name ||
-          "MDBLIST"
-        )}
-      </h2>
-
-      <span class="catalog-label">
-        MDBLIST
-      </span>
-
-    </div>
-
-    <div class="loading-row">
-
-      ${Array.from(
-        {length:7},
-        () =>
-          `<div class="loading-card"></div>`
-      ).join("")}
-
-    </div>
-
-  `;
-
-  $("catalogContainer")
-    .appendChild(
-      section
-    );
-
-  try{
-
-    const result =
-      await fetchMDBListItems(
-        list.url
-      );
-
-    const items =
-      result.items
-        .slice(
-          0,
-          40
-        );
-
-    if(
-      !list.name &&
-      result.title
-    ){
-
-      list.name =
-        result.title;
-
-    }
-
-    if(
-      !items.length
-    ){
-
-      section.innerHTML = `
-
-        <div class="catalog-heading">
-
-          <h2 class="catalog-title">
-            ${escapeHTML(
-              list.name ||
-              result.title ||
-              "MDBLIST"
-            )}
-          </h2>
-
-          <span class="catalog-label">
-            MDBLIST
-          </span>
-
-        </div>
-
-        <div class="notice">
-
-          This MDBList returned no items.
-
-        </div>
-
-      `;
-
-      return;
-
-    }
-
-    section.innerHTML = `
-
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-
-          ${escapeHTML(
-            list.name ||
-            result.title ||
-            "MDBLIST"
-          )}
-
-        </h2>
-
-        <span class="catalog-label">
-
-          ${items.length} TITLES
-
-        </span>
-
-      </div>
-
-      <div class="row">
-
-        ${items
-          .map(
-            renderMDBPoster
-          )
-          .join("")}
-
-      </div>
-
-    `;
-
-  }
-  catch(error){
-
-    section.innerHTML = `
-
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-
-          ${escapeHTML(
-            list.name ||
-            "MDBLIST"
-          )}
-
-        </h2>
-
-        <span class="catalog-label">
-          MDBLIST
-        </span>
-
-      </div>
-
-      <div class="section-error">
-
-        MDBList could not be loaded.
-
-        <br><br>
-
-        ${escapeHTML(
-          error.message
-        )}
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* ============================================================
-   MDB POSTER
-============================================================ */
-
-function renderMDBPoster(
-  item
-){
-
-  const type =
-    item.type ||
-    "movie";
-
-  const id =
-    item.id ||
-    item.imdb ||
-    item.tmdb ||
-    "";
-
-  const encodedType =
-    encodeURIComponent(
-      type
-    );
-
-  const encodedID =
-    encodeURIComponent(
-      id
-    );
-
-  const poster =
-    posterFallback(
-      item
-    );
-
-  const score =
-    item.score !== "" &&
-    item.score !== null &&
-    item.score !== undefined
-      ? Number(item.score)
-          ? Number(item.score)
-              .toFixed(1)
-          : String(item.score)
-      : "";
-
-  const typeLabel =
-    type === "series"
-      ? "TV"
-      : "MOVIE";
-
-  return `
-
-    <button
-      class="poster-card"
-      onclick="openMDBTitle(
-        '${encodedType}',
-        '${encodedID}',
-        '${encodeURIComponent(
-          item.name
-        )}',
-        '${encodeURIComponent(
-          poster
-        )}',
-        '${encodeURIComponent(
-          item.year || ""
-        )}',
-        '${encodeURIComponent(
-          item.description || ""
-        )}'
-      )">
-
-      ${
-        poster
-
-          ?
-
-          `
-            <img
-              src="${escapeHTML(
-                safeURL(
-                  poster
-                )
-              )}"
-              loading="lazy"
-              alt="${escapeHTML(
-                item.name
-              )}"
-              onerror="
-                this.style.opacity='.18'
-              ">
-          `
-
-          :
-
-          `
-            <div
-              style="
-                width:100%;
-                aspect-ratio:2/3;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                background:
-                  radial-gradient(
-                    circle,
-                    #28143b,
-                    #0c0715
-                  );
-                color:#75647d;
-                font-size:10px;
-                font-weight:900;
-                text-align:center;
-                padding:12px;
-              ">
-
-              ${escapeHTML(
-                item.name
-              )}
-
-            </div>
-          `
-      }
-
-      <div class="poster-type">
-        ${typeLabel}
-      </div>
-
-      ${
-        score
-
-          ?
-
-          `
-            <div class="poster-score">
-              ★ ${escapeHTML(
-                score
-              )}
-            </div>
-          `
-
-          :
-
-          ""
-      }
-
-      <div class="poster-overlay">
-
-        <div class="poster-name">
-          ${escapeHTML(
-            item.name
-          )}
-        </div>
-
-        <div class="poster-year">
-          ${escapeHTML(
-            item.year || ""
-          )}
-        </div>
-
-      </div>
-
-    </button>
-
-  `;
-
-}
-
-
-/* ============================================================
-   MDB TITLE -> EXISTING SOURCE SYSTEM
-============================================================ */
-
-function openMDBTitle(
-  encodedType,
-  encodedID,
-  encodedName,
-  encodedPoster,
-  encodedYear,
-  encodedDescription
-){
-
-  const type =
-    decodeURIComponent(
-      encodedType
-    );
-
-  const id =
-    decodeURIComponent(
-      encodedID
-    );
-
-  const name =
-    decodeURIComponent(
-      encodedName
-    );
-
-  const poster =
-    decodeURIComponent(
-      encodedPoster
-    );
-
-  const year =
-    decodeURIComponent(
-      encodedYear
-    );
-
-  const description =
-    decodeURIComponent(
-      encodedDescription
-    );
-
-  /*
-    MDBList commonly gives us an IMDb
-    ID. Your existing stream addon can
-    generally consume that ID directly.
-  */
-
-  openTitleDirect(
-    type,
-    id,
-    {
-      name,
-      poster,
-      year,
-      description
-    }
-  );
-
-}
-
-
-async function openTitleDirect(
-  type,
-  id,
-  basicMeta={}
-){
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        ${escapeHTML(
-          basicMeta.name ||
-          "TITLE"
-        )}
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-
-        ×
-
-      </button>
-
-    </div>
-
-    <div class="details">
-
-      <img
-        src="${escapeHTML(
-          safeURL(
-            basicMeta.poster
-          )
-        )}">
-
-      <div>
-
-        <div class="meta">
-          ${escapeHTML(
-            basicMeta.year ||
-            type
-          )}
-        </div>
-
-        <p>
-          ${escapeHTML(
-            basicMeta.description ||
-            "Loading title information…"
-          )}
-        </p>
-
-        <button
-          class="primary"
-          id="sourceButton">
-
-          ▶ FIND SOURCES
-
-        </button>
-
-      </div>
-
-    </div>
-
-    <div
-      id="sources"
-      style="margin-top:25px">
-
-    </div>
-
-  `);
-
-  /*
-    Use the existing metadata addon first
-    when the ID is usable. If it fails,
-    still leave the source system available
-    instead of killing the title.
-  */
-
-  $("sourceButton")
-    .onclick = () =>
-      findSources(
-        type,
-        id
-      );
-
-}
-
-
-/* ============================================================
-   STANDARD CATALOG SYSTEM
-============================================================ */
-
-function supportsSearch(catalog){
 
   if(
     !Array.isArray(
@@ -2260,7 +1445,10 @@ function supportsSearch(catalog){
 
 }
 
-function makeExtraProps(values){
+
+function makeExtraProps(
+  values
+){
 
   return Object.entries(values)
     .filter(
@@ -2281,6 +1469,7 @@ function makeExtraProps(values){
 
 }
 
+
 function buildCatalogURL(
   catalog,
   extra={}
@@ -2300,15 +1489,27 @@ function buildCatalogURL(
     );
 
   const props =
-    makeExtraProps(extra);
+    makeExtraProps(
+      extra
+    );
 
   if(props){
-    url += "/" + props;
+
+    url +=
+      "/" +
+      props;
+
   }
 
-  return url + ".json";
+  return url +
+    ".json";
 
 }
+
+
+/* ============================================================
+   HOME CATALOGS
+============================================================ */
 
 function prettyCatalogName(
   catalog
@@ -2325,6 +1526,7 @@ function prettyCatalogName(
     raw.toLowerCase();
 
   const mappings = [
+
     ["netflix","NETFLIX"],
     ["disney+","DISNEY+"],
     ["disney","DISNEY+"],
@@ -2344,6 +1546,7 @@ function prettyCatalogName(
     ["featured","FEATURED"],
     ["top","TOP PICKS"],
     ["new","NEW RELEASES"]
+
   ];
 
   for(
@@ -2367,6 +1570,7 @@ function prettyCatalogName(
 
 }
 
+
 function catalogPriority(
   catalog
 ){
@@ -2379,6 +1583,7 @@ function catalogPriority(
     ).toLowerCase();
 
   const priority = [
+
     "featured",
     "trending",
     "popular",
@@ -2396,12 +1601,15 @@ function catalogPriority(
     "dc",
     "top",
     "new"
+
   ];
 
   const index =
     priority.findIndex(
       word =>
-        name.includes(word)
+        name.includes(
+          word
+        )
     );
 
   return index < 0
@@ -2412,7 +1620,7 @@ function catalogPriority(
 
 
 /* ============================================================
-   HOME LOADER
+   HOME
 ============================================================ */
 
 async function loadHome(){
@@ -2420,67 +1628,8 @@ async function loadHome(){
   const container =
     $("catalogContainer");
 
-  container.innerHTML = `
-
-    <section class="catalog-section">
-
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-          YOUR CINEMA
-        </h2>
-
-        <span class="catalog-label">
-          LOADING
-        </span>
-
-      </div>
-
-      <div class="loading-row">
-
-        ${Array.from(
-          {length:8},
-          () =>
-            `<div class="loading-card"></div>`
-        ).join("")}
-
-      </div>
-
-    </section>
-
-  `;
-
-  /*
-    Start MDBList separately.
-
-    This is important:
-    if MDBList is slow or unavailable,
-    your main metadata catalog is not
-    held hostage by it.
-  */
-
-  const mdbPromise =
-    loadAllMDBLists();
-
-  const metadataPromise =
-    loadMetadataCatalogs();
-
-  await Promise.allSettled([
-    metadataPromise,
-    mdbPromise
-  ]);
-
-}
-
-
-/* ============================================================
-   METADATA CATALOGS
-============================================================ */
-
-async function loadMetadataCatalogs(){
-
-  const container =
-    $("catalogContainer");
+  let normalHTML = "";
+  let mdbHTML = "";
 
   try{
 
@@ -2496,24 +1645,7 @@ async function loadMetadataCatalogs(){
         ? manifest.catalogs
         : [];
 
-    if(!catalogs.length){
-
-      container.innerHTML = `
-
-        <div class="notice">
-
-          Your metadata addon did not
-          advertise any catalogs.
-
-        </div>
-
-      `;
-
-      return;
-
-    }
-
-    const usable =
+    const selected =
       catalogs
         .filter(
           catalog =>
@@ -2525,167 +1657,145 @@ async function loadMetadataCatalogs(){
           (a,b) =>
             catalogPriority(a) -
             catalogPriority(b)
+        )
+        .slice(
+          0,
+          20
         );
 
-    const selected =
-      usable.slice(
-        0,
-        30
-      );
+    if(
+      selected.length
+    ){
 
-    const results =
-      await Promise.allSettled(
-        selected.map(
-          async catalog => {
+      const results =
+        await Promise.allSettled(
+          selected.map(
+            async catalog => {
 
-            const data =
-              await fetchJSON(
-                buildCatalogURL(
-                  catalog
-                )
-              );
+              const data =
+                await fetchJSON(
+                  buildCatalogURL(
+                    catalog
+                  )
+                );
 
-            return {
-              catalog,
-              metas:
-                Array.isArray(
-                  data.metas
-                )
-                  ? data.metas
-                  : []
-            };
+              return {
+                catalog,
+                metas:
+                  Array.isArray(
+                    data.metas
+                  )
+                    ? data.metas
+                    : []
+              };
+
+            }
+          )
+        );
+
+      results.forEach(
+        result => {
+
+          if(
+            result.status !==
+            "fulfilled"
+          ){
+
+            return;
 
           }
-        )
-      );
 
-    let html = "";
-
-    results.forEach(
-      result => {
-
-        if(
-          result.status !==
-          "fulfilled"
-        ){
-          return;
-        }
-
-        const {
-          catalog,
-          metas
-        } =
-          result.value;
-
-        if(
-          !metas.length
-        ){
-          return;
-        }
-
-        html +=
-          renderCatalogRow(
+          const {
             catalog,
             metas
-          );
+          } =
+            result.value;
 
-      }
-    );
+          if(
+            !metas.length
+          ){
 
-    /*
-      Replace the loading block only
-      after metadata is finished.
+            return;
 
-      MDBList is loaded separately below,
-      so its rows can then be appended.
-    */
+          }
 
-    if(html){
-
-      const old =
-        container.querySelector(
-          ".loading-row"
-        );
-
-      if(old){
-
-        const loadingSection =
-          old.closest(
-            ".catalog-section"
-          );
-
-        if(
-          loadingSection
-        ){
-
-          loadingSection.remove();
+          normalHTML +=
+            renderCatalogRow(
+              catalog,
+              metas
+            );
 
         }
-
-      }
-
-      container.insertAdjacentHTML(
-        "afterbegin",
-        html
       );
-
-    }
-    else{
-
-      const loading =
-        container.querySelector(
-          ".loading-row"
-        );
-
-      if(loading){
-
-        loading
-          .closest(
-            ".catalog-section"
-          )
-          ?.remove();
-
-      }
 
     }
 
   }
   catch(error){
 
-    const loading =
-      container.querySelector(
-        ".loading-row"
-      );
+    normalHTML = `
 
-    if(loading){
+      <div class="notice">
 
-      loading
-        .closest(
-          ".catalog-section"
-        )
-        ?.remove();
+        Metadata catalogs could not be loaded.
 
-    }
+        <br><br>
 
-    container.insertAdjacentHTML(
-      "afterbegin",
-      `
+        ${escapeHTML(
+          error.message
+        )}
 
-        <div class="notice">
+      </div>
 
-          Metadata catalogs could not be
-          loaded.
+    `;
 
-          <br><br>
+  }
 
-          ${escapeHTML(
-            error.message
-          )}
+  /*
+    MDBList rows are loaded separately.
 
-        </div>
+    This is important: if MDBList fails,
+    it does NOT prevent your normal
+    SAUVE catalogs from loading.
+  */
 
-      `
-    );
+  if(
+    state.mdbLists.length
+  ){
+
+    mdbHTML =
+      await loadMDBRows();
+
+  }
+
+  if(
+    !normalHTML &&
+    !mdbHTML
+  ){
+
+    container.innerHTML = `
+
+      <div class="notice">
+
+        No catalogs are currently available.
+
+        <br><br>
+
+        Open
+        <strong>Settings</strong>
+        to configure your metadata addon
+        and/or MDBList.
+
+      </div>
+
+    `;
+
+  }
+  else{
+
+    container.innerHTML =
+      normalHTML +
+      mdbHTML;
 
   }
 
@@ -2693,41 +1803,562 @@ async function loadMetadataCatalogs(){
 
 
 /* ============================================================
-   MDBLIST HOME
+   MDB ROWS
 ============================================================ */
 
-async function loadAllMDBLists(){
+async function loadMDBRows(){
+
+  let html = "";
+
+  const results =
+    await Promise.all(
+      state.mdbLists.map(
+        async listURL => {
+
+          try{
+
+            const result =
+              await fetchMDBList(
+                listURL
+              );
+
+            return {
+              ok:true,
+              listURL,
+              result
+            };
+
+          }
+          catch(error){
+
+            return {
+              ok:false,
+              listURL,
+              error
+            };
+
+          }
+
+        }
+      )
+    );
+
+  results.forEach(
+    result => {
+
+      if(
+        !result.ok
+      ){
+
+        html += `
+
+          <section class="catalog-section">
+
+            <div class="catalog-heading">
+
+              <h2 class="catalog-title">
+                MDBLIST
+              </h2>
+
+              <span class="catalog-label">
+                ERROR
+              </span>
+
+            </div>
+
+            <div class="notice mdb-error">
+
+              ${escapeHTML(
+                result.listURL
+              )}
+
+              <br><br>
+
+              ${escapeHTML(
+                result.error.message
+              )}
+
+            </div>
+
+          </section>
+
+        `;
+
+        return;
+
+      }
+
+      const normalized =
+        result.result.items
+          .map(
+            normalizeMDBItem
+          )
+          .filter(Boolean);
+
+      const unique =
+        dedupeMDBItems(
+          normalized
+        );
+
+      const parsed =
+        result.result.info;
+
+      const title =
+        formatMDBListTitle(
+          parsed
+        );
+
+      if(
+        !unique.length
+      ){
+
+        html += `
+
+          <section class="catalog-section">
+
+            <div class="catalog-heading">
+
+              <h2 class="catalog-title">
+                ${escapeHTML(
+                  title
+                )}
+              </h2>
+
+              <span class="catalog-label">
+                EMPTY
+              </span>
+
+            </div>
+
+            <div class="notice">
+
+              MDBList responded successfully,
+              but this list returned no items.
+
+            </div>
+
+          </section>
+
+        `;
+
+        return;
+
+      }
+
+      html += `
+
+        <section class="catalog-section">
+
+          <div class="catalog-heading">
+
+            <h2 class="catalog-title">
+
+              ${escapeHTML(
+                title
+              )}
+
+              <span class="list-count">
+                ${unique.length}
+              </span>
+
+            </h2>
+
+            <span class="catalog-label">
+              MDBLIST
+            </span>
+
+          </div>
+
+          <div class="row">
+
+            ${unique
+              .slice(0,100)
+              .map(
+                renderMDBPoster
+              )
+              .join("")}
+
+          </div>
+
+        </section>
+
+      `;
+
+    }
+  );
+
+  return html;
+
+}
+
+
+function formatMDBListTitle(
+  parsed
+){
 
   if(
-    !state.mdblistLists.length
+    parsed.owner ===
+    "official"
   ){
+
+    return (
+      parsed.slug
+        .replace(
+          /[-_]+/g,
+          " "
+        )
+        .replace(
+          /\b\w/g,
+          c =>
+            c.toUpperCase()
+        )
+    );
+
+  }
+
+  return (
+    parsed.slug
+      .replace(
+        /[-_]+/g,
+        " "
+      )
+      .replace(
+        /\b\w/g,
+        c =>
+          c.toUpperCase()
+      )
+  );
+
+}
+
+
+function dedupeMDBItems(
+  items
+){
+
+  const seen =
+    new Set();
+
+  return items.filter(
+    item => {
+
+      const key =
+        (
+          item.tmdb ||
+          item.imdb ||
+          item.id
+        ) +
+        "|" +
+        item.type;
+
+      if(
+        seen.has(key)
+      ){
+
+        return false;
+
+      }
+
+      seen.add(key);
+
+      return true;
+
+    }
+  );
+
+}
+
+
+/* ============================================================
+   MDB POSTER
+============================================================ */
+
+function renderMDBPoster(
+  item
+){
+
+  const poster =
+    posterURL(
+      item
+    );
+
+  const safeItem =
+    encodeURIComponent(
+      JSON.stringify({
+        id:item.id,
+        tmdb:item.tmdb,
+        imdb:item.imdb,
+        type:item.type,
+        name:item.name,
+        year:item.year,
+        poster:poster,
+        description:item.description,
+        rating:item.rating
+      })
+    );
+
+  return `
+
+    <button
+      class="poster-card"
+      onclick='openMDBTitle(
+        ${JSON.stringify(
+          safeItem
+        )}
+      )'>
+
+      ${
+        poster
+
+          ?
+
+          `
+            <img
+              src="${escapeHTML(
+                poster
+              )}"
+              loading="lazy"
+              onerror="
+                this.style.opacity='.25'
+              ">
+          `
+
+          :
+
+          `
+            <div
+              style="
+                width:100%;
+                aspect-ratio:2/3;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:
+                  linear-gradient(
+                    135deg,
+                    #1c0d2c,
+                    #090510
+                  );
+                padding:12px;
+                text-align:center;
+                font-weight:900;
+              ">
+
+              ${escapeHTML(
+                item.name
+              )}
+
+            </div>
+          `
+      }
+
+      <div class="poster-type">
+
+        ${item.type === "series"
+          ? "TV"
+          : "MOVIE"}
+
+      </div>
+
+      <div class="poster-overlay">
+
+        <div class="poster-name">
+
+          ${escapeHTML(
+            item.name
+          )}
+
+        </div>
+
+        <div class="poster-year">
+
+          ${escapeHTML(
+            item.year
+          )}
+
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* ============================================================
+   MDB TITLE
+============================================================ */
+
+function openMDBTitle(
+  encoded
+){
+
+  let item;
+
+  try{
+
+    item =
+      JSON.parse(
+        decodeURIComponent(
+          encoded
+        )
+      );
+
+  }
+  catch{
+
+    alert(
+      "Unable to open this MDBList item."
+    );
 
     return;
 
   }
 
-  /*
-    Load lists one at a time to avoid
-    hammering MDBList and to make the UI
-    remain responsive.
-  */
-
-  for(
-    const list
-    of state.mdblistLists
-  ){
-
-    await loadMDBListRow(
-      list
+  const poster =
+    posterURL(
+      item
     );
 
-  }
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+
+        ${escapeHTML(
+          item.name
+        )}
+
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(
+          poster
+        )}">
+
+      <div>
+
+        <div class="meta">
+
+          ${escapeHTML(
+            item.year ||
+            item.type
+          )}
+
+          ${
+            item.rating
+              ? " • " +
+                escapeHTML(
+                  String(
+                    item.rating
+                  )
+                )
+              : ""
+          }
+
+        </div>
+
+        <p>
+
+          ${escapeHTML(
+            item.description ||
+            "Find available sources for this title."
+          )}
+
+        </p>
+
+        <button
+          class="primary"
+          onclick='findMDBSources(
+            ${JSON.stringify(
+              item
+            )}
+          )'>
+
+          ▶ FIND SOURCES
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <div
+      id="sources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
 
 }
 
 
 /* ============================================================
-   STANDARD POSTER RENDERER
+   MDB -> EXISTING STREAM SYSTEM
+============================================================ */
+
+async function findMDBSources(
+  item
+){
+
+  /*
+    Prefer TMDB ID when available.
+    Otherwise use IMDb ID.
+  */
+
+  let id =
+    item.tmdb ||
+    item.imdb ||
+    item.id;
+
+  let type =
+    item.type === "series"
+      ? "series"
+      : "movie";
+
+  if(!id){
+
+    $("sources").innerHTML = `
+
+      <div class="notice">
+
+        This MDBList item does not contain
+        a usable TMDB or IMDb identifier.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+  await findSources(
+    type,
+    id
+  );
+
+}
+
+
+/* ============================================================
+   NORMAL POSTERS
 ============================================================ */
 
 function renderCatalogRow(
@@ -2743,20 +2374,13 @@ function renderCatalogRow(
       30
     );
 
-  if(!unique.length){
+  if(
+    !unique.length
+  ){
+
     return "";
+
   }
-
-  const title =
-    prettyCatalogName(
-      catalog
-    );
-
-  const type =
-    String(
-      catalog.type ||
-      ""
-    ).toUpperCase();
 
   return `
 
@@ -2765,24 +2389,35 @@ function renderCatalogRow(
       <div class="catalog-heading">
 
         <h2 class="catalog-title">
+
           ${escapeHTML(
-            title
+            prettyCatalogName(
+              catalog
+            )
           )}
+
         </h2>
 
         <span class="catalog-label">
+
           ${escapeHTML(
-            type
+            String(
+              catalog.type ||
+              ""
+            ).toUpperCase()
           )}
+
         </span>
 
       </div>
 
       <div class="row">
 
-        ${unique.map(
-          renderPosterCard
-        ).join("")}
+        ${unique
+          .map(
+            renderPosterCard
+          )
+          .join("")}
 
       </div>
 
@@ -2791,6 +2426,7 @@ function renderCatalogRow(
   `;
 
 }
+
 
 function renderPosterCard(
   item
@@ -2813,17 +2449,6 @@ function renderPosterCard(
     item.logo ||
     "";
 
-  const year =
-    item.releaseInfo ||
-    item.year ||
-    "";
-
-  const kind =
-    String(
-      item.type ||
-      "movie"
-    ).toUpperCase();
-
   return `
 
     <button
@@ -2837,9 +2462,7 @@ function renderPosterCard(
 
       <img
         src="${escapeHTML(
-          safeURL(
-            poster
-          )
+          poster
         )}"
         loading="lazy"
         onerror="
@@ -2847,24 +2470,35 @@ function renderPosterCard(
         ">
 
       <div class="poster-type">
+
         ${escapeHTML(
-          kind
+          String(
+            item.type ||
+            "movie"
+          ).toUpperCase()
         )}
+
       </div>
 
       <div class="poster-overlay">
 
         <div class="poster-name">
+
           ${escapeHTML(
             item.name ||
             "Untitled"
           )}
+
         </div>
 
         <div class="poster-year">
+
           ${escapeHTML(
-            year
+            item.releaseInfo ||
+            item.year ||
+            ""
           )}
+
         </div>
 
       </div>
@@ -2874,6 +2508,7 @@ function renderPosterCard(
   `;
 
 }
+
 
 function dedupeMetas(
   metas
@@ -2915,7 +2550,207 @@ function dedupeMetas(
 
 
 /* ============================================================
-   STANDARD TITLE
+   SEARCH
+============================================================ */
+
+async function performSearch(){
+
+  const query =
+    $("searchInput")
+      .value
+      .trim();
+
+  if(!query){
+
+    focusSearch();
+
+    return;
+
+  }
+
+  $("main").innerHTML = `
+
+    <div class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-kicker">
+          SAUVE SEARCH
+        </div>
+
+        <h1>
+          ${escapeHTML(
+            query
+          )}
+        </h1>
+
+        <p>
+          Searching movies and television…
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="empty">
+      <div class="loading-bar"></div>
+      <br>
+      Searching…
+    </div>
+
+  `;
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.metadata
+      );
+
+    const catalogs =
+      Array.isArray(
+        manifest.catalogs
+      )
+        ? manifest.catalogs
+        : [];
+
+    const searchable =
+      catalogs.filter(
+        supportsSearch
+      );
+
+    if(
+      !searchable.length
+    ){
+
+      throw new Error(
+        "No searchable catalogs were advertised by the metadata addon."
+      );
+
+    }
+
+    const responses =
+      await Promise.allSettled(
+        searchable.map(
+          catalog =>
+            fetchJSON(
+              buildCatalogURL(
+                catalog,
+                {
+                  search:query
+                }
+              )
+            )
+        )
+      );
+
+    const metas = [];
+
+    responses.forEach(
+      result => {
+
+        if(
+          result.status ===
+          "fulfilled"
+        ){
+
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
+
+      }
+    );
+
+    const results =
+      dedupeMetas(
+        metas
+      );
+
+    $("main").innerHTML = `
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+          SEARCH RESULTS
+        </h2>
+
+        <span class="catalog-label">
+          ${results.length}
+        </span>
+
+      </div>
+
+      ${
+        results.length
+
+          ?
+
+          `
+            <div class="row">
+
+              ${results
+                .map(
+                  renderPosterCard
+                )
+                .join("")}
+
+            </div>
+          `
+
+          :
+
+          `
+            <div class="notice">
+              No results found for
+              <strong>
+                ${escapeHTML(query)}
+              </strong>.
+            </div>
+          `
+      }
+
+    `;
+
+  }
+  catch(error){
+
+    $("main").innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          SEARCH FAILED
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+        <br><br>
+
+        <button
+          class="secondary"
+          onclick="goHome()">
+
+          RETURN HOME
+
+        </button>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* ============================================================
+   NORMAL TITLE
 ============================================================ */
 
 async function openTitle(
@@ -2937,9 +2772,7 @@ async function openTitle(
 
     <div class="sheet-header">
 
-      <h2>
-        LOADING
-      </h2>
+      <h2>LOADING</h2>
 
       <button
         class="close"
@@ -2987,10 +2820,12 @@ async function openTitle(
       <div class="sheet-header">
 
         <h2>
+
           ${escapeHTML(
             meta.name ||
             "TITLE"
           )}
+
         </h2>
 
         <button
@@ -3007,28 +2842,30 @@ async function openTitle(
 
         <img
           src="${escapeHTML(
-            safeURL(
-              meta.poster ||
-              meta.logo ||
-              ""
-            )
+            meta.poster ||
+            meta.logo ||
+            ""
           )}">
 
         <div>
 
           <div class="meta">
+
             ${escapeHTML(
               meta.releaseInfo ||
               meta.year ||
               type
             )}
+
           </div>
 
           <p>
+
             ${escapeHTML(
               meta.description ||
               "No description available."
             )}
+
           </p>
 
           <button
@@ -3046,6 +2883,7 @@ async function openTitle(
       <div
         id="sources"
         style="margin-top:25px">
+
       </div>
 
     `);
@@ -3065,9 +2903,7 @@ async function openTitle(
 
       <div class="sheet-header">
 
-        <h2>
-          TITLE
-        </h2>
+        <h2>ERROR</h2>
 
         <button
           class="close"
@@ -3079,45 +2915,15 @@ async function openTitle(
 
       </div>
 
-      <div class="details">
+      <div class="notice">
 
-        <div>
+        ${escapeHTML(
+          error.message
+        )}
 
-          <div class="meta">
-            ${escapeHTML(type)}
-          </div>
-
-          <p>
-            The metadata addon could not
-            return full title information.
-          </p>
-
-          <button
-            class="primary"
-            id="sourceButton">
-
-            ▶ FIND SOURCES
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <div
-        id="sources"
-        style="margin-top:25px">
       </div>
 
     `);
-
-    $("sourceButton")
-      .onclick =
-      () =>
-        findSources(
-          type,
-          id
-        );
 
   }
 
@@ -3150,6 +2956,7 @@ function buildStreamURL(
 
 }
 
+
 function getStreamURL(
   stream
 ){
@@ -3161,6 +2968,7 @@ function getStreamURL(
 
 }
 
+
 function isPlayerFrame(
   stream
 ){
@@ -3170,6 +2978,7 @@ function isPlayerFrame(
   );
 
 }
+
 
 function isExternal(
   stream
@@ -3181,16 +2990,19 @@ function isExternal(
 
 }
 
+
 function isNotWebReady(
   stream
 ){
 
   return Boolean(
-    stream?.behaviorHints
+    stream
+      ?.behaviorHints
       ?.notWebReady
   );
 
 }
+
 
 function isHLS(
   stream
@@ -3215,6 +3027,7 @@ function isHLS(
 
 }
 
+
 function isMP4(
   stream
 ){
@@ -3236,6 +3049,7 @@ function isMP4(
   );
 
 }
+
 
 function isWebM(
   stream
@@ -3259,20 +3073,29 @@ function isWebM(
 
 }
 
+
 function isPlayableCandidate(
   stream
 ){
 
   if(
-    isPlayerFrame(stream)
+    isPlayerFrame(
+      stream
+    )
   ){
+
     return true;
+
   }
 
   if(
-    isExternal(stream)
+    isExternal(
+      stream
+    )
   ){
+
     return false;
+
   }
 
   return (
@@ -3282,6 +3105,7 @@ function isPlayableCandidate(
   );
 
 }
+
 
 function providerName(
   stream
@@ -3299,6 +3123,7 @@ function providerName(
     .toLowerCase();
 
   const providers = [
+
     "2peckle",
     "vidking",
     "vidfast",
@@ -3307,11 +3132,11 @@ function providerName(
     "streamwish",
     "filemoon",
     "megacloud"
+
   ];
 
   for(
-    const name
-    of providers
+    const name of providers
   ){
 
     if(
@@ -3328,17 +3153,27 @@ function providerName(
 
 }
 
+
 function compatibilityScore(
   stream
 ){
 
   let score = 0;
 
-  if(isMP4(stream)) score += 100;
-  if(isHLS(stream)) score += 90;
-  if(isWebM(stream)) score += 80;
-  if(isPlayerFrame(stream)) score += 70;
-  if(isExternal(stream)) score -= 100;
+  if(isMP4(stream))
+    score += 100;
+
+  if(isHLS(stream))
+    score += 90;
+
+  if(isWebM(stream))
+    score += 80;
+
+  if(isPlayerFrame(stream))
+    score += 70;
+
+  if(isExternal(stream))
+    score -= 100;
 
   return score;
 
@@ -3346,7 +3181,7 @@ function compatibilityScore(
 
 
 /* ============================================================
-   SOURCE BADGES
+   BADGES
 ============================================================ */
 
 function renderSource(
@@ -3362,36 +3197,138 @@ function renderSource(
   let format =
     "SOURCE";
 
-  if(isMP4(stream)){
+  if(isMP4(stream))
     format="MP4";
-  }
-  else if(isHLS(stream)){
+  else if(isHLS(stream))
     format="HLS";
-  }
-  else if(isWebM(stream)){
+  else if(isWebM(stream))
     format="WEBM";
-  }
-  else if(isPlayerFrame(stream)){
+  else if(isPlayerFrame(stream))
     format="PLAYER";
-  }
-  else if(isExternal(stream)){
+  else if(isExternal(stream))
     format="EXTERNAL";
+
+  /*
+    Preserve addon-provided badges.
+    This supports the badge objects/arrays
+    returned by many Stremio-compatible
+    stream addons.
+  */
+
+  let customBadges = [];
+
+  if(
+    Array.isArray(
+      stream.behaviorHints?.badges
+    )
+  ){
+
+    customBadges =
+      stream.behaviorHints.badges;
+
   }
+
+  if(
+    Array.isArray(
+      stream.badges
+    )
+  ){
+
+    customBadges =
+      customBadges.concat(
+        stream.badges
+      );
+
+  }
+
+  const customBadgeHTML =
+    customBadges
+      .map(
+        badge => {
+
+          if(
+            typeof badge === "string"
+          ){
+
+            return `
+              <span class="badge blue">
+                ${escapeHTML(
+                  badge
+                )}
+              </span>
+            `;
+
+          }
+
+          const text =
+            badge?.text ||
+            badge?.name ||
+            badge?.label ||
+            "";
+
+          const url =
+            badge?.url ||
+            badge?.image ||
+            "";
+
+          if(
+            url &&
+            /^https?:\/\//i.test(
+              url
+            )
+          ){
+
+            return `
+              <span class="badge blue">
+                ${escapeHTML(
+                  text || "BADGE"
+                )}
+              </span>
+            `;
+
+          }
+
+          return text
+            ? `
+              <span class="badge blue">
+                ${escapeHTML(
+                  text
+                )}
+              </span>
+            `
+            : "";
+
+        }
+      )
+      .join("");
 
   return `
 
     <button
       class="source"
+
       ${
         playable
-          ? `onclick="playSource(${index})"`
-          : `onclick="explainSource(${index})"`
+
+          ?
+
+          `onclick="playSource(${index})"`
+
+          :
+
+          `onclick="explainSource(${index})"`
       }>
 
       <div class="source-top">
 
         <div class="source-icon">
-          ${playable ? "▶" : "!"}
+
+          ${
+            playable
+              ? "▶"
+              : "!"
+          }
+
         </div>
 
         <div>
@@ -3465,6 +3402,7 @@ function renderSource(
             `
 
             :
+
             ""
         }
 
@@ -3482,22 +3420,11 @@ function renderSource(
             `
 
             :
+
             ""
         }
 
-        ${
-          stream.behaviorHints?.proxyHeaders
-            ?
-
-            `
-              <span class="badge blue">
-                PROXY
-              </span>
-            `
-
-            :
-            ""
-        }
+        ${customBadgeHTML}
 
       </div>
 
@@ -3549,9 +3476,20 @@ async function findSources(
   id
 ){
 
-  if(!state.stream){
+  if(
+    !state.stream
+  ){
 
-    openSettings();
+    $("sources").innerHTML = `
+
+      <div class="notice">
+
+        Add your stream manifest in
+        Settings before finding sources.
+
+      </div>
+
+    `;
 
     return;
 
@@ -3560,7 +3498,13 @@ async function findSources(
   $("sources").innerHTML = `
 
     <div class="empty">
+
+      <div class="loading-bar"></div>
+
+      <br>
+
       Loading stream sources…
+
     </div>
 
   `;
@@ -3633,11 +3577,6 @@ async function findSources(
         </strong>
         potentially compatible source(s).
 
-        <br><br>
-
-        Your original SAUVE badge information
-        remains attached to each source.
-
       </div>
 
       ${currentStreams
@@ -3685,9 +3624,8 @@ function explainSource(
   const stream =
     currentStreams[index];
 
-  if(!stream){
+  if(!stream)
     return;
-  }
 
   if(
     isExternal(stream)
@@ -3707,6 +3645,7 @@ function explainSource(
 
 }
 
+
 function playSource(
   index
 ){
@@ -3714,9 +3653,8 @@ function playSource(
   const stream =
     currentStreams[index];
 
-  if(!stream){
+  if(!stream)
     return;
-  }
 
   currentPlayerIndex =
     currentPlayableStreams.indexOf(
@@ -3726,7 +3664,9 @@ function playSource(
   if(
     currentPlayerIndex < 0
   ){
+
     currentPlayerIndex=0;
+
   }
 
   if(
@@ -3747,6 +3687,7 @@ function playSource(
 
 }
 
+
 function playDirectStream(
   stream
 ){
@@ -3762,9 +3703,7 @@ function playDirectStream(
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -3837,7 +3776,7 @@ function playDirectStream(
 
   video.addEventListener(
     "loadedmetadata",
-    ()=>{
+    () => {
 
       status.textContent =
         "Ready — press play";
@@ -3846,12 +3785,14 @@ function playDirectStream(
         "player-status ready";
 
     },
-    {once:true}
+    {
+      once:true
+    }
   );
 
   video.addEventListener(
     "playing",
-    ()=>{
+    () => {
 
       status.textContent =
         "Playing";
@@ -3864,7 +3805,7 @@ function playDirectStream(
 
   video.addEventListener(
     "waiting",
-    ()=>{
+    () => {
 
       status.textContent =
         "Buffering…";
@@ -3874,7 +3815,7 @@ function playDirectStream(
 
   video.addEventListener(
     "error",
-    ()=>{
+    () => {
 
       showPlayerError(
         "Safari could not decode or access this video source."
@@ -3887,14 +3828,16 @@ function playDirectStream(
 
 }
 
+
 function openEmbeddedPlayer(
   stream
 ){
 
   const url =
-    safeURL(
-      stream.playerFrameUrl
-    );
+    String(
+      stream.playerFrameUrl ||
+      ""
+    ).trim();
 
   if(!url){
 
@@ -3911,10 +3854,12 @@ function openEmbeddedPlayer(
     <div class="sheet-header">
 
       <h2>
+
         ${escapeHTML(
           stream.name ||
           "PLAYER"
         )}
+
       </h2>
 
       <button
@@ -3932,7 +3877,9 @@ function openEmbeddedPlayer(
       <div class="iframe-player">
 
         <iframe
-          src="${escapeHTML(url)}"
+          src="${escapeHTML(
+            url
+          )}"
           allow="
             autoplay;
             fullscreen;
@@ -3976,6 +3923,7 @@ function openEmbeddedPlayer(
 
 }
 
+
 function showPlayerError(
   message
 ){
@@ -3994,6 +3942,7 @@ function showPlayerError(
   }
 
 }
+
 
 function tryNextSource(){
 
@@ -4048,22 +3997,19 @@ function tryNextSource(){
 
 }
 
+
 function showSourcesAgain(){
 
   openModal(`
 
     <div class="sheet-header">
 
-      <h2>
-        SOURCES
-      </h2>
+      <h2>SOURCES</h2>
 
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -4094,205 +4040,60 @@ function showSourcesAgain(){
 
 
 /* ============================================================
-   SEARCH
-============================================================ */
-
-async function performSearch(){
-
-  const query =
-    $("searchInput")
-      .value
-      .trim();
-
-  if(!query){
-
-    focusSearch();
-    return;
-
-  }
-
-  $("main").innerHTML = `
-
-    <div class="hero">
-
-      <div class="hero-content">
-
-        <div class="hero-kicker">
-          SAUVE SEARCH
-        </div>
-
-        <h1>
-          ${escapeHTML(query)}
-        </h1>
-
-        <p>
-          Searching movies and television…
-        </p>
-
-      </div>
-
-    </div>
-
-    <div
-      id="searchResults"
-      class="empty">
-
-      Searching…
-
-    </div>
-
-  `;
-
-  try{
-
-    const manifest =
-      await fetchJSON(
-        state.metadata
-      );
-
-    const catalogs =
-      Array.isArray(
-        manifest.catalogs
-      )
-        ? manifest.catalogs
-        : [];
-
-    const searchable =
-      catalogs.filter(
-        supportsSearch
-      );
-
-    if(!searchable.length){
-
-      throw new Error(
-        "No searchable catalogs were advertised by the metadata addon."
-      );
-
-    }
-
-    const responses =
-      await Promise.allSettled(
-        searchable.map(
-          catalog =>
-            fetchJSON(
-              buildCatalogURL(
-                catalog,
-                {
-                  search:query
-                }
-              )
-            )
-        )
-      );
-
-    const metas=[];
-
-    responses.forEach(
-      result=>{
-
-        if(
-          result.status ===
-          "fulfilled"
-        ){
-
-          metas.push(
-            ...(result.value.metas || [])
-          );
-
-        }
-
-      }
-    );
-
-    const results =
-      dedupeMetas(
-        metas
-      );
-
-    $("searchResults")
-      .outerHTML =
-
-      results.length
-
-        ?
-
-        `
-
-        <section>
-
-          <div class="catalog-heading">
-
-            <h2 class="catalog-title">
-              RESULTS
-            </h2>
-
-            <span class="catalog-label">
-              ${results.length}
-            </span>
-
-          </div>
-
-          <div class="row">
-
-            ${results
-              .map(
-                renderPosterCard
-              )
-              .join("")}
-
-          </div>
-
-        </section>
-
-        `
-
-        :
-
-        `
-
-        <div class="notice">
-
-          No results found for
-          <strong>
-            ${escapeHTML(query)}
-          </strong>.
-
-        </div>
-
-        `;
-
-  }
-  catch(error){
-
-    $("searchResults")
-      .outerHTML = `
-
-        <div class="notice">
-
-          <strong>
-            SEARCH FAILED
-          </strong>
-
-          <br><br>
-
-          ${escapeHTML(
-            error.message
-          )}
-
-        </div>
-
-      `;
-
-  }
-
-}
-
-
-/* ============================================================
    SETTINGS
 ============================================================ */
 
 function openSettings(){
+
+  const listRows =
+    state.mdbLists.length
+
+      ?
+
+      state.mdbLists
+        .map(
+          (url,index) => `
+
+            <div class="mdb-list-row">
+
+              <input
+                class="mdb-list-input"
+                data-index="${index}"
+                value="${escapeHTML(
+                  url
+                )}"
+                placeholder="https://mdblist.com/lists/username/list-name">
+
+              <button
+                class="remove-list"
+                onclick="
+                  removeMDBList(${index})
+                ">
+
+                ×
+
+              </button>
+
+            </div>
+
+          `
+        )
+        .join("")
+
+      :
+
+      `
+        <div
+          style="
+            color:#766a80;
+            font-size:11px;
+            margin-bottom:10px;
+          ">
+
+          No MDBList rows added yet.
+
+        </div>
+      `;
 
   openModal(`
 
@@ -4305,13 +4106,10 @@ function openSettings(){
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
-
 
     <div class="field">
 
@@ -4326,7 +4124,6 @@ function openSettings(){
         )}">
 
     </div>
-
 
     <div class="field">
 
@@ -4343,7 +4140,6 @@ function openSettings(){
 
     </div>
 
-
     <div class="field">
 
       <label>
@@ -4351,65 +4147,71 @@ function openSettings(){
       </label>
 
       <input
-        id="mdbKey"
+        id="mdbApiKey"
         type="password"
         autocomplete="off"
         value="${escapeHTML(
-          state.mdblistKey
+          state.mdbApiKey
         )}"
         placeholder="Paste your MDBList API key">
 
-    </div>
+      <div class="status-line">
 
+        Stored locally in this browser.
 
-    <div class="notice">
-
-      Your MDBList API key is stored only
-      in this browser's local storage.
-
-      <br><br>
-
-      Do not hard-code your API key into
-      this GitHub Pages file because anyone
-      viewing the public JavaScript could
-      read it.
+      </div>
 
     </div>
-
 
     <div class="field">
 
       <label>
-        Add MDBList URL
+        MDBList Categories
       </label>
 
-      <input
-        id="mdbListURL"
-        placeholder="
-          https://mdblist.com/lists/username/list-name
-        ">
+      <div id="mdbListEditor">
+
+        ${listRows}
+
+      </div>
+
+      <br>
+
+      <button
+        class="small-button"
+        onclick="addMDBListRow()">
+
+        + ADD MDBLIST
+
+      </button>
+
+      <div class="status-line">
+
+        Add public MDBList URLs such as:
+
+        <br><br>
+
+        https://mdblist.com/lists/username/list-name
+
+      </div>
 
     </div>
 
+    <div class="notice">
 
-    <button
-      class="primary"
-      onclick="addMDBListFromSettings()">
+      MDBList rows are kept separate from
+      your normal metadata catalogs.
 
-      ＋ ADD MDBLIST
+      <br><br>
 
-    </button>
-
-
-    <div
-      class="settings-list"
-      id="savedMDBLists">
+      If an MDBList request fails, SAUVE
+      will still load your normal homepage
+      catalogs instead of getting stuck on
+      "Loading all content".
 
     </div>
-
 
     <br>
-
 
     <button
       class="primary"
@@ -4421,7 +4223,82 @@ function openSettings(){
 
   `);
 
-  renderSavedMDBLists();
+}
+
+
+function addMDBListRow(){
+
+  const editor =
+    $("mdbListEditor");
+
+  if(!editor)
+    return;
+
+  const wrapper =
+    document.createElement(
+      "div"
+    );
+
+  wrapper.className =
+    "mdb-list-row";
+
+  wrapper.innerHTML = `
+
+    <input
+      class="mdb-list-input"
+      placeholder="https://mdblist.com/lists/username/list-name">
+
+    <button
+      class="remove-list">
+
+      ×
+
+    </button>
+
+  `;
+
+  wrapper
+    .querySelector(
+      ".remove-list"
+    )
+    .onclick = () =>
+      wrapper.remove();
+
+  editor.appendChild(
+    wrapper
+  );
+
+}
+
+
+function removeMDBList(
+  index
+){
+
+  state.mdbLists.splice(
+    index,
+    1
+  );
+
+  saveStoredLists();
+
+  openSettings();
+
+}
+
+
+function collectMDBLists(){
+
+  return [
+    ...document.querySelectorAll(
+      ".mdb-list-input"
+    )
+  ]
+  .map(
+    input =>
+      input.value.trim()
+  )
+  .filter(Boolean);
 
 }
 
@@ -4430,17 +4307,17 @@ function saveSettings(){
 
   const metadata =
     $("metadataURL")
-      ?.value
+      .value
       .trim();
 
   const stream =
     $("streamURL")
-      ?.value
+      .value
       .trim();
 
-  const key =
-    $("mdbKey")
-      ?.value
+  const mdbApiKey =
+    $("mdbApiKey")
+      .value
       .trim();
 
   if(!metadata){
@@ -4453,250 +4330,78 @@ function saveSettings(){
 
   }
 
-  state.metadata =
-    metadata;
+  const lists =
+    collectMDBLists();
 
-  state.stream =
-    stream || "";
+  /*
+    Validate the list URLs before saving.
+    One bad URL should not poison the
+    entire homepage.
+  */
 
-  state.mdblistKey =
-    key || "";
+  for(
+    const url of lists
+  ){
 
-  localStorage.setItem(
-    "sauve_metadata",
-    state.metadata
-  );
+    try{
 
-  localStorage.setItem(
-    "sauve_stream",
-    state.stream
-  );
+      parseMDBListURL(
+        url
+      );
 
-  localStorage.setItem(
-    "sauve_mdblist_key",
-    state.mdblistKey
-  );
+    }
+    catch(error){
 
-  saveMDBLists();
+      alert(
+        "MDBList URL problem:\n\n" +
+        url +
+        "\n\n" +
+        error.message
+      );
 
-  closeModal();
-
-  location.reload();
-
-}
-
-
-/* ============================================================
-   ADD MDBLIST
-============================================================ */
-
-function addMDBListFromSettings(){
-
-  const input =
-    $("mdbListURL");
-
-  if(!input){
-    return;
-  }
-
-  const url =
-    normalizeMDBListURL(
-      input.value
-    );
-
-  if(!url){
-
-    alert(
-      "Enter a valid MDBList URL."
-    );
-
-    return;
-
-  }
-
-  const parsed =
-    parseMDBListPath(
-      url
-    );
-
-  let defaultName =
-    "MDBList";
-
-  if(parsed){
-
-    if(
-      parsed.username &&
-      parsed.slug
-    ){
-
-      defaultName =
-        parsed.slug
-          .replace(
-            /[-_]+/g,
-            " "
-          )
-          .replace(
-            /\b\w/g,
-            c =>
-              c.toUpperCase()
-          );
+      return;
 
     }
 
   }
 
-  const exists =
-    state.mdblistLists.some(
-      list =>
-        list.url === url
-    );
+  state.metadata =
+    metadata;
 
-  if(exists){
+  state.stream =
+    stream;
 
-    alert(
-      "That MDBList is already added."
-    );
+  state.mdbApiKey =
+    mdbApiKey;
 
-    return;
+  state.mdbLists =
+    lists;
 
-  }
-
-  const name =
-    prompt(
-      "Name this row:",
-      defaultName
-    );
-
-  if(name === null){
-    return;
-  }
-
-  state.mdblistLists.push({
-    name:
-      name.trim() ||
-      defaultName,
-    url
-  });
-
-  saveMDBLists();
-
-  input.value="";
-
-  renderSavedMDBLists();
-
-}
-
-
-function renderSavedMDBLists(){
-
-  const box =
-    $("savedMDBLists");
-
-  if(!box){
-    return;
-  }
-
-  if(
-    !state.mdblistLists.length
-  ){
-
-    box.innerHTML = `
-
-      <div class="empty">
-
-        No MDBList rows added yet.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-  box.innerHTML = `
-
-    <div
-      style="
-        color:var(--cyan);
-        font-size:9px;
-        font-weight:900;
-        letter-spacing:2px;
-        margin-top:20px;
-        margin-bottom:8px;
-      ">
-
-      YOUR MDBLIST ROWS
-
-    </div>
-
-    ${state.mdblistLists
-      .map(
-        (list,index)=>`
-
-          <div class="saved-list">
-
-            <div style="min-width:0">
-
-              <div class="saved-list-name">
-
-                ${escapeHTML(
-                  list.name
-                )}
-
-              </div>
-
-              <div class="saved-list-url">
-
-                ${escapeHTML(
-                  list.url
-                )}
-
-              </div>
-
-            </div>
-
-            <button
-              class="delete-list"
-              onclick="deleteMDBList(${index})">
-
-              ×
-
-            </button>
-
-          </div>
-
-        `
-      )
-      .join("")}
-
-  `;
-
-}
-
-
-function deleteMDBList(
-  index
-){
-
-  if(
-    index < 0 ||
-    index >=
-    state.mdblistLists.length
-  ){
-
-    return;
-
-  }
-
-  state.mdblistLists.splice(
-    index,
-    1
+  localStorage.setItem(
+    "sauve_metadata",
+    metadata
   );
 
-  saveMDBLists();
+  localStorage.setItem(
+    "sauve_stream",
+    stream
+  );
 
-  renderSavedMDBLists();
+  localStorage.setItem(
+    "sauve_mdb_api",
+    mdbApiKey
+  );
+
+  saveStoredLists();
+
+  closeModal();
+
+  /*
+    Do not reload the entire document.
+    Rebuild the homepage instead.
+  */
+
+  loadHome();
 
 }
 
@@ -4707,16 +4412,29 @@ function deleteMDBList(
 
 function focusSearch(){
 
-  $("searchInput")
-    .focus();
+  const input =
+    $("searchInput");
+
+  if(input){
+
+    input.focus();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
 
 }
+
 
 function goHome(){
 
   location.reload();
 
 }
+
 
 function openModal(
   html
@@ -4731,6 +4449,7 @@ function openModal(
 
 }
 
+
 function closeModal(){
 
   $("modal")
@@ -4742,10 +4461,11 @@ function closeModal(){
 
 }
 
+
 $("modal")
   .addEventListener(
     "click",
-    event=>{
+    event => {
 
       if(
         event.target.id ===
@@ -4759,16 +4479,18 @@ $("modal")
     }
   );
 
+
 $("searchButton")
   .addEventListener(
     "click",
     performSearch
   );
 
+
 $("searchInput")
   .addEventListener(
     "keydown",
-    event=>{
+    event => {
 
       if(
         event.key ===
