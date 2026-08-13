@@ -2,19 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#05030b">
-
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 <title>SAUVE Cinema Television</title>
 
 <style>
-
 :root{
   --bg:#05030b;
   --panel:#0d0718;
@@ -29,108 +23,51 @@
   --muted:#9d91a6;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html,
-body{
+html,body{
   margin:0;
-  padding:0;
   min-height:100%;
-  background:var(--bg);
+  background:#05030b;
 }
 
 body{
-  color:white;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "Segoe UI",
-    sans-serif;
-
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
   overflow-x:hidden;
-
   background:
-    radial-gradient(
-      circle at 50% -10%,
-      rgba(138,77,255,.38),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 0 30%,
-      rgba(255,22,216,.12),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 100% 50%,
-      rgba(25,234,255,.10),
-      transparent 30%
-    ),
+    radial-gradient(circle at 50% -10%,rgba(138,77,255,.38),transparent 35%),
+    radial-gradient(circle at 0 30%,rgba(255,22,216,.12),transparent 30%),
+    radial-gradient(circle at 100% 50%,rgba(25,234,255,.10),transparent 30%),
     #05030b;
 }
 
-button,
-input,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-button:active{
-  transform:scale(.98);
-}
-
-/* =========================================================
-HEADER
-========================================================= */
+button,input{font:inherit}
+button{cursor:pointer}
+button:active{transform:scale(.98)}
 
 header{
   position:sticky;
   top:0;
   z-index:100;
-
-  padding:
-    calc(10px + env(safe-area-inset-top))
-    14px
-    14px;
-
+  padding:calc(10px + env(safe-area-inset-top)) 14px 14px;
   background:rgba(5,3,11,.94);
-
   backdrop-filter:blur(25px);
   -webkit-backdrop-filter:blur(25px);
-
   border-bottom:1px solid rgba(255,22,216,.18);
 }
 
 .logo{
   text-align:center;
-
-  font-family:
-    Impact,
-    Haettenschweiler,
-    "Arial Narrow Bold",
-    sans-serif;
-
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-style:italic;
-
-  font-size:
-    clamp(68px,19vw,120px);
-
+  font-size:clamp(68px,19vw,120px);
   line-height:.78;
-
   letter-spacing:7px;
-
   transform:skewX(-7deg);
-
-  color:white;
-
+  color:#fff;
   text-shadow:
-    0 0 4px white,
+    0 0 4px #fff,
     0 0 9px var(--pink),
     0 0 20px var(--pink),
     0 0 45px var(--purple),
@@ -139,15 +76,11 @@ header{
 
 .logo-sub{
   margin-top:14px;
-
   text-align:center;
-
   color:var(--cyan);
-
   font-size:9px;
   font-weight:900;
   letter-spacing:4px;
-
   text-shadow:0 0 10px var(--cyan);
 }
 
@@ -161,141 +94,83 @@ header{
 .searchbar input{
   flex:1;
   min-width:0;
-
   padding:14px;
-
   border-radius:8px;
-
   background:#0c0715;
-  color:white;
-
+  color:#fff;
   border:1px solid rgba(138,77,255,.45);
-
   outline:none;
 }
 
 .searchbar input:focus{
   border-color:var(--pink);
-
-  box-shadow:
-    0 0 18px
-    rgba(255,22,216,.18);
+  box-shadow:0 0 18px rgba(255,22,216,.18);
 }
 
 .searchbar button{
   padding:0 18px;
-
   border:0;
   border-radius:8px;
-
-  color:white;
+  color:#fff;
   font-weight:900;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
+  background:linear-gradient(135deg,var(--pink),var(--purple));
 }
-
-/* =========================================================
-MAIN
-========================================================= */
 
 main{
   width:100%;
   max-width:1500px;
-
   margin:auto;
-
-  padding:
-    16px
-    16px
-    110px;
+  padding:16px 16px 110px;
 }
-
-/* =========================================================
-HERO
-========================================================= */
 
 .hero{
   position:relative;
-
   min-height:clamp(400px,58vh,620px);
-
   overflow:hidden;
-
   display:flex;
   align-items:flex-end;
-
   padding:clamp(25px,5vw,60px);
-
   border-radius:18px;
-
   border:1px solid rgba(255,22,216,.25);
-
   background:
-    radial-gradient(
-      circle at 75% 30%,
-      rgba(25,234,255,.18),
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 75% 75%,
-      rgba(255,22,216,.25),
-      transparent 35%
-    ),
-    linear-gradient(
-      110deg,
-      #090511,
-      #190c2e,
-      #07121e
-    );
+    radial-gradient(circle at 75% 30%,rgba(25,234,255,.18),transparent 25%),
+    radial-gradient(circle at 75% 75%,rgba(255,22,216,.25),transparent 35%),
+    linear-gradient(110deg,#090511,#190c2e,#07121e);
 }
 
 .hero:before{
   content:"";
-
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5,3,11,.98),
-      rgba(5,3,11,.72) 48%,
-      rgba(5,3,11,.05)
-    );
+  background:linear-gradient(
+    90deg,
+    rgba(5,3,11,.98),
+    rgba(5,3,11,.72) 48%,
+    rgba(5,3,11,.05)
+  );
 }
 
 .hero:after{
   content:"";
-
   position:absolute;
   inset:0;
-
   opacity:.08;
-
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0,
-      transparent 3px,
-      rgba(255,255,255,.18) 4px
-    );
+  background:repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    rgba(255,255,255,.18) 4px
+  );
 }
 
 .hero-content{
   position:relative;
   z-index:3;
-
   max-width:720px;
 }
 
 .hero-kicker{
   color:var(--cyan);
-
   font-size:10px;
   font-weight:900;
   letter-spacing:3px;
@@ -303,29 +178,16 @@ HERO
 
 .hero h1{
   margin:15px 0;
-
-  font-family:
-    Impact,
-    Haettenschweiler,
-    sans-serif;
-
-  font-size:
-    clamp(46px,9vw,95px);
-
+  font-family:Impact,Haettenschweiler,sans-serif;
+  font-size:clamp(46px,9vw,95px);
   line-height:.85;
-
   text-transform:uppercase;
-
-  text-shadow:
-    0 0 20px
-    rgba(255,22,216,.35);
+  text-shadow:0 0 20px rgba(255,22,216,.35);
 }
 
 .hero p{
   color:#c7b9ce;
-
   line-height:1.6;
-
   font-size:14px;
 }
 
@@ -336,8 +198,7 @@ HERO
   margin-top:20px;
 }
 
-.primary,
-.secondary{
+.primary,.secondary{
   padding:13px 18px;
   border-radius:8px;
   font-weight:900;
@@ -345,31 +206,16 @@ HERO
 
 .primary{
   border:0;
-  color:white;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-
-  box-shadow:
-    0 0 18px
-    rgba(255,22,216,.25);
+  color:#fff;
+  background:linear-gradient(135deg,var(--pink),var(--purple));
+  box-shadow:0 0 18px rgba(255,22,216,.25);
 }
 
 .secondary{
   color:var(--cyan);
-
   background:rgba(25,234,255,.04);
-
   border:1px solid rgba(25,234,255,.38);
 }
-
-/* =========================================================
-CATALOGS
-========================================================= */
 
 .catalog-section{
   margin:30px 0 0;
@@ -379,33 +225,21 @@ CATALOGS
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
-
   margin-bottom:12px;
-
   padding-bottom:9px;
-
-  border-bottom:
-    1px solid
-    rgba(255,22,216,.15);
+  border-bottom:1px solid rgba(255,22,216,.15);
 }
 
 .catalog-title{
   margin:0;
-
-  font-family:
-    Impact,
-    Haettenschweiler,
-    sans-serif;
-
+  font-family:Impact,Haettenschweiler,sans-serif;
   font-size:25px;
   letter-spacing:1px;
 }
 
 .catalog-label{
   color:var(--cyan);
-
   font-size:9px;
   font-weight:900;
   letter-spacing:2px;
@@ -413,97 +247,56 @@ CATALOGS
 
 .row{
   display:flex;
-
   gap:13px;
-
   overflow-x:auto;
   overflow-y:hidden;
-
   padding:3px 1px 12px;
-
   scroll-snap-type:x proximity;
-
   scrollbar-width:none;
 }
 
-.row::-webkit-scrollbar{
-  display:none;
-}
-
-/* =========================================================
-POSTERS
-========================================================= */
+.row::-webkit-scrollbar{display:none}
 
 .poster-card{
   position:relative;
-
   flex:0 0 145px;
-
   overflow:hidden;
-
   border:0;
   padding:0;
-
   text-align:left;
-  color:white;
-
+  color:#fff;
   background:#10091c;
-
   border-radius:8px;
-
   scroll-snap-align:start;
-
-  box-shadow:
-    0 7px 22px
-    rgba(0,0,0,.32);
-
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease;
+  box-shadow:0 7px 22px rgba(0,0,0,.32);
+  transition:transform .18s ease,box-shadow .18s ease;
 }
 
 .poster-card:hover{
-  transform:
-    translateY(-4px)
-    scale(1.02);
-
-  box-shadow:
-    0 12px 30px
-    rgba(255,22,216,.20);
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 12px 30px rgba(255,22,216,.20);
 }
 
 .poster-card img{
   display:block;
-
   width:100%;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   background:#171027;
 }
 
 .poster-overlay{
   position:absolute;
-
   left:0;
   right:0;
   bottom:0;
-
   padding:38px 9px 9px;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.94)
-    );
+  background:linear-gradient(transparent,rgba(0,0,0,.94));
 }
 
 .poster-name{
   font-size:12px;
   font-weight:900;
-
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -511,758 +304,396 @@ POSTERS
 
 .poster-year{
   margin-top:3px;
-
   color:#bdb0c6;
-
   font-size:9px;
 }
 
 .poster-type{
   position:absolute;
-
   top:7px;
   left:7px;
-
   padding:4px 6px;
-
   border-radius:4px;
-
   background:rgba(0,0,0,.72);
-
   color:var(--cyan);
-
   font-size:7px;
   font-weight:900;
-
   letter-spacing:1px;
 }
 
-/* =========================================================
-SNOAKS BADGE
-========================================================= */
-
-.snoaks-badge{
+.snoak-tag{
   position:absolute;
-
   top:7px;
   right:7px;
-
-  z-index:5;
-
   padding:4px 6px;
-
   border-radius:4px;
-
+  background:rgba(255,22,216,.82);
   color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-
   font-size:7px;
   font-weight:900;
-
-  letter-spacing:.8px;
-
-  box-shadow:
-    0 0 10px
-    rgba(255,22,216,.35);
+  letter-spacing:1px;
 }
-
-/* =========================================================
-NOTICE
-========================================================= */
 
 .empty{
   padding:28px 5px;
-
   color:var(--muted);
-
   font-size:13px;
 }
 
 .notice{
   padding:16px;
-
   border-radius:9px;
-
-  background:
-    rgba(255,22,216,.045);
-
-  border:
-    1px solid
-    rgba(255,22,216,.17);
-
+  background:rgba(255,22,216,.045);
+  border:1px solid rgba(255,22,216,.17);
   color:#c8bacf;
-
   line-height:1.6;
-
   font-size:12px;
 }
 
-/* =========================================================
-MODAL
-========================================================= */
-
 .modal{
   position:fixed;
-
   inset:0;
-
   z-index:500;
-
   display:none;
-
   align-items:flex-end;
-
-  background:
-    rgba(0,0,0,.88);
-
+  background:rgba(0,0,0,.88);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
 }
 
-.modal.open{
-  display:flex;
-}
+.modal.open{display:flex}
 
 .sheet{
   width:100%;
-
   max-height:95vh;
-
   overflow:auto;
-
-  padding:
-    20px
-    18px
-    calc(
-      30px +
-      env(safe-area-inset-bottom)
-    );
-
-  border-radius:
-    22px 22px 0 0;
-
+  padding:20px 18px calc(30px + env(safe-area-inset-bottom));
+  border-radius:22px 22px 0 0;
   background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(138,77,255,.18),
-      transparent 40%
-    ),
+    radial-gradient(circle at 50% 0,rgba(138,77,255,.18),transparent 40%),
     #0c0718;
-
-  border-top:
-    1px solid
-    rgba(255,22,216,.35);
+  border-top:1px solid rgba(255,22,216,.35);
 }
 
 .sheet-header{
   display:flex;
-
   align-items:center;
   justify-content:space-between;
-
   gap:10px;
-
   margin-bottom:18px;
 }
 
 .sheet-header h2{
   margin:0;
-
-  font-family:
-    Impact,
-    Haettenschweiler,
-    sans-serif;
-
+  font-family:Impact,Haettenschweiler,sans-serif;
   font-size:27px;
 }
 
 .close{
   width:40px;
   height:40px;
-
   border-radius:50%;
-
   background:#170d27;
-
   color:var(--cyan);
-
-  border:
-    1px solid
-    rgba(25,234,255,.3);
-
+  border:1px solid rgba(25,234,255,.3);
   font-size:22px;
 }
 
-/* =========================================================
-DETAILS
-========================================================= */
-
 .details{
   display:grid;
-
-  grid-template-columns:
-    105px 1fr;
-
+  grid-template-columns:105px 1fr;
   gap:16px;
 }
 
 .details img{
   width:105px;
-
   aspect-ratio:2/3;
-
   object-fit:cover;
-
   border-radius:8px;
 }
 
 .details p{
   color:#c3b5cb;
-
   line-height:1.55;
-
   font-size:13px;
 }
 
 .meta{
   color:var(--cyan);
-
   font-size:10px;
-
   letter-spacing:1px;
-
   margin-bottom:7px;
 }
 
-/* =========================================================
-SOURCES
-========================================================= */
-
 .source{
   width:100%;
-
   margin-top:9px;
-
   padding:14px;
-
   text-align:left;
-
-  color:white;
-
+  color:#fff;
   border-radius:9px;
-
-  background:
-    linear-gradient(
-      100deg,
-      #150c29,
-      #0d0819
-    );
-
-  border:
-    1px solid
-    rgba(25,234,255,.15);
+  background:linear-gradient(100deg,#150c29,#0d0819);
+  border:1px solid rgba(25,234,255,.15);
 }
 
 .source:hover{
   border-color:var(--cyan);
-
-  box-shadow:
-    0 0 16px
-    rgba(25,234,255,.14);
+  box-shadow:0 0 16px rgba(25,234,255,.14);
 }
 
 .source-top{
   display:flex;
   align-items:center;
-
   gap:12px;
 }
 
 .source-icon{
   width:36px;
   height:36px;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
   flex:none;
-
   border-radius:50%;
-
   color:var(--cyan);
-
-  background:
-    rgba(25,234,255,.08);
+  background:rgba(25,234,255,.08);
 }
 
-.source-name{
-  font-weight:900;
-}
+.source-name{font-weight:900}
 
 .provider{
   margin-top:4px;
-
   color:var(--cyan);
-
   font-size:9px;
   font-weight:900;
-
   letter-spacing:1px;
-
   text-transform:uppercase;
 }
 
-.badges{
-  margin-top:8px;
-}
+.badges{margin-top:8px}
 
 .badge{
   display:inline-block;
-
   padding:4px 7px;
-
   margin-right:5px;
-
+  margin-bottom:4px;
   border-radius:5px;
-
-  background:
-    rgba(255,22,216,.10);
-
+  background:rgba(255,22,216,.10);
   color:#ff7be4;
-
   font-size:8px;
   font-weight:900;
-
   letter-spacing:.7px;
 }
 
 .badge.good{
-  background:
-    rgba(66,255,176,.10);
-
+  background:rgba(66,255,176,.10);
   color:var(--green);
 }
 
 .badge.warning{
-  background:
-    rgba(255,212,90,.10);
-
+  background:rgba(255,212,90,.10);
   color:var(--yellow);
 }
 
 .badge.blue{
-  background:
-    rgba(25,234,255,.10);
-
+  background:rgba(25,234,255,.10);
   color:var(--cyan);
+}
+
+.badge.image-badge{
+  padding:0;
+  background:transparent;
+  vertical-align:middle;
+}
+
+.badge.image-badge img{
+  display:inline-block;
+  height:18px;
+  max-width:110px;
+  object-fit:contain;
+  vertical-align:middle;
+  border-radius:3px;
 }
 
 .source-desc{
   margin-top:7px;
-
   color:#91859b;
-
   font-size:10px;
 }
 
-/* =========================================================
-PLAYER
-========================================================= */
-
 .player-shell{
   position:relative;
-
   width:100%;
-
   overflow:hidden;
-
   border-radius:12px;
-
   background:#000;
-
-  border:
-    1px solid
-    rgba(25,234,255,.25);
-
-  box-shadow:
-    0 0 30px
-    rgba(25,234,255,.08);
+  border:1px solid rgba(25,234,255,.25);
+  box-shadow:0 0 30px rgba(25,234,255,.08);
 }
 
 video{
   display:block;
-
   width:100%;
-
   max-height:70vh;
-
   background:#000;
 }
 
 .iframe-player{
   width:100%;
   aspect-ratio:16/9;
-
   background:#000;
 }
 
 iframe{
   display:block;
-
   width:100%;
   height:100%;
-
   border:0;
-
   background:#000;
 }
 
 .player-status{
   padding:11px 13px;
-
   background:#0e0818;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.07);
-
+  border-top:1px solid rgba(255,255,255,.07);
   color:#aaa;
-
   font-size:11px;
 }
 
-.player-status.ready{
-  color:var(--green);
-}
-
-.player-status.error{
-  color:var(--red);
-}
+.player-status.ready{color:var(--green)}
+.player-status.error{color:var(--red)}
 
 .player-controls{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:8px;
-
   margin-top:12px;
 }
 
 .player-button{
   padding:10px 13px;
-
   border-radius:7px;
-
-  color:white;
-
+  color:#fff;
   background:#170d27;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
+  border:1px solid rgba(255,255,255,.1);
   font-weight:800;
-
   font-size:11px;
 }
 
 .player-button.primary{
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-
+  background:linear-gradient(135deg,var(--pink),var(--purple));
   border:0;
 }
 
-/* =========================================================
-SETTINGS
-========================================================= */
-
-.field{
-  margin:18px 0;
-}
+.field{margin:18px 0}
 
 .field label{
   display:block;
-
   margin-bottom:8px;
-
   color:var(--cyan);
-
   font-size:9px;
   font-weight:900;
-
   letter-spacing:2px;
-
   text-transform:uppercase;
 }
 
-.field input,
-.field textarea{
+.field input{
   width:100%;
-
   padding:13px;
-
   border-radius:7px;
-
   background:#080510;
-
-  color:white;
-
-  border:
-    1px solid
-    rgba(138,77,255,.3);
-
+  color:#fff;
+  border:1px solid rgba(138,77,255,.3);
   outline:none;
 }
 
-.field textarea{
-  min-height:90px;
-  resize:vertical;
+.snoak-list{
+  margin-top:10px;
+  padding:13px;
+  border-radius:9px;
+  background:#10091c;
+  border:1px solid rgba(255,22,216,.15);
 }
 
-.setting-block{
-  margin:
-    22px 0;
-
-  padding:
-    15px;
-
-  border-radius:10px;
-
-  background:
-    rgba(255,255,255,.025);
-
-  border:
-    1px solid
-    rgba(138,77,255,.20);
+.snoak-list strong{
+  display:block;
+  color:#fff;
+  margin-bottom:4px;
 }
 
-.setting-block h3{
-  margin:0 0 7px;
-
-  font-size:15px;
-
-  font-weight:900;
-}
-
-.setting-block p{
-  margin:0 0 15px;
-
-  color:#9d91a6;
-
-  font-size:11px;
-
+.snoak-list span{
+  color:#93869c;
+  font-size:10px;
   line-height:1.5;
 }
 
-.list-row{
-  display:flex;
-
-  gap:7px;
-
-  margin-bottom:9px;
-}
-
-.list-row input{
-  flex:1;
-}
-
-.remove-list{
-  width:43px;
-
-  border-radius:7px;
-
-  border:
-    1px solid
-    rgba(255,85,119,.25);
-
-  background:
-    rgba(255,85,119,.08);
-
-  color:var(--red);
-
-  font-weight:900;
-}
-
-.small-button{
-  padding:
-    10px 13px;
-
-  border-radius:7px;
-
-  border:
-    1px solid
-    rgba(25,234,255,.25);
-
-  background:
-    rgba(25,234,255,.06);
-
-  color:var(--cyan);
-
-  font-size:11px;
-
-  font-weight:900;
-}
-
-.save-settings{
-  width:100%;
-
-  margin-top:10px;
-
-  padding:14px;
-
-  border:0;
-
-  border-radius:8px;
-
-  color:#fff;
-
-  font-weight:900;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-}
-
-/* =========================================================
-NAV
-========================================================= */
-
 .nav{
   position:fixed;
-
   z-index:400;
-
   left:0;
   right:0;
   bottom:0;
-
   height:76px;
-
-  padding-bottom:
-    env(safe-area-inset-bottom);
-
+  padding-bottom:env(safe-area-inset-bottom);
   display:flex;
-
   align-items:center;
   justify-content:space-around;
-
-  background:
-    rgba(8,5,17,.96);
-
+  background:rgba(8,5,17,.96);
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
-
-  border-top:
-    1px solid
-    rgba(255,22,216,.18);
+  border-top:1px solid rgba(255,22,216,.18);
 }
 
 .nav button{
   border:0;
-
   background:none;
-
   color:#766a80;
-
   font-size:9px;
-
   letter-spacing:1px;
 }
 
 .nav button span{
   display:block;
-
   font-size:22px;
-
   margin-bottom:4px;
 }
 
 .nav button.active{
   color:var(--pink);
-
-  text-shadow:
-    0 0 10px
-    var(--pink);
+  text-shadow:0 0 10px var(--pink);
 }
-
-/* =========================================================
-DESKTOP
-========================================================= */
 
 @media(min-width:700px){
-
-  .poster-card{
-    flex-basis:180px;
-  }
-
-  .details{
-    grid-template-columns:
-      190px 1fr;
-  }
-
-  .details img{
-    width:190px;
-  }
-
-  .hero{
-    min-height:580px;
-  }
-
+  .poster-card{flex-basis:180px}
+  .details{grid-template-columns:190px 1fr}
+  .details img{width:190px}
+  .hero{min-height:580px}
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-  <div class="logo">
-    SAUVE
-  </div>
+  <div class="logo">SAUVE</div>
 
   <div class="logo-sub">
     CINEMA • TELEVISION • AFTER DARK
   </div>
 
   <div class="searchbar">
-
     <input
       id="searchInput"
       type="search"
       autocomplete="off"
       placeholder="Search movies & television">
-
-    <button id="searchButton">
-      SEARCH
-    </button>
-
+    <button id="searchButton">SEARCH</button>
   </div>
-
 </header>
-
 
 <main id="main">
 
   <div class="hero">
-
     <div class="hero-content">
 
       <div class="hero-kicker">
@@ -1276,304 +707,212 @@ DESKTOP
 
       <p>
         Discover movies and television,
-        browse your catalogs, explore your
-        Snoaks lists and find available
-        sources.
+        browse your catalogs, explore
+        Snoak's public lists and find
+        compatible sources.
       </p>
 
       <div class="hero-buttons">
-
-        <button
-          class="primary"
-          onclick="focusSearch()">
+        <button class="primary" onclick="focusSearch()">
           ⌕ SEARCH
         </button>
 
-        <button
-          class="secondary"
-          onclick="openSettings()">
+        <button class="secondary" onclick="openSettings()">
           ⚙ SETTINGS
         </button>
-
       </div>
 
     </div>
-
   </div>
 
-
   <div id="catalogContainer">
-
-    <div class="empty">
-      Loading SAUVE…
-    </div>
-
+    <div class="empty">Loading SAUVE…</div>
   </div>
 
 </main>
 
-
 <nav class="nav">
 
-  <button
-    class="active"
-    onclick="goHome()">
-
+  <button class="active" onclick="goHome()">
     <span>⌂</span>
     HOME
-
   </button>
 
-  <button
-    onclick="focusSearch()">
-
+  <button onclick="focusSearch()">
     <span>⌕</span>
     SEARCH
-
   </button>
 
-  <button
-    onclick="openSettings()">
-
+  <button onclick="openSettings()">
     <span>⚙</span>
     SETTINGS
-
   </button>
 
 </nav>
 
-
-<div
-  class="modal"
-  id="modal">
-
-  <div
-    class="sheet"
-    id="sheet">
-  </div>
-
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet"></div>
 </div>
-
 
 <script>
 
-/* =========================================================
-CONFIG
-========================================================= */
+/* ============================================================
+   CONFIG
+============================================================ */
 
 const DEFAULT_METADATA =
 "https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
 
+/*
+  Snoak's public MDBList page.
+
+  This is intentionally stored as a list reference rather
+  than pretending the webpage itself is a catalog JSON feed.
+
+  The MDBList/Stremio addon can turn public MDBList URLs into
+  Stremio catalogs.
+*/
+const DEFAULT_SNOAKS_LIST =
+"https://mdblist.com/lists/snoak/";
+
 const state = {
 
   metadata:
-    localStorage.getItem(
-      "sauve_metadata"
-    ) ||
+    localStorage.getItem("sauve_metadata") ||
     DEFAULT_METADATA,
 
   stream:
-    localStorage.getItem(
-      "sauve_stream"
-    ) ||
+    localStorage.getItem("sauve_stream") ||
     "",
 
   snoaks:
-    loadSnoaksLists()
+    localStorage.getItem("sauve_snoaks") ||
+    DEFAULT_SNOAKS_LIST,
 
+  /*
+    This is optional.
+
+    If you have a configured MDBList Stremio manifest,
+    paste it in Settings.
+
+    Example form:
+    https://your-mdblist-addon/.../manifest.json
+
+    SAUVE will read its catalogs automatically.
+  */
+  snoaksManifest:
+    localStorage.getItem("sauve_snoaks_manifest") ||
+    ""
 };
 
 let currentStreams = [];
-
 let currentPlayableStreams = [];
-
 let currentPlayerIndex = 0;
 
 
-/* =========================================================
-BASIC HELPERS
-========================================================= */
+/* ============================================================
+   HELPERS
+============================================================ */
 
 function $(id){
   return document.getElementById(id);
 }
 
-
 function escapeHTML(value=""){
-
   return String(value)
-    .replace(
-      /[&<>"']/g,
-      c => ({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-      }[c])
-    );
-
+    .replace(/[&<>"']/g,c=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[c]));
 }
-
-
-function safeURL(value){
-
-  try{
-
-    return new URL(
-      String(value).trim()
-    ).href;
-
-  }
-  catch{
-
-    return "";
-
-  }
-
-}
-
 
 function normalizeManifest(url){
-
   return String(url || "")
     .trim()
-    .replace(
-      /\/manifest\.json\/?$/i,
-      ""
-    );
-
+    .replace(/\/manifest\.json\/?$/i,"");
 }
-
 
 function addonRoot(url){
-
   return normalizeManifest(url) + "/";
 }
-
 
 async function fetchJSON(url){
 
   const response =
-    await fetch(
-      url,
-      {
-        method:"GET",
-        headers:{
-          Accept:"application/json"
-        },
-        cache:"no-store"
-      }
-    );
+    await fetch(url,{
+      method:"GET",
+      headers:{
+        Accept:"application/json"
+      },
+      cache:"no-store"
+    });
 
   if(!response.ok){
-
-    throw new Error(
-      "HTTP " +
-      response.status
-    );
-
+    throw new Error("HTTP " + response.status);
   }
 
   return response.json();
-
 }
 
 
-/* =========================================================
-SNOAKS STORAGE
-========================================================= */
+/* ============================================================
+   SAFE CATALOG FETCH
+============================================================ */
 
-function loadSnoaksLists(){
+async function safeFetchCatalog(catalog){
 
   try{
 
-    const raw =
-      localStorage.getItem(
-        "sauve_snoaks_lists"
+    const url =
+      buildCatalogURL(
+        catalog
       );
 
-    if(!raw){
-      return [];
-    }
+    const data =
+      await fetchJSON(url);
 
-    const parsed =
-      JSON.parse(raw);
-
-    if(
-      !Array.isArray(parsed)
-    ){
-
-      return [];
-
-    }
-
-    return parsed
-      .filter(
-        item =>
-          item &&
-          typeof item.url === "string"
-      )
-      .map(
-        item => ({
-          name:
-            item.name ||
-            "Snoaks List",
-          url:
-            item.url,
-          enabled:
-            item.enabled !== false
-        })
-      );
+    return {
+      catalog,
+      metas:
+        Array.isArray(data.metas)
+          ? data.metas
+          : []
+    };
 
   }
-  catch{
+  catch(error){
 
-    return [];
+    return {
+      catalog,
+      metas:[],
+      error
+    };
 
   }
 
 }
 
 
-function saveSnoaksLists(){
-
-  localStorage.setItem(
-    "sauve_snoaks_lists",
-    JSON.stringify(
-      state.snoaks
-    )
-  );
-
-}
-
-
-/* =========================================================
-CATALOG HELPERS
-========================================================= */
+/* ============================================================
+   SEARCH SUPPORT
+============================================================ */
 
 function supportsSearch(catalog){
 
-  if(
-    !Array.isArray(
-      catalog.extra
-    )
-  ){
-
+  if(!Array.isArray(catalog.extra)){
     return false;
-
   }
 
-  return catalog.extra.some(
-    extra =>
-      typeof extra === "string"
-        ? extra === "search"
-        : extra &&
-          extra.name === "search"
+  return catalog.extra.some(extra =>
+    typeof extra === "string"
+      ? extra === "search"
+      : extra &&
+        extra.name === "search"
   );
-
 }
-
 
 function makeExtraProps(values){
 
@@ -1593,9 +932,7 @@ function makeExtraProps(values){
         )
     )
     .join("&");
-
 }
-
 
 function buildCatalogURL(
   catalog,
@@ -1603,37 +940,26 @@ function buildCatalogURL(
 ){
 
   let url =
-    addonRoot(
-      state.metadata
-    ) +
+    addonRoot(state.metadata) +
     "catalog/" +
-    encodeURIComponent(
-      catalog.type
-    ) +
+    encodeURIComponent(catalog.type) +
     "/" +
-    encodeURIComponent(
-      catalog.id
-    );
+    encodeURIComponent(catalog.id);
 
   const props =
     makeExtraProps(extra);
 
   if(props){
-
-    url +=
-      "/" +
-      props;
-
+    url += "/" + props;
   }
 
   return url + ".json";
-
 }
 
 
-/* =========================================================
-CATALOG NAMES
-========================================================= */
+/* ============================================================
+   CATALOG LABELS
+============================================================ */
 
 function prettyCatalogName(catalog){
 
@@ -1650,31 +976,22 @@ function prettyCatalogName(catalog){
   const mappings = [
 
     ["netflix","NETFLIX"],
-
     ["disney+","DISNEY+"],
     ["disney","DISNEY+"],
-
     ["apple tv","APPLE TV+"],
     ["apple","APPLE TV+"],
-
     ["hbo","HBO"],
     ["max","MAX"],
-
     ["hulu","HULU"],
-
     ["prime","PRIME VIDEO"],
     ["amazon","PRIME VIDEO"],
-
     ["paramount","PARAMOUNT+"],
     ["peacock","PEACOCK"],
-
     ["marvel","MARVEL"],
     ["dc","DC"],
-
     ["popular","POPULAR"],
     ["trending","TRENDING"],
     ["featured","FEATURED"],
-
     ["top","TOP PICKS"],
     ["new","NEW RELEASES"]
 
@@ -1685,20 +1002,14 @@ function prettyCatalogName(catalog){
     of mappings
   ){
 
-    if(
-      lower.includes(needle)
-    ){
-
+    if(lower.includes(needle)){
       return label;
-
     }
 
   }
 
   return raw.toUpperCase();
-
 }
-
 
 function catalogPriority(catalog){
 
@@ -1710,7 +1021,6 @@ function catalogPriority(catalog){
     ).toLowerCase();
 
   const priority = [
-
     "featured",
     "trending",
     "popular",
@@ -1728,7 +1038,6 @@ function catalogPriority(catalog){
     "dc",
     "top",
     "new"
-
   ];
 
   const index =
@@ -1737,18 +1046,68 @@ function catalogPriority(catalog){
         name.includes(word)
     );
 
-  return index < 0
-    ? 999
-    : index;
-
+  return index < 0 ? 999 : index;
 }
 
 
-/* =========================================================
-METADATA HOME
-========================================================= */
+/* ============================================================
+   HOME
+============================================================ */
 
-async function loadMetadataCatalogs(){
+async function loadHome(){
+
+  const container =
+    $("catalogContainer");
+
+  /*
+    IMPORTANT:
+    We render the main interface immediately.
+
+    We do NOT wait for every catalog.
+
+    This prevents the "Loading all content" problem
+    you were seeing.
+  */
+
+  container.innerHTML = `
+
+    <section class="catalog-section">
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+          SAUVE
+        </h2>
+
+        <span class="catalog-label">
+          LOADING
+        </span>
+
+      </div>
+
+      <div class="empty">
+        Loading available catalogs…
+      </div>
+
+    </section>
+
+    <section
+      id="snoaksSection"
+      class="catalog-section">
+
+    </section>
+
+  `;
+
+  /*
+    Start Snoak loading independently.
+  */
+
+  loadSnoaksSection();
+
+  /*
+    Load metadata separately.
+  */
 
   try{
 
@@ -1758,16 +1117,31 @@ async function loadMetadataCatalogs(){
       );
 
     const catalogs =
-      Array.isArray(
-        manifest.catalogs
-      )
+      Array.isArray(manifest.catalogs)
         ? manifest.catalogs
         : [];
 
     if(!catalogs.length){
 
-      return "";
+      container.innerHTML = `
 
+        <div class="notice">
+
+          Your metadata addon did not advertise
+          any catalogs.
+
+        </div>
+
+        <section
+          id="snoaksSection"
+          class="catalog-section">
+        </section>
+
+      `;
+
+      loadSnoaksSection();
+
+      return;
     }
 
     const usable =
@@ -1784,86 +1158,134 @@ async function loadMetadataCatalogs(){
             catalogPriority(b)
         );
 
+    /*
+      Limit concurrency.
+
+      This is much less likely to overload the
+      metadata addon or make GitHub Pages appear
+      frozen.
+    */
+
     const selected =
-      usable.slice(
-        0,
-        30
-      );
+      usable.slice(0,18);
 
-    const results =
-      await Promise.allSettled(
-        selected.map(
-          async catalog => {
+    /*
+      Keep Snoaks section alive.
+    */
 
-            const data =
-              await fetchJSON(
-                buildCatalogURL(
-                  catalog
-                )
-              );
+    let html = `
 
-            return {
-              catalog,
-              metas:
-                Array.isArray(
-                  data.metas
-                )
-                  ? data.metas
-                  : []
-            };
+      <div id="normalCatalogs">
 
-          }
-        )
-      );
+        <div class="empty">
+          Loading catalogs…
+        </div>
 
-    let html = "";
+      </div>
 
-    results.forEach(
-      result => {
+      <section
+        id="snoaksSection"
+        class="catalog-section">
+      </section>
+
+    `;
+
+    container.innerHTML = html;
+
+    const normal =
+      $("normalCatalogs");
+
+    let rendered = 0;
+
+    /*
+      Fetch in small batches.
+    */
+
+    for(
+      let i=0;
+      i<selected.length;
+      i+=4
+    ){
+
+      const batch =
+        selected.slice(i,i+4);
+
+      const results =
+        await Promise.all(
+          batch.map(
+            safeFetchCatalog
+          )
+        );
+
+      for(
+        const result
+        of results
+      ){
 
         if(
-          result.status !==
-          "fulfilled"
+          result.metas &&
+          result.metas.length
         ){
 
-          return;
-
-        }
-
-        const {
-          catalog,
-          metas
-        } =
-        result.value;
-
-        if(!metas.length){
-          return;
-        }
-
-        html +=
-          renderCatalogRow(
-            catalog,
-            metas
+          normal.insertAdjacentHTML(
+            "beforeend",
+            renderCatalogRow(
+              result.catalog,
+              result.metas
+            )
           );
 
-      }
-    );
+          rendered++;
 
-    return html;
+        }
+
+      }
+
+      /*
+        Give the browser a chance to paint.
+      */
+
+      await new Promise(
+        resolve =>
+          setTimeout(
+            resolve,
+            0
+          )
+      );
+
+    }
+
+    if(!rendered){
+
+      normal.innerHTML = `
+
+        <div class="notice">
+
+          The metadata addon responded,
+          but no catalog returned titles.
+
+        </div>
+
+      `;
+
+    }
+
+    /*
+      Snoaks remains independent.
+    */
+
+    loadSnoaksSection();
 
   }
   catch(error){
 
-    console.warn(
-      "Metadata catalog error:",
-      error
-    );
-
-    return `
+    container.innerHTML = `
 
       <div class="notice">
 
-        Metadata catalogs could not be loaded.
+        <strong>
+          SAUVE METADATA ERROR
+        </strong>
 
         <br><br>
 
@@ -1871,555 +1293,30 @@ async function loadMetadataCatalogs(){
           error.message
         )}
 
+        <br><br>
+
+        Check your metadata manifest
+        under Settings.
+
       </div>
+
+      <section
+        id="snoaksSection"
+        class="catalog-section">
+      </section>
 
     `;
 
+    loadSnoaksSection();
+
   }
 
 }
 
 
-/* =========================================================
-SNOAKS LOADING
-========================================================= */
-
-async function loadSnoaksLists(){
-
-  const enabled =
-    state.snoaks.filter(
-      item =>
-        item.enabled &&
-        safeURL(item.url)
-    );
-
-  if(!enabled.length){
-
-    return "";
-
-  }
-
-  const results =
-    await Promise.allSettled(
-      enabled.map(
-        item =>
-          loadOneSnoaksList(
-            item
-          )
-      )
-    );
-
-  let html = "";
-
-  results.forEach(
-    result => {
-
-      if(
-        result.status !==
-        "fulfilled"
-      ){
-
-        return;
-
-      }
-
-      if(
-        !result.value ||
-        !result.value.items.length
-      ){
-
-        return;
-
-      }
-
-      html +=
-        renderSnoaksRow(
-          result.value.name,
-          result.value.items
-        );
-
-    }
-  );
-
-  return html;
-
-}
-
-
-async function loadOneSnoaksList(item){
-
-  const url =
-    safeURL(
-      item.url
-    );
-
-  if(!url){
-
-    throw new Error(
-      "Invalid Snoaks list URL"
-    );
-
-  }
-
-  const response =
-    await fetch(
-      url,
-      {
-        method:"GET",
-        headers:{
-          Accept:
-            "application/json,text/plain,*/*"
-        },
-        cache:"no-store"
-      }
-    );
-
-  if(!response.ok){
-
-    throw new Error(
-      "HTTP " +
-      response.status
-    );
-
-  }
-
-  const text =
-    await response.text();
-
-  let items = [];
-
-  const trimmed =
-    text.trim();
-
-  /*
-    Try JSON first.
-  */
-
-  if(
-    trimmed.startsWith("{") ||
-    trimmed.startsWith("[")
-  ){
-
-    try{
-
-      const json =
-        JSON.parse(
-          trimmed
-        );
-
-      items =
-        normalizeSnoaksJSON(
-          json
-        );
-
-    }
-    catch{
-
-      items = [];
-
-    }
-
-  }
-
-  /*
-    If JSON wasn't useful,
-    try M3U.
-  */
-
-  if(!items.length){
-
-    items =
-      parseSnoaksM3U(
-        trimmed
-      );
-
-  }
-
-  return {
-    name:
-      item.name ||
-      "SNOAKS LIST",
-    items:
-      dedupeSnoaks(
-        items
-      ).slice(
-        0,
-        40
-      )
-  };
-
-}
-
-
-/* =========================================================
-SNOAKS JSON NORMALIZER
-========================================================= */
-
-function normalizeSnoaksJSON(data){
-
-  let source = data;
-
-  if(
-    data &&
-    Array.isArray(
-      data.items
-    )
-  ){
-
-    source =
-      data.items;
-
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.movies
-    )
-  ){
-
-    source =
-      data.movies;
-
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.shows
-    )
-  ){
-
-    source =
-      data.shows;
-
-  }
-  else if(
-    data &&
-    Array.isArray(
-      data.metas
-    )
-  ){
-
-    source =
-      data.metas;
-
-  }
-
-  if(
-    !Array.isArray(source)
-  ){
-
-    return [];
-
-  }
-
-  return source
-    .map(
-      item =>
-        normalizeSnoaksItem(
-          item
-        )
-    )
-    .filter(Boolean);
-
-}
-
-
-function normalizeSnoaksItem(item){
-
-  if(
-    !item ||
-    typeof item !== "object"
-  ){
-
-    return null;
-
-  }
-
-  const name =
-    item.name ||
-    item.title ||
-    item.movie ||
-    item.show ||
-    item.label;
-
-  if(!name){
-
-    return null;
-
-  }
-
-  const poster =
-    item.poster ||
-    item.posterUrl ||
-    item.image ||
-    item.imageUrl ||
-    item.thumbnail ||
-    item.logo ||
-    "";
-
-  const url =
-    item.url ||
-    item.stream ||
-    item.streamUrl ||
-    item.video ||
-    item.videoUrl ||
-    "";
-
-  const id =
-    item.id ||
-    item.imdb_id ||
-    item.imdbId ||
-    item.tmdb_id ||
-    item.tmdbId ||
-    ("snoaks-" +
-      slugify(name));
-
-  let type =
-    String(
-      item.type ||
-      item.contentType ||
-      "movie"
-    ).toLowerCase();
-
-  if(
-    type === "series" ||
-    type === "tv"
-  ){
-
-    type = "series";
-
-  }
-  else{
-
-    type = "movie";
-
-  }
-
-  return {
-
-    id:
-      String(id),
-
-    type,
-
-    name:
-      String(name),
-
-    poster:
-      String(poster || ""),
-
-    year:
-      item.year ||
-      item.releaseInfo ||
-      "",
-
-    description:
-      item.description ||
-      item.overview ||
-      "",
-
-    streamUrl:
-      String(url || ""),
-
-    snoaks:true
-
-  };
-
-}
-
-
-/* =========================================================
-M3U PARSER
-========================================================= */
-
-function parseSnoaksM3U(text){
-
-  if(
-    !text ||
-    !text.includes("#EXTINF")
-  ){
-
-    return [];
-
-  }
-
-  const lines =
-    text.split(/\r?\n/);
-
-  const items = [];
-
-  let current = null;
-
-  for(
-    let i=0;
-    i<lines.length;
-    i++
-  ){
-
-    const line =
-      lines[i].trim();
-
-    if(
-      line.startsWith(
-        "#EXTINF"
-      )
-    ){
-
-      const comma =
-        line.indexOf(",");
-
-      const title =
-        comma >= 0
-          ? line
-              .slice(
-                comma + 1
-              )
-              .trim()
-          : "Snoaks Item";
-
-      const poster =
-        extractAttribute(
-          line,
-          "tvg-logo"
-        ) ||
-        extractAttribute(
-          line,
-          "logo"
-        ) ||
-        "";
-
-      const group =
-        extractAttribute(
-          line,
-          "group-title"
-        ) ||
-        "SNOAKS";
-
-      current = {
-
-        name:title,
-
-        poster,
-
-        group,
-
-        streamUrl:"",
-
-        type:"movie",
-
-        snoaks:true
-
-      };
-
-    }
-    else if(
-      current &&
-      line &&
-      !line.startsWith("#")
-    ){
-
-      current.streamUrl =
-        line;
-
-      current.id =
-        "snoaks-" +
-        slugify(
-          current.name
-        );
-
-      items.push(
-        current
-      );
-
-      current = null;
-
-    }
-
-  }
-
-  return items;
-
-}
-
-
-function extractAttribute(
-  line,
-  name
-){
-
-  const regex =
-    new RegExp(
-      name +
-      '="([^"]*)"',
-      "i"
-    );
-
-  const match =
-    line.match(
-      regex
-    );
-
-  return match
-    ? match[1]
-    : "";
-
-}
-
-
-function slugify(value){
-
-  return String(value)
-    .toLowerCase()
-    .replace(
-      /[^a-z0-9]+/g,
-      "-"
-    )
-    .replace(
-      /^-+|-+$/g,
-      ""
-    )
-    .slice(
-      0,
-      80
-    );
-
-}
-
-
-function dedupeSnoaks(items){
-
-  const seen =
-    new Set();
-
-  return items.filter(
-    item => {
-
-      const key =
-        String(
-          item.name
-        ).toLowerCase();
-
-      if(
-        seen.has(key)
-      ){
-
-        return false;
-
-      }
-
-      seen.add(key);
-
-      return true;
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-RENDER STANDARD CATALOG
-========================================================= */
+/* ============================================================
+   STANDARD CATALOG RENDER
+============================================================ */
 
 function renderCatalogRow(
   catalog,
@@ -2429,10 +1326,7 @@ function renderCatalogRow(
   const unique =
     dedupeMetas(
       metas
-    ).slice(
-      0,
-      30
-    );
+    ).slice(0,30);
 
   if(!unique.length){
     return "";
@@ -2445,8 +1339,7 @@ function renderCatalogRow(
 
   const type =
     String(
-      catalog.type ||
-      ""
+      catalog.type || ""
     ).toUpperCase();
 
   return `
@@ -2468,9 +1361,7 @@ function renderCatalogRow(
       <div class="row">
 
         ${unique
-          .map(
-            renderPosterCard
-          )
+          .map(renderPosterCard)
           .join("")}
 
       </div>
@@ -2482,194 +1373,20 @@ function renderCatalogRow(
 }
 
 
-/* =========================================================
-RENDER SNOAKS ROW
-========================================================= */
-
-function renderSnoaksRow(
-  name,
-  items
-){
-
-  return `
-
-    <section class="catalog-section">
-
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-          ${escapeHTML(
-            name.toUpperCase()
-          )}
-        </h2>
-
-        <span class="catalog-label">
-          SNOAKS
-        </span>
-
-      </div>
-
-      <div class="row">
-
-        ${items
-          .map(
-            renderSnoaksCard
-          )
-          .join("")}
-
-      </div>
-
-    </section>
-
-  `;
-
-}
-
-
-function renderSnoaksCard(
-  item
-){
-
-  const poster =
-    item.poster ||
-    "";
-
-  return `
-
-    <button
-      class="poster-card"
-      onclick="
-        openSnoaksTitle(
-          '${escapeJS(
-            item.id
-          )}'
-        )
-      ">
-
-      ${
-        poster
-
-          ?
-
-          `
-          <img
-            src="${escapeHTML(
-              poster
-            )}"
-            loading="lazy"
-            onerror="
-              this.style.opacity='.25'
-            ">
-          `
-
-          :
-
-          `
-          <div
-            style="
-              aspect-ratio:2/3;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              padding:15px;
-              text-align:center;
-              font-weight:900;
-              background:
-                linear-gradient(
-                  135deg,
-                  #180b2c,
-                  #080512
-                );
-            ">
-
-            ${escapeHTML(
-              item.name
-            )}
-
-          </div>
-          `
-      }
-
-      <div class="snoaks-badge">
-        SNOAKS
-      </div>
-
-      <div class="poster-type">
-        ${escapeHTML(
-          String(
-            item.type ||
-            "movie"
-          ).toUpperCase()
-        )}
-      </div>
-
-      <div class="poster-overlay">
-
-        <div class="poster-name">
-          ${escapeHTML(
-            item.name
-          )}
-        </div>
-
-        <div class="poster-year">
-          ${escapeHTML(
-            item.year ||
-            ""
-          )}
-        </div>
-
-      </div>
-
-    </button>
-
-  `;
-
-}
-
-
-function escapeJS(value){
-
-  return String(value || "")
-    .replace(
-      /\\/g,
-      "\\\\"
-    )
-    .replace(
-      /'/g,
-      "\\'"
-    )
-    .replace(
-      /"/g,
-      '\\"'
-    )
-    .replace(
-      /\n/g,
-      "\\n"
-    )
-    .replace(
-      /\r/g,
-      "\\r"
-    );
-
-}
-
-
-/* =========================================================
-STANDARD POSTER
-========================================================= */
+/* ============================================================
+   POSTERS
+============================================================ */
 
 function renderPosterCard(item){
 
   const type =
     encodeURIComponent(
-      item.type ||
-      "movie"
+      item.type || "movie"
     );
 
   const id =
     encodeURIComponent(
-      item.id ||
-      ""
+      item.id || ""
     );
 
   const poster =
@@ -2684,32 +1401,547 @@ function renderPosterCard(item){
 
   const kind =
     String(
-      item.type ||
-      "movie"
+      item.type || "movie"
     ).toUpperCase();
 
   return `
 
     <button
       class="poster-card"
-      onclick="
-        openTitle(
-          '${escapeJS(type)}',
-          '${escapeJS(id)}'
-        )
-      ">
+      onclick="openTitle('${type}','${id}')">
 
       <img
-        src="${escapeHTML(
-          poster
-        )}"
+        src="${escapeHTML(poster)}"
         loading="lazy"
-        onerror="
-          this.style.opacity='.25'
-        ">
+        onerror="this.style.opacity='.25'">
 
       <div class="poster-type">
         ${escapeHTML(kind)}
+      </div>
+
+      <div class="poster-overlay">
+
+        <div class="poster-name">
+          ${escapeHTML(
+            item.name || "Untitled"
+          )}
+        </div>
+
+        <div class="poster-year">
+          ${escapeHTML(year)}
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+}
+
+
+/* ============================================================
+   SNOAKS
+============================================================ */
+
+/*
+  Snoak's current public MDBList collection includes many
+  dynamic lists.
+
+  We expose the official public list reference in Settings
+  and provide a built-in route to the MDBList/Stremio
+  configuration.
+
+  If the user supplies a configured MDBList manifest,
+  SAUVE can directly consume its catalogs.
+*/
+
+async function loadSnoaksSection(){
+
+  const section =
+    $("snoaksSection");
+
+  if(!section){
+    return;
+  }
+
+  /*
+    If user supplied a configured manifest,
+    use it directly.
+  */
+
+  if(
+    state.snoaksManifest &&
+    state.snoaksManifest.trim()
+  ){
+
+    await loadSnoaksManifest(
+      section
+    );
+
+    return;
+
+  }
+
+  /*
+    No configured manifest.
+
+    Show Snoak's public collection as an
+    always-available section instead of
+    pretending the HTML page is JSON.
+  */
+
+  section.innerHTML = `
+
+    <div class="catalog-heading">
+
+      <h2 class="catalog-title">
+        SNOAKS LISTS
+      </h2>
+
+      <span class="catalog-label">
+        MDBLIST
+      </span>
+
+    </div>
+
+    <div class="notice">
+
+      <strong>
+        Snoak's public MDBList collection is ready.
+      </strong>
+
+      <br><br>
+
+      SAUVE keeps this separate from your normal
+      metadata catalogs so a Snoaks problem cannot
+      break your homepage.
+
+      <br><br>
+
+      To make the lists appear as live poster rows,
+      add your configured MDBList/Stremio manifest
+      in Settings.
+
+    </div>
+
+    <div class="row">
+
+      ${renderSnoakShortcut(
+        "Trending Movies",
+        "Trending Movies"
+      )}
+
+      ${renderSnoakShortcut(
+        "Trending Shows",
+        "Trending Shows"
+      )}
+
+      ${renderSnoakShortcut(
+        "Latest Streaming Movies",
+        "Latest Streaming Movies"
+      )}
+
+      ${renderSnoakShortcut(
+        "Top Netflix Movies",
+        "Top Netflix Movies"
+      )}
+
+      ${renderSnoakShortcut(
+        "Top Netflix Shows",
+        "Top Netflix Shows"
+      )}
+
+      ${renderSnoakShortcut(
+        "Top 10 Netflix Movies in Canada",
+        "Top 10 Netflix Movies in Canada"
+      )}
+
+      ${renderSnoakShortcut(
+        "Top 10 Netflix Shows in Canada",
+        "Top 10 Netflix Shows in Canada"
+      )}
+
+      ${renderSnoakShortcut(
+        "Latest Horror Movies",
+        "Latest Horror Movies"
+      )}
+
+      ${renderSnoakShortcut(
+        "Latest Sci-Fi Movies",
+        "Latest Sci-Fi Movies"
+      )}
+
+      ${renderSnoakShortcut(
+        "Latest Thriller Shows",
+        "Latest Thriller Shows"
+      )}
+
+    </div>
+
+  `;
+
+}
+
+function renderSnoakShortcut(
+  title,
+  listName
+){
+
+  return `
+
+    <button
+      class="poster-card"
+      onclick="openSnoakList('${escapeHTML(listName)}')">
+
+      <div
+        style="
+          aspect-ratio:2/3;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          padding:18px;
+          text-align:center;
+          background:
+            radial-gradient(
+              circle at 50% 20%,
+              rgba(255,22,216,.4),
+              transparent 45%
+            ),
+            linear-gradient(
+              145deg,
+              #160a2b,
+              #090511
+            );
+        ">
+
+        <div>
+
+          <div
+            style="
+              font-family:Impact,sans-serif;
+              font-size:25px;
+              line-height:1;
+            ">
+
+            SNOAK
+
+          </div>
+
+          <div
+            style="
+              margin-top:10px;
+              color:var(--cyan);
+              font-size:9px;
+              font-weight:900;
+              letter-spacing:2px;
+            ">
+
+            ${escapeHTML(
+              title
+            )}
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="snoak-tag">
+        SNOAK
+      </div>
+
+      <div class="poster-overlay">
+
+        <div class="poster-name">
+          ${escapeHTML(title)}
+        </div>
+
+        <div class="poster-year">
+          MDBLIST PUBLIC LIST
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/*
+  This function attempts to consume a configured
+  MDBList/Stremio manifest.
+
+  It does NOT block the rest of SAUVE if one list
+  fails.
+*/
+
+async function loadSnoaksManifest(
+  section
+){
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.snoaksManifest
+      );
+
+    const catalogs =
+      Array.isArray(
+        manifest.catalogs
+      )
+        ? manifest.catalogs
+        : [];
+
+    if(!catalogs.length){
+
+      throw new Error(
+        "The configured Snoaks manifest returned no catalogs."
+      );
+
+    }
+
+    section.innerHTML = `
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+          SNOAKS LISTS
+        </h2>
+
+        <span class="catalog-label">
+          LIVE
+        </span>
+
+      </div>
+
+    `;
+
+    for(
+      let i=0;
+      i<catalogs.length;
+      i+=3
+    ){
+
+      const batch =
+        catalogs.slice(i,i+3);
+
+      const results =
+        await Promise.all(
+          batch.map(
+            async catalog => {
+
+              try{
+
+                const root =
+                  addonRoot(
+                    state.snoaksManifest
+                  );
+
+                const url =
+                  root +
+                  "catalog/" +
+                  encodeURIComponent(
+                    catalog.type
+                  ) +
+                  "/" +
+                  encodeURIComponent(
+                    catalog.id
+                  ) +
+                  ".json";
+
+                const data =
+                  await fetchJSON(url);
+
+                return {
+                  catalog,
+                  metas:
+                    Array.isArray(data.metas)
+                      ? data.metas
+                      : []
+                };
+
+              }
+              catch(error){
+
+                return {
+                  catalog,
+                  metas:[]
+                };
+
+              }
+
+            }
+          )
+        );
+
+      for(
+        const result
+        of results
+      ){
+
+        if(
+          result.metas.length
+        ){
+
+          section.insertAdjacentHTML(
+            "beforeend",
+            renderSnoakCatalogRow(
+              result.catalog,
+              result.metas
+            )
+          );
+
+        }
+
+      }
+
+      await new Promise(
+        resolve =>
+          setTimeout(
+            resolve,
+            0
+          )
+      );
+
+    }
+
+  }
+  catch(error){
+
+    section.innerHTML = `
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+          SNOAKS LISTS
+        </h2>
+
+        <span class="catalog-label">
+          MDBLIST
+        </span>
+
+      </div>
+
+      <div class="notice">
+
+        Snoaks manifest could not be loaded.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+        <br><br>
+
+        Your normal SAUVE catalogs are
+        unaffected.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+function renderSnoakCatalogRow(
+  catalog,
+  metas
+){
+
+  const unique =
+    dedupeMetas(
+      metas
+    ).slice(0,30);
+
+  if(!unique.length){
+    return "";
+  }
+
+  return `
+
+    <section class="catalog-section">
+
+      <div class="catalog-heading">
+
+        <h2 class="catalog-title">
+
+          ${escapeHTML(
+            catalog.name ||
+            catalog.id ||
+            "SNOAKS"
+          )}
+
+        </h2>
+
+        <span class="catalog-label">
+          SNOAK
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        ${unique
+          .map(
+            item =>
+              renderSnoakPoster(
+                item
+              )
+          )
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+function renderSnoakPoster(item){
+
+  const type =
+    encodeURIComponent(
+      item.type || "movie"
+    );
+
+  const id =
+    encodeURIComponent(
+      item.id || ""
+    );
+
+  return `
+
+    <button
+      class="poster-card"
+      onclick="openTitle('${type}','${id}')">
+
+      <img
+        src="${escapeHTML(
+          item.poster ||
+          item.logo ||
+          ""
+        )}"
+        loading="lazy"
+        onerror="this.style.opacity='.25'">
+
+      <div class="poster-type">
+        ${escapeHTML(
+          String(
+            item.type || "movie"
+          ).toUpperCase()
+        )}
+      </div>
+
+      <div class="snoak-tag">
+        SNOAK
       </div>
 
       <div class="poster-overlay">
@@ -2723,7 +1955,9 @@ function renderPosterCard(item){
 
         <div class="poster-year">
           ${escapeHTML(
-            year
+            item.releaseInfo ||
+            item.year ||
+            ""
           )}
         </div>
 
@@ -2736,154 +1970,59 @@ function renderPosterCard(item){
 }
 
 
-function dedupeMetas(metas){
+function openSnoakList(
+  listName
+){
 
-  const seen =
-    new Set();
+  /*
+    Opens the public Snoak collection in a
+    new browser tab.
 
-  return metas.filter(
-    item => {
+    This is intentionally navigational only.
+    It does not attempt to scrape the MDBList
+    webpage as JSON.
+  */
 
-      const key =
-        String(
-          item.type ||
-          ""
-        ) +
-        "|" +
-        String(
-          item.id ||
-          ""
-        );
-
-      if(
-        seen.has(key)
-      ){
-
-        return false;
-
-      }
-
-      seen.add(key);
-
-      return true;
-
-    }
+  window.open(
+    state.snoaks,
+    "_blank",
+    "noopener,noreferrer"
   );
 
 }
 
 
-/* =========================================================
-HOME
-========================================================= */
+/* ============================================================
+   DEDUPE
+============================================================ */
 
-async function loadHome(){
+function dedupeMetas(metas){
 
-  const container =
-    $("catalogContainer");
+  const seen = new Set();
 
-  /*
-    Important:
-    render the page in stages.
+  return metas.filter(item => {
 
-    This prevents the app from appearing
-    frozen while one source is loading.
-  */
+    const key =
+      String(item.type || "") +
+      "|" +
+      String(item.id || "");
 
-  container.innerHTML = `
+    if(seen.has(key)){
+      return false;
+    }
 
-    <section class="catalog-section">
+    seen.add(key);
 
-      <div class="catalog-heading">
+    return true;
 
-        <h2 class="catalog-title">
-          YOUR CINEMA
-        </h2>
-
-        <span class="catalog-label">
-          LOADING
-        </span>
-
-      </div>
-
-      <div class="empty">
-        Loading catalogs…
-      </div>
-
-    </section>
-
-  `;
-
-  const metadataPromise =
-    loadMetadataCatalogs();
-
-  const snoaksPromise =
-    loadSnoaksLists();
-
-  const results =
-    await Promise.allSettled([
-      metadataPromise,
-      snoaksPromise
-    ]);
-
-  let html = "";
-
-  if(
-    results[0].status ===
-    "fulfilled"
-  ){
-
-    html +=
-      results[0].value;
-
-  }
-
-  if(
-    results[1].status ===
-    "fulfilled"
-  ){
-
-    html +=
-      results[1].value;
-
-  }
-
-  if(!html){
-
-    html = `
-
-      <div class="notice">
-
-        <strong>
-          SAUVE IS READY
-        </strong>
-
-        <br><br>
-
-        No catalogs are currently
-        available.
-
-        <br><br>
-
-        Open Settings to verify your
-        metadata manifest or add a Snoaks
-        list.
-
-      </div>
-
-    `;
-
-  }
-
-  container.innerHTML =
-    html;
+  });
 
 }
 
 
-/* =========================================================
-SEARCH
-========================================================= */
+/* ============================================================
+   SEARCH
+============================================================ */
 
 async function performSearch(){
 
@@ -2893,11 +2032,8 @@ async function performSearch(){
       .trim();
 
   if(!query){
-
     focusSearch();
-
     return;
-
   }
 
   $("main").innerHTML = `
@@ -2911,9 +2047,7 @@ async function performSearch(){
         </div>
 
         <h1>
-          ${escapeHTML(
-            query
-          )}
+          ${escapeHTML(query)}
         </h1>
 
         <p>
@@ -2942,9 +2076,7 @@ async function performSearch(){
       );
 
     const catalogs =
-      Array.isArray(
-        manifest.catalogs
-      )
+      Array.isArray(manifest.catalogs)
         ? manifest.catalogs
         : [];
 
@@ -2953,49 +2085,76 @@ async function performSearch(){
         supportsSearch
       );
 
-    const responses =
-      await Promise.allSettled(
-        searchable.map(
-          catalog =>
-            fetchJSON(
-              buildCatalogURL(
-                catalog,
-                {
-                  search:query
-                }
-              )
-            )
-        )
+    if(!searchable.length){
+      throw new Error(
+        "No searchable catalogs were advertised."
       );
+    }
 
-    const metas = [];
+    const results = [];
 
-    responses.forEach(
-      result => {
+    /*
+      Search in batches so one slow addon
+      does not make the UI appear frozen.
+    */
 
-        if(
-          result.status ===
-          "fulfilled"
-        ){
+    for(
+      let i=0;
+      i<searchable.length;
+      i+=4
+    ){
 
-          metas.push(
-            ...(result.value.metas || [])
-          );
+      const batch =
+        searchable.slice(i,i+4);
+
+      const responses =
+        await Promise.allSettled(
+          batch.map(
+            catalog =>
+              fetchJSON(
+                buildCatalogURL(
+                  catalog,
+                  {search:query}
+                )
+              )
+          )
+        );
+
+      responses.forEach(
+        result => {
+
+          if(
+            result.status ===
+            "fulfilled"
+          ){
+
+            results.push(
+              ...(result.value.metas || [])
+            );
+
+          }
 
         }
+      );
 
-      }
-    );
+      await new Promise(
+        resolve =>
+          setTimeout(
+            resolve,
+            0
+          )
+      );
 
-    const results =
+    }
+
+    const unique =
       dedupeMetas(
-        metas
+        results
       );
 
     $("searchResults")
       .outerHTML =
-
-      results.length
+      unique.length
 
         ?
 
@@ -3010,17 +2169,15 @@ async function performSearch(){
             </h2>
 
             <span class="catalog-label">
-              ${results.length}
+              ${unique.length}
             </span>
 
           </div>
 
           <div class="row">
 
-            ${results
-              .map(
-                renderPosterCard
-              )
+            ${unique
+              .map(renderPosterCard)
               .join("")}
 
           </div>
@@ -3036,7 +2193,6 @@ async function performSearch(){
         <div class="notice">
 
           No results found for
-
           <strong>
             ${escapeHTML(query)}
           </strong>.
@@ -3072,9 +2228,9 @@ async function performSearch(){
 }
 
 
-/* =========================================================
-STANDARD TITLE
-========================================================= */
+/* ============================================================
+   TITLE
+============================================================ */
 
 async function openTitle(
   encodedType,
@@ -3102,7 +2258,9 @@ async function openTitle(
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -3120,19 +2278,13 @@ async function openTitle(
         state.metadata
       ) +
       "meta/" +
-      encodeURIComponent(
-        type
-      ) +
+      encodeURIComponent(type) +
       "/" +
-      encodeURIComponent(
-        id
-      ) +
+      encodeURIComponent(id) +
       ".json";
 
     const data =
-      await fetchJSON(
-        url
-      );
+      await fetchJSON(url);
 
     const meta =
       data.meta ||
@@ -3152,7 +2304,9 @@ async function openTitle(
         <button
           class="close"
           onclick="closeModal()">
+
           ×
+
         </button>
 
       </div>
@@ -3169,13 +2323,11 @@ async function openTitle(
         <div>
 
           <div class="meta">
-
             ${escapeHTML(
               meta.releaseInfo ||
               meta.year ||
               type
             )}
-
           </div>
 
           <p>
@@ -3204,8 +2356,7 @@ async function openTitle(
 
     `);
 
-    $("sourceButton")
-      .onclick =
+    $("sourceButton").onclick =
       () =>
         findSources(
           type,
@@ -3219,14 +2370,14 @@ async function openTitle(
 
       <div class="sheet-header">
 
-        <h2>
-          ERROR
-        </h2>
+        <h2>ERROR</h2>
 
         <button
           class="close"
           onclick="closeModal()">
+
           ×
+
         </button>
 
       </div>
@@ -3246,473 +2397,70 @@ async function openTitle(
 }
 
 
-/* =========================================================
-SNOAKS TITLE
-========================================================= */
-
-let snoaksItemsCache = [];
-
-
-async function openSnoaksTitle(
-  id
-){
-
-  /*
-    Reload the Snoaks lists so the selected
-    item can be found without requiring
-    a global database.
-  */
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        SNOAKS
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-    <div class="empty">
-      Loading title…
-    </div>
-
-  `);
-
-  try{
-
-    const enabled =
-      state.snoaks.filter(
-        item =>
-          item.enabled &&
-          safeURL(item.url)
-      );
-
-    let found = null;
-
-    for(
-      const list
-      of enabled
-    ){
-
-      try{
-
-        const data =
-          await loadOneSnoaksList(
-            list
-          );
-
-        const match =
-          data.items.find(
-            item =>
-              String(
-                item.id
-              ) ===
-              String(id)
-          );
-
-        if(match){
-
-          found =
-            match;
-
-          break;
-
-        }
-
-      }
-      catch{}
-
-    }
-
-    if(!found){
-
-      throw new Error(
-        "Snoaks title could not be loaded."
-      );
-
-    }
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          ${escapeHTML(
-            found.name
-          )}
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="details">
-
-        <img
-          src="${escapeHTML(
-            found.poster ||
-            ""
-          )}">
-
-        <div>
-
-          <div class="meta">
-
-            SNOAKS
-            ${found.year
-              ? " • " +
-                escapeHTML(
-                  found.year
-                )
-              : ""}
-
-          </div>
-
-          <p>
-
-            ${escapeHTML(
-              found.description ||
-              "Snoaks list item."
-            )}
-
-          </p>
-
-          ${
-            found.streamUrl
-
-              ?
-
-              `
-              <button
-                class="primary"
-                onclick="
-                  playSnoaksStream(
-                    '${escapeJS(
-                      found.streamUrl
-                    )}'
-                  )
-                ">
-
-                ▶ PLAY
-
-              </button>
-              `
-
-              :
-
-              `
-              <div class="notice">
-                This Snoaks item does not
-                contain a direct stream URL.
-              </div>
-              `
-          }
-
-        </div>
-
-      </div>
-
-    `);
-
-  }
-  catch(error){
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          SNOAKS ERROR
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="notice">
-
-        ${escapeHTML(
-          error.message
-        )}
-
-      </div>
-
-    `);
-
-  }
-
-}
-
-
-/* =========================================================
-SNOAKS PLAYER
-========================================================= */
-
-function playSnoaksStream(
-  url
-){
-
-  if(!safeURL(url)){
-
-    return;
-
-  }
-
-  const lower =
-    url.toLowerCase();
-
-  const isHLS =
-    lower.includes(
-      ".m3u8"
-    );
-
-  const isMP4 =
-    lower.includes(
-      ".mp4"
-    );
-
-  if(
-    !isHLS &&
-    !isMP4
-  ){
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          SNOAKS SOURCE
-        </h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="notice">
-
-        This Snoaks item provides a URL,
-        but it does not appear to be a
-        browser-direct MP4 or HLS stream.
-
-        <br><br>
-
-        SAUVE will not disguise an external
-        page as a playable video.
-
-      </div>
-
-      <br>
-
-      <button
-        class="secondary"
-        onclick="
-          window.open(
-            '${escapeJS(url)}',
-            '_blank',
-            'noopener'
-          )
-        ">
-
-        OPEN EXTERNAL SOURCE
-
-      </button>
-
-    `);
-
-    return;
-
-  }
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        NOW PLAYING
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-    <div class="player-shell">
-
-      <video
-        id="snoaksVideo"
-        controls
-        playsinline
-        webkit-playsinline
-        preload="metadata">
-      </video>
-
-      <div
-        id="snoaksStatus"
-        class="player-status">
-
-        Preparing playback…
-
-      </div>
-
-    </div>
-
-  `);
-
-  const video =
-    $("snoaksVideo");
-
-  const status =
-    $("snoaksStatus");
-
-  video.src =
-    url;
-
-  video.addEventListener(
-    "loadedmetadata",
-    () => {
-
-      status.textContent =
-        "Ready — press play";
-
-      status.className =
-        "player-status ready";
-
-    },
-    {
-      once:true
-    }
-  );
-
-  video.addEventListener(
-    "playing",
-    () => {
-
-      status.textContent =
-        "Playing";
-
-      status.className =
-        "player-status ready";
-
-    }
-  );
-
-  video.addEventListener(
-    "error",
-    () => {
-
-      status.textContent =
-        "Safari could not decode or access this source.";
-
-      status.className =
-        "player-status error";
-
-    }
-  );
-
-  video.load();
-
-}
-
-
-/* =========================================================
-STREAM SYSTEM
-========================================================= */
+/* ============================================================
+   STREAM URL
+============================================================ */
 
 function buildStreamURL(
   type,
   id
 ){
 
+  if(!state.stream){
+    return "";
+  }
+
   return (
     addonRoot(
       state.stream
     ) +
     "stream/" +
-    encodeURIComponent(
-      type
-    ) +
+    encodeURIComponent(type) +
     "/" +
-    encodeURIComponent(
-      id
-    ) +
+    encodeURIComponent(id) +
     ".json"
   );
 
 }
 
 
+/* ============================================================
+   STREAM DETECTION
+============================================================ */
+
 function getStreamURL(stream){
-
   return String(
-    stream?.url ||
-    ""
+    stream?.url || ""
   ).trim();
-
 }
 
-
 function isPlayerFrame(stream){
-
   return Boolean(
     stream?.playerFrameUrl
   );
-
 }
 
-
 function isExternal(stream){
-
   return Boolean(
     stream?.externalUrl
   );
-
 }
-
 
 function isNotWebReady(stream){
-
   return Boolean(
-    stream
-      ?.behaviorHints
-      ?.notWebReady
+    stream?.behaviorHints?.notWebReady
   );
-
 }
-
 
 function isHLS(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
     String(
-      stream?.type ||
-      ""
+      stream?.type || ""
     ).toLowerCase();
 
   return (
@@ -3720,72 +2468,50 @@ function isHLS(stream){
     type.includes("m3u8") ||
     type.includes("mpegurl")
   );
-
 }
-
 
 function isMP4(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
     String(
-      stream?.type ||
-      ""
+      stream?.type || ""
     ).toLowerCase();
 
   return (
     url.includes(".mp4") ||
     type.includes("mp4")
   );
-
 }
-
 
 function isWebM(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
     String(
-      stream?.type ||
-      ""
+      stream?.type || ""
     ).toLowerCase();
 
   return (
     url.includes(".webm") ||
     type.includes("webm")
   );
-
 }
-
 
 function isPlayableCandidate(stream){
 
-  if(
-    isPlayerFrame(
-      stream
-    )
-  ){
-
+  if(isPlayerFrame(stream)){
     return true;
-
   }
 
-  if(
-    isExternal(
-      stream
-    )
-  ){
-
+  if(isExternal(stream)){
     return false;
-
   }
 
   return (
@@ -3793,13 +2519,12 @@ function isPlayableCandidate(stream){
     isHLS(stream) ||
     isWebM(stream)
   );
-
 }
 
 
-/* =========================================================
-PROVIDER
-========================================================= */
+/* ============================================================
+   PROVIDER / BADGES
+============================================================ */
 
 function providerName(stream){
 
@@ -3815,7 +2540,6 @@ function providerName(stream){
     .toLowerCase();
 
   const providers = [
-
     "2peckle",
     "vidking",
     "vidfast",
@@ -3824,7 +2548,6 @@ function providerName(stream){
     "streamwish",
     "filemoon",
     "megacloud"
-
   ];
 
   for(
@@ -3835,169 +2558,150 @@ function providerName(stream){
     if(
       text.includes(name)
     ){
-
       return name;
-
     }
 
   }
 
   return "stream source";
-
 }
-
-
-/* =========================================================
-SOURCE SCORE
-========================================================= */
 
 function compatibilityScore(stream){
 
   let score = 0;
 
-  if(
-    isMP4(stream)
-  ){
-    score +=100;
+  if(isMP4(stream)){
+    score += 100;
   }
 
-  if(
-    isHLS(stream)
-  ){
-    score +=90;
+  if(isHLS(stream)){
+    score += 90;
   }
 
-  if(
-    isWebM(stream)
-  ){
-    score +=80;
+  if(isWebM(stream)){
+    score += 80;
   }
 
-  if(
-    isPlayerFrame(stream)
-  ){
-    score +=70;
+  if(isPlayerFrame(stream)){
+    score += 70;
   }
 
-  if(
-    isExternal(stream)
-  ){
-    score -=100;
+  if(isExternal(stream)){
+    score -= 100;
   }
 
   return score;
-
 }
 
 
-/* =========================================================
-BADGES
-========================================================= */
+/*
+  Preserves the badge system.
 
-function renderStreamBadges(
-  stream,
-  playable,
-  format
-){
+  Supports:
 
-  let html = "";
+  stream.badges = [
+    "4K",
+    "HDR",
+    "Atmos"
+  ]
 
-  html += `
+  OR
 
-    <span class="
-      badge
-      ${playable ? "good" : "warning"}
-    ">
+  stream.badges = [
+    {name:"4K",type:"blue"},
+    {name:"HDR",type:"good"}
+  ]
 
-      ${escapeHTML(
-        format
-      )}
+  OR
 
-    </span>
+  stream.badges = [
+    {url:"https://.../badge.png"}
+  ]
+*/
 
-  `;
+function renderCustomBadges(stream){
 
-  if(
-    isNotWebReady(
-      stream
+  const badges =
+    Array.isArray(
+      stream?.badges
     )
-  ){
+      ? stream.badges
+      : [];
 
-    html += `
-
-      <span class="badge warning">
-        NOT WEB READY
-      </span>
-
-    `;
-
-  }
-  else{
-
-    html += `
-
-      <span class="badge good">
-        WEB READY
-      </span>
-
-    `;
-
+  if(!badges.length){
+    return "";
   }
 
-  if(
-    stream.quality
-  ){
+  return badges.map(
+    badge => {
 
-    html += `
+      if(
+        typeof badge === "string"
+      ){
 
-      <span class="badge blue">
-        ${escapeHTML(
-          stream.quality
-        )}
-      </span>
+        return `
+          <span class="badge">
+            ${escapeHTML(badge)}
+          </span>
+        `;
 
-    `;
+      }
 
-  }
+      if(
+        badge &&
+        badge.url
+      ){
 
-  if(
-    stream.resolution
-  ){
+        return `
+          <span class="badge image-badge">
+            <img
+              src="${escapeHTML(
+                badge.url
+              )}"
+              alt="${escapeHTML(
+                badge.name ||
+                "badge"
+              )}">
+          </span>
+        `;
 
-    html += `
+      }
 
-      <span class="badge blue">
-        ${escapeHTML(
-          stream.resolution
-        )}
-      </span>
+      if(
+        badge &&
+        badge.name
+      ){
 
-    `;
+        const cls =
+          badge.type === "good"
+            ? "good"
+            : badge.type === "warning"
+              ? "warning"
+              : badge.type === "blue"
+                ? "blue"
+                : "";
 
-  }
+        return `
+          <span class="badge ${cls}">
+            ${escapeHTML(
+              badge.name
+            )}
+          </span>
+        `;
 
-  if(
-    stream.videoHash
-  ){
+      }
 
-    html += `
+      return "";
 
-      <span class="badge">
-        HASH
-      </span>
-
-    `;
-
-  }
-
-  return html;
+    }
+  ).join("");
 
 }
 
 
-/* =========================================================
-SOURCE RENDER
-========================================================= */
+/* ============================================================
+   SOURCE RENDER
+============================================================ */
 
 function renderSource(
   stream,
@@ -4012,30 +2716,20 @@ function renderSource(
   let format =
     "SOURCE";
 
-  if(
-    isMP4(stream)
-  ){
-    format="MP4";
+  if(isMP4(stream)){
+    format = "MP4";
   }
-  else if(
-    isHLS(stream)
-  ){
-    format="HLS";
+  else if(isHLS(stream)){
+    format = "HLS";
   }
-  else if(
-    isWebM(stream)
-  ){
-    format="WEBM";
+  else if(isWebM(stream)){
+    format = "WEBM";
   }
-  else if(
-    isPlayerFrame(stream)
-  ){
-    format="PLAYER";
+  else if(isPlayerFrame(stream)){
+    format = "PLAYER";
   }
-  else if(
-    isExternal(stream)
-  ){
-    format="EXTERNAL";
+  else if(isExternal(stream)){
+    format = "EXTERNAL";
   }
 
   return `
@@ -4045,49 +2739,30 @@ function renderSource(
 
       ${
         playable
-
-          ?
-
-          `onclick="playSource(${index})"`
-
-          :
-
-          `onclick="explainSource(${index})"`
-
+          ? `onclick="playSource(${index})"`
+          : `onclick="explainSource(${index})"`
       }>
 
       <div class="source-top">
 
         <div class="source-icon">
-
-          ${
-            playable
-              ? "▶"
-              : "!"
-          }
-
+          ${playable ? "▶" : "!"}
         </div>
 
         <div>
 
           <div class="source-name">
-
             ${escapeHTML(
               stream.name ||
               stream.title ||
               "SOURCE"
             )}
-
           </div>
 
           <div class="provider">
-
             ${escapeHTML(
-              providerName(
-                stream
-              )
+              providerName(stream)
             )}
-
           </div>
 
         </div>
@@ -4096,11 +2771,70 @@ function renderSource(
 
       <div class="badges">
 
-        ${renderStreamBadges(
-          stream,
-          playable,
-          format
-        )}
+        <span class="
+          badge
+          ${playable ? "good" : "warning"}
+        ">
+          ${format}
+        </span>
+
+        ${
+          isNotWebReady(stream)
+
+            ?
+
+            `
+              <span class="badge warning">
+                NOT WEB READY
+              </span>
+            `
+
+            :
+
+            `
+              <span class="badge good">
+                WEB READY
+              </span>
+            `
+        }
+
+        ${
+          stream.quality
+
+            ?
+
+            `
+              <span class="badge blue">
+                ${escapeHTML(
+                  stream.quality
+                )}
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+        ${
+          stream.resolution
+
+            ?
+
+            `
+              <span class="badge blue">
+                ${escapeHTML(
+                  stream.resolution
+                )}
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+        ${renderCustomBadges(stream)}
 
       </div>
 
@@ -4132,7 +2866,6 @@ function renderSource(
             :
 
             "This source does not expose a browser-compatible media URL."
-
         }
 
       </div>
@@ -4144,9 +2877,9 @@ function renderSource(
 }
 
 
-/* =========================================================
-FIND SOURCES
-========================================================= */
+/* ============================================================
+   FIND SOURCES
+============================================================ */
 
 async function findSources(
   type,
@@ -4158,15 +2891,12 @@ async function findSources(
     openSettings();
 
     return;
-
   }
 
   $("sources").innerHTML = `
-
     <div class="empty">
       Loading stream sources…
     </div>
-
   `;
 
   try{
@@ -4180,15 +2910,11 @@ async function findSources(
       );
 
     currentStreams =
-      Array.isArray(
-        data.streams
-      )
+      Array.isArray(data.streams)
         ? data.streams
         : [];
 
-    if(
-      !currentStreams.length
-    ){
+    if(!currentStreams.length){
 
       $("sources").innerHTML = `
 
@@ -4202,7 +2928,6 @@ async function findSources(
       `;
 
       return;
-
     }
 
     currentStreams.sort(
@@ -4218,32 +2943,17 @@ async function findSources(
 
     $("sources").innerHTML = `
 
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-          SOURCES
-        </h2>
-
-        <span class="catalog-label">
-          ${currentStreams.length}
-        </span>
-
-      </div>
-
       <div class="notice">
 
         <strong>
           ${currentPlayableStreams.length}
         </strong>
-
         potentially compatible source(s).
 
       </div>
 
       ${currentStreams
-        .map(
-          renderSource
-        )
+        .map(renderSource)
         .join("")}
 
     `;
@@ -4274,9 +2984,9 @@ async function findSources(
 }
 
 
-/* =========================================================
-SOURCE EXPLANATION
-========================================================= */
+/* ============================================================
+   SOURCE EXPLANATION
+============================================================ */
 
 function explainSource(index){
 
@@ -4287,16 +2997,13 @@ function explainSource(index){
     return;
   }
 
-  if(
-    isExternal(stream)
-  ){
+  if(isExternal(stream)){
 
     alert(
       "This source is an external destination rather than a direct media stream."
     );
 
     return;
-
   }
 
   alert(
@@ -4306,9 +3013,9 @@ function explainSource(index){
 }
 
 
-/* =========================================================
-PLAY SOURCE
-========================================================= */
+/* ============================================================
+   PLAYER
+============================================================ */
 
 function playSource(index){
 
@@ -4324,34 +3031,20 @@ function playSource(index){
       stream
     );
 
-  if(
-    currentPlayerIndex < 0
-  ){
-    currentPlayerIndex=0;
+  if(currentPlayerIndex < 0){
+    currentPlayerIndex = 0;
   }
 
-  if(
-    isPlayerFrame(stream)
-  ){
+  if(isPlayerFrame(stream)){
 
-    openEmbeddedPlayer(
-      stream
-    );
+    openEmbeddedPlayer(stream);
 
     return;
-
   }
 
-  playDirectStream(
-    stream
-  );
-
+  playDirectStream(stream);
 }
 
-
-/* =========================================================
-DIRECT PLAYER
-========================================================= */
 
 function playDirectStream(stream){
 
@@ -4366,7 +3059,9 @@ function playDirectStream(stream){
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -4420,9 +3115,7 @@ function playDirectStream(stream){
     $("playerStatus");
 
   const url =
-    getStreamURL(
-      stream
-    );
+    getStreamURL(stream);
 
   if(!url){
 
@@ -4431,11 +3124,9 @@ function playDirectStream(stream){
     );
 
     return;
-
   }
 
-  video.src =
-    url;
+  video.src = url;
 
   video.addEventListener(
     "loadedmetadata",
@@ -4448,9 +3139,7 @@ function playDirectStream(stream){
         "player-status ready";
 
     },
-    {
-      once:true
-    }
+    {once:true}
   );
 
   video.addEventListener(
@@ -4492,10 +3181,6 @@ function playDirectStream(stream){
 }
 
 
-/* =========================================================
-IFRAME PLAYER
-========================================================= */
-
 function openEmbeddedPlayer(stream){
 
   const url =
@@ -4511,7 +3196,6 @@ function openEmbeddedPlayer(stream){
     );
 
     return;
-
   }
 
   openModal(`
@@ -4519,18 +3203,18 @@ function openEmbeddedPlayer(stream){
     <div class="sheet-header">
 
       <h2>
-
         ${escapeHTML(
           stream.name ||
           "PLAYER"
         )}
-
       </h2>
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -4540,28 +3224,20 @@ function openEmbeddedPlayer(stream){
       <div class="iframe-player">
 
         <iframe
-
-          src="${escapeHTML(
-            url
-          )}"
-
+          src="${escapeHTML(url)}"
           allow="
             autoplay;
             fullscreen;
             picture-in-picture;
             encrypted-media
           "
-
           allowfullscreen>
-
         </iframe>
 
       </div>
 
       <div class="player-status ready">
-
         Provider player loaded inside SAUVE.
-
       </div>
 
     </div>
@@ -4591,10 +3267,6 @@ function openEmbeddedPlayer(stream){
 }
 
 
-/* =========================================================
-PLAYER HELPERS
-========================================================= */
-
 function showPlayerError(message){
 
   const status =
@@ -4615,16 +3287,13 @@ function showPlayerError(message){
 
 function tryNextSource(){
 
-  if(
-    !currentPlayableStreams.length
-  ){
+  if(!currentPlayableStreams.length){
 
     showPlayerError(
       "No compatible sources were detected."
     );
 
     return;
-
   }
 
   let next =
@@ -4635,33 +3304,20 @@ function tryNextSource(){
     currentPlayableStreams.length
   ){
 
-    next=0;
+    next = 0;
 
   }
 
-  currentPlayerIndex =
-    next;
+  currentPlayerIndex = next;
 
   const stream =
-    currentPlayableStreams[
-      next
-    ];
+    currentPlayableStreams[next];
 
-  if(
-    isPlayerFrame(stream)
-  ){
-
-    openEmbeddedPlayer(
-      stream
-    );
-
+  if(isPlayerFrame(stream)){
+    openEmbeddedPlayer(stream);
   }
   else{
-
-    playDirectStream(
-      stream
-    );
-
+    playDirectStream(stream);
   }
 
 }
@@ -4673,14 +3329,14 @@ function showSourcesAgain(){
 
     <div class="sheet-header">
 
-      <h2>
-        SOURCES
-      </h2>
+      <h2>SOURCES</h2>
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -4691,9 +3347,7 @@ function showSourcesAgain(){
         ?
 
         currentStreams
-          .map(
-            renderSource
-          )
+          .map(renderSource)
           .join("")
 
         :
@@ -4710,9 +3364,9 @@ function showSourcesAgain(){
 }
 
 
-/* =========================================================
-SETTINGS
-========================================================= */
+/* ============================================================
+   SETTINGS
+============================================================ */
 
 function openSettings(){
 
@@ -4727,11 +3381,12 @@ function openSettings(){
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
-
 
     <div class="field">
 
@@ -4746,7 +3401,6 @@ function openSettings(){
         )}">
 
     </div>
-
 
     <div class="field">
 
@@ -4763,66 +3417,84 @@ function openSettings(){
 
     </div>
 
+    <div class="field">
 
-    <div class="setting-block">
+      <label>
+        Snoaks Public MDBList
+      </label>
 
-      <h3>
-        SNOAKS LISTS
-      </h3>
-
-      <p>
-
-        Add Snoaks list URLs here.
-        Multiple lists can be used at the
-        same time. Enabled lists appear as
-        additional Netflix-style rows on
-        your SAUVE homepage.
-
-      </p>
-
-
-      <div id="snoaksListEditor">
-
-        ${renderSnoaksSettingsRows()}
-
-      </div>
-
-
-      <button
-        class="small-button"
-        onclick="addSnoaksSettingRow()">
-
-        + ADD SNOAKS LIST
-
-      </button>
+      <input
+        id="snoaksURL"
+        value="${escapeHTML(
+          state.snoaks
+        )}"
+        placeholder="https://mdblist.com/lists/snoak/">
 
     </div>
 
+    <div class="field">
+
+      <label>
+        Snoaks / MDBList Stremio Manifest
+      </label>
+
+      <input
+        id="snoaksManifest"
+        value="${escapeHTML(
+          state.snoaksManifest
+        )}"
+        placeholder="Paste your configured MDBList manifest URL">
+
+    </div>
 
     <div class="notice">
 
-      Your metadata and stream addresses
-      are stored locally in this browser.
+      <strong>
+        SNOAKS
+      </strong>
 
       <br><br>
 
-      Snoaks list addresses are also stored
-      locally.
+      The public Snoak collection is already
+      configured above.
 
       <br><br>
 
-      A failed Snoaks list will not prevent
-      your regular SAUVE catalogs from
-      loading.
+      For live poster catalogs inside SAUVE,
+      paste the manifest URL generated by the
+      MDBList/Stremio integration.
+
+      <br><br>
+
+      If you leave the manifest empty, SAUVE
+      still keeps the Snoak section available
+      without allowing a Snoaks failure to
+      interfere with your normal homepage.
 
     </div>
 
+    <div class="snoak-list">
+
+      <strong>
+        Built-in Snoak categories
+      </strong>
+
+      <span>
+        Trending Movies • Trending Shows •
+        Latest Streaming Movies • Netflix •
+        Canada • Horror • Sci-Fi • Thriller
+        and more.
+      </span>
+
+    </div>
+
+    <br>
 
     <button
-      class="save-settings"
+      class="primary"
       onclick="saveSettings()">
 
-      ✓ SAVE ALL SETTINGS
+      ✓ SAVE SETTINGS
 
     </button>
 
@@ -4831,193 +3503,27 @@ function openSettings(){
 }
 
 
-function renderSnoaksSettingsRows(){
-
-  if(
-    !state.snoaks.length
-  ){
-
-    return `
-
-      <div
-        class="empty"
-        style="padding:10px 0">
-
-        No Snoaks lists added yet.
-
-      </div>
-
-    `;
-
-  }
-
-  return state.snoaks
-    .map(
-      (item,index) => `
-
-        <div
-          class="list-row"
-          data-snoaks-row="${index}">
-
-          <input
-            class="snoaks-name"
-            placeholder="List name"
-            value="${escapeHTML(
-              item.name ||
-              "Snoaks List"
-            )}">
-
-          <input
-            class="snoaks-url"
-            placeholder="Snoaks list URL"
-            value="${escapeHTML(
-              item.url ||
-              ""
-            )}">
-
-          <button
-            type="button"
-            class="remove-list"
-            onclick="
-              removeSnoaksSettingRow(
-                ${index}
-              )
-            ">
-
-            ×
-
-          </button>
-
-        </div>
-
-      `
-    )
-    .join("");
-
-}
-
-
-function addSnoaksSettingRow(){
-
-  captureSnoaksRows();
-
-  state.snoaks.push({
-
-    name:
-      "Snoaks List",
-
-    url:
-      "",
-
-    enabled:
-      true
-
-  });
-
-  const editor =
-    $("snoaksListEditor");
-
-  if(editor){
-
-    editor.innerHTML =
-      renderSnoaksSettingsRows();
-
-  }
-
-}
-
-
-function removeSnoaksSettingRow(
-  index
-){
-
-  captureSnoaksRows();
-
-  state.snoaks.splice(
-    index,
-    1
-  );
-
-  const editor =
-    $("snoaksListEditor");
-
-  if(editor){
-
-    editor.innerHTML =
-      renderSnoaksSettingsRows();
-
-  }
-
-}
-
-
-function captureSnoaksRows(){
-
-  const editor =
-    $("snoaksListEditor");
-
-  if(!editor){
-    return;
-  }
-
-  const rows =
-    editor.querySelectorAll(
-      "[data-snoaks-row]"
-    );
-
-  const values = [];
-
-  rows.forEach(
-    row => {
-
-      const name =
-        row.querySelector(
-          ".snoaks-name"
-        )?.value
-        .trim() ||
-        "Snoaks List";
-
-      const url =
-        row.querySelector(
-          ".snoaks-url"
-        )?.value
-        .trim() ||
-        "";
-
-      if(url){
-
-        values.push({
-
-          name,
-          url,
-          enabled:true
-
-        });
-
-      }
-
-    }
-  );
-
-  state.snoaks =
-    values;
-
-}
-
-
 function saveSettings(){
 
   const metadata =
     $("metadataURL")
-      ?.value
+      .value
       .trim();
 
   const stream =
     $("streamURL")
-      ?.value
+      .value
       .trim();
 
-  captureSnoaksRows();
+  const snoaks =
+    $("snoaksURL")
+      .value
+      .trim();
+
+  const snoaksManifest =
+    $("snoaksManifest")
+      .value
+      .trim();
 
   if(!metadata){
 
@@ -5026,7 +3532,6 @@ function saveSettings(){
     );
 
     return;
-
   }
 
   state.metadata =
@@ -5035,54 +3540,51 @@ function saveSettings(){
   state.stream =
     stream;
 
+  state.snoaks =
+    snoaks ||
+    DEFAULT_SNOAKS_LIST;
+
+  state.snoaksManifest =
+    snoaksManifest;
+
   localStorage.setItem(
     "sauve_metadata",
-    metadata
+    state.metadata
   );
 
   localStorage.setItem(
     "sauve_stream",
-    stream
+    state.stream
   );
 
-  saveSnoaksLists();
+  localStorage.setItem(
+    "sauve_snoaks",
+    state.snoaks
+  );
+
+  localStorage.setItem(
+    "sauve_snoaks_manifest",
+    state.snoaksManifest
+  );
 
   closeModal();
-
-  /*
-    Reload only after everything has
-    successfully been saved.
-  */
 
   loadHome();
 
 }
 
 
-/* =========================================================
-UI
-========================================================= */
+/* ============================================================
+   UI
+============================================================ */
 
 function focusSearch(){
-
-  const input =
-    $("searchInput");
-
-  if(input){
-
-    input.focus();
-
-  }
-
+  $("searchInput").focus();
 }
-
 
 function goHome(){
-
   location.reload();
-
 }
-
 
 function openModal(html){
 
@@ -5095,7 +3597,6 @@ function openModal(html){
 
 }
 
-
 function closeModal(){
 
   $("modal")
@@ -5106,7 +3607,6 @@ function closeModal(){
     "";
 
 }
-
 
 $("modal")
   .addEventListener(
@@ -5125,13 +3625,11 @@ $("modal")
     }
   );
 
-
 $("searchButton")
   .addEventListener(
     "click",
     performSearch
   );
-
 
 $("searchInput")
   .addEventListener(
@@ -5151,9 +3649,9 @@ $("searchInput")
   );
 
 
-/* =========================================================
-START
-========================================================= */
+/* ============================================================
+   START
+============================================================ */
 
 loadHome();
 
