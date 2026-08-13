@@ -1,25 +1,35 @@
 {
   "name": "SAUVE Cinema Television",
   "short_name": "SAUVE",
-  "description": "SAUVE Cinema Television",
+  "description": "SAUVE Cinema Television — movies, television, lists, sources and streaming.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "orientation": "portrait",
   "background_color": "#05030b",
   "theme_color": "#05030b",
+  "lang": "en",
+  "categories": [
+    "entertainment",
+    "movies",
+    "tv"
+  ],
   "icons": [
     {
       "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }
