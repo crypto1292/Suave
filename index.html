@@ -2,24 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#070510">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<title>SAUVE</title>
+<title>SAUVE Cinema Television</title>
 
 <style>
 :root{
-  --bg:#070510;
-  --panel:#100a1c;
-  --panel2:#171027;
-  --pink:#ff20d5;
-  --purple:#8b4dff;
-  --cyan:#20eaff;
-  --yellow:#ffd45a;
-  --white:#fffaff;
-  --muted:#a99bb5;
+  --bg:#06040d;
+  --panel:#10091b;
+  --panel2:#170d27;
+  --pink:#ff19d5;
+  --purple:#884cff;
+  --cyan:#19eaff;
+  --yellow:#ffd65a;
+  --white:#fff;
+  --muted:#a99bad;
+  --line:rgba(255,255,255,.09);
 }
 
 *{
@@ -45,20 +46,20 @@ body{
   background:
     radial-gradient(
       circle at 50% -10%,
-      rgba(139,77,255,.30),
+      rgba(136,76,255,.34),
       transparent 35%
     ),
     radial-gradient(
-      circle at 0% 35%,
-      rgba(255,32,213,.12),
+      circle at 0% 40%,
+      rgba(255,25,213,.13),
       transparent 30%
     ),
     radial-gradient(
       circle at 100% 55%,
-      rgba(32,234,255,.10),
+      rgba(25,234,255,.10),
       transparent 30%
     ),
-    #070510;
+    #06040d;
 }
 
 button,
@@ -70,15 +71,13 @@ button{
   cursor:pointer;
 }
 
-.app{
-  min-height:100vh;
-  padding-bottom:
-    calc(80px + env(safe-area-inset-bottom));
+button:active{
+  transform:scale(.98);
 }
 
-/* =========================================================
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 header{
   position:sticky;
@@ -88,16 +87,16 @@ header{
   padding:
     calc(14px + env(safe-area-inset-top))
     14px
-    13px;
+    14px;
 
   background:
-    rgba(7,5,16,.94);
+    rgba(6,4,13,.94);
 
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
 
   border-bottom:
-    1px solid rgba(255,32,213,.18);
+    1px solid rgba(255,25,213,.18);
 }
 
 .logo{
@@ -114,26 +113,26 @@ header{
   font-size:
     clamp(64px,18vw,112px);
 
-  letter-spacing:7px;
+  line-height:.78;
 
-  line-height:.8;
+  letter-spacing:7px;
 
   transform:skewX(-7deg);
 
-  color:white;
+  color:#fff;
 
   text-shadow:
-    0 0 4px white,
+    0 0 4px #fff,
     0 0 9px var(--pink),
     0 0 20px var(--pink),
-    0 0 40px var(--purple),
-    5px 5px 0 rgba(32,234,255,.55);
+    0 0 42px var(--purple),
+    6px 5px 0 rgba(25,234,255,.55);
 }
 
 .logo-sub{
   text-align:center;
 
-  margin-top:12px;
+  margin-top:14px;
 
   color:var(--cyan);
 
@@ -144,12 +143,11 @@ header{
   letter-spacing:4px;
 
   text-shadow:
-    0 0 9px var(--cyan);
+    0 0 10px var(--cyan);
 }
 
 .searchbar{
   display:flex;
-
   gap:8px;
 
   max-width:900px;
@@ -159,19 +157,18 @@ header{
 
 .searchbar input{
   flex:1;
-
   min-width:0;
 
-  padding:13px 14px;
+  padding:14px;
 
   border-radius:8px;
 
-  border:
-    1px solid rgba(139,77,255,.35);
-
-  background:#0f091b;
+  background:#0d0817;
 
   color:white;
+
+  border:
+    1px solid rgba(136,76,255,.40);
 
   outline:none;
 }
@@ -180,7 +177,7 @@ header{
   border-color:var(--pink);
 
   box-shadow:
-    0 0 16px rgba(255,32,213,.2);
+    0 0 18px rgba(255,25,213,.18);
 }
 
 .searchbar button{
@@ -202,16 +199,16 @@ header{
   font-weight:900;
 
   box-shadow:
-    0 0 15px rgba(255,32,213,.35);
+    0 0 18px rgba(255,25,213,.30);
 }
 
-/* =========================================================
+/* =========================
    MAIN
-========================================================= */
+========================= */
 
 main{
   width:100%;
-  max-width:1350px;
+  max-width:1400px;
 
   margin:auto;
 
@@ -219,41 +216,57 @@ main{
 }
 
 .hero{
+  position:relative;
+
   min-height:
     clamp(390px,58vh,600px);
-
-  position:relative;
 
   overflow:hidden;
 
   border-radius:18px;
 
   display:flex;
-
   align-items:flex-end;
 
   padding:
-    clamp(25px,5vw,55px);
+    clamp(25px,5vw,60px);
 
   border:
-    1px solid rgba(255,32,213,.25);
+    1px solid rgba(255,25,213,.25);
 
   background:
     radial-gradient(
       circle at 75% 35%,
-      rgba(32,234,255,.14),
+      rgba(25,234,255,.13),
       transparent 25%
     ),
     radial-gradient(
-      circle at 70% 70%,
-      rgba(255,32,213,.18),
-      transparent 30%
+      circle at 70% 75%,
+      rgba(255,25,213,.20),
+      transparent 32%
     ),
     linear-gradient(
       110deg,
-      #090612,
-      #190c30,
-      #091326
+      #090511,
+      #190c2e,
+      #07121e
+    );
+}
+
+.hero:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  opacity:.10;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255,255,255,.18) 4px
     );
 }
 
@@ -266,17 +279,17 @@ main{
   background:
     linear-gradient(
       90deg,
-      rgba(7,5,16,.98),
-      rgba(7,5,16,.70) 48%,
-      rgba(7,5,16,.08)
+      rgba(6,4,13,.98),
+      rgba(6,4,13,.72) 50%,
+      rgba(6,4,13,.05)
     );
 }
 
 .hero-content{
   position:relative;
-  z-index:2;
+  z-index:3;
 
-  max-width:700px;
+  max-width:720px;
 }
 
 .hero-kicker{
@@ -284,13 +297,13 @@ main{
 
   font-size:10px;
 
-  letter-spacing:3px;
-
   font-weight:900;
+
+  letter-spacing:3px;
 }
 
 .hero h1{
-  margin:14px 0;
+  margin:15px 0;
 
   font-family:
     Impact,
@@ -298,18 +311,18 @@ main{
     sans-serif;
 
   font-size:
-    clamp(45px,9vw,95px);
+    clamp(46px,9vw,95px);
 
-  line-height:.86;
+  line-height:.85;
 
   text-transform:uppercase;
 
   text-shadow:
-    0 0 20px rgba(255,32,213,.35);
+    0 0 20px rgba(255,25,213,.35);
 }
 
 .hero p{
-  color:#c8bacf;
+  color:#c7b9ce;
 
   line-height:1.6;
 
@@ -318,9 +331,7 @@ main{
 
 .hero-buttons{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:10px;
 
   margin-top:20px;
@@ -328,15 +339,17 @@ main{
 
 .primary,
 .secondary{
-  border-radius:8px;
-
   padding:13px 18px;
+
+  border-radius:8px;
 
   font-weight:900;
 }
 
 .primary{
   border:0;
+
+  color:white;
 
   background:
     linear-gradient(
@@ -345,22 +358,23 @@ main{
       var(--purple)
     );
 
-  color:white;
+  box-shadow:
+    0 0 18px rgba(255,25,213,.25);
 }
 
 .secondary{
   background:
-    rgba(32,234,255,.05);
+    rgba(25,234,255,.04);
 
   border:
-    1px solid rgba(32,234,255,.4);
+    1px solid rgba(25,234,255,.38);
 
   color:var(--cyan);
 }
 
-/* =========================================================
-   SECTION
-========================================================= */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
   margin:32px 0;
@@ -380,7 +394,7 @@ section{
   padding-bottom:10px;
 
   border-bottom:
-    1px solid rgba(255,32,213,.18);
+    1px solid rgba(255,25,213,.18);
 }
 
 .heading h2{
@@ -401,14 +415,14 @@ section{
 
   font-size:9px;
 
-  letter-spacing:2px;
-
   font-weight:900;
+
+  letter-spacing:2px;
 }
 
-/* =========================================================
+/* =========================
    GRID
-========================================================= */
+========================= */
 
 .grid{
   display:grid;
@@ -420,30 +434,33 @@ section{
 }
 
 .card{
-  border:
-    1px solid rgba(255,255,255,.08);
-
-  border-radius:10px;
+  padding:0;
 
   overflow:hidden;
+
+  text-align:left;
+
+  color:white;
 
   background:
     linear-gradient(
       180deg,
-      #171027,
-      #0e091b
+      #170d27,
+      #0d0717
     );
 
-  color:white;
+  border:
+    1px solid var(--line);
 
-  padding:0;
-
-  text-align:left;
+  border-radius:10px;
 }
 
 .card:hover{
   border-color:
-    rgba(255,32,213,.5);
+    rgba(255,25,213,.55);
+
+  box-shadow:
+    0 0 18px rgba(255,25,213,.12);
 }
 
 .poster{
@@ -451,9 +468,9 @@ section{
 
   aspect-ratio:2/3;
 
-  object-fit:cover;
-
   display:block;
+
+  object-fit:cover;
 
   background:#171027;
 }
@@ -463,9 +480,9 @@ section{
 }
 
 .card-title{
-  font-weight:800;
-
   font-size:14px;
+
+  font-weight:850;
 
   white-space:nowrap;
 
@@ -475,7 +492,7 @@ section{
 }
 
 .card-sub{
-  margin-top:4px;
+  margin-top:5px;
 
   color:var(--muted);
 
@@ -483,7 +500,7 @@ section{
 }
 
 .empty{
-  padding:25px 5px;
+  padding:28px 5px;
 
   color:var(--muted);
 
@@ -491,26 +508,26 @@ section{
 }
 
 .notice{
-  padding:15px;
+  padding:16px;
 
   border-radius:9px;
 
-  border:
-    1px solid rgba(255,32,213,.16);
-
   background:
-    rgba(255,32,213,.04);
+    rgba(255,25,213,.045);
 
-  color:#c2b6c9;
+  border:
+    1px solid rgba(255,25,213,.17);
+
+  color:#c8bacf;
 
   line-height:1.6;
 
   font-size:12px;
 }
 
-/* =========================================================
+/* =========================
    MODAL
-========================================================= */
+========================= */
 
 .modal{
   position:fixed;
@@ -524,10 +541,10 @@ section{
   align-items:flex-end;
 
   background:
-    rgba(0,0,0,.80);
+    rgba(0,0,0,.82);
 
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);
 }
 
 .modal.open{
@@ -549,16 +566,16 @@ section{
   border-radius:
     22px 22px 0 0;
 
-  border-top:
-    1px solid rgba(255,32,213,.35);
-
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(139,77,255,.17),
+      rgba(136,76,255,.18),
       transparent 40%
     ),
-    #0d081d;
+    #0c0718;
+
+  border-top:
+    1px solid rgba(255,25,213,.35);
 }
 
 .sheet-header{
@@ -588,19 +605,19 @@ section{
 
   border-radius:50%;
 
-  background:#171027;
+  background:#170d27;
 
   color:var(--cyan);
 
   border:
-    1px solid rgba(32,234,255,.3);
+    1px solid rgba(25,234,255,.3);
 
   font-size:22px;
 }
 
-/* =========================================================
+/* =========================
    DETAILS
-========================================================= */
+========================= */
 
 .details{
   display:grid;
@@ -622,7 +639,7 @@ section{
 }
 
 .details p{
-  color:#c2b5cb;
+  color:#c3b5cb;
 
   line-height:1.55;
 
@@ -639,9 +656,9 @@ section{
   margin-bottom:7px;
 }
 
-/* =========================================================
+/* =========================
    SOURCES
-========================================================= */
+========================= */
 
 .source{
   width:100%;
@@ -652,26 +669,26 @@ section{
 
   text-align:left;
 
-  border-radius:9px;
+  color:white;
 
-  border:
-    1px solid rgba(32,234,255,.15);
+  border-radius:9px;
 
   background:
     linear-gradient(
       100deg,
-      #140d29,
-      #0d091b
+      #150c29,
+      #0d0819
     );
 
-  color:white;
+  border:
+    1px solid rgba(25,234,255,.15);
 }
 
 .source:hover{
   border-color:var(--cyan);
 
   box-shadow:
-    0 0 15px rgba(32,234,255,.16);
+    0 0 16px rgba(25,234,255,.14);
 }
 
 .source-top{
@@ -683,23 +700,20 @@ section{
 }
 
 .source-icon{
-  width:35px;
-  height:35px;
+  width:36px;
+  height:36px;
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
-
-  flex:none;
 
   border-radius:50%;
 
   color:var(--cyan);
 
   background:
-    rgba(32,234,255,.08);
+    rgba(25,234,255,.08);
 }
 
 .source-name{
@@ -707,15 +721,17 @@ section{
 }
 
 .provider{
-  color:var(--cyan);
+  margin-top:4px;
 
-  text-transform:uppercase;
+  color:var(--cyan);
 
   font-size:9px;
 
+  font-weight:900;
+
   letter-spacing:1px;
 
-  margin-top:4px;
+  text-transform:uppercase;
 }
 
 .badges{
@@ -732,9 +748,9 @@ section{
   border-radius:5px;
 
   background:
-    rgba(255,32,213,.10);
+    rgba(255,25,213,.10);
 
-  color:#ff7ce4;
+  color:#ff7be4;
 
   font-size:8px;
 
@@ -745,7 +761,7 @@ section{
 
 .badge.ok{
   background:
-    rgba(32,234,255,.10);
+    rgba(25,234,255,.10);
 
   color:var(--cyan);
 }
@@ -753,26 +769,26 @@ section{
 .source-desc{
   margin-top:7px;
 
-  color:#91859a;
+  color:#91859b;
 
   font-size:10px;
 }
 
-/* =========================================================
+/* =========================
    PLAYER
-========================================================= */
+========================= */
 
 .player{
   width:100%;
+
+  overflow:hidden;
 
   background:#000;
 
   border-radius:10px;
 
-  overflow:hidden;
-
   border:
-    1px solid rgba(32,234,255,.2);
+    1px solid rgba(25,234,255,.20);
 }
 
 video{
@@ -788,7 +804,7 @@ video{
 .player-info{
   padding:12px;
 
-  background:#100a1e;
+  background:#10091c;
 }
 
 .player-info strong{
@@ -799,9 +815,9 @@ video{
   color:var(--muted);
 }
 
-/* =========================================================
+/* =========================
    SETTINGS
-========================================================= */
+========================= */
 
 .field{
   margin:18px 0;
@@ -835,24 +851,23 @@ video{
   color:white;
 
   border:
-    1px solid rgba(139,77,255,.3);
+    1px solid rgba(136,76,255,.3);
 
   outline:none;
 }
 
-/* =========================================================
+/* =========================
    NAV
-========================================================= */
+========================= */
 
 .nav{
   position:fixed;
 
   z-index:400;
 
-  bottom:0;
-
   left:0;
   right:0;
+  bottom:0;
 
   height:76px;
 
@@ -861,18 +876,18 @@ video{
 
   display:flex;
 
-  justify-content:space-around;
-
   align-items:center;
 
+  justify-content:space-around;
+
   background:
-    rgba(8,5,17,.95);
+    rgba(8,5,17,.96);
 
   backdrop-filter:blur(20px);
   -webkit-backdrop-filter:blur(20px);
 
   border-top:
-    1px solid rgba(255,32,213,.18);
+    1px solid rgba(255,25,213,.18);
 }
 
 .nav button{
@@ -917,7 +932,6 @@ video{
   .details img{
     width:190px;
   }
-
 }
 
 </style>
@@ -970,9 +984,10 @@ video{
       </h1>
 
       <p>
-        Your personal neon media interface.
-        Connect your metadata and stream addon,
-        then browse and play compatible sources.
+        Your neon media interface.
+        Search your metadata catalogs,
+        choose a title, then discover
+        compatible stream sources.
       </p>
 
       <div class="hero-buttons">
@@ -980,17 +995,13 @@ video{
         <button
           class="primary"
           onclick="focusSearch()">
-
           ⌕ SEARCH
-
         </button>
 
         <button
           class="secondary"
           onclick="openSettings()">
-
           ⚙ SETTINGS
-
         </button>
 
       </div>
@@ -1005,7 +1016,7 @@ video{
     <div class="heading">
 
       <h2>
-        TRENDING
+        DISCOVER
       </h2>
 
       <span>
@@ -1017,9 +1028,7 @@ video{
     <div
       id="homeResults"
       class="empty">
-
       Loading…
-
     </div>
 
   </section>
@@ -1096,9 +1105,11 @@ const state = {
 
 };
 
+let currentStreams = [];
+
 
 /* =========================================================
-   BASIC HELPERS
+   HELPERS
 ========================================================= */
 
 function $(id){
@@ -1111,19 +1122,19 @@ function escapeHTML(value=""){
   return String(value)
     .replace(
       /[&<>"']/g,
-      char => ({
+      c => ({
         "&":"&amp;",
         "<":"&lt;",
         ">":"&gt;",
         '"':"&quot;",
         "'":"&#039;"
-      }[char])
+      }[c])
     );
 
 }
 
 
-function cleanManifest(url){
+function normalizeManifest(url){
 
   return String(url || "")
     .trim()
@@ -1137,12 +1148,12 @@ function cleanManifest(url){
 
 function addonRoot(url){
 
-  return cleanManifest(url) + "/";
+  return normalizeManifest(url) + "/";
 }
 
 
 /* =========================================================
-   FETCH
+   FETCH JSON
 ========================================================= */
 
 async function fetchJSON(url){
@@ -1153,8 +1164,7 @@ async function fetchJSON(url){
       {
         method:"GET",
         headers:{
-          "Accept":
-            "application/json"
+          Accept:"application/json"
         },
         cache:"no-store"
       }
@@ -1190,93 +1200,133 @@ async function getManifest(){
 
 
 /* =========================================================
-   CATALOG EXTRA
+   EXTRA SUPPORT
 ========================================================= */
 
-function findSearchCatalog(
-  manifest
+function supportsExtra(
+  catalog,
+  name
 ){
 
-  const catalogs =
-    manifest.catalogs ||
-    [];
-
-
-  /*
-    Prefer a movie catalog that
-    advertises search.
-  */
-
-  let catalog =
-    catalogs.find(
-      c =>
-        c.type === "movie" &&
-        Array.isArray(c.extra) &&
-        c.extra.some(
-          x =>
-            x.name === "search"
-        )
-    );
-
-
-  if(catalog){
-    return catalog;
-  }
-
-
-  /*
-    Some manifests describe the
-    search extra at the resource level.
-  */
-
-  const resource =
-    (manifest.resources || [])
-      .find(
-        r =>
-          typeof r === "object" &&
-          r.name === "catalog"
-      );
-
-
-  if(resource){
-
-    return {
-      type:"movie",
-      id:
-        resource.idPrefixes
-          ?.join("_") ||
-        "movie",
-      extra:[
-        {name:"search"}
-      ]
-    };
-
-  }
-
-
-  return null;
+  return Array.isArray(
+    catalog.extra
+  )
+  &&
+  catalog.extra.some(
+    extra =>
+      typeof extra === "string"
+        ? extra === name
+        : extra &&
+          extra.name === name
+  );
 
 }
 
 
 /* =========================================================
-   CATALOG REQUEST
+   SEARCH CATALOGS
 ========================================================= */
 
-function catalogURL(
-  manifestURL,
-  catalog,
-  search
+function getSearchCatalogs(
+  manifest
 ){
 
-  let url =
+  const catalogs =
+    Array.isArray(
+      manifest.catalogs
+    )
+      ? manifest.catalogs
+      : [];
+
+
+  return catalogs.filter(
+    catalog => {
+
+      if(
+        !catalog ||
+        !catalog.id ||
+        !catalog.type
+      ){
+
+        return false;
+
+      }
+
+
+      return supportsExtra(
+        catalog,
+        "search"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   EXTRA PROPS ENCODING
+========================================================= */
+
+/*
+  Stremio's addon path format is:
+
+  /catalog/{type}/{id}/{extraProps}.json
+
+  Example:
+
+  /catalog/movie/top/search=Inception.json
+
+  The property itself is encoded as
+  key=value.
+*/
+
+function makeExtraProps(
+  values
+){
+
+  return Object.entries(
+    values
+  )
+  .filter(
+    ([,value]) =>
+      value !== undefined &&
+      value !== null &&
+      String(value).length
+  )
+  .map(
+    ([key,value]) =>
+      key +
+      "=" +
+      encodeURIComponent(
+        String(value)
+      )
+  )
+  .join("&");
+
+}
+
+
+/* =========================================================
+   CATALOG URL
+========================================================= */
+
+function buildCatalogURL(
+  catalog,
+  extra={}
+){
+
+  const root =
     addonRoot(
-      manifestURL
-    ) +
+      state.metadata
+    );
+
+
+  let url =
+    root +
     "catalog/" +
     encodeURIComponent(
-      catalog.type ||
-      "movie"
+      catalog.type
     ) +
     "/" +
     encodeURIComponent(
@@ -1284,23 +1334,23 @@ function catalogURL(
     );
 
 
-  /*
-    Catalog endpoints normally end
-    in .json.
-  */
-
-  url += ".json";
+  const props =
+    makeExtraProps(
+      extra
+    );
 
 
-  if(search){
+  if(props){
 
     url +=
-      "?search=" +
-      encodeURIComponent(
-        search
-      );
+      "/" +
+      props;
 
   }
+
+
+  url +=
+    ".json";
 
 
   return url;
@@ -1309,18 +1359,18 @@ function catalogURL(
 
 
 /* =========================================================
-   HOME
+   HOME CATALOGS
 ========================================================= */
 
 async function loadHome(){
 
-  const container =
+  const box =
     $("homeResults");
 
 
-  container.innerHTML =
+  box.innerHTML =
     `<div class="empty">
-      Loading cinema…
+      Loading catalog…
     </div>`;
 
 
@@ -1331,54 +1381,125 @@ async function loadHome(){
 
 
     const catalogs =
-      manifest.catalogs ||
-      [];
+      Array.isArray(
+        manifest.catalogs
+      )
+        ? manifest.catalogs
+        : [];
 
 
-    const catalog =
-      catalogs.find(
-        c =>
-          c.type === "movie"
-      );
+    /*
+      Don't assume there is a catalog
+      called "top" or "popular".
+
+      Use the first normal catalog
+      for movies and the first one for
+      series if available.
+    */
+
+    const selected = [];
 
 
-    if(!catalog){
+    for(
+      const type of [
+        "movie",
+        "series"
+      ]
+    ){
 
-      container.innerHTML =
-        `<div class="notice">
-          Your metadata addon does not
-          expose a movie catalog.
-        </div>`;
+      const catalog =
+        catalogs.find(
+          c =>
+            c &&
+            c.type === type &&
+            !supportsExtra(
+              c,
+              "search"
+            )
+        )
+        ||
+        catalogs.find(
+          c =>
+            c &&
+            c.type === type
+        );
+
+
+      if(catalog){
+
+        selected.push(
+          catalog
+        );
+
+      }
+
+    }
+
+
+    if(!selected.length){
+
+      box.innerHTML = `
+
+        <div class="notice">
+
+          No movie or series catalogs
+          were advertised by your metadata
+          manifest.
+
+        </div>
+
+      `;
 
       return;
 
     }
 
 
-    const url =
-      catalogURL(
-        state.metadata,
-        catalog,
-        ""
+    const responses =
+      await Promise.allSettled(
+        selected.map(
+          catalog =>
+            fetchJSON(
+              buildCatalogURL(
+                catalog
+              )
+            )
+        )
       );
 
 
-    const data =
-      await fetchJSON(
-        url
-      );
+    const all = [];
 
 
-    container.innerHTML =
+    for(
+      const response
+      of responses
+    ){
+
+      if(
+        response.status ===
+        "fulfilled"
+      ){
+
+        all.push(
+          ...(response.value.metas || [])
+        );
+
+      }
+
+    }
+
+
+    box.innerHTML =
       renderGrid(
-        data.metas || []
+        dedupeMetas(all)
       );
 
 
   }
   catch(error){
 
-    container.innerHTML = `
+    box.innerHTML = `
 
       <div class="notice">
 
@@ -1391,11 +1512,6 @@ async function loadHome(){
         ${escapeHTML(
           error.message
         )}
-
-        <br><br>
-
-        Check the metadata manifest
-        in Settings.
 
       </div>
 
@@ -1438,9 +1554,7 @@ async function performSearch(){
         </h2>
 
         <span>
-          ${escapeHTML(
-            query
-          )}
+          ${escapeHTML(query)}
         </span>
 
       </div>
@@ -1450,7 +1564,7 @@ async function performSearch(){
         id="searchResults"
         class="empty">
 
-        Searching…
+        Searching metadata catalogs…
 
       </div>
 
@@ -1465,46 +1579,120 @@ async function performSearch(){
       await getManifest();
 
 
-    const catalog =
-      findSearchCatalog(
+    const catalogs =
+      getSearchCatalogs(
         manifest
       );
 
 
-    if(!catalog){
+    if(!catalogs.length){
 
       throw new Error(
-        "Your metadata manifest does not advertise a searchable catalog."
+        "Your AIO metadata manifest does not advertise any catalogs with search support."
       );
 
     }
 
 
-    const url =
-      catalogURL(
-        state.metadata,
-        catalog,
-        query
+    /*
+      Search every supported catalog.
+
+      This is important because an addon can
+      expose separate movie and series
+      searchable catalogs.
+    */
+
+    const requests =
+      catalogs.map(
+        catalog => {
+
+          const url =
+            buildCatalogURL(
+              catalog,
+              {
+                search:query
+              }
+            );
+
+
+          return fetchJSON(
+            url
+          )
+          .then(
+            data => ({
+              catalog,
+              data
+            })
+          );
+
+        }
       );
 
 
-    const data =
-      await fetchJSON(
-        url
+    const responses =
+      await Promise.allSettled(
+        requests
       );
 
 
-    const results =
-      data.metas ||
-      [];
+    const all = [];
+
+
+    for(
+      const result
+      of responses
+    ){
+
+      if(
+        result.status ===
+        "fulfilled"
+      ){
+
+        all.push(
+          ...(result.value.data.metas || [])
+        );
+
+      }
+
+    }
+
+
+    const unique =
+      dedupeMetas(all);
 
 
     $("searchResults")
       .innerHTML =
       renderGrid(
-        results
+        unique
       );
 
+
+    if(
+      !unique.length
+    ){
+
+      $("searchResults")
+        .innerHTML = `
+
+          <div class="notice">
+
+            No results were returned for
+            <strong>
+              ${escapeHTML(query)}
+            </strong>.
+
+            <br><br>
+
+            ${catalogs.length}
+            searchable catalog(s) were
+            queried successfully.
+
+          </div>
+
+        `;
+
+    }
 
   }
   catch(error){
@@ -1526,15 +1714,59 @@ async function performSearch(){
 
           <br><br>
 
-          The search catalog may use a
-          different resource or may not
-          advertise search in its manifest.
+          Open Settings and verify your
+          AIO Metadata Manifest.
 
         </div>
 
       `;
 
   }
+
+}
+
+
+/* =========================================================
+   DEDUPLICATE
+========================================================= */
+
+function dedupeMetas(
+  metas
+){
+
+  const seen =
+    new Set();
+
+  return metas.filter(
+    item => {
+
+      const key =
+        String(
+          item.type ||
+          ""
+        ) +
+        "|" +
+        String(
+          item.id ||
+          ""
+        );
+
+
+      if(
+        seen.has(key)
+      ){
+
+        return false;
+
+      }
+
+
+      seen.add(key);
+
+      return true;
+
+    }
+  );
 
 }
 
@@ -1566,59 +1798,76 @@ function renderGrid(
     <div class="grid">
 
       ${metas.map(
-        item => `
+        item => {
 
-          <button
-            class="card"
-            onclick="openTitle(
-              '${encodeURIComponent(
-                item.type ||
-                "movie"
-              )}',
-              '${encodeURIComponent(
-                item.id ||
-                ""
-              )}'
-            )">
+          const type =
+            encodeURIComponent(
+              item.type ||
+              "movie"
+            );
 
-            <img
-              class="poster"
-              src="${escapeHTML(
-                item.poster ||
-                item.logo ||
-                ""
-              )}"
-              loading="lazy"
-              onerror="
-                this.style.opacity='0'
+
+          const id =
+            encodeURIComponent(
+              item.id ||
+              ""
+            );
+
+
+          return `
+
+            <button
+              class="card"
+              onclick="
+                openTitle(
+                  '${type}',
+                  '${id}'
+                )
               ">
 
-            <div class="card-info">
-
-              <div class="card-title">
-
-                ${escapeHTML(
-                  item.name ||
-                  "Untitled"
-                )}
-
-              </div>
-
-              <div class="card-sub">
-
-                ${escapeHTML(
-                  item.releaseInfo ||
-                  item.year ||
+              <img
+                class="poster"
+                src="${escapeHTML(
+                  item.poster ||
+                  item.logo ||
                   ""
-                )}
+                )}"
+                loading="lazy"
+                onerror="
+                  this.style.opacity='0'
+                ">
+
+
+              <div class="card-info">
+
+                <div class="card-title">
+
+                  ${escapeHTML(
+                    item.name ||
+                    "Untitled"
+                  )}
+
+                </div>
+
+
+                <div class="card-sub">
+
+                  ${escapeHTML(
+                    item.releaseInfo ||
+                    item.year ||
+                    item.type ||
+                    ""
+                  )}
+
+                </div>
 
               </div>
 
-            </div>
+            </button>
 
-          </button>
+          `;
 
-        `
+        }
       ).join("")}
 
     </div>
@@ -1660,9 +1909,7 @@ async function openTitle(
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -1703,20 +1950,16 @@ async function openTitle(
       <div class="sheet-header">
 
         <h2>
-
           ${escapeHTML(
             meta.name ||
             "TITLE"
           )}
-
         </h2>
 
         <button
           class="close"
           onclick="closeModal()">
-
           ×
-
         </button>
 
       </div>
@@ -1739,6 +1982,7 @@ async function openTitle(
             ${escapeHTML(
               meta.releaseInfo ||
               meta.year ||
+              meta.type ||
               ""
             )}
 
@@ -1771,7 +2015,6 @@ async function openTitle(
       <div
         id="sources"
         style="margin-top:25px">
-
       </div>
 
     `);
@@ -1800,9 +2043,7 @@ async function openTitle(
         <button
           class="close"
           onclick="closeModal()">
-
           ×
-
         </button>
 
       </div>
@@ -1824,18 +2065,17 @@ async function openTitle(
 
 
 /* =========================================================
-   STREAM ENDPOINT
+   STREAM URL
 ========================================================= */
 
-function streamURL(
-  manifestURL,
+function buildStreamURL(
   type,
   id
 ){
 
   return (
     addonRoot(
-      manifestURL
+      state.stream
     ) +
     "stream/" +
     encodeURIComponent(type) +
@@ -1848,7 +2088,7 @@ function streamURL(
 
 
 /* =========================================================
-   SOURCE PROVIDER
+   PROVIDER
 ========================================================= */
 
 function providerName(
@@ -1862,16 +2102,13 @@ function providerName(
       stream.description,
       stream.url
     ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
 
 
   const providers = [
-
     "2peckle",
-    "4khdhub",
-    "111477",
     "vidking",
     "vidfast",
     "vidlink",
@@ -1879,7 +2116,6 @@ function providerName(
     "streamwish",
     "filemoon",
     "megacloud"
-
   ];
 
 
@@ -1898,7 +2134,7 @@ function providerName(
   }
 
 
-  return "unknown provider";
+  return "stream source";
 
 }
 
@@ -1962,23 +2198,6 @@ function formatName(
 
 
 /* =========================================================
-   WEB READY
-========================================================= */
-
-function isNotWebReady(
-  stream
-){
-
-  return Boolean(
-    stream
-      ?.behaviorHints
-      ?.notWebReady
-  );
-
-}
-
-
-/* =========================================================
    SOURCE DISPLAY
 ========================================================= */
 
@@ -1987,21 +2206,11 @@ function renderSource(
   index
 ){
 
-  const provider =
-    providerName(
-      stream
-    );
-
-
-  const format =
-    formatName(
-      stream
-    );
-
-
-  const external =
+  const notReady =
     Boolean(
-      stream.externalUrl
+      stream
+        ?.behaviorHints
+        ?.notWebReady
     );
 
 
@@ -2011,26 +2220,26 @@ function renderSource(
     );
 
 
-  const notReady =
-    isNotWebReady(
-      stream
+  const external =
+    Boolean(
+      stream.externalUrl
     );
 
 
   let status =
-    "AVAILABLE";
+    "DIRECT";
 
 
   if(player){
 
     status =
-      "PLAYER AVAILABLE";
+      "PLAYER";
 
   }
   else if(external){
 
     status =
-      "EXTERNAL PLAYER";
+      "EXTERNAL";
 
   }
   else if(notReady){
@@ -2045,9 +2254,7 @@ function renderSource(
 
     <button
       class="source"
-      onclick="playSource(
-        ${index}
-      )">
+      onclick="playSource(${index})">
 
       <div class="source-top">
 
@@ -2062,7 +2269,7 @@ function renderSource(
             ${escapeHTML(
               stream.name ||
               stream.title ||
-              "STREAM"
+              "SOURCE"
             )}
 
           </div>
@@ -2070,7 +2277,9 @@ function renderSource(
           <div class="provider">
 
             ${escapeHTML(
-              provider
+              providerName(
+                stream
+              )
             )}
 
           </div>
@@ -2085,7 +2294,7 @@ function renderSource(
         <span class="badge ok">
 
           ${escapeHTML(
-            format
+            formatName(stream)
           )}
 
         </span>
@@ -2093,9 +2302,7 @@ function renderSource(
 
         <span class="badge">
 
-          ${escapeHTML(
-            status
-          )}
+          ${status}
 
         </span>
 
@@ -2103,15 +2310,12 @@ function renderSource(
         ${
           stream.quality
           ?
-
           `<span class="badge">
             ${escapeHTML(
               stream.quality
             )}
           </span>`
-
           :
-
           ""
         }
 
@@ -2122,7 +2326,7 @@ function renderSource(
 
         ${escapeHTML(
           stream.description ||
-          "Source returned by stream addon."
+          "Source returned by your stream addon."
         )}
 
       </div>
@@ -2137,9 +2341,6 @@ function renderSource(
 /* =========================================================
    FIND SOURCES
 ========================================================= */
-
-let currentStreams = [];
-
 
 async function findSources(
   type,
@@ -2158,9 +2359,7 @@ async function findSources(
   $("sources").innerHTML = `
 
     <div class="empty">
-
-      Scanning stream addon…
-
+      Loading stream sources…
     </div>
 
   `;
@@ -2170,8 +2369,7 @@ async function findSources(
 
     const data =
       await fetchJSON(
-        streamURL(
-          state.stream,
+        buildStreamURL(
           type,
           id
         )
@@ -2179,8 +2377,11 @@ async function findSources(
 
 
     currentStreams =
-      data.streams ||
-      [];
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
 
 
     if(
@@ -2191,8 +2392,8 @@ async function findSources(
 
         <div class="notice">
 
-          The stream addon returned
-          no sources for this title.
+          No stream sources were returned
+          for this title.
 
         </div>
 
@@ -2204,9 +2405,9 @@ async function findSources(
 
 
     /*
-      Put likely browser-compatible
-      formats first, but don't throw
-      other sources away.
+      Prefer things the browser may be
+      able to use, while preserving all
+      returned sources.
     */
 
     currentStreams.sort(
@@ -2214,14 +2415,14 @@ async function findSources(
 
         function score(s){
 
-          let n = 0;
+          let score = 0;
 
 
           if(
             s.playerFrameUrl
           ){
 
-            n += 90;
+            score += 100;
 
           }
 
@@ -2230,16 +2431,17 @@ async function findSources(
             s.externalUrl
           ){
 
-            n += 80;
+            score += 80;
 
           }
 
 
           if(
-            !isNotWebReady(s)
+            !s.behaviorHints
+              ?.notWebReady
           ){
 
-            n += 30;
+            score += 30;
 
           }
 
@@ -2252,23 +2454,25 @@ async function findSources(
             format === "MP4"
           ){
 
-            n += 40;
+            score += 45;
 
           }
 
-          else if(
+
+          if(
             format === "HLS"
           ){
 
-            n += 35;
+            score += 40;
 
           }
 
-          else if(
+
+          if(
             format === "WEBM"
           ){
 
-            n += 30;
+            score += 35;
 
           }
 
@@ -2279,12 +2483,12 @@ async function findSources(
             "2peckle"
           ){
 
-            n += 10;
+            score += 10;
 
           }
 
 
-          return n;
+          return score;
 
         }
 
@@ -2346,7 +2550,7 @@ async function findSources(
 
 
 /* =========================================================
-   SOURCE PLAYBACK
+   PLAY SOURCE
 ========================================================= */
 
 function playSource(
@@ -2364,28 +2568,18 @@ function playSource(
   }
 
 
-  /*
-    1. Provider supplied an iframe/player.
-  */
-
   if(
     stream.playerFrameUrl
   ){
 
     openPlayerFrame(
-      stream
-        .playerFrameUrl
+      stream.playerFrameUrl
     );
 
     return;
 
   }
 
-
-  /*
-    2. Provider supplied an external
-       destination.
-  */
 
   if(
     stream.externalUrl
@@ -2400,12 +2594,9 @@ function playSource(
   }
 
 
-  /*
-    3. No direct browser source.
-  */
-
   if(
-    stream.behaviorHints
+    stream
+      ?.behaviorHints
       ?.notWebReady
   ){
 
@@ -2414,7 +2605,7 @@ function playSource(
       <div class="sheet-header">
 
         <h2>
-          SOURCE NOT WEB READY
+          NOT WEB READY
         </h2>
 
         <button
@@ -2428,16 +2619,13 @@ function playSource(
 
       <div class="notice">
 
-        This provider returned a source
-        that is specifically marked as
-        not web-ready.
+        This stream is marked by the
+        addon as not web-ready.
 
         <br><br>
 
-        Safari cannot safely turn that
-        into a playable browser stream
-        without the provider's supported
-        playback mechanism.
+        SAUVE will not attempt to bypass
+        provider restrictions or DRM.
 
         <br><br>
 
@@ -2451,10 +2639,6 @@ function playSource(
 
   }
 
-
-  /*
-    4. Direct URL.
-  */
 
   if(stream.url){
 
@@ -2472,7 +2656,7 @@ function playSource(
     <div class="sheet-header">
 
       <h2>
-        UNSUPPORTED SOURCE
+        UNSUPPORTED
       </h2>
 
       <button
@@ -2486,9 +2670,9 @@ function playSource(
 
     <div class="notice">
 
-      This source does not contain a
-      browser-playable URL, external
-      URL, or player URL.
+      This stream did not provide a
+      direct URL, player URL, or external
+      destination.
 
     </div>
 
@@ -2504,10 +2688,6 @@ function playSource(
 function playDirect(
   stream
 ){
-
-  const url =
-    stream.url;
-
 
   openModal(`
 
@@ -2534,7 +2714,6 @@ function playDirect(
         playsinline
         webkit-playsinline
         preload="metadata">
-
       </video>
 
 
@@ -2550,10 +2729,8 @@ function playDirect(
 
         </strong>
 
-        <small id="status">
-
-          Loading source…
-
+        <small id="playerStatus">
+          Loading…
         </small>
 
       </div>
@@ -2568,11 +2745,11 @@ function playDirect(
 
 
   const status =
-    $("status");
+    $("playerStatus");
 
 
   video.src =
-    url;
+    stream.url;
 
 
   video.addEventListener(
@@ -2582,9 +2759,6 @@ function playDirect(
       status.textContent =
         "Ready";
 
-    },
-    {
-      once:true
     }
   );
 
@@ -2616,7 +2790,7 @@ function playDirect(
     () => {
 
       status.textContent =
-        "Safari could not play this direct source.";
+        "Safari could not decode or access this source.";
 
     }
   );
@@ -2628,7 +2802,7 @@ function playDirect(
 
 
 /* =========================================================
-   PLAYER FRAME
+   IFRAME PLAYER
 ========================================================= */
 
 function openPlayerFrame(
@@ -2646,9 +2820,7 @@ function openPlayerFrame(
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -2666,7 +2838,11 @@ function openPlayerFrame(
 
       <iframe
         src="${escapeHTML(url)}"
-        allow="autoplay; fullscreen; picture-in-picture"
+        allow="
+          autoplay;
+          fullscreen;
+          picture-in-picture
+        "
         allowfullscreen
         style="
           position:absolute;
@@ -2703,9 +2879,7 @@ function openExternal(
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -2713,20 +2887,14 @@ function openExternal(
 
     <div class="notice">
 
-      This source is supplied as an
-      external destination rather than
-      a browser video stream.
+      This provider supplied an external
+      playback destination.
 
       <br><br>
 
       <button
         class="primary"
-        onclick="
-          window.open(
-            ${JSON.stringify(url)},
-            '_blank'
-          )
-        ">
+        id="openExternalButton">
 
         OPEN SOURCE
 
@@ -2735,6 +2903,18 @@ function openExternal(
     </div>
 
   `);
+
+
+  $("openExternalButton")
+    .onclick =
+    () => {
+
+      window.open(
+        url,
+        "_blank"
+      );
+
+    };
 
 }
 
@@ -2756,9 +2936,7 @@ function openSettings(){
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -2787,23 +2965,23 @@ function openSettings(){
 
       <input
         id="streamURL"
-        placeholder="Paste your stream manifest"
         value="${escapeHTML(
           state.stream
-        )}">
+        )}"
+        placeholder="Paste your stream manifest">
 
     </div>
 
 
     <div class="notice">
 
-      SAUVE stores only the manifest
-      addresses locally.
+      SAUVE stores the manifest addresses
+      locally in this browser.
 
       <br><br>
 
-      It does not request or store
-      your Real-Debrid API key.
+      SAUVE does not store a Real-Debrid
+      API key.
 
     </div>
 
@@ -2841,7 +3019,7 @@ function saveSettings(){
   if(!metadata){
 
     alert(
-      "Metadata manifest required."
+      "Enter your metadata manifest."
     );
 
     return;
@@ -2871,7 +3049,7 @@ function saveSettings(){
 
   closeModal();
 
-  goHome();
+  location.reload();
 
 }
 
