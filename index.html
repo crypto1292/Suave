@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               viewport-fit=cover">
+
 <meta name="theme-color" content="#05030b">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
 <title>SAUVE Cinema Television</title>
 
 <style>
+
 :root{
   --bg:#05030b;
   --panel:#0d0718;
@@ -23,9 +33,12 @@
   --muted:#9d91a6;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
-html,body{
+html,
+body{
   margin:0;
   padding:0;
   min-height:100%;
@@ -33,17 +46,37 @@ html,body{
 }
 
 body{
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  color:white;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
   overflow-x:hidden;
+
   background:
-    radial-gradient(circle at 50% -10%,rgba(138,77,255,.38),transparent 35%),
-    radial-gradient(circle at 0 30%,rgba(255,22,216,.12),transparent 30%),
-    radial-gradient(circle at 100% 50%,rgba(25,234,255,.10),transparent 30%),
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(138,77,255,.38),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0 30%,
+      rgba(255,22,216,.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      rgba(25,234,255,.10),
+      transparent 30%
+    ),
     #05030b;
 }
 
-button,input{
+button,
+input,
+select{
   font:inherit;
 }
 
@@ -54,8 +87,6 @@ button{
 button:active{
   transform:scale(.98);
 }
-
-/* HEADER */
 
 header{
   position:sticky;
@@ -73,15 +104,20 @@ header{
 
 .logo{
   text-align:center;
-  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
   font-style:italic;
   font-size:clamp(68px,19vw,120px);
   line-height:.78;
   letter-spacing:7px;
   transform:skewX(-7deg);
-  color:#fff;
+  color:white;
+
   text-shadow:
-    0 0 4px #fff,
+    0 0 4px white,
     0 0 9px var(--pink),
     0 0 20px var(--pink),
     0 0 45px var(--purple),
@@ -111,7 +147,7 @@ header{
   padding:14px;
   border-radius:8px;
   background:#0c0715;
-  color:#fff;
+  color:white;
   border:1px solid rgba(138,77,255,.45);
   outline:none;
 }
@@ -125,12 +161,14 @@ header{
   padding:0 18px;
   border:0;
   border-radius:8px;
-  color:#fff;
+  color:white;
   font-weight:900;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    var(--purple)
+  );
 }
-
-/* MAIN */
 
 main{
   width:100%;
@@ -138,8 +176,6 @@ main{
   margin:auto;
   padding:16px 16px 110px;
 }
-
-/* HERO */
 
 .hero{
   position:relative;
@@ -150,22 +186,37 @@ main{
   padding:clamp(25px,5vw,60px);
   border-radius:18px;
   border:1px solid rgba(255,22,216,.25);
+
   background:
-    radial-gradient(circle at 75% 30%,rgba(25,234,255,.18),transparent 25%),
-    radial-gradient(circle at 75% 75%,rgba(255,22,216,.25),transparent 35%),
-    linear-gradient(110deg,#090511,#190c2e,#07121e);
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(25,234,255,.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255,22,216,.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      110deg,
+      #090511,
+      #190c2e,
+      #07121e
+    );
 }
 
 .hero:before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(5,3,11,.98),
-    rgba(5,3,11,.72) 48%,
-    rgba(5,3,11,.05)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,3,11,.98),
+      rgba(5,3,11,.72) 48%,
+      rgba(5,3,11,.05)
+    );
 }
 
 .hero:after{
@@ -173,12 +224,13 @@ main{
   position:absolute;
   inset:0;
   opacity:.08;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 3px,
-    rgba(255,255,255,.18) 4px
-  );
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255,255,255,.18) 4px
+    );
 }
 
 .hero-content{
@@ -196,7 +248,10 @@ main{
 
 .hero h1{
   margin:15px 0;
-  font-family:Impact,Haettenschweiler,sans-serif;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
   font-size:clamp(46px,9vw,95px);
   line-height:.85;
   text-transform:uppercase;
@@ -225,8 +280,13 @@ main{
 
 .primary{
   border:0;
-  color:#fff;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+  color:white;
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
   box-shadow:0 0 18px rgba(255,22,216,.25);
 }
 
@@ -235,8 +295,6 @@ main{
   background:rgba(25,234,255,.04);
   border:1px solid rgba(25,234,255,.38);
 }
-
-/* CATALOG */
 
 .catalog-section{
   margin:30px 0 0;
@@ -254,7 +312,10 @@ main{
 
 .catalog-title{
   margin:0;
-  font-family:Impact,Haettenschweiler,sans-serif;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
   font-size:25px;
   letter-spacing:1px;
 }
@@ -280,8 +341,6 @@ main{
   display:none;
 }
 
-/* POSTERS */
-
 .poster-card{
   position:relative;
   flex:0 0 145px;
@@ -289,12 +348,14 @@ main{
   border:0;
   padding:0;
   text-align:left;
-  color:#fff;
+  color:white;
   background:#10091c;
   border-radius:8px;
   scroll-snap-align:start;
   box-shadow:0 7px 22px rgba(0,0,0,.32);
-  transition:transform .18s ease,box-shadow .18s ease;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
 }
 
 .poster-card:hover{
@@ -316,7 +377,11 @@ main{
   right:0;
   bottom:0;
   padding:38px 9px 9px;
-  background:linear-gradient(transparent,rgba(0,0,0,.94));
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.94)
+    );
 }
 
 .poster-name{
@@ -346,8 +411,6 @@ main{
   letter-spacing:1px;
 }
 
-/* NOTICE */
-
 .empty{
   padding:28px 5px;
   color:var(--muted);
@@ -364,7 +427,27 @@ main{
   font-size:12px;
 }
 
-/* MODAL */
+.loading{
+  padding:25px;
+  text-align:center;
+  color:#bcaec5;
+}
+
+.spinner{
+  width:28px;
+  height:28px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.12);
+  border-top-color:var(--pink);
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
 
 .modal{
   position:fixed;
@@ -385,11 +468,21 @@ main{
   width:100%;
   max-height:95vh;
   overflow:auto;
-  padding:20px 18px calc(30px + env(safe-area-inset-bottom));
+  padding:
+    20px
+    18px
+    calc(30px + env(safe-area-inset-bottom));
+
   border-radius:22px 22px 0 0;
+
   background:
-    radial-gradient(circle at 50% 0,rgba(138,77,255,.18),transparent 40%),
+    radial-gradient(
+      circle at 50% 0,
+      rgba(138,77,255,.18),
+      transparent 40%
+    ),
     #0c0718;
+
   border-top:1px solid rgba(255,22,216,.35);
 }
 
@@ -403,7 +496,10 @@ main{
 
 .sheet-header h2{
   margin:0;
-  font-family:Impact,Haettenschweiler,sans-serif;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
   font-size:27px;
 }
 
@@ -416,8 +512,6 @@ main{
   border:1px solid rgba(25,234,255,.3);
   font-size:22px;
 }
-
-/* DETAILS */
 
 .details{
   display:grid;
@@ -445,17 +539,27 @@ main{
   margin-bottom:7px;
 }
 
-/* EPISODES */
+.section-title{
+  margin:
+    25px 0 10px;
 
-.season-bar{
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:22px;
+}
+
+.season-tabs{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  padding:5px 0 12px;
+  padding-bottom:8px;
   scrollbar-width:none;
 }
 
-.season-bar::-webkit-scrollbar{
+.season-tabs::-webkit-scrollbar{
   display:none;
 }
 
@@ -463,37 +567,41 @@ main{
   flex:none;
   padding:9px 13px;
   border-radius:7px;
-  color:#bdaec8;
-  background:#130b21;
-  border:1px solid rgba(138,77,255,.25);
+  border:1px solid rgba(138,77,255,.3);
+  background:#140b23;
+  color:#bfb1c8;
   font-size:10px;
   font-weight:900;
 }
 
 .season-button.active{
-  color:#fff;
+  color:white;
   border-color:var(--pink);
-  background:linear-gradient(135deg,rgba(255,22,216,.22),rgba(138,77,255,.22));
-  box-shadow:0 0 12px rgba(255,22,216,.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,22,216,.35),
+      rgba(138,77,255,.35)
+    );
 }
 
 .episode-list{
-  display:grid;
-  gap:9px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
 .episode{
   width:100%;
   display:grid;
-  grid-template-columns:115px 1fr;
+  grid-template-columns:80px 1fr;
   gap:12px;
-  padding:0;
-  overflow:hidden;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#120a20;
+  color:white;
   text-align:left;
-  color:#fff;
-  background:#11091d;
-  border:1px solid rgba(138,77,255,.18);
-  border-radius:9px;
 }
 
 .episode:hover{
@@ -501,15 +609,11 @@ main{
 }
 
 .episode img{
-  width:115px;
-  height:70px;
+  width:80px;
+  aspect-ratio:16/9;
   object-fit:cover;
+  border-radius:5px;
   background:#08050d;
-}
-
-.episode-info{
-  padding:9px 9px 9px 0;
-  min-width:0;
 }
 
 .episode-number{
@@ -519,36 +623,32 @@ main{
   letter-spacing:1px;
 }
 
-.episode-title{
+.episode-name{
   margin-top:4px;
-  font-size:12px;
   font-weight:900;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  font-size:12px;
 }
 
-.episode-description{
-  margin-top:4px;
-  color:#91859b;
+.episode-desc{
+  margin-top:5px;
+  color:#8f8499;
   font-size:9px;
-  line-height:1.35;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+  line-height:1.4;
 }
-
-/* SOURCES */
 
 .source{
   width:100%;
   margin-top:9px;
   padding:14px;
   text-align:left;
-  color:#fff;
+  color:white;
   border-radius:9px;
-  background:linear-gradient(100deg,#150c29,#0d0819);
+  background:
+    linear-gradient(
+      100deg,
+      #150c29,
+      #0d0819
+    );
   border:1px solid rgba(25,234,255,.15);
 }
 
@@ -626,8 +726,6 @@ main{
   font-size:10px;
 }
 
-/* PLAYER */
-
 .player-shell{
   position:relative;
   width:100%;
@@ -685,7 +783,7 @@ iframe{
 .player-button{
   padding:10px 13px;
   border-radius:7px;
-  color:#fff;
+  color:white;
   background:#170d27;
   border:1px solid rgba(255,255,255,.1);
   font-weight:800;
@@ -693,11 +791,14 @@ iframe{
 }
 
 .player-button.primary{
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
   border:0;
 }
-
-/* SETTINGS */
 
 .field{
   margin:18px 0;
@@ -718,19 +819,51 @@ iframe{
   padding:13px;
   border-radius:7px;
   background:#080510;
-  color:#fff;
+  color:white;
   border:1px solid rgba(138,77,255,.3);
   outline:none;
 }
 
-.small-help{
-  margin-top:7px;
-  color:#7f7388;
-  font-size:9px;
-  line-height:1.5;
+.addon-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:8px;
+  background:#10091c;
+  border:1px solid rgba(138,77,255,.2);
 }
 
-/* NAV */
+.addon-info{
+  flex:1;
+  min-width:0;
+}
+
+.addon-name{
+  font-weight:900;
+  font-size:12px;
+}
+
+.addon-url{
+  margin-top:4px;
+  color:#80748b;
+  font-size:9px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.remove-addon{
+  flex:none;
+  padding:7px 9px;
+  border-radius:6px;
+  border:1px solid rgba(255,85,119,.3);
+  color:var(--red);
+  background:rgba(255,85,119,.06);
+  font-size:9px;
+  font-weight:900;
+}
 
 .nav{
   position:fixed;
@@ -768,8 +901,6 @@ iframe{
   text-shadow:0 0 10px var(--pink);
 }
 
-/* DESKTOP */
-
 @media(min-width:700px){
 
   .poster-card{
@@ -788,15 +919,8 @@ iframe{
     min-height:580px;
   }
 
-  .episode{
-    grid-template-columns:180px 1fr;
-  }
-
-  .episode img{
-    width:180px;
-    height:100px;
-  }
 }
+
 </style>
 </head>
 
@@ -804,7 +928,9 @@ iframe{
 
 <header>
 
-  <div class="logo">SAUVE</div>
+  <div class="logo">
+    SAUVE
+  </div>
 
   <div class="logo-sub">
     CINEMA • TELEVISION • AFTER DARK
@@ -826,6 +952,7 @@ iframe{
 
 </header>
 
+
 <main id="main">
 
   <div class="hero">
@@ -842,18 +969,24 @@ iframe{
       </h1>
 
       <p>
-        Browse your MDBList collections and television catalogs
-        in a Netflix-style interface. Select a show, choose a
-        season and episode, then find available sources.
+        Browse your Stremio catalogs,
+        MDBList collections and television.
+        Select a show, choose a season and
+        pick an individual episode to find
+        its available sources.
       </p>
 
       <div class="hero-buttons">
 
-        <button class="primary" onclick="focusSearch()">
+        <button
+          class="primary"
+          onclick="focusSearch()">
           ⌕ SEARCH
         </button>
 
-        <button class="secondary" onclick="openSettings()">
+        <button
+          class="secondary"
+          onclick="openSettings()">
           ⚙ SETTINGS
         </button>
 
@@ -864,65 +997,109 @@ iframe{
   </div>
 
   <div id="catalogContainer">
-    <div class="empty">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
       Loading SAUVE…
+
     </div>
+
   </div>
 
 </main>
 
+
 <nav class="nav">
 
-  <button class="active" onclick="goHome()">
+  <button
+    class="active"
+    onclick="goHome()">
+
     <span>⌂</span>
     HOME
+
   </button>
 
-  <button onclick="focusSearch()">
+  <button
+    onclick="focusSearch()">
+
     <span>⌕</span>
     SEARCH
+
   </button>
 
-  <button onclick="openSettings()">
+  <button
+    onclick="openSettings()">
+
     <span>⚙</span>
     SETTINGS
+
   </button>
 
 </nav>
 
-<div class="modal" id="modal">
 
-  <div class="sheet" id="sheet"></div>
+<div
+  class="modal"
+  id="modal">
+
+  <div
+    class="sheet"
+    id="sheet">
+  </div>
 
 </div>
 
+
 <script>
 
-/* ============================================================
+/* =========================================================
    CONFIG
-============================================================ */
-
-const DEFAULT_CATALOG =
-"stremio://931ea03c081b-mdblist-stremio.baby-beamup.club/unified/latest-movies-digital-release/userapi-snoak-12rh0aihjpmyvra4f4x5od8tb/MDBList/manifest.json";
+========================================================= */
 
 const DEFAULT_METADATA =
-DEFAULT_CATALOG;
+"https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+
+/*
+  Your working MDBList Stremio addon can be added
+  through Settings.
+
+  Example:
+
+  stremio://931ea03c081b-mdblist-stremio.baby-beamup.club/unified/latest-movies-digital-release/userapi-snoak-12rh0aihjpmyvra4f4x5od8tb/MDBList/manifest.json
+
+  The application converts stremio:// to https://
+  automatically.
+*/
+
+const DEFAULT_ADDON =
+"";
+
 
 const state = {
 
   metadata:
-    localStorage.getItem("sauve_metadata") ||
+    localStorage.getItem(
+      "sauve_metadata"
+    ) ||
     DEFAULT_METADATA,
 
   stream:
-    localStorage.getItem("sauve_stream") ||
+    localStorage.getItem(
+      "sauve_stream"
+    ) ||
     "",
 
-  catalog:
-    localStorage.getItem("sauve_catalog") ||
-    DEFAULT_CATALOG
+  addons:
+    loadJSON(
+      "sauve_addons",
+      []
+    )
 
 };
+
 
 let currentStreams = [];
 
@@ -930,123 +1107,209 @@ let currentPlayableStreams = [];
 
 let currentPlayerIndex = 0;
 
-let currentShowMeta = null;
+let currentTitle = null;
 
-let currentSelectedSeason = null;
+let currentSeriesId = "";
+
+let currentSelectedSeason = 1;
 
 
-/* ============================================================
-   HELPERS
-============================================================ */
+/* =========================================================
+   STORAGE
+========================================================= */
 
-function $(id){
-  return document.getElementById(id);
-}
+function loadJSON(
+  key,
+  fallback
+){
 
-function escapeHTML(value=""){
-  return String(value)
-    .replace(/[&<>"']/g,c=>({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[c]));
-}
+  try{
 
-function normalizeAddonURL(url){
+    const value =
+      localStorage.getItem(key);
 
-  let value =
-    String(url || "").trim();
+    if(!value){
 
-  if(!value){
-    return "";
+      return fallback;
+
+    }
+
+    return JSON.parse(value);
+
+  }
+  catch(e){
+
+    return fallback;
+
   }
 
-  /*
-    Convert Stremio protocol to HTTPS.
-  */
+}
 
-  if(value.startsWith("stremio://")){
+
+function saveState(){
+
+  localStorage.setItem(
+    "sauve_metadata",
+    state.metadata
+  );
+
+  localStorage.setItem(
+    "sauve_stream",
+    state.stream
+  );
+
+  localStorage.setItem(
+    "sauve_addons",
+    JSON.stringify(
+      state.addons
+    )
+  );
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function $(id){
+
+  return document.getElementById(id);
+
+}
+
+
+function escapeHTML(value=""){
+
+  return String(value)
+    .replace(
+      /[&<>"']/g,
+      c => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+      }[c])
+    );
+
+}
+
+
+function normalizeManifest(url){
+
+  return String(url || "")
+    .trim()
+    .replace(
+      /\/manifest\.json\/?$/i,
+      ""
+    );
+
+}
+
+
+function toHTTP(url){
+
+  let value =
+    String(url || "")
+      .trim();
+
+  if(
+    value.startsWith(
+      "stremio://"
+    )
+  ){
+
     value =
       "https://" +
       value.substring(
         "stremio://".length
       );
+
   }
 
   return value;
+
 }
+
 
 function addonRoot(url){
 
-  let value =
-    normalizeAddonURL(url);
-
-  value =
-    value.replace(
-      /\/manifest\.json\/?$/i,
-      ""
-    );
-
-  return value.replace(/\/+$/,"") + "/";
+  return normalizeManifest(
+    toHTTP(url)
+  ) + "/";
 }
+
 
 async function fetchJSON(url){
 
   const response =
     await fetch(
-      url,
+      toHTTP(url),
       {
         method:"GET",
         headers:{
-          Accept:"application/json"
+          Accept:
+            "application/json"
         },
         cache:"no-store"
       }
     );
 
   if(!response.ok){
+
     throw new Error(
-      "HTTP " + response.status
+      "HTTP " +
+      response.status
     );
+
   }
 
   return response.json();
-}
 
-function dedupeMetas(metas){
-
-  const seen = new Set();
-
-  return metas.filter(item=>{
-
-    const key =
-      String(item.type || "") +
-      "|" +
-      String(item.id || "");
-
-    if(seen.has(key)){
-      return false;
-    }
-
-    seen.add(key);
-    return true;
-
-  });
 }
 
 
-/* ============================================================
-   STREMIO URL HELPERS
-============================================================ */
+/* =========================================================
+   CATALOG URL
+========================================================= */
 
-function buildCatalogURL(
-  catalog
+function makeExtraProps(
+  values
 ){
 
-  return (
-    addonRoot(state.catalog) +
+  return Object.entries(
+    values
+  )
+  .filter(
+    ([,value]) =>
+      value !== undefined &&
+      value !== null &&
+      String(value).length
+  )
+  .map(
+    ([key,value]) =>
+      key +
+      "=" +
+      encodeURIComponent(
+        String(value)
+      )
+  )
+  .join("&");
+
+}
+
+
+function buildCatalogURL(
+  addon,
+  catalog,
+  extra={}
+){
+
+  let url =
+    addonRoot(
+      addon
+    ) +
     "catalog/" +
     encodeURIComponent(
       catalog.type
@@ -1054,25 +1317,52 @@ function buildCatalogURL(
     "/" +
     encodeURIComponent(
       catalog.id
-    ) +
-    ".json"
-  );
+    );
+
+  const props =
+    makeExtraProps(
+      extra
+    );
+
+  if(props){
+
+    url +=
+      "/" +
+      props;
+
+  }
+
+  return url +
+    ".json";
+
 }
 
+
+/* =========================================================
+   META URL
+========================================================= */
+
 function buildMetaURL(
+  addon,
   type,
   id
 ){
 
   return (
-    addonRoot(state.metadata) +
+    addonRoot(addon) +
     "meta/" +
     encodeURIComponent(type) +
     "/" +
     encodeURIComponent(id) +
     ".json"
   );
+
 }
+
+
+/* =========================================================
+   STREAM URL
+========================================================= */
 
 function buildStreamURL(
   type,
@@ -1080,27 +1370,80 @@ function buildStreamURL(
 ){
 
   if(!state.stream){
-    throw new Error(
-      "No stream addon has been configured in Settings."
-    );
+
+    return "";
+
   }
 
   return (
-    addonRoot(state.stream) +
+    addonRoot(
+      state.stream
+    ) +
     "stream/" +
     encodeURIComponent(type) +
     "/" +
     encodeURIComponent(id) +
     ".json"
   );
+
 }
 
 
-/* ============================================================
-   CATALOG NAME
-============================================================ */
+/*
+  IMPORTANT TV FIX
 
-function prettyCatalogName(catalog){
+  Stremio stream addons normally expect:
+
+  series/<series-id>:<season>:<episode>
+
+  instead of simply:
+
+  series/<series-id>
+
+  So this function builds the correct
+  episode-specific ID.
+*/
+
+function buildEpisodeStreamURL(
+  seriesId,
+  season,
+  episode
+){
+
+  if(!state.stream){
+
+    return "";
+
+  }
+
+  const episodeId =
+    seriesId +
+    ":" +
+    season +
+    ":" +
+    episode;
+
+  return (
+    addonRoot(
+      state.stream
+    ) +
+    "stream/series/" +
+    encodeURIComponent(
+      episodeId
+    ) +
+    ".json"
+  );
+
+}
+
+
+/* =========================================================
+   CATALOG NAME
+========================================================= */
+
+function prettyCatalogName(
+  catalog
+){
 
   const raw =
     String(
@@ -1115,25 +1458,46 @@ function prettyCatalogName(catalog){
   const mappings = [
 
     ["netflix","NETFLIX"],
+
     ["disney+","DISNEY+"],
+
     ["disney","DISNEY+"],
+
     ["apple tv","APPLE TV+"],
+
     ["apple","APPLE TV+"],
+
     ["hbo","HBO"],
+
     ["max","MAX"],
+
     ["hulu","HULU"],
+
     ["prime","PRIME VIDEO"],
+
     ["amazon","PRIME VIDEO"],
+
     ["paramount","PARAMOUNT+"],
+
     ["peacock","PEACOCK"],
+
     ["marvel","MARVEL"],
+
     ["dc","DC"],
+
     ["popular","POPULAR"],
+
     ["trending","TRENDING"],
+
     ["featured","FEATURED"],
+
     ["latest","LATEST"],
-    ["new","NEW RELEASES"],
-    ["watchlist","WATCHLIST"]
+
+    ["digital","DIGITAL RELEASES"],
+
+    ["top","TOP PICKS"],
+
+    ["new","NEW RELEASES"]
 
   ];
 
@@ -1142,37 +1506,219 @@ function prettyCatalogName(catalog){
     of mappings
   ){
 
-    if(lower.includes(needle)){
+    if(
+      lower.includes(
+        needle
+      )
+    ){
+
       return label;
+
     }
 
   }
 
   return raw.toUpperCase();
+
 }
 
 
-/* ============================================================
-   LOAD MANIFEST
-============================================================ */
+/* =========================================================
+   CATALOG PRIORITY
+========================================================= */
 
-async function loadManifest(){
+function catalogPriority(
+  catalog
+){
 
-  const url =
-    normalizeAddonURL(
-      state.catalog
+  const name =
+    String(
+      catalog.name ||
+      catalog.id ||
+      ""
+    ).toLowerCase();
+
+  const priority = [
+
+    "featured",
+
+    "trending",
+
+    "popular",
+
+    "netflix",
+
+    "disney",
+
+    "apple",
+
+    "hbo",
+
+    "max",
+
+    "hulu",
+
+    "prime",
+
+    "amazon",
+
+    "paramount",
+
+    "peacock",
+
+    "marvel",
+
+    "dc",
+
+    "latest",
+
+    "digital",
+
+    "top",
+
+    "new"
+
+  ];
+
+  const index =
+    priority.findIndex(
+      word =>
+        name.includes(word)
     );
 
-  const manifest =
-    await fetchJSON(url);
+  return index < 0
+    ? 999
+    : index;
 
-  return manifest;
 }
 
 
-/* ============================================================
-   HOME
-============================================================ */
+/* =========================================================
+   ADDON MANIFEST
+========================================================= */
+
+async function loadAddonManifest(
+  addon
+){
+
+  const manifestURL =
+    normalizeManifest(
+      toHTTP(addon)
+    ) +
+    "/manifest.json";
+
+  return fetchJSON(
+    manifestURL
+  );
+
+}
+
+
+/* =========================================================
+   LOAD ALL ADDON CATALOGS
+========================================================= */
+
+async function loadExternalAddons(){
+
+  const addons =
+    state.addons
+      .filter(Boolean);
+
+  if(!addons.length){
+
+    return "";
+
+  }
+
+  let html = "";
+
+  for(
+    const addon
+    of addons
+  ){
+
+    try{
+
+      const manifest =
+        await loadAddonManifest(
+          addon
+        );
+
+      const catalogs =
+        Array.isArray(
+          manifest.catalogs
+        )
+          ? manifest.catalogs
+          : [];
+
+      for(
+        const catalog
+        of catalogs.slice(0,20)
+      ){
+
+        try{
+
+          const data =
+            await fetchJSON(
+              buildCatalogURL(
+                addon,
+                catalog
+              )
+            );
+
+          const metas =
+            Array.isArray(
+              data.metas
+            )
+              ? data.metas
+              : [];
+
+          if(!metas.length){
+
+            continue;
+
+          }
+
+          html +=
+            renderCatalogRow(
+              catalog,
+              metas
+            );
+
+        }
+        catch(e){
+
+          console.warn(
+            "Catalog failed:",
+            catalog,
+            e
+          );
+
+        }
+
+      }
+
+    }
+    catch(error){
+
+      console.warn(
+        "Addon failed:",
+        addon,
+        error
+      );
+
+    }
+
+  }
+
+  return html;
+
+}
+
+
+/* =========================================================
+   LOAD HOME
+========================================================= */
 
 async function loadHome(){
 
@@ -1180,15 +1726,25 @@ async function loadHome(){
     $("catalogContainer");
 
   container.innerHTML = `
-    <div class="empty">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
       Loading catalogs…
+
     </div>
+
   `;
+
+  let mainHTML = "";
 
   try{
 
     const manifest =
-      await loadManifest();
+      await fetchJSON(
+        state.metadata
+      );
 
     const catalogs =
       Array.isArray(
@@ -1197,184 +1753,219 @@ async function loadHome(){
         ? manifest.catalogs
         : [];
 
-    if(!catalogs.length){
-
-      container.innerHTML = `
-        <div class="notice">
-          No catalogs were advertised by the MDBList addon.
-        </div>
-      `;
-
-      return;
-    }
-
-    const selected =
+    const usable =
       catalogs
-        .filter(c=>c && c.id && c.type)
-        .slice(0,40);
-
-    let html = "";
-
-    /*
-      Load catalogs one at a time with a
-      timeout so one broken catalog cannot
-      freeze the entire homepage.
-    */
-
-    for(
-      const catalog of selected
-    ){
-
-      try{
-
-        const data =
-          await fetchJSON(
-            buildCatalogURL(
-              catalog
-            )
-          );
-
-        const metas =
-          Array.isArray(data.metas)
-            ? dedupeMetas(data.metas)
-            : [];
-
-        if(!metas.length){
-          continue;
-        }
-
-        html +=
-          renderCatalogRow(
-            catalog,
-            metas.slice(0,40)
-          );
-
-      }
-      catch(error){
-
-        console.warn(
-          "Catalog failed:",
-          catalog,
-          error
+        .filter(
+          c =>
+            c &&
+            c.id &&
+            c.type
+        )
+        .sort(
+          (a,b) =>
+            catalogPriority(a) -
+            catalogPriority(b)
         );
 
+    const selected =
+      usable.slice(
+        0,
+        30
+      );
+
+    const results =
+      await Promise.allSettled(
+        selected.map(
+          async catalog => {
+
+            const data =
+              await fetchJSON(
+                buildCatalogURL(
+                  state.metadata,
+                  catalog
+                )
+              );
+
+            return {
+              catalog,
+              metas:
+                Array.isArray(
+                  data.metas
+                )
+                  ? data.metas
+                  : []
+            };
+
+          }
+        )
+      );
+
+    results.forEach(
+      result => {
+
+        if(
+          result.status !==
+          "fulfilled"
+        ){
+
+          return;
+
+        }
+
+        if(
+          !result.value.metas.length
+        ){
+
+          return;
+
+        }
+
+        mainHTML +=
+          renderCatalogRow(
+            result.value.catalog,
+            result.value.metas
+          );
+
       }
-
-      /*
-        Render as we go so the page
-        never appears permanently stuck.
-      */
-
-      if(html){
-        container.innerHTML = html;
-      }
-
-    }
-
-    if(!html){
-
-      container.innerHTML = `
-        <div class="notice">
-          MDBList connected, but no catalog titles
-          could be loaded. Check the catalog URL
-          in Settings.
-        </div>
-      `;
-
-    }
+    );
 
   }
   catch(error){
 
-    container.innerHTML = `
+    mainHTML += `
+
       <div class="notice">
 
-        <strong>
-          MDBLIST COULD NOT BE LOADED
-        </strong>
+        Metadata catalog error:
 
         <br><br>
 
-        ${escapeHTML(error.message)}
-
-        <br><br>
-
-        Open Settings and verify your
-        MDBList Stremio URL.
+        ${escapeHTML(
+          error.message
+        )}
 
       </div>
+
     `;
 
   }
 
+
+  /*
+    Now append the user's
+    Stremio/MDBList addons.
+
+    This restores the addon/list
+    section that disappeared before.
+  */
+
+  try{
+
+    const addonHTML =
+      await loadExternalAddons();
+
+    mainHTML +=
+      addonHTML;
+
+  }
+  catch(error){
+
+    console.warn(
+      "External addons failed",
+      error
+    );
+
+  }
+
+
+  if(!mainHTML){
+
+    mainHTML = `
+
+      <div class="notice">
+
+        No catalogs could be loaded.
+
+        <br><br>
+
+        Open Settings and verify your
+        metadata addon or Stremio list.
+
+      </div>
+
+    `;
+
+  }
+
+  container.innerHTML =
+    mainHTML;
+
 }
 
 
-/* ============================================================
-   CATALOG ROW
-============================================================ */
+/* =========================================================
+   DEDUPE
+========================================================= */
 
-function renderCatalogRow(
-  catalog,
+function dedupeMetas(
   metas
 ){
 
-  return `
+  const seen =
+    new Set();
 
-    <section class="catalog-section">
+  return metas.filter(
+    item => {
 
-      <div class="catalog-heading">
+      const key =
+        String(
+          item.type || ""
+        ) +
+        "|" +
+        String(
+          item.id || ""
+        );
 
-        <h2 class="catalog-title">
-          ${escapeHTML(
-            prettyCatalogName(catalog)
-          )}
-        </h2>
+      if(
+        seen.has(key)
+      ){
 
-        <span class="catalog-label">
-          ${escapeHTML(
-            String(
-              catalog.type ||
-              "CATALOG"
-            ).toUpperCase()
-          )}
-        </span>
+        return false;
 
-      </div>
+      }
 
-      <div class="row">
+      seen.add(key);
 
-        ${metas.map(
-          renderPosterCard
-        ).join("")}
+      return true;
 
-      </div>
+    }
+  );
 
-    </section>
-
-  `;
 }
 
 
-/* ============================================================
+/* =========================================================
    POSTER
-============================================================ */
+========================================================= */
 
-function renderPosterCard(item){
+function renderPosterCard(
+  item
+){
 
   const type =
     encodeURIComponent(
-      item.type || "movie"
+      item.type ||
+      "movie"
     );
 
   const id =
     encodeURIComponent(
-      item.id || ""
+      item.id ||
+      ""
     );
 
   const poster =
     item.poster ||
-    item.background ||
     item.logo ||
     "";
 
@@ -1383,42 +1974,57 @@ function renderPosterCard(item){
     item.year ||
     "";
 
-  const typeLabel =
+  const kind =
     String(
-      item.type || "movie"
+      item.type ||
+      "movie"
     ).toUpperCase();
 
   return `
 
     <button
       class="poster-card"
-      onclick="openTitle(
-        '${type}',
-        '${id}'
-      )">
+      onclick="
+        openTitle(
+          '${type}',
+          '${id}'
+        )
+      ">
 
       <img
-        src="${escapeHTML(poster)}"
+        src="${escapeHTML(
+          poster
+        )}"
         loading="lazy"
         onerror="
-          this.style.opacity='.25';
+          this.style.opacity='.25'
         ">
 
       <div class="poster-type">
-        ${escapeHTML(typeLabel)}
+
+        ${escapeHTML(
+          kind
+        )}
+
       </div>
 
       <div class="poster-overlay">
 
         <div class="poster-name">
+
           ${escapeHTML(
             item.name ||
             "Untitled"
           )}
+
         </div>
 
         <div class="poster-year">
-          ${escapeHTML(year)}
+
+          ${escapeHTML(
+            year
+          )}
+
         </div>
 
       </div>
@@ -1426,12 +2032,85 @@ function renderPosterCard(item){
     </button>
 
   `;
+
 }
 
 
-/* ============================================================
+/* =========================================================
+   CATALOG ROW
+========================================================= */
+
+function renderCatalogRow(
+  catalog,
+  metas
+){
+
+  const unique =
+    dedupeMetas(
+      metas
+    ).slice(
+      0,
+      40
+    );
+
+  if(!unique.length){
+
+    return "";
+
+  }
+
+  return `
+
+    <section
+      class="catalog-section">
+
+      <div class="catalog-heading">
+
+        <h2
+          class="catalog-title">
+
+          ${escapeHTML(
+            prettyCatalogName(
+              catalog
+            )
+          )}
+
+        </h2>
+
+        <span
+          class="catalog-label">
+
+          ${escapeHTML(
+            String(
+              catalog.type ||
+              "CATALOG"
+            ).toUpperCase()
+          )}
+
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        ${unique
+          .map(
+            renderPosterCard
+          )
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
    OPEN TITLE
-============================================================ */
+========================================================= */
 
 async function openTitle(
   encodedType,
@@ -1448,54 +2127,128 @@ async function openTitle(
       encodedId
     );
 
+  currentSeriesId =
+    id;
+
   openModal(`
 
     <div class="sheet-header">
 
-      <h2>LOADING</h2>
+      <h2>
+        LOADING
+      </h2>
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
 
-    <div class="empty">
-      Loading title information…
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading title…
+
     </div>
 
   `);
 
+
   try{
 
-    const data =
-      await fetchJSON(
-        buildMetaURL(
-          type,
-          id
-        )
-      );
+    const addons = [
 
-    const meta =
-      data.meta ||
-      data;
+      state.metadata,
 
-    currentShowMeta =
-      meta;
+      ...state.addons
+
+    ]
+    .filter(Boolean);
+
+
+    let meta = null;
+
 
     /*
-      TV SERIES
+      Try metadata addon first,
+      then user-added list addons.
+    */
+
+    for(
+      const addon
+      of addons
+    ){
+
+      try{
+
+        const data =
+          await fetchJSON(
+            buildMetaURL(
+              addon,
+              type,
+              id
+            )
+          );
+
+        if(
+          data &&
+          (
+            data.meta ||
+            data.name
+          )
+        ){
+
+          meta =
+            data.meta ||
+            data;
+
+          break;
+
+        }
+
+      }
+      catch(e){
+
+        console.warn(
+          "Metadata source failed",
+          addon,
+          e
+        );
+
+      }
+
+    }
+
+
+    if(!meta){
+
+      throw new Error(
+        "Unable to load title information."
+      );
+
+    }
+
+
+    currentTitle =
+      meta;
+
+
+    /*
+      MOVIE
     */
 
     if(
-      type === "series" ||
-      type === "tv"
+      type !== "series"
     ){
 
-      renderSeriesDetails(
+      renderMovieTitle(
         meta,
+        type,
         id
       );
 
@@ -1503,13 +2256,13 @@ async function openTitle(
 
     }
 
+
     /*
-      MOVIE
+      TV SERIES
     */
 
-    renderMovieDetails(
+    renderSeriesTitle(
       meta,
-      type,
       id
     );
 
@@ -1520,18 +2273,26 @@ async function openTitle(
 
       <div class="sheet-header">
 
-        <h2>ERROR</h2>
+        <h2>
+          ERROR
+        </h2>
 
         <button
           class="close"
           onclick="closeModal()">
+
           ×
+
         </button>
 
       </div>
 
       <div class="notice">
-        ${escapeHTML(error.message)}
+
+        ${escapeHTML(
+          error.message
+        )}
+
       </div>
 
     `);
@@ -1541,11 +2302,11 @@ async function openTitle(
 }
 
 
-/* ============================================================
-   MOVIE DETAILS
-============================================================ */
+/* =========================================================
+   MOVIE TITLE
+========================================================= */
 
-function renderMovieDetails(
+function renderMovieTitle(
   meta,
   type,
   id
@@ -1556,19 +2317,24 @@ function renderMovieDetails(
     <div class="sheet-header">
 
       <h2>
+
         ${escapeHTML(
           meta.name ||
           "MOVIE"
         )}
+
       </h2>
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
+
 
     <div class="details">
 
@@ -1582,26 +2348,27 @@ function renderMovieDetails(
       <div>
 
         <div class="meta">
+
           ${escapeHTML(
             meta.releaseInfo ||
             meta.year ||
-            "MOVIE"
+            type
           )}
+
         </div>
 
         <p>
+
           ${escapeHTML(
             meta.description ||
             "No description available."
           )}
+
         </p>
 
         <button
           class="primary"
-          onclick="findSources(
-            '${escapeHTML(type)}',
-            '${escapeHTML(id)}'
-          )">
+          id="sourceButton">
 
           ▶ FIND SOURCES
 
@@ -1611,54 +2378,258 @@ function renderMovieDetails(
 
     </div>
 
+
     <div
       id="sources"
       style="margin-top:25px">
+
     </div>
 
   `);
 
+
+  $("sourceButton")
+    .onclick =
+    () =>
+      findMovieSources(
+        type,
+        id
+      );
+
 }
 
 
-/* ============================================================
-   SERIES DETAILS
-============================================================ */
+/* =========================================================
+   SERIES TITLE
+========================================================= */
 
-function renderSeriesDetails(
+function renderSeriesTitle(
   meta,
   id
 ){
 
   const videos =
-    getVideos(meta);
+    Array.isArray(
+      meta.videos
+    )
+      ? meta.videos
+      : [];
+
+
+  /*
+    Some addons return videos as:
+
+    season
+    episode
+    id
+    title/name
+    overview
+    thumbnail
+
+    We use those directly.
+  */
 
   const seasons =
-    getSeasons(videos);
+    getSeasons(
+      videos
+    );
+
+
+  if(!seasons.length){
+
+    /*
+      If the addon has no episode
+      metadata, we still provide a
+      fallback message rather than
+      making the show appear broken.
+    */
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+
+          ${escapeHTML(
+            meta.name ||
+            "SERIES"
+          )}
+
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+      <div class="details">
+
+        <img
+          src="${escapeHTML(
+            meta.poster ||
+            meta.logo ||
+            ""
+          )}">
+
+        <div>
+
+          <div class="meta">
+            TV SERIES
+          </div>
+
+          <p>
+
+            ${escapeHTML(
+              meta.description ||
+              "No description available."
+            )}
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="notice">
+
+        This metadata source did not return
+        episode information for this series.
+
+        <br><br>
+
+        Try another metadata/list addon
+        that provides TV episodes.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
 
   currentSelectedSeason =
-    seasons.length
-      ? seasons[0]
-      : null;
+    seasons[0];
+
+
+  renderSeriesSeason(
+    meta,
+    id,
+    videos,
+    currentSelectedSeason
+  );
+
+}
+
+
+/* =========================================================
+   SEASONS
+========================================================= */
+
+function getSeasons(
+  videos
+){
+
+  return [
+    ...new Set(
+      videos
+        .map(
+          v =>
+            Number(
+              v.season
+            )
+        )
+        .filter(
+          n =>
+            Number.isFinite(n) &&
+            n > 0
+        )
+    )
+  ]
+  .sort(
+    (a,b) =>
+      a-b
+  );
+
+}
+
+
+/* =========================================================
+   SERIES SEASON
+========================================================= */
+
+function renderSeriesSeason(
+  meta,
+  id,
+  videos,
+  season
+){
+
+  currentSelectedSeason =
+    season;
+
+
+  const seasons =
+    getSeasons(
+      videos
+    );
+
+
+  const episodes =
+    videos
+      .filter(
+        video =>
+          Number(
+            video.season
+          ) ===
+          Number(
+            season
+          )
+      )
+      .sort(
+        (a,b) =>
+          Number(
+            a.episode ||
+            a.number ||
+            0
+          ) -
+          Number(
+            b.episode ||
+            b.number ||
+            0
+          )
+      );
+
 
   openModal(`
 
     <div class="sheet-header">
 
       <h2>
+
         ${escapeHTML(
           meta.name ||
-          "TV SERIES"
+          "SERIES"
         )}
+
       </h2>
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
+
 
     <div class="details">
 
@@ -1672,51 +2643,105 @@ function renderSeriesDetails(
       <div>
 
         <div class="meta">
-          TELEVISION SERIES
+
+          TV SERIES
+
         </div>
 
         <p>
+
           ${escapeHTML(
             meta.description ||
             "Select a season and episode."
           )}
-        </p>
 
-        <div class="meta">
-          ${videos.length} EPISODES
-        </div>
+        </p>
 
       </div>
 
     </div>
 
-    <div style="margin-top:25px">
+
+    <div class="section-title">
+
+      SEASONS
+
+    </div>
+
+
+    <div class="season-tabs">
+
+      ${seasons
+        .map(
+          s => `
+
+            <button
+              class="
+                season-button
+                ${
+                  Number(s) ===
+                  Number(season)
+                    ? "active"
+                    : ""
+                }
+              "
+              onclick="
+                selectSeason(
+                  ${Number(s)}
+                )
+              ">
+
+              SEASON ${Number(s)}
+
+            </button>
+
+          `
+        )
+        .join("")}
+
+    </div>
+
+
+    <div class="section-title">
+
+      EPISODES
+
+    </div>
+
+
+    <div class="episode-list">
 
       ${
-        seasons.length
-          ? renderSeasonButtons(
-              seasons
+        episodes.length
+
+          ?
+
+          episodes
+            .map(
+              renderEpisode
             )
-          : `
+            .join("")
+
+          :
+
+          `
+
             <div class="notice">
-              No episodes were returned by the
-              metadata addon.
+
+              No episodes were returned
+              for this season.
+
             </div>
+
           `
       }
 
     </div>
 
-    <div id="episodeArea">
 
-      ${
-        seasons.length
-          ? renderEpisodes(
-              videos,
-              seasons[0]
-            )
-          : ""
-      }
+    <div
+      id="episodeSources"
+      style="margin-top:25px">
 
     </div>
 
@@ -1725,231 +2750,383 @@ function renderSeriesDetails(
 }
 
 
-/* ============================================================
-   GET VIDEOS
-============================================================ */
+/* =========================================================
+   EPISODE CARD
+========================================================= */
 
-function getVideos(meta){
+function renderEpisode(
+  episode
+){
+
+  const number =
+    Number(
+      episode.episode ||
+      episode.number ||
+      0
+    );
+
+  const title =
+    episode.name ||
+    episode.title ||
+    (
+      "Episode " +
+      number
+    );
+
+  const image =
+    episode.thumbnail ||
+    episode.poster ||
+    episode.image ||
+    currentTitle?.poster ||
+    "";
+
+  const overview =
+    episode.overview ||
+    episode.description ||
+    "";
+
 
   /*
-    Standard Stremio metadata normally
-    exposes episodes through "videos".
+    Important:
+
+    We store the episode object
+    safely in a temporary encoded
+    index instead of putting arbitrary
+    IDs directly into inline JS.
   */
 
-  if(
-    Array.isArray(meta.videos)
-  ){
-    return meta.videos;
-  }
-
-  if(
-    Array.isArray(meta.series)
-  ){
-    return meta.series;
-  }
-
-  if(
-    meta.videos &&
-    typeof meta.videos === "object"
-  ){
-    return Object.values(
-      meta.videos
-    );
-  }
-
-  return [];
-}
+  const key =
+    "ep_" +
+    Math.random()
+      .toString(36)
+      .slice(2);
 
 
-/* ============================================================
-   SEASONS
-============================================================ */
+  window[key] =
+    episode;
 
-function getSeasonNumber(video){
-
-  const value =
-    video.season ??
-    video.seasonNumber ??
-    video.season_index ??
-    1;
-
-  const number =
-    parseInt(
-      value,
-      10
-    );
-
-  return Number.isFinite(number)
-    ? number
-    : 1;
-}
-
-function getEpisodeNumber(video){
-
-  const value =
-    video.episode ??
-    video.episodeNumber ??
-    video.number ??
-    video.episode_index ??
-    1;
-
-  const number =
-    parseInt(
-      value,
-      10
-    );
-
-  return Number.isFinite(number)
-    ? number
-    : 1;
-}
-
-function getSeasons(videos){
-
-  return [
-    ...new Set(
-      videos.map(
-        getSeasonNumber
-      )
-    )
-  ].sort(
-    (a,b)=>a-b
-  );
-}
-
-
-/* ============================================================
-   SEASON BUTTONS
-============================================================ */
-
-function renderSeasonButtons(
-  seasons
-){
 
   return `
 
-    <div class="season-bar">
+    <button
+      class="episode"
+      onclick="
+        selectEpisode(
+          '${key}'
+        )
+      ">
 
-      ${seasons.map(
-        season => `
+      <img
+        src="${escapeHTML(
+          image
+        )}"
+        loading="lazy"
+        onerror="
+          this.style.opacity='.25'
+        ">
 
-          <button
-            class="
-              season-button
-              ${
-                season ===
-                currentSelectedSeason
-                  ? "active"
-                  : ""
-              }
-            "
-            onclick="
-              selectSeason(
-                ${season}
-              )
-            ">
 
-            SEASON ${season}
+      <div>
 
-          </button>
+        <div class="episode-number">
 
-        `
-      ).join("")}
+          EPISODE ${number}
 
-    </div>
+        </div>
+
+        <div class="episode-name">
+
+          ${escapeHTML(
+            title
+          )}
+
+        </div>
+
+        ${
+          overview
+
+            ?
+
+            `
+
+              <div class="episode-desc">
+
+                ${escapeHTML(
+                  overview
+                )}
+
+              </div>
+
+            `
+
+            :
+
+            ""
+
+        }
+
+      </div>
+
+    </button>
 
   `;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    SELECT SEASON
-============================================================ */
+========================================================= */
 
 function selectSeason(
   season
 ){
 
-  currentSelectedSeason =
-    season;
+  if(!currentTitle){
 
-  const videos =
-    getVideos(
-      currentShowMeta
-    );
-
-  const area =
-    $("episodeArea");
-
-  if(!area){
     return;
+
   }
 
-  area.innerHTML =
-    renderEpisodes(
-      videos,
-      season
-    );
-
-  /*
-    Update active season button.
-  */
-
-  document
-    .querySelectorAll(
-      ".season-button"
-    )
-    .forEach(button=>{
-
-      const text =
-        button.textContent
-          .trim()
-          .replace(
-            "SEASON ",
-            ""
-          );
-
-      button.classList.toggle(
-        "active",
-        parseInt(text,10) ===
-        season
-      );
-
-    });
+  renderSeriesSeason(
+    currentTitle,
+    currentSeriesId,
+    currentTitle.videos || [],
+    season
+  );
 
 }
 
 
-/* ============================================================
-   RENDER EPISODES
-============================================================ */
+/* =========================================================
+   SELECT EPISODE
+========================================================= */
 
-function renderEpisodes(
-  videos,
-  season
+async function selectEpisode(
+  key
 ){
 
-  const episodes =
-    videos
-      .filter(
-        video =>
-          getSeasonNumber(video) ===
-          season
-      )
-      .sort(
-        (a,b) =>
-          getEpisodeNumber(a) -
-          getEpisodeNumber(b)
+  const episode =
+    window[key];
+
+
+  if(!episode){
+
+    return;
+
+  }
+
+
+  const season =
+    Number(
+      episode.season
+    );
+
+
+  const episodeNumber =
+    Number(
+      episode.episode ||
+      episode.number
+    );
+
+
+  if(
+    !season ||
+    !episodeNumber
+  ){
+
+    alert(
+      "This episode is missing its season or episode number."
+    );
+
+    return;
+
+  }
+
+
+  const sources =
+    $("episodeSources");
+
+
+  if(!sources){
+
+    return;
+
+  }
+
+
+  sources.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Finding sources for
+
+      <strong>
+
+        ${escapeHTML(
+          episode.name ||
+          "Episode " +
+          episodeNumber
+        )}
+
+      </strong>
+
+      …
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const url =
+      buildEpisodeStreamURL(
+        currentSeriesId,
+        season,
+        episodeNumber
       );
 
-  if(!episodes.length){
 
-    return `
+    if(!url){
+
+      throw new Error(
+        "No stream addon is configured."
+      );
+
+    }
+
+
+    const data =
+      await fetchJSON(
+        url
+      );
+
+
+    currentStreams =
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
+
+
+    currentStreams.sort(
+      (a,b) =>
+        compatibilityScore(b) -
+        compatibilityScore(a)
+    );
+
+
+    currentPlayableStreams =
+      currentStreams.filter(
+        isPlayableCandidate
+      );
+
+
+    if(
+      !currentStreams.length
+    ){
+
+      sources.innerHTML = `
+
+        <div class="notice">
+
+          No sources were returned for
+
+          <strong>
+
+            ${escapeHTML(
+              episode.name ||
+              "Episode " +
+              episodeNumber
+            )}
+
+          </strong>.
+
+          <br><br>
+
+          Stream addons normally require
+          the episode ID in this format:
+
+          <br><br>
+
+          series:id:season:episode
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    sources.innerHTML = `
+
+      <div class="section-title">
+
+        SOURCES
+
+      </div>
 
       <div class="notice">
 
-        No episodes were returned for
-        Season ${season}.
+        ${currentStreams.length}
+        source(s) found for
+
+        <strong>
+
+          S${season}E${episodeNumber}
+
+        </strong>.
+
+        <br><br>
+
+        ${currentPlayableStreams.length}
+        potentially browser-compatible.
+
+      </div>
+
+
+      ${currentStreams
+        .map(
+          renderSource
+        )
+        .join("")}
+
+    `;
+
+  }
+  catch(error){
+
+    sources.innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          EPISODE SOURCE ERROR
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+        <br><br>
+
+        Episode requested:
+
+        <strong>
+
+          ${escapeHTML(
+            currentSeriesId
+          )}:${season}:${episodeNumber}
+
+        </strong>
 
       </div>
 
@@ -1957,229 +3134,178 @@ function renderEpisodes(
 
   }
 
-  return `
-
-    <div
-      class="episode-list">
-
-      ${episodes.map(
-        renderEpisode
-      ).join("")}
-
-    </div>
-
-  `;
 }
 
 
-/* ============================================================
-   EPISODE
-============================================================ */
+/* =========================================================
+   MOVIE SOURCES
+========================================================= */
 
-function renderEpisode(
-  video
+async function findMovieSources(
+  type,
+  id
 ){
 
-  const season =
-    getSeasonNumber(video);
-
-  const episode =
-    getEpisodeNumber(video);
-
-  /*
-    This is the critical TV ID.
-
-    Most Stremio stream addons expect:
-
-    SERIES_ID:season:episode
-
-    The metadata video's own ID is used
-    when available because some addons
-    provide a specific episode ID.
-  */
-
-  const episodeId =
-    video.id ||
-    `${currentShowMeta.id}:${season}:${episode}`;
-
-  const safeEpisodeId =
-    encodeURIComponent(
-      episodeId
-    );
-
-  const title =
-    video.title ||
-    video.name ||
-    `Episode ${episode}`;
-
-  const thumbnail =
-    video.thumbnail ||
-    video.poster ||
-    currentShowMeta.poster ||
-    "";
-
-  return `
-
-    <button
-      class="episode"
-      onclick="
-        openEpisodeSources(
-          '${encodeURIComponent(
-            currentShowMeta.type ||
-            "series"
-          )}',
-          '${safeEpisodeId}',
-          ${season},
-          ${episode},
-          '${encodeURIComponent(
-            title
-          )}'
-        )
-      ">
-
-      <img
-        src="${escapeHTML(
-          thumbnail
-        )}"
-        loading="lazy"
-        onerror="
-          this.style.opacity='.2'
-        ">
-
-      <div class="episode-info">
-
-        <div class="episode-number">
-
-          S${String(season).padStart(2,"0")}
-          E${String(episode).padStart(2,"0")}
-
-        </div>
-
-        <div class="episode-title">
-
-          ${escapeHTML(
-            title
-          )}
-
-        </div>
-
-        <div class="episode-description">
-
-          ${escapeHTML(
-            video.overview ||
-            video.description ||
-            ""
-          )}
-
-        </div>
-
-      </div>
-
-    </button>
-
-  `;
-}
+  const sources =
+    $("sources");
 
 
-/* ============================================================
-   EPISODE SOURCES
-============================================================ */
+  if(!sources){
 
-async function openEpisodeSources(
-  encodedType,
-  encodedId,
-  season,
-  episode,
-  encodedTitle
-){
-
-  const type =
-    decodeURIComponent(
-      encodedType
-    );
-
-  const rawId =
-    decodeURIComponent(
-      encodedId
-    );
-
-  const title =
-    decodeURIComponent(
-      encodedTitle
-    );
-
-  /*
-    Prefer the metadata episode ID if it
-    contains the episode information.
-
-    Otherwise create the standard Stremio
-    series episode ID.
-  */
-
-  let streamId =
-    rawId;
-
-  if(
-    !streamId.includes(":")
-  ){
-
-    streamId =
-      `${currentShowMeta.id}:${season}:${episode}`;
+    return;
 
   }
 
-  openModal(`
 
-    <div class="sheet-header">
+  if(!state.stream){
 
-      <h2>
-        ${escapeHTML(title)}
-      </h2>
+    sources.innerHTML = `
 
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
+      <div class="notice">
 
-    </div>
+        No stream addon is configured.
 
-    <div class="meta">
+        <br><br>
 
-      SEASON ${season}
-      •
-      EPISODE ${episode}
+        Open Settings and add your
+        stream manifest.
 
-    </div>
+      </div>
 
-    <div
-      class="notice">
+    `;
 
-      Looking for sources…
+    return;
 
-    </div>
+  }
 
-    <div
-      id="sources"
-      style="margin-top:20px">
+
+  sources.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Finding sources…
 
     </div>
 
-  `);
+  `;
 
-  await findSources(
-    "series",
-    streamId
-  );
+
+  try{
+
+    const data =
+      await fetchJSON(
+        buildStreamURL(
+          type,
+          id
+        )
+      );
+
+
+    currentStreams =
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
+
+
+    currentStreams.sort(
+      (a,b) =>
+        compatibilityScore(b) -
+        compatibilityScore(a)
+    );
+
+
+    currentPlayableStreams =
+      currentStreams.filter(
+        isPlayableCandidate
+      );
+
+
+    if(
+      !currentStreams.length
+    ){
+
+      sources.innerHTML = `
+
+        <div class="notice">
+
+          No stream sources were returned
+          for this title.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    sources.innerHTML = `
+
+      <div class="section-title">
+
+        SOURCES
+
+      </div>
+
+      <div class="notice">
+
+        ${currentStreams.length}
+        source(s) found.
+
+        <br><br>
+
+        ${currentPlayableStreams.length}
+        potentially compatible.
+
+      </div>
+
+
+      ${currentStreams
+        .map(
+          renderSource
+        )
+        .join("")}
+
+    `;
+
+  }
+  catch(error){
+
+    sources.innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          STREAM ERROR
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
 
 }
 
 
-/* ============================================================
-   STREAM HELPERS
-============================================================ */
+/* =========================================================
+   STREAM DETECTION
+========================================================= */
 
-function getStreamURL(stream){
+function getStreamURL(
+  stream
+){
 
   return String(
     stream?.url ||
@@ -2188,7 +3314,10 @@ function getStreamURL(stream){
 
 }
 
-function isPlayerFrame(stream){
+
+function isPlayerFrame(
+  stream
+){
 
   return Boolean(
     stream?.playerFrameUrl
@@ -2196,7 +3325,10 @@ function isPlayerFrame(stream){
 
 }
 
-function isExternal(stream){
+
+function isExternal(
+  stream
+){
 
   return Boolean(
     stream?.externalUrl
@@ -2204,15 +3336,23 @@ function isExternal(stream){
 
 }
 
-function isNotWebReady(stream){
+
+function isNotWebReady(
+  stream
+){
 
   return Boolean(
-    stream?.behaviorHints?.notWebReady
+    stream
+      ?.behaviorHints
+      ?.notWebReady
   );
 
 }
 
-function isHLS(stream){
+
+function isHLS(
+  stream
+){
 
   const url =
     getStreamURL(
@@ -2230,9 +3370,13 @@ function isHLS(stream){
     type.includes("m3u8") ||
     type.includes("mpegurl")
   );
+
 }
 
-function isMP4(stream){
+
+function isMP4(
+  stream
+){
 
   const url =
     getStreamURL(
@@ -2247,12 +3391,15 @@ function isMP4(stream){
 
   return (
     url.includes(".mp4") ||
-    type.includes("mp4") ||
-    type.includes("video/mp4")
+    type.includes("mp4")
   );
+
 }
 
-function isWebM(stream){
+
+function isWebM(
+  stream
+){
 
   const url =
     getStreamURL(
@@ -2269,16 +3416,32 @@ function isWebM(stream){
     url.includes(".webm") ||
     type.includes("webm")
   );
+
 }
 
-function isPlayableCandidate(stream){
 
-  if(isPlayerFrame(stream)){
+function isPlayableCandidate(
+  stream
+){
+
+  if(
+    isPlayerFrame(
+      stream
+    )
+  ){
+
     return true;
+
   }
 
-  if(isExternal(stream)){
+  if(
+    isExternal(
+      stream
+    )
+  ){
+
     return false;
+
   }
 
   return (
@@ -2286,14 +3449,17 @@ function isPlayableCandidate(stream){
     isHLS(stream) ||
     isWebM(stream)
   );
+
 }
 
 
-/* ============================================================
+/* =========================================================
    PROVIDER
-============================================================ */
+========================================================= */
 
-function providerName(stream){
+function providerName(
+  stream
+){
 
   const text =
     [
@@ -2306,6 +3472,7 @@ function providerName(stream){
     .join(" ")
     .toLowerCase();
 
+
   const providers = [
 
     "2peckle",
@@ -2317,198 +3484,173 @@ function providerName(stream){
     "filemoon",
     "megacloud",
     "torbox",
-    "real-debrid",
     "realdebrid",
     "debrid",
-    "torrent",
     "usenet"
 
   ];
 
+
   for(
-    const provider
+    const name
     of providers
   ){
 
     if(
-      text.includes(provider)
+      text.includes(name)
     ){
 
-      return provider;
+      return name;
+
     }
 
   }
 
+
   return "stream source";
+
 }
 
 
-/* ============================================================
-   BADGE EXTRACTION
-============================================================ */
+/* =========================================================
+   BADGE PARSER
+========================================================= */
 
-function getBadgeValues(
+function extractBadges(
   stream
 ){
 
+  const values = [
+
+    stream.name,
+
+    stream.title,
+
+    stream.description,
+
+    stream.behaviorHints?.proxyHeaders
+      ? "proxy"
+      : "",
+
+    stream.quality,
+
+    stream.resolution,
+
+    stream.type
+
+  ]
+  .filter(Boolean)
+  .join(" ")
+  .toLowerCase();
+
+
   const badges = [];
 
-  /*
-    Existing explicit badge fields.
-  */
 
-  if(
-    Array.isArray(stream.badges)
-  ){
+  const checks = [
 
-    badges.push(
-      ...stream.badges
-    );
+    ["4k","4K","good"],
 
-  }
+    ["2160","4K","good"],
 
-  /*
-    Some addons use behaviorHints.
-  */
+    ["uhd","UHD","good"],
 
-  if(
-    stream.behaviorHints
-  ){
+    ["1080","1080P","blue"],
 
-    const hints =
-      stream.behaviorHints;
+    ["720","720P","blue"],
 
-    if(hints.videoHash){
-      badges.push(
-        "HASH"
-      );
-    }
+    ["hdr10+","HDR10+","good"],
 
-    if(hints.bingeGroup){
-      badges.push(
-        "BINGE"
-      );
-    }
+    ["hdr10","HDR10","good"],
 
-    if(hints.proxyHeaders){
-      badges.push(
-        "PROXY"
-      );
-    }
+    [" dolby vision","DV","good"],
 
-  }
+    ["dv ","DV","good"],
 
-  /*
-    Parse common information directly
-    from the stream title/name.
-  */
+    ["atmos","ATMOS","good"],
 
-  const text =
-    [
-      stream.name,
-      stream.title,
-      stream.description
-    ]
-    .filter(Boolean)
-    .join(" ");
+    ["truehd","TRUEHD","good"],
 
-  const patterns = [
+    ["hevc","HEVC","blue"],
 
-    /\b4K\b/i,
-    /\b2160p\b/i,
-    /\b1080p\b/i,
-    /\b720p\b/i,
-    /\b480p\b/i,
+    ["h265","H265","blue"],
 
-    /\bHDR10\+?\b/i,
-    /\bHDR\b/i,
-    /\bDV\b/i,
-    /\bDOLBY VISION\b/i,
+    ["h.265","H265","blue"],
 
-    /\bATMOS\b/i,
-    /\bTRUEHD\b/i,
-    /\bDTS-HD\b/i,
-    /\bDTS\b/i,
+    ["av1","AV1","blue"],
 
-    /\bHEVC\b/i,
-    /\bH265\b/i,
-    /\bH264\b/i,
+    ["web-dl","WEB-DL","blue"],
 
-    /\bWEB-DL\b/i,
-    /\bWEBRIP\b/i,
-    /\bBLURAY\b/i,
-    /\bREMUX\b/i
+    ["webdl","WEB-DL","blue"],
+
+    ["bluray","BLURAY","blue"],
+
+    ["blu-ray","BLURAY","blue"],
+
+    ["remux","REMUX","good"],
+
+    ["aac","AAC","blue"],
+
+    ["ac3","AC3","blue"],
+
+    ["eac3","EAC3","blue"],
+
+    ["dd+","DD+","blue"],
+
+    ["7.1","7.1","blue"],
+
+    ["5.1","5.1","blue"],
+
+    ["multi","MULTI","blue"],
+
+    ["dual","DUAL","blue"]
 
   ];
 
-  patterns.forEach(
-    pattern=>{
 
-      const match =
-        text.match(pattern);
+  for(
+    const [
+      needle,
+      label,
+      css
+    ]
+    of checks
+  ){
 
-      if(match){
-        badges.push(
-          match[0].toUpperCase()
-        );
+    if(
+      values.includes(
+        needle
+      )
+    ){
+
+      if(
+        !badges.some(
+          b =>
+            b.label ===
+            label
+        )
+      ){
+
+        badges.push({
+          label,
+          css
+        });
+
       }
 
     }
-  );
 
-  return [
-    ...new Set(
-      badges
-        .map(
-          value =>
-            String(value)
-              .replace(
-                /<[^>]*>/g,
-                ""
-              )
-              .trim()
-        )
-        .filter(Boolean)
-    )
-  ];
+  }
+
+
+  return badges;
+
 }
 
 
-/* ============================================================
-   SOURCE SCORE
-============================================================ */
-
-function compatibilityScore(stream){
-
-  let score = 0;
-
-  if(isMP4(stream)){
-    score += 100;
-  }
-
-  if(isHLS(stream)){
-    score += 90;
-  }
-
-  if(isWebM(stream)){
-    score += 80;
-  }
-
-  if(isPlayerFrame(stream)){
-    score += 70;
-  }
-
-  if(isExternal(stream)){
-    score -= 100;
-  }
-
-  return score;
-}
-
-
-/* ============================================================
-   RENDER SOURCE
-============================================================ */
+/* =========================================================
+   SOURCE UI
+========================================================= */
 
 function renderSource(
   stream,
@@ -2520,45 +3662,90 @@ function renderSource(
       stream
     );
 
+
   let format =
     "SOURCE";
 
-  if(isMP4(stream)){
-    format="MP4";
+
+  if(
+    isMP4(stream)
+  ){
+
+    format =
+      "MP4";
+
   }
-  else if(isHLS(stream)){
-    format="HLS";
+  else if(
+    isHLS(stream)
+  ){
+
+    format =
+      "HLS";
+
   }
-  else if(isWebM(stream)){
-    format="WEBM";
+  else if(
+    isWebM(stream)
+  ){
+
+    format =
+      "WEBM";
+
   }
-  else if(isPlayerFrame(stream)){
-    format="PLAYER";
+  else if(
+    isPlayerFrame(stream)
+  ){
+
+    format =
+      "PLAYER";
+
   }
-  else if(isExternal(stream)){
-    format="EXTERNAL";
+  else if(
+    isExternal(stream)
+  ){
+
+    format =
+      "EXTERNAL";
+
   }
 
-  const badges =
-    getBadgeValues(
+
+  const fusionBadges =
+    extractBadges(
       stream
     );
+
 
   return `
 
     <button
       class="source"
-      onclick="${
+
+      ${
         playable
-          ? `playSource(${index})`
-          : `explainSource(${index})`
-      }">
+
+          ?
+
+          `onclick="playSource(${index})"`
+
+          :
+
+          `onclick="explainSource(${index})"`
+
+      }>
+
 
       <div class="source-top">
 
         <div class="source-icon">
-          ${playable ? "▶" : "!"}
+
+          ${
+            playable
+              ? "▶"
+              : "!"
+          }
+
         </div>
+
 
         <div>
 
@@ -2572,10 +3759,13 @@ function renderSource(
 
           </div>
 
+
           <div class="provider">
 
             ${escapeHTML(
-              providerName(stream)
+              providerName(
+                stream
+              )
             )}
 
           </div>
@@ -2583,6 +3773,7 @@ function renderSource(
         </div>
 
       </div>
+
 
       <div class="badges">
 
@@ -2595,47 +3786,123 @@ function renderSource(
 
         </span>
 
+
         ${
           isNotWebReady(stream)
-            ? `
-              <span class="badge warning">
+
+            ?
+
+            `
+              <span
+                class="badge warning">
                 NOT WEB READY
               </span>
             `
-            : `
-              <span class="badge good">
+
+            :
+
+            `
+              <span
+                class="badge good">
                 WEB READY
               </span>
             `
         }
 
+
         ${
-          badges.map(
+          stream.quality
+
+            ?
+
+            `
+              <span
+                class="badge blue">
+
+                ${escapeHTML(
+                  stream.quality
+                )}
+
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${
+          stream.resolution
+
+            ?
+
+            `
+              <span
+                class="badge blue">
+
+                ${escapeHTML(
+                  stream.resolution
+                )}
+
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${fusionBadges
+          .map(
             badge => `
 
-              <span class="badge blue">
-                ${escapeHTML(badge)}
+              <span
+                class="badge ${badge.css}">
+
+                ${escapeHTML(
+                  badge.label
+                )}
+
               </span>
 
             `
-          ).join("")
-        }
+          )
+          .join("")}
 
       </div>
+
 
       <div class="source-desc">
 
         ${
           isExternal(stream)
-            ? "External destination — SAUVE cannot play this as a direct video file."
 
-          : isNotWebReady(stream)
-            ? "Provider marked this source as not web-ready."
+            ?
 
-          : playable
-            ? "Tap to attempt playback inside SAUVE."
+            "External destination."
 
-          : "This source does not expose a browser-compatible media URL."
+            :
+
+          isNotWebReady(stream)
+
+            ?
+
+            "Provider marked this source as not web-ready."
+
+            :
+
+          playable
+
+            ?
+
+            "Tap to attempt playback inside SAUVE."
+
+            :
+
+            "No browser-compatible media URL was detected."
+
         }
 
       </div>
@@ -2643,197 +3910,104 @@ function renderSource(
     </button>
 
   `;
+
 }
 
 
-/* ============================================================
-   FIND SOURCES
-============================================================ */
+/* =========================================================
+   SOURCE SCORE
+========================================================= */
 
-async function findSources(
-  type,
-  id
+function compatibilityScore(
+  stream
 ){
 
-  const sourceArea =
-    $("sources");
+  let score = 0;
 
-  if(!sourceArea){
-    return;
-  }
 
-  if(!state.stream){
+  if(
+    isMP4(stream)
+  ){
 
-    sourceArea.innerHTML = `
-
-      <div class="notice">
-
-        No stream addon is configured.
-
-        <br><br>
-
-        Open Settings and paste your
-        stream addon manifest URL.
-
-      </div>
-
-    `;
-
-    return;
-  }
-
-  sourceArea.innerHTML = `
-
-    <div class="empty">
-      Loading stream sources…
-    </div>
-
-  `;
-
-  try{
-
-    const url =
-      buildStreamURL(
-        type,
-        id
-      );
-
-    console.log(
-      "SAUVE stream request:",
-      url
-    );
-
-    const data =
-      await fetchJSON(url);
-
-    currentStreams =
-      Array.isArray(
-        data.streams
-      )
-        ? data.streams
-        : [];
-
-    if(!currentStreams.length){
-
-      sourceArea.innerHTML = `
-
-        <div class="notice">
-
-          No sources were returned for this
-          episode.
-
-          <br><br>
-
-          Episode requested:
-
-          <strong>
-            ${escapeHTML(id)}
-          </strong>
-
-        </div>
-
-      `;
-
-      return;
-    }
-
-    currentStreams.sort(
-      (a,b)=>
-        compatibilityScore(b) -
-        compatibilityScore(a)
-    );
-
-    currentPlayableStreams =
-      currentStreams.filter(
-        isPlayableCandidate
-      );
-
-    sourceArea.innerHTML = `
-
-      <div class="catalog-heading">
-
-        <h2 class="catalog-title">
-          SOURCES
-        </h2>
-
-        <span class="catalog-label">
-          ${currentStreams.length}
-        </span>
-
-      </div>
-
-      <div class="notice">
-
-        <strong>
-          ${currentPlayableStreams.length}
-        </strong>
-        potentially compatible source(s).
-
-      </div>
-
-      ${currentStreams.map(
-        renderSource
-      ).join("")}
-
-    `;
+    score += 100;
 
   }
-  catch(error){
 
-    sourceArea.innerHTML = `
 
-      <div class="notice">
+  if(
+    isHLS(stream)
+  ){
 
-        <strong>
-          STREAM ERROR
-        </strong>
-
-        <br><br>
-
-        ${escapeHTML(
-          error.message
-        )}
-
-        <br><br>
-
-        Requested:
-
-        <strong>
-          ${escapeHTML(id)}
-        </strong>
-
-      </div>
-
-    `;
+    score += 90;
 
   }
+
+
+  if(
+    isWebM(stream)
+  ){
+
+    score += 80;
+
+  }
+
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    score += 70;
+
+  }
+
+
+  if(
+    isExternal(stream)
+  ){
+
+    score -= 100;
+
+  }
+
+
+  return score;
 
 }
 
 
-/* ============================================================
+/* =========================================================
    PLAY SOURCE
-============================================================ */
+========================================================= */
 
-function playSource(index){
+function playSource(
+  index
+){
 
   const stream =
     currentStreams[index];
 
+
   if(!stream){
+
     return;
+
   }
+
 
   currentPlayerIndex =
     currentPlayableStreams.indexOf(
       stream
     );
 
+
   if(
     currentPlayerIndex < 0
   ){
-    currentPlayerIndex=0;
+
+    currentPlayerIndex = 0;
+
   }
+
 
   if(
     isPlayerFrame(stream)
@@ -2844,19 +4018,24 @@ function playSource(index){
     );
 
     return;
+
   }
+
 
   playDirectStream(
     stream
   );
+
 }
 
 
-/* ============================================================
+/* =========================================================
    DIRECT PLAYER
-============================================================ */
+========================================================= */
 
-function playDirectStream(stream){
+function playDirectStream(
+  stream
+){
 
   openModal(`
 
@@ -2869,10 +4048,13 @@ function playDirectStream(stream){
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
+
 
     <div class="player-shell">
 
@@ -2884,6 +4066,7 @@ function playDirectStream(stream){
         preload="metadata">
       </video>
 
+
       <div
         id="playerStatus"
         class="player-status">
@@ -2893,6 +4076,7 @@ function playDirectStream(stream){
       </div>
 
     </div>
+
 
     <div class="player-controls">
 
@@ -2904,6 +4088,7 @@ function playDirectStream(stream){
 
       </button>
 
+
       <button
         class="player-button"
         onclick="showSourcesAgain()">
@@ -2916,16 +4101,20 @@ function playDirectStream(stream){
 
   `);
 
+
   const video =
     $("sauveVideo");
 
+
   const status =
     $("playerStatus");
+
 
   const url =
     getStreamURL(
       stream
     );
+
 
   if(!url){
 
@@ -2934,13 +4123,17 @@ function playDirectStream(stream){
     );
 
     return;
+
   }
 
-  video.src=url;
+
+  video.src =
+    toHTTP(url);
+
 
   video.addEventListener(
     "loadedmetadata",
-    ()=>{
+    () => {
 
       status.textContent =
         "Ready — press play";
@@ -2949,12 +4142,15 @@ function playDirectStream(stream){
         "player-status ready";
 
     },
-    {once:true}
+    {
+      once:true
+    }
   );
+
 
   video.addEventListener(
     "playing",
-    ()=>{
+    () => {
 
       status.textContent =
         "Playing";
@@ -2965,9 +4161,10 @@ function playDirectStream(stream){
     }
   );
 
+
   video.addEventListener(
     "waiting",
-    ()=>{
+    () => {
 
       status.textContent =
         "Buffering…";
@@ -2975,9 +4172,10 @@ function playDirectStream(stream){
     }
   );
 
+
   video.addEventListener(
     "error",
-    ()=>{
+    () => {
 
       showPlayerError(
         "Safari could not decode or access this video source."
@@ -2986,21 +4184,26 @@ function playDirectStream(stream){
     }
   );
 
+
   video.load();
+
 }
 
 
-/* ============================================================
-   IFRAME PLAYER
-============================================================ */
+/* =========================================================
+   EMBEDDED PLAYER
+========================================================= */
 
-function openEmbeddedPlayer(stream){
+function openEmbeddedPlayer(
+  stream
+){
 
   const url =
     String(
       stream.playerFrameUrl ||
       ""
     ).trim();
+
 
   if(!url){
 
@@ -3009,49 +4212,68 @@ function openEmbeddedPlayer(stream){
     );
 
     return;
+
   }
+
 
   openModal(`
 
     <div class="sheet-header">
 
       <h2>
+
         ${escapeHTML(
           stream.name ||
           "PLAYER"
         )}
+
       </h2>
+
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
+
 
     <div class="player-shell">
 
       <div class="iframe-player">
 
         <iframe
-          src="${escapeHTML(url)}"
+
+          src="${escapeHTML(
+            toHTTP(url)
+          )}"
+
           allow="
             autoplay;
             fullscreen;
             picture-in-picture;
             encrypted-media
           "
+
           allowfullscreen>
+
         </iframe>
 
       </div>
 
-      <div class="player-status ready">
-        Provider player loaded.
+
+      <div
+        class="player-status ready">
+
+        Provider player loaded inside SAUVE.
+
       </div>
 
     </div>
+
 
     <div class="player-controls">
 
@@ -3063,6 +4285,7 @@ function openEmbeddedPlayer(stream){
 
       </button>
 
+
       <button
         class="player-button"
         onclick="showSourcesAgain()">
@@ -3074,12 +4297,13 @@ function openEmbeddedPlayer(stream){
     </div>
 
   `);
+
 }
 
 
-/* ============================================================
+/* =========================================================
    NEXT SOURCE
-============================================================ */
+========================================================= */
 
 function tryNextSource(){
 
@@ -3092,24 +4316,37 @@ function tryNextSource(){
     );
 
     return;
+
   }
+
 
   let next =
     currentPlayerIndex + 1;
+
 
   if(
     next >=
     currentPlayableStreams.length
   ){
-    next=0;
+
+    next = 0;
+
   }
 
-  currentPlayerIndex=next;
+
+  currentPlayerIndex =
+    next;
+
 
   const stream =
-    currentPlayableStreams[next];
+    currentPlayableStreams[
+      next
+    ];
 
-  if(isPlayerFrame(stream)){
+
+  if(
+    isPlayerFrame(stream)
+  ){
 
     openEmbeddedPlayer(
       stream
@@ -3123,76 +4360,21 @@ function tryNextSource(){
     );
 
   }
+
 }
 
 
-/* ============================================================
-   SHOW SOURCES
-============================================================ */
+/* =========================================================
+   ERROR
+========================================================= */
 
-function showSourcesAgain(){
-
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        SOURCES
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-    ${
-      currentStreams.length
-        ? currentStreams.map(
-            renderSource
-          ).join("")
-        : `
-          <div class="empty">
-            No sources available.
-          </div>
-        `
-    }
-
-  `);
-}
-
-
-/* ============================================================
-   EXPLAIN SOURCE
-============================================================ */
-
-function explainSource(index){
-
-  const stream =
-    currentStreams[index];
-
-  if(!stream){
-    return;
-  }
-
-  alert(
-    isExternal(stream)
-      ? "This source is an external destination rather than a direct media stream."
-      : "SAUVE could not identify a browser-compatible video URL for this source."
-  );
-}
-
-
-/* ============================================================
-   PLAYER ERROR
-============================================================ */
-
-function showPlayerError(message){
+function showPlayerError(
+  message
+){
 
   const status =
     $("playerStatus");
+
 
   if(status){
 
@@ -3203,12 +4385,94 @@ function showPlayerError(message){
       "player-status error";
 
   }
+
 }
 
 
-/* ============================================================
+/* =========================================================
+   EXPLAIN
+========================================================= */
+
+function explainSource(
+  index
+){
+
+  const stream =
+    currentStreams[index];
+
+
+  if(!stream){
+
+    return;
+
+  }
+
+
+  alert(
+    isExternal(stream)
+
+      ?
+
+      "This source is an external destination rather than a direct media stream."
+
+      :
+
+      "SAUVE could not identify a browser-compatible video URL for this source."
+  );
+
+}
+
+
+/* =========================================================
    SEARCH
-============================================================ */
+========================================================= */
+
+function supportsSearch(
+  catalog
+){
+
+  if(
+    !Array.isArray(
+      catalog.extra
+    )
+  ){
+
+    return false;
+
+  }
+
+
+  return catalog.extra.some(
+    extra => {
+
+      if(
+        typeof extra ===
+        "string"
+      ){
+
+        return (
+          extra ===
+          "search"
+        );
+
+      }
+
+
+      return (
+        extra &&
+        (
+          extra.name ===
+          "search" ||
+          extra.name ===
+          "q"
+        )
+      );
+
+    }
+  );
+
+}
+
 
 async function performSearch(){
 
@@ -3217,45 +4481,60 @@ async function performSearch(){
       .value
       .trim();
 
+
   if(!query){
 
     focusSearch();
+
     return;
 
   }
 
-  $("catalogContainer").innerHTML = `
 
-    <section class="catalog-section">
+  $("main").innerHTML = `
 
-      <div class="catalog-heading">
+    <div class="hero">
 
-        <h2 class="catalog-title">
-          SEARCH
-        </h2>
+      <div class="hero-content">
 
-        <span class="catalog-label">
-          ${escapeHTML(query)}
-        </span>
-
-      </div>
-
-      <div id="searchResults">
-
-        <div class="empty">
-          Searching…
+        <div class="hero-kicker">
+          SAUVE SEARCH
         </div>
 
+        <h1>
+          ${escapeHTML(
+            query
+          )}
+        </h1>
+
+        <p>
+          Searching movies and television…
+        </p>
+
       </div>
 
-    </section>
+    </div>
+
+    <div
+      id="searchResults"
+      class="loading">
+
+      <div class="spinner"></div>
+
+      Searching…
+
+    </div>
 
   `;
+
 
   try{
 
     const manifest =
-      await loadManifest();
+      await fetchJSON(
+        state.metadata
+      );
+
 
     const catalogs =
       Array.isArray(
@@ -3264,88 +4543,182 @@ async function performSearch(){
         ? manifest.catalogs
         : [];
 
-    const results = [];
 
-    /*
-      Many MDBList catalogs do not advertise
-      search support. We therefore try the
-      catalogs rather than relying exclusively
-      on the extra declaration.
-    */
+    const searchable =
+      catalogs.filter(
+        supportsSearch
+      );
 
-    for(
-      const catalog
-      of catalogs.slice(0,25)
-    ){
 
-      try{
+    const metas = [];
 
-        const url =
-          addonRoot(
-            state.catalog
-          ) +
-          "catalog/" +
-          encodeURIComponent(
-            catalog.type
-          ) +
-          "/" +
-          encodeURIComponent(
-            catalog.id
-          ) +
-          "/" +
-          "search=" +
-          encodeURIComponent(
-            query
-          ) +
-          ".json";
 
-        const data =
-          await fetchJSON(url);
+    const responses =
+      await Promise.allSettled(
+
+        searchable.map(
+          catalog =>
+            fetchJSON(
+              buildCatalogURL(
+                state.metadata,
+                catalog,
+                {
+                  search:
+                    query
+                }
+              )
+            )
+        )
+
+      );
+
+
+    responses.forEach(
+      result => {
 
         if(
-          Array.isArray(
-            data.metas
-          )
+          result.status ===
+          "fulfilled"
         ){
 
-          results.push(
-            ...data.metas
+          metas.push(
+            ...(result.value.metas || [])
           );
 
         }
 
       }
-      catch(error){
+    );
+
+
+    /*
+      Also search user-added
+      Stremio/MDBList addons.
+    */
+
+    for(
+      const addon
+      of state.addons
+    ){
+
+      try{
+
+        const addonManifest =
+          await loadAddonManifest(
+            addon
+          );
+
+
+        const addonCatalogs =
+          Array.isArray(
+            addonManifest.catalogs
+          )
+            ? addonManifest.catalogs
+            : [];
+
+
+        const addonSearchable =
+          addonCatalogs.filter(
+            supportsSearch
+          );
+
+
+        const addonResults =
+          await Promise.allSettled(
+            addonSearchable.map(
+              catalog =>
+                fetchJSON(
+                  buildCatalogURL(
+                    addon,
+                    catalog,
+                    {
+                      search:
+                        query
+                    }
+                  )
+                )
+            )
+          );
+
+
+        addonResults.forEach(
+          result => {
+
+            if(
+              result.status ===
+              "fulfilled"
+            ){
+
+              metas.push(
+                ...(result.value.metas || [])
+              );
+
+            }
+
+          }
+        );
+
+      }
+      catch(e){
 
         console.warn(
-          "Search catalog failed",
-          error
+          "Addon search failed",
+          e
         );
 
       }
 
     }
 
-    const unique =
+
+    const results =
       dedupeMetas(
-        results
+        metas
       );
 
-    $("searchResults").innerHTML =
 
-      unique.length
+    $("searchResults")
+      .outerHTML =
+
+      results.length
 
         ?
 
         `
 
-          <div class="row">
+          <section>
 
-            ${unique.map(
-              renderPosterCard
-            ).join("")}
+            <div
+              class="catalog-heading">
 
-          </div>
+              <h2
+                class="catalog-title">
+
+                RESULTS
+
+              </h2>
+
+              <span
+                class="catalog-label">
+
+                ${results.length}
+
+              </span>
+
+            </div>
+
+            <div
+              class="row">
+
+              ${results
+                .map(
+                  renderPosterCard
+                )
+                .join("")}
+
+            </div>
+
+          </section>
 
         `
 
@@ -3356,6 +4729,7 @@ async function performSearch(){
           <div class="notice">
 
             No results found for
+
             <strong>
               ${escapeHTML(query)}
             </strong>.
@@ -3367,32 +4741,93 @@ async function performSearch(){
   }
   catch(error){
 
-    $("searchResults").innerHTML = `
+    $("searchResults")
+      .outerHTML = `
 
-      <div class="notice">
+        <div class="notice">
 
-        SEARCH FAILED
+          <strong>
+            SEARCH FAILED
+          </strong>
 
-        <br><br>
+          <br><br>
 
-        ${escapeHTML(
-          error.message
-        )}
+          ${escapeHTML(
+            error.message
+          )}
 
-      </div>
+        </div>
 
-    `;
+      `;
 
   }
 
 }
 
 
-/* ============================================================
+/* =========================================================
    SETTINGS
-============================================================ */
+========================================================= */
 
 function openSettings(){
+
+  const addonHTML =
+    state.addons.length
+
+      ?
+
+      state.addons
+        .map(
+          (url,index) => `
+
+            <div class="addon-item">
+
+              <div class="addon-info">
+
+                <div class="addon-name">
+
+                  STREMIO LIST ${index + 1}
+
+                </div>
+
+                <div class="addon-url">
+
+                  ${escapeHTML(
+                    url
+                  )}
+
+                </div>
+
+              </div>
+
+              <button
+                class="remove-addon"
+                onclick="
+                  removeAddon(${index})
+                ">
+
+                REMOVE
+
+              </button>
+
+            </div>
+
+          `
+        )
+        .join("")
+
+      :
+
+      `
+
+        <div class="empty">
+
+          No Stremio lists have been added yet.
+
+        </div>
+
+      `;
+
 
   openModal(`
 
@@ -3405,34 +4840,13 @@ function openSettings(){
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
 
-    <div class="field">
-
-      <label>
-        MDBList / Catalog Stremio URL
-      </label>
-
-      <input
-        id="catalogURL"
-        value="${escapeHTML(
-          state.catalog
-        )}"
-        placeholder="stremio://.../manifest.json">
-
-      <div class="small-help">
-
-        Your working MDBList Stremio URL can
-        be pasted here. SAUVE automatically
-        converts stremio:// to HTTPS when
-        making requests.
-
-      </div>
-
-    </div>
 
     <div class="field">
 
@@ -3444,18 +4858,10 @@ function openSettings(){
         id="metadataURL"
         value="${escapeHTML(
           state.metadata
-        )}"
-        placeholder="https://.../manifest.json">
-
-      <div class="small-help">
-
-        Used to retrieve movie/show details
-        and, most importantly, television
-        seasons and episodes.
-
-      </div>
+        )}">
 
     </div>
+
 
     <div class="field">
 
@@ -3468,36 +4874,69 @@ function openSettings(){
         value="${escapeHTML(
           state.stream
         )}"
-        placeholder="https://.../manifest.json">
 
-      <div class="small-help">
-
-        Your existing stream addon goes here.
-        This is kept separate from MDBList.
-
-      </div>
+        placeholder="Paste stream manifest">
 
     </div>
+
+
+    <div
+      class="section-title">
+
+      STREMIO LISTS
+
+    </div>
+
 
     <div class="notice">
 
-      <strong>TV playback flow</strong>
+      Add Stremio-compatible catalog
+      manifests here.
 
       <br><br>
 
-      SAUVE now loads the show's metadata,
-      finds its seasons, loads its episodes,
-      and sends the selected episode ID to
-      your stream addon.
-
-      <br><br>
-
-      Your MDBList catalog remains responsible
-      for the homepage lists.
+      Your MDBList Stremio URL can be
+      pasted directly, including a
+      <strong>stremio://</strong> URL.
 
     </div>
 
+
     <br>
+
+
+    <div
+      id="addonList">
+
+      ${addonHTML}
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Add Stremio / MDBList URL
+      </label>
+
+      <input
+        id="newAddonURL"
+        placeholder="stremio://.../manifest.json">
+
+    </div>
+
+
+    <button
+      class="secondary"
+      onclick="addAddon()">
+
+      + ADD STREMIO LIST
+
+    </button>
+
+
+    <br><br>
+
 
     <button
       class="primary"
@@ -3507,133 +4946,177 @@ function openSettings(){
 
     </button>
 
-    <br><br>
-
-    <button
-      class="secondary"
-      onclick="resetSettings()">
-
-      RESET DEFAULTS
-
-    </button>
-
   `);
+
 }
 
 
-/* ============================================================
-   SAVE SETTINGS
-============================================================ */
+/* =========================================================
+   ADD ADDON
+========================================================= */
 
-function saveSettings(){
+function addAddon(){
 
-  const catalog =
-    $("catalogURL")
-      .value
-      .trim();
+  const input =
+    $("newAddonURL");
 
-  const metadata =
-    $("metadataURL")
-      .value
-      .trim();
 
-  const stream =
-    $("streamURL")
-      .value
-      .trim();
+  if(!input){
 
-  if(!catalog){
+    return;
+
+  }
+
+
+  const url =
+    input.value.trim();
+
+
+  if(!url){
 
     alert(
-      "Enter your MDBList Stremio catalog URL."
+      "Paste a Stremio manifest URL first."
     );
 
     return;
+
   }
 
-  state.catalog =
-    catalog;
+
+  if(
+    !url.includes(
+      "manifest.json"
+    )
+  ){
+
+    alert(
+      "The URL should point to a Stremio manifest.json."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    state.addons.includes(
+      url
+    )
+  ){
+
+    alert(
+      "That list is already added."
+    );
+
+    return;
+
+  }
+
+
+  state.addons.push(
+    url
+  );
+
+
+  saveState();
+
+  openSettings();
+
+}
+
+
+/* =========================================================
+   REMOVE ADDON
+========================================================= */
+
+function removeAddon(
+  index
+){
+
+  state.addons.splice(
+    index,
+    1
+  );
+
+
+  saveState();
+
+  openSettings();
+
+}
+
+
+/* =========================================================
+   SAVE SETTINGS
+========================================================= */
+
+function saveSettings(){
+
+  const metadata =
+    $("metadataURL")
+      ?.value
+      .trim();
+
+
+  const stream =
+    $("streamURL")
+      ?.value
+      .trim();
+
+
+  if(!metadata){
+
+    alert(
+      "Enter a metadata manifest."
+    );
+
+    return;
+
+  }
+
 
   state.metadata =
-    metadata ||
-    catalog;
+    metadata;
+
 
   state.stream =
-    stream;
+    stream ||
+    "";
 
-  localStorage.setItem(
-    "sauve_catalog",
-    state.catalog
-  );
 
-  localStorage.setItem(
-    "sauve_metadata",
-    state.metadata
-  );
+  saveState();
 
-  localStorage.setItem(
-    "sauve_stream",
-    state.stream
-  );
 
   closeModal();
 
-  loadHome();
-}
-
-
-/* ============================================================
-   RESET
-============================================================ */
-
-function resetSettings(){
-
-  localStorage.removeItem(
-    "sauve_catalog"
-  );
-
-  localStorage.removeItem(
-    "sauve_metadata"
-  );
-
-  localStorage.removeItem(
-    "sauve_stream"
-  );
 
   location.reload();
+
 }
 
 
-/* ============================================================
+/* =========================================================
    UI
-============================================================ */
+========================================================= */
 
 function focusSearch(){
 
-  const input =
-    $("searchInput");
-
-  input.focus();
-
-  input.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-  });
+  $("searchInput")
+    .focus();
 
 }
+
 
 function goHome(){
 
-  loadHome();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  location.reload();
 
 }
 
-function openModal(html){
+
+function openModal(
+  html
+){
 
   $("sheet").innerHTML =
     html;
@@ -3644,19 +5127,23 @@ function openModal(html){
 
 }
 
+
 function closeModal(){
 
   $("modal")
     .classList
     .remove("open");
 
-  $("sheet").innerHTML="";
+  $("sheet").innerHTML =
+    "";
+
 }
+
 
 $("modal")
   .addEventListener(
     "click",
-    event=>{
+    event => {
 
       if(
         event.target.id ===
@@ -3670,19 +5157,22 @@ $("modal")
     }
   );
 
+
 $("searchButton")
   .addEventListener(
     "click",
     performSearch
   );
 
+
 $("searchInput")
   .addEventListener(
     "keydown",
-    event=>{
+    event => {
 
       if(
-        event.key === "Enter"
+        event.key ===
+        "Enter"
       ){
 
         performSearch();
@@ -3693,9 +5183,9 @@ $("searchInput")
   );
 
 
-/* ============================================================
+/* =========================================================
    START
-============================================================ */
+========================================================= */
 
 loadHome();
 
