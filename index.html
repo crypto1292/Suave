@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <meta name="theme-color" content="#080612">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,9 +11,9 @@
 <title>SAUVE — Neon Cinema</title>
 
 <style>
+
 :root{
   --bg:#07050f;
-  --bg2:#10091d;
   --panel:#130d24;
   --panel2:#1b1030;
   --white:#fff8ff;
@@ -25,11 +23,6 @@
   --cyan:#22e7ff;
   --orange:#ff7043;
   --yellow:#ffd166;
-  --border:rgba(255,255,255,.11);
-  --pinkGlow:0 0 10px rgba(255,46,209,.75),
-              0 0 28px rgba(255,46,209,.35);
-  --cyanGlow:0 0 10px rgba(34,231,255,.7),
-              0 0 28px rgba(34,231,255,.3);
 }
 
 *{
@@ -47,7 +40,7 @@ body{
 body{
   color:var(--white);
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
-              "Segoe UI",Arial,sans-serif;
+  "Segoe UI",Arial,sans-serif;
   overflow-x:hidden;
 
   background:
@@ -63,7 +56,6 @@ body{
     linear-gradient(180deg,#07050f,#090611 65%,#040308);
 }
 
-/* Retro scanlines */
 body:before{
   content:"";
   position:fixed;
@@ -71,30 +63,14 @@ body:before{
   pointer-events:none;
   z-index:999;
   opacity:.045;
-  background:repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 3px,
-    rgba(255,255,255,.18) 4px
-  );
-}
 
-/* Retro floor */
-body:after{
-  content:"";
-  position:fixed;
-  left:-25%;
-  right:-25%;
-  bottom:-20%;
-  height:48vh;
-  pointer-events:none;
-  opacity:.11;
-  transform:perspective(300px) rotateX(62deg);
-  background-image:
-    linear-gradient(rgba(34,231,255,.5) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,46,209,.5) 1px,transparent 1px);
-  background-size:55px 55px;
-  z-index:0;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(255,255,255,.18) 4px
+    );
 }
 
 button,
@@ -113,39 +89,54 @@ button{
   padding-bottom:calc(82px + env(safe-area-inset-bottom));
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header{
   position:sticky;
   top:0;
   z-index:50;
+
   padding:
     calc(15px + env(safe-area-inset-top))
     15px
     14px;
 
-  background:rgba(7,5,15,.93);
+  background:rgba(7,5,15,.94);
+
   backdrop-filter:blur(22px);
   -webkit-backdrop-filter:blur(22px);
 
-  border-bottom:1px solid rgba(255,46,209,.18);
+  border-bottom:
+    1px solid rgba(255,46,209,.18);
 }
 
 .logo-wrap{
   text-align:center;
-  margin:0 0 15px;
+  margin-bottom:15px;
 }
 
 .logo{
   display:inline-block;
-  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
-  font-size:clamp(62px,18vw,118px);
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size:clamp(64px,18vw,118px);
+
   line-height:.78;
+
   letter-spacing:7px;
+
   font-style:italic;
+
   transform:skewX(-6deg);
+
   color:#fff;
-  text-transform:uppercase;
 
   text-shadow:
     0 0 3px #fff,
@@ -154,30 +145,35 @@ header{
     0 0 38px var(--purple),
     5px 5px 0 rgba(34,231,255,.55);
 
-  animation:logoPulse 3.5s ease-in-out infinite;
-}
-
-.logo:after{
-  content:"SAUVE";
-  position:absolute;
-  color:transparent;
-  -webkit-text-stroke:2px var(--cyan);
-  opacity:.5;
-  transform:translate(5px,4px);
+  animation:
+    logoPulse 3.5s ease-in-out infinite;
 }
 
 .logo-sub{
   margin-top:12px;
+
   font-size:9px;
+
   letter-spacing:5px;
+
   color:var(--cyan);
-  text-shadow:0 0 8px var(--cyan);
+
+  text-shadow:
+    0 0 8px var(--cyan);
+
   font-weight:800;
 }
 
 @keyframes logoPulse{
-  0%,100%{filter:brightness(1)}
-  50%{filter:brightness(1.2)}
+
+  0%,100%{
+    filter:brightness(1);
+  }
+
+  50%{
+    filter:brightness(1.2);
+  }
+
 }
 
 .header-actions{
@@ -190,77 +186,130 @@ header{
 .icon-btn{
   width:38px;
   height:38px;
+
   border-radius:50%;
-  border:1px solid rgba(34,231,255,.3);
+
+  border:
+    1px solid rgba(34,231,255,.3);
+
   background:rgba(15,9,29,.9);
+
   color:var(--cyan);
-  box-shadow:0 0 10px rgba(34,231,255,.12);
+
+  box-shadow:
+    0 0 10px rgba(34,231,255,.12);
 }
 
 .search{
   display:flex;
   gap:8px;
+
   max-width:800px;
+
   margin:auto;
 }
 
 .search input{
   flex:1;
   min-width:0;
-  border:1px solid rgba(155,92,255,.35);
+
+  border:
+    1px solid rgba(155,92,255,.35);
+
   border-radius:8px;
+
   background:rgba(18,13,39,.92);
+
   color:white;
+
   padding:13px 14px;
+
   outline:none;
 }
 
 .search input:focus{
   border-color:var(--pink);
-  box-shadow:0 0 15px rgba(255,46,209,.2);
+
+  box-shadow:
+    0 0 15px rgba(255,46,209,.2);
 }
 
 .search button{
   border:0;
+
   border-radius:8px;
+
   padding:0 15px;
+
   color:white;
+
   font-weight:900;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  box-shadow:var(--pinkGlow);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  box-shadow:
+    0 0 10px rgba(255,46,209,.75),
+    0 0 28px rgba(255,46,209,.35);
 }
 
-/* MAIN */
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 main{
   width:100%;
   max-width:1350px;
+
   margin:auto;
+
   padding:17px;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
   position:relative;
-  min-height:clamp(390px,62vh,610px);
+
+  min-height:
+    clamp(390px,62vh,610px);
+
   overflow:hidden;
+
   border-radius:18px;
-  border:1px solid rgba(255,46,209,.28);
+
+  border:
+    1px solid rgba(255,46,209,.28);
 
   display:flex;
   align-items:flex-end;
 
-  padding:clamp(24px,5vw,55px);
+  padding:
+    clamp(24px,5vw,55px);
 
   background:
-    radial-gradient(circle at 78% 25%,
+    radial-gradient(
+      circle at 78% 25%,
       rgba(34,231,255,.2),
-      transparent 22%),
-    radial-gradient(circle at 72% 65%,
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 72% 65%,
       rgba(255,46,209,.25),
-      transparent 30%),
-    linear-gradient(110deg,#0a0615,#190b31 55%,#0b1024);
+      transparent 30%
+    ),
+    linear-gradient(
+      110deg,
+      #0a0615,
+      #190b31 55%,
+      #0b1024
+    );
 
   box-shadow:
     inset 0 0 70px rgba(155,92,255,.12),
@@ -269,8 +318,11 @@ main{
 
 .hero:before{
   content:"";
+
   position:absolute;
+
   inset:0;
+
   background:
     linear-gradient(
       90deg,
@@ -282,43 +334,69 @@ main{
 
 .hero:after{
   content:"";
+
   position:absolute;
+
   width:420px;
   height:420px;
+
   right:-100px;
   top:-80px;
+
   border-radius:50%;
-  background:radial-gradient(
-    circle,
-    rgba(34,231,255,.35),
-    transparent 62%
-  );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(34,231,255,.35),
+      transparent 62%
+    );
+
   filter:blur(25px);
 }
 
 .hero-content{
   position:relative;
+
   z-index:3;
+
   max-width:680px;
 }
 
 .kicker{
   display:inline-block;
+
   color:var(--cyan);
+
   font-size:10px;
+
   letter-spacing:3px;
+
   font-weight:900;
+
   text-transform:uppercase;
-  text-shadow:0 0 10px var(--cyan);
+
+  text-shadow:
+    0 0 10px var(--cyan);
+
   margin-bottom:15px;
 }
 
 .hero h1{
   margin:0;
-  font-family:Impact,Haettenschweiler,sans-serif;
-  font-size:clamp(46px,10vw,100px);
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:
+    clamp(46px,10vw,100px);
+
   line-height:.86;
+
   text-transform:uppercase;
+
   text-shadow:
     0 0 8px rgba(255,255,255,.4),
     0 0 25px rgba(255,46,209,.4);
@@ -326,40 +404,66 @@ main{
 
 .hero p{
   color:#c4b7d3;
+
   line-height:1.65;
+
   max-width:560px;
+
   font-size:14px;
 }
 
 .hero-buttons{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:10px;
+
   margin-top:20px;
 }
 
 .primary,
 .secondary{
   border-radius:8px;
+
   padding:13px 18px;
+
   font-weight:900;
 }
 
 .primary{
   border:0;
+
   color:#fff;
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-  box-shadow:var(--pinkGlow);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  box-shadow:
+    0 0 10px rgba(255,46,209,.75),
+    0 0 28px rgba(255,46,209,.35);
 }
 
 .secondary{
-  border:1px solid rgba(34,231,255,.4);
+  border:
+    1px solid rgba(34,231,255,.4);
+
   color:var(--cyan);
-  background:rgba(34,231,255,.06);
-  box-shadow:0 0 15px rgba(34,231,255,.08);
+
+  background:
+    rgba(34,231,255,.06);
+
+  box-shadow:
+    0 0 15px rgba(34,231,255,.08);
 }
 
-/* SECTIONS */
+/* =========================================================
+   SECTIONS
+   ========================================================= */
 
 section{
   margin:34px 0;
@@ -367,47 +471,88 @@ section{
 
 .section-heading{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   gap:12px;
+
   margin-bottom:15px;
-  border-bottom:1px solid rgba(255,46,209,.18);
+
+  border-bottom:
+    1px solid rgba(255,46,209,.18);
+
   padding-bottom:10px;
 }
 
 .section-heading h2{
   margin:0;
-  font-family:Impact,Haettenschweiler,sans-serif;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
   font-size:25px;
+
   letter-spacing:1px;
+
   text-transform:uppercase;
-  text-shadow:0 0 12px rgba(255,46,209,.35);
+
+  text-shadow:
+    0 0 12px rgba(255,46,209,.35);
 }
 
 .section-heading span{
   color:var(--cyan);
+
   font-size:9px;
+
   letter-spacing:2px;
+
   font-weight:bold;
 }
 
-/* CARDS */
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0,1fr)
+    );
+
   gap:13px;
 }
 
 .card{
   appearance:none;
+
   padding:0;
+
   text-align:left;
+
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.09);
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
   border-radius:10px;
-  background:linear-gradient(180deg,#15102b,#0f0b20);
+
+  background:
+    linear-gradient(
+      180deg,
+      #15102b,
+      #0f0b20
+    );
+
   color:#fff;
+
   transition:
     transform .22s ease,
     box-shadow .22s ease,
@@ -416,15 +561,23 @@ section{
 
 .card:hover{
   transform:translateY(-5px);
-  border-color:rgba(255,46,209,.5);
-  box-shadow:0 0 22px rgba(255,46,209,.18);
+
+  border-color:
+    rgba(255,46,209,.5);
+
+  box-shadow:
+    0 0 22px rgba(255,46,209,.18);
 }
 
 .poster{
   display:block;
+
   width:100%;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   background:#17102c;
 }
 
@@ -434,28 +587,44 @@ section{
 
 .card-title{
   white-space:nowrap;
+
   overflow:hidden;
+
   text-overflow:ellipsis;
+
   font-weight:bold;
+
   font-size:14px;
 }
 
 .card-sub{
   margin-top:4px;
+
   color:var(--muted);
+
   font-size:10px;
 }
 
-/* MODAL */
+/* =========================================================
+   MODAL
+   ========================================================= */
 
 .modal{
   position:fixed;
+
   inset:0;
+
   z-index:100;
+
   display:none;
+
   align-items:flex-end;
-  background:rgba(0,0,0,.78);
+
+  background:
+    rgba(0,0,0,.78);
+
   backdrop-filter:blur(7px);
+
   -webkit-backdrop-filter:blur(7px);
 }
 
@@ -465,72 +634,121 @@ section{
 
 .sheet{
   width:100%;
+
   max-height:94vh;
+
   overflow:auto;
+
   background:
-    radial-gradient(circle at 50% 0%,
+    radial-gradient(
+      circle at 50% 0%,
       rgba(155,92,255,.15),
-      transparent 40%),
+      transparent 40%
+    ),
     #0d0920;
-  border-top:1px solid rgba(255,46,209,.4);
-  border-radius:22px 22px 0 0;
-  padding:20px 18px calc(30px + env(safe-area-inset-bottom));
+
+  border-top:
+    1px solid rgba(255,46,209,.4);
+
+  border-radius:
+    22px 22px 0 0;
+
+  padding:
+    20px
+    18px
+    calc(
+      30px +
+      env(safe-area-inset-bottom)
+    );
 }
 
 .sheet-header{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
+
   margin-bottom:20px;
 }
 
 .sheet-header h2{
   margin:0;
-  font-family:Impact,Haettenschweiler,sans-serif;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
   letter-spacing:1px;
+
   font-size:27px;
-  text-shadow:0 0 15px rgba(255,46,209,.4);
+
+  text-shadow:
+    0 0 15px rgba(255,46,209,.4);
 }
 
 .close{
   width:40px;
   height:40px;
+
   border-radius:50%;
+
   background:#17102c;
-  border:1px solid rgba(34,231,255,.25);
+
+  border:
+    1px solid rgba(34,231,255,.25);
+
   color:var(--cyan);
+
   font-size:22px;
 }
 
-/* DETAILS */
+/* =========================================================
+   DETAILS
+   ========================================================= */
 
 .details{
   display:grid;
-  grid-template-columns:105px 1fr;
+
+  grid-template-columns:
+    105px 1fr;
+
   gap:16px;
 }
 
 .details img{
   width:105px;
+
   aspect-ratio:2/3;
+
   object-fit:cover;
+
   border-radius:8px;
-  box-shadow:0 0 18px rgba(255,46,209,.18);
+
+  box-shadow:
+    0 0 18px rgba(255,46,209,.18);
 }
 
 .details p{
   color:#c1b5cc;
+
   line-height:1.55;
+
   font-size:13px;
 }
 
 .meta-line{
   color:var(--cyan);
+
   font-size:11px;
+
   letter-spacing:1px;
 }
 
-/* SOURCES */
+/* =========================================================
+   SOURCES
+   ========================================================= */
 
 .source-list{
   margin-top:20px;
@@ -538,19 +756,37 @@ section{
 
 .source{
   display:block;
+
   width:100%;
+
   text-align:left;
-  border:1px solid rgba(34,231,255,.18);
-  background:linear-gradient(100deg,#140e29,#0d0a1d);
+
+  border:
+    1px solid rgba(34,231,255,.18);
+
+  background:
+    linear-gradient(
+      100deg,
+      #140e29,
+      #0d0a1d
+    );
+
   color:#fff;
+
   padding:14px;
+
   margin-top:8px;
+
   border-radius:8px;
+
+  transition:.2s ease;
 }
 
 .source:hover{
   border-color:var(--cyan);
-  box-shadow:var(--cyanGlow);
+
+  box-shadow:
+    0 0 15px rgba(34,231,255,.2);
 }
 
 .source strong{
@@ -559,77 +795,45 @@ section{
 
 .source small{
   display:block;
+
   color:var(--muted);
+
   margin-top:5px;
 }
 
-/* SETTINGS */
-
-.field{
-  margin:18px 0;
-}
-
-.field label{
-  display:block;
-  margin-bottom:8px;
-  color:var(--cyan);
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-weight:bold;
-}
-
-.field input{
-  width:100%;
-  padding:14px;
-  border-radius:7px;
-  border:1px solid rgba(155,92,255,.3);
-  background:#080612;
-  color:#fff;
-  outline:none;
-}
-
-.field input:focus{
-  border-color:var(--pink);
-  box-shadow:0 0 15px rgba(255,46,209,.12);
-}
-
-.notice{
-  padding:14px;
-  border:1px solid rgba(255,46,209,.15);
-  border-radius:8px;
-  background:rgba(255,46,209,.04);
-  color:#b7aabd;
-  font-size:12px;
-  line-height:1.6;
-}
-
-.status{
-  margin-top:13px;
-  font-size:12px;
-}
-
-/* PLAYER */
+/* =========================================================
+   PLAYER
+   ========================================================= */
 
 .player-wrap{
   background:#000;
+
   border-radius:10px;
+
   overflow:hidden;
-  border:1px solid rgba(34,231,255,.25);
+
+  border:
+    1px solid rgba(34,231,255,.25);
+
   box-shadow:
     0 0 30px rgba(34,231,255,.08);
 }
 
 video{
   display:block;
+
   width:100%;
+
   max-height:70vh;
+
   min-height:220px;
+
   background:#000;
 }
 
 .player-info{
   padding:12px;
+
   background:#100b20;
 }
 
@@ -641,42 +845,130 @@ video{
   color:var(--muted);
 }
 
-/* EMPTY */
+/* =========================================================
+   SETTINGS
+   ========================================================= */
 
-.empty{
-  padding:25px 0;
-  color:var(--muted);
-  font-size:13px;
+.field{
+  margin:18px 0;
 }
 
-/* NAV */
+.field label{
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--cyan);
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  font-weight:bold;
+}
+
+.field input{
+  width:100%;
+
+  padding:14px;
+
+  border-radius:7px;
+
+  border:
+    1px solid rgba(155,92,255,.3);
+
+  background:#080612;
+
+  color:#fff;
+
+  outline:none;
+}
+
+.field input:focus{
+  border-color:var(--pink);
+
+  box-shadow:
+    0 0 15px rgba(255,46,209,.12);
+}
+
+.notice{
+  padding:14px;
+
+  border:
+    1px solid rgba(255,46,209,.15);
+
+  border-radius:8px;
+
+  background:
+    rgba(255,46,209,.04);
+
+  color:#b7aabd;
+
+  font-size:12px;
+
+  line-height:1.6;
+}
+
+.status{
+  margin-top:13px;
+
+  font-size:12px;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 .bottom-nav{
   position:fixed;
+
   z-index:70;
+
   left:0;
   right:0;
   bottom:0;
+
   height:76px;
-  padding-bottom:env(safe-area-inset-bottom);
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
+
   display:flex;
+
   justify-content:space-around;
+
   align-items:center;
-  background:rgba(8,6,18,.94);
+
+  background:
+    rgba(8,6,18,.94);
+
   backdrop-filter:blur(20px);
+
   -webkit-backdrop-filter:blur(20px);
-  border-top:1px solid rgba(255,46,209,.2);
+
+  border-top:
+    1px solid rgba(255,46,209,.2);
 }
 
 .nav-btn{
   background:none;
+
   border:0;
+
   color:#75687f;
+
   font-size:9px;
+
   letter-spacing:1px;
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   gap:5px;
 }
 
@@ -686,12 +978,35 @@ video{
 
 .nav-btn.active{
   color:var(--pink);
-  text-shadow:0 0 10px var(--pink);
+
+  text-shadow:
+    0 0 10px var(--pink);
 }
 
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.empty{
+  padding:25px 0;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
 @media(min-width:700px){
+
   .grid{
-    grid-template-columns:repeat(5,minmax(0,1fr));
+    grid-template-columns:
+      repeat(
+        5,
+        minmax(0,1fr)
+      );
   }
 
   .hero{
@@ -699,30 +1014,37 @@ video{
   }
 
   .details{
-    grid-template-columns:190px 1fr;
+    grid-template-columns:
+      190px 1fr;
   }
 
   .details img{
     width:190px;
   }
+
 }
 
 @media(max-width:430px){
+
   .logo{
     font-size:64px;
   }
 
   .hero{
     min-height:410px;
+
     padding:25px;
   }
 
   .hero h1{
     font-size:48px;
   }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -731,12 +1053,17 @@ video{
 <header>
 
   <div class="logo-wrap">
-    <div class="logo">SAUVE</div>
+
+    <div class="logo">
+      SAUVE
+    </div>
 
     <div class="logo-sub">
       CINEMA • TELEVISION • AFTER DARK
     </div>
+
   </div>
+
 
   <div class="header-actions">
 
@@ -754,6 +1081,7 @@ video{
 
   </div>
 
+
   <div class="search">
 
     <input
@@ -761,13 +1089,15 @@ video{
       placeholder="Search movies & television"
       autocomplete="off">
 
-    <button id="searchButton">
+    <button
+      id="searchButton">
       SEARCH
     </button>
 
   </div>
 
 </header>
+
 
 <main id="main">
 
@@ -776,7 +1106,7 @@ video{
     <div class="hero-content">
 
       <div class="kicker">
-        Welcome to SAUVE
+        WELCOME TO SAUVE
       </div>
 
       <h1>
@@ -785,7 +1115,7 @@ video{
       </h1>
 
       <p>
-        Your neon media player powered by
+        A neon media experience powered by
         your metadata and your own compatible
         streaming addon.
       </p>
@@ -810,68 +1140,125 @@ video{
 
   </div>
 
+
   <section>
 
     <div class="section-heading">
-      <h2>Trending</h2>
-      <span>AIO METADATA</span>
+
+      <h2>
+        Trending
+      </h2>
+
+      <span>
+        AIO METADATA
+      </span>
+
     </div>
 
-    <div id="trending" class="empty">
+    <div
+      id="trending"
+      class="empty">
+
       Loading cinema…
+
     </div>
 
   </section>
 
+
   <section>
 
     <div class="section-heading">
-      <h2>Television</h2>
-      <span>SERIES</span>
+
+      <h2>
+        Television
+      </h2>
+
+      <span>
+        SERIES
+      </span>
+
     </div>
 
-    <div id="series" class="empty">
+    <div
+      id="series"
+      class="empty">
+
       Loading television…
+
     </div>
 
   </section>
 
 </main>
 
+
 <nav class="bottom-nav">
 
-  <button class="nav-btn active" data-page="home">
+  <button
+    class="nav-btn active"
+    data-page="home">
+
     <span>⌂</span>
+
     HOME
+
   </button>
 
-  <button class="nav-btn" data-page="search">
+
+  <button
+    class="nav-btn"
+    data-page="search">
+
     <span>⌕</span>
+
     SEARCH
+
   </button>
 
-  <button class="nav-btn" data-page="library">
+
+  <button
+    class="nav-btn"
+    data-page="library">
+
     <span>♡</span>
+
     LIBRARY
+
   </button>
 
-  <button class="nav-btn" data-page="settings">
+
+  <button
+    class="nav-btn"
+    data-page="settings">
+
     <span>⚙</span>
+
     SETTINGS
+
   </button>
 
 </nav>
 
 </div>
 
-<div class="modal" id="modal">
-  <div class="sheet" id="sheet"></div>
+
+<div
+  class="modal"
+  id="modal">
+
+  <div
+    class="sheet"
+    id="sheet">
+  </div>
+
 </div>
+
 
 <script>
 
 /* =========================================================
-   SAUVE CONFIGURATION
+   CONFIGURATION
    ========================================================= */
 
 const DEFAULT_METADATA =
@@ -881,22 +1268,30 @@ const DEFAULT_METADATA =
 const state = {
 
   metadata:
-    localStorage.getItem("sauve_metadata") ||
+    localStorage.getItem(
+      "sauve_metadata"
+    ) ||
     DEFAULT_METADATA,
 
   stream:
-    localStorage.getItem("sauve_stream") ||
+    localStorage.getItem(
+      "sauve_stream"
+    ) ||
     "",
 
   favorites:
     JSON.parse(
-      localStorage.getItem("sauve_favorites") ||
+      localStorage.getItem(
+        "sauve_favorites"
+      ) ||
       "[]"
     ),
 
   history:
     JSON.parse(
-      localStorage.getItem("sauve_history") ||
+      localStorage.getItem(
+        "sauve_history"
+      ) ||
       "[]"
     )
 
@@ -907,37 +1302,57 @@ const state = {
    HELPERS
    ========================================================= */
 
-const $ = selector =>
-  document.querySelector(selector);
+function $(selector){
+
+  return document.querySelector(
+    selector
+  );
+
+}
 
 
 function escapeHTML(value=""){
 
   return String(value)
-    .replace(/[&<>"']/g, character => ({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[character]));
+    .replace(
+      /[&<>"']/g,
+      character => ({
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+      }[character])
+    );
 
 }
 
 
 async function getJSON(url){
 
-  const response = await fetch(url,{
-    headers:{
-      "Accept":"application/json"
-    }
-  });
+  const response =
+    await fetch(
+      url,
+      {
+        headers:{
+          Accept:
+            "application/json"
+        }
+      }
+    );
+
 
   if(!response.ok){
+
     throw new Error(
-      "HTTP " + response.status
+      "HTTP " +
+      response.status
     );
+
   }
+
 
   return response.json();
 
@@ -946,18 +1361,13 @@ async function getJSON(url){
 
 function addonBase(manifest){
 
-  return manifest
-    .replace(
-      /\/manifest\.json(?:\?.*)?$/i,
-      "/"
-    );
+  return manifest.replace(
+    /\/manifest\.json(?:\?.*)?$/i,
+    "/"
+  );
 
 }
 
-
-/*
-  Standard Stremio-style resource URL.
-*/
 
 function resourceURL(
   manifest,
@@ -968,8 +1378,10 @@ function resourceURL(
 
   return (
     addonBase(manifest) +
-    resource + "/" +
-    encodeURIComponent(type) + "/" +
+    resource +
+    "/" +
+    encodeURIComponent(type) +
+    "/" +
     encodeURIComponent(id) +
     ".json"
   );
@@ -978,7 +1390,7 @@ function resourceURL(
 
 
 /* =========================================================
-   CARD
+   POSTER
    ========================================================= */
 
 function getPoster(item){
@@ -992,37 +1404,72 @@ function getPoster(item){
 }
 
 
+/* =========================================================
+   CARD
+   ========================================================= */
+
 function cardHTML(item){
 
   return `
+
     <button
+
       class="card"
-      data-id="${escapeHTML(item.id || "")}"
-      data-type="${escapeHTML(item.type || "movie")}">
+
+      data-id="${escapeHTML(
+        item.id || ""
+      )}"
+
+      data-type="${escapeHTML(
+        item.type ||
+        "movie"
+      )}"
+
+    >
 
       <img
+
         class="poster"
-        src="${escapeHTML(getPoster(item))}"
+
+        src="${escapeHTML(
+          getPoster(item)
+        )}"
+
         loading="lazy"
-        onerror="this.style.visibility='hidden'">
+
+        onerror="
+          this.style.visibility='hidden'
+        "
+
+      >
+
 
       <div class="card-info">
 
         <div class="card-title">
-          ${escapeHTML(item.name || "Untitled")}
+
+          ${escapeHTML(
+            item.name ||
+            "Untitled"
+          )}
+
         </div>
 
+
         <div class="card-sub">
+
           ${escapeHTML(
             item.releaseInfo ||
             item.year ||
             ""
           )}
+
         </div>
 
       </div>
 
     </button>
+
   `;
 
 }
@@ -1031,17 +1478,26 @@ function cardHTML(item){
 function gridHTML(items=[]){
 
   if(!items.length){
+
     return `
       <div class="empty">
         Nothing found.
       </div>
     `;
+
   }
 
+
   return `
+
     <div class="grid">
-      ${items.map(cardHTML).join("")}
+
+      ${items
+        .map(cardHTML)
+        .join("")}
+
     </div>
+
   `;
 
 }
@@ -1054,15 +1510,16 @@ function gridHTML(items=[]){
 async function loadHome(){
 
   $("#trending").innerHTML =
-    `<div class="empty">Loading cinema…</div>`;
+    `<div class="empty">
+      Loading cinema…
+    </div>`;
+
 
   $("#series").innerHTML =
-    `<div class="empty">Loading television…</div>`;
+    `<div class="empty">
+      Loading television…
+    </div>`;
 
-
-  /*
-    Try the standard catalog endpoints.
-  */
 
   try{
 
@@ -1074,21 +1531,36 @@ async function loadHome(){
         "tmdb.trending"
       );
 
+
     const result =
-      await getJSON(movieURL);
+      await getJSON(
+        movieURL
+      );
+
 
     $("#trending").innerHTML =
-      gridHTML(result.metas || []);
+      gridHTML(
+        result.metas ||
+        []
+      );
 
   }
   catch(error){
 
     $("#trending").innerHTML = `
+
       <div class="empty">
+
         Metadata catalog unavailable.
+
         <br><br>
-        ${escapeHTML(error.message)}
+
+        ${escapeHTML(
+          error.message
+        )}
+
       </div>
+
     `;
 
   }
@@ -1104,19 +1576,30 @@ async function loadHome(){
         "tmdb.trending"
       );
 
+
     const result =
-      await getJSON(seriesURL);
+      await getJSON(
+        seriesURL
+      );
+
 
     $("#series").innerHTML =
-      gridHTML(result.metas || []);
+      gridHTML(
+        result.metas ||
+        []
+      );
 
   }
   catch(error){
 
     $("#series").innerHTML = `
+
       <div class="empty">
+
         Television catalog unavailable.
+
       </div>
+
     `;
 
   }
@@ -1136,7 +1619,9 @@ async function search(query){
 
       <div class="section-heading">
 
-        <h2>Search</h2>
+        <h2>
+          Search
+        </h2>
 
         <span>
           ${escapeHTML(query)}
@@ -1144,8 +1629,13 @@ async function search(query){
 
       </div>
 
-      <div id="searchResults" class="empty">
+
+      <div
+        id="searchResults"
+        class="empty">
+
         Searching…
+
       </div>
 
     </section>
@@ -1163,7 +1653,9 @@ async function search(query){
         "search"
       ) +
       "?search=" +
-      encodeURIComponent(query);
+      encodeURIComponent(
+        query
+      );
 
 
     const seriesURL =
@@ -1174,37 +1666,53 @@ async function search(query){
         "search"
       ) +
       "?search=" +
-      encodeURIComponent(query);
+      encodeURIComponent(
+        query
+      );
 
 
     const [
       movies,
       series
-    ] = await Promise.all([
-      getJSON(movieURL),
-      getJSON(seriesURL)
-    ]);
+    ] =
+      await Promise.all([
+        getJSON(movieURL),
+        getJSON(seriesURL)
+      ]);
 
 
     const results = [
+
       ...(movies.metas || []),
+
       ...(series.metas || [])
+
     ];
 
 
-    $("#searchResults").innerHTML =
+    $("#searchResults")
+      .innerHTML =
       gridHTML(results);
 
   }
   catch(error){
 
-    $("#searchResults").innerHTML = `
-      <div class="empty">
-        Search unavailable.
-        <br><br>
-        ${escapeHTML(error.message)}
-      </div>
-    `;
+    $("#searchResults")
+      .innerHTML = `
+
+        <div class="empty">
+
+          Search unavailable.
+
+          <br><br>
+
+          ${escapeHTML(
+            error.message
+          )}
+
+        </div>
+
+      `;
 
   }
 
@@ -1215,12 +1723,17 @@ async function search(query){
    DETAILS
    ========================================================= */
 
-async function openDetails(type,id){
+async function openDetails(
+  type,
+  id
+){
 
   openModal(`
+
     <div class="empty">
       Loading title…
     </div>
+
   `);
 
 
@@ -1228,12 +1741,14 @@ async function openDetails(type,id){
 
     const result =
       await getJSON(
+
         resourceURL(
           state.metadata,
           "meta",
           type,
           id
         )
+
       );
 
 
@@ -1243,7 +1758,8 @@ async function openDetails(type,id){
 
 
     const saved =
-      state.favorites.includes(id);
+      state.favorites
+        .includes(id);
 
 
     openModal(`
@@ -1251,15 +1767,21 @@ async function openDetails(type,id){
       <div class="sheet-header">
 
         <h2>
+
           ${escapeHTML(
-            item.name || "Title"
+            item.name ||
+            "Title"
           )}
+
         </h2>
+
 
         <button
           class="close"
           onclick="closeModal()">
+
           ×
+
         </button>
 
       </div>
@@ -1268,26 +1790,38 @@ async function openDetails(type,id){
       <div class="details">
 
         <img
-          src="${escapeHTML(getPoster(item))}"
-          onerror="this.style.visibility='hidden'">
+
+          src="${escapeHTML(
+            getPoster(item)
+          )}"
+
+          onerror="
+            this.style.visibility='hidden'
+          "
+
+        >
 
 
         <div>
 
           <div class="meta-line">
+
             ${escapeHTML(
               item.releaseInfo ||
               item.year ||
               ""
             )}
+
           </div>
 
 
           <p>
+
             ${escapeHTML(
               item.description ||
               "No description available."
             )}
+
           </p>
 
 
@@ -1296,13 +1830,22 @@ async function openDetails(type,id){
             <button
               class="primary"
               id="findSources">
+
               ▶ FIND SOURCES
+
             </button>
+
 
             <button
               class="secondary"
               id="favoriteTitle">
-              ${saved ? "♥ SAVED" : "♡ SAVE"}
+
+              ${
+                saved
+                ? "♥ SAVED"
+                : "♡ SAVE"
+              }
+
             </button>
 
           </div>
@@ -1312,19 +1855,26 @@ async function openDetails(type,id){
       </div>
 
 
-      <div id="sourceArea"
-           class="source-list">
+      <div
+        id="sourceArea"
+        class="source-list">
+
       </div>
 
     `);
 
 
     $("#findSources").onclick =
-      () => findStreams(type,id);
+      () =>
+        findStreams(
+          type,
+          id
+        );
 
 
     $("#favoriteTitle").onclick =
-      () => toggleFavorite(id);
+      () =>
+        toggleFavorite(id);
 
   }
   catch(error){
@@ -1333,20 +1883,32 @@ async function openDetails(type,id){
 
       <div class="sheet-header">
 
-        <h2>SAUVE</h2>
+        <h2>
+          SAUVE
+        </h2>
+
 
         <button
           class="close"
           onclick="closeModal()">
+
           ×
+
         </button>
 
       </div>
 
+
       <div class="notice">
+
         Unable to load this title.
+
         <br><br>
-        ${escapeHTML(error.message)}
+
+        ${escapeHTML(
+          error.message
+        )}
+
       </div>
 
     `);
@@ -1357,200 +1919,17 @@ async function openDetails(type,id){
 
 
 /* =========================================================
-   STREAM DISCOVERY
+   STREAM TYPE
    ========================================================= */
 
-async function findStreams(type,id){
-
-  if(!state.stream){
-
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>ADD STREAM ADDON</h2>
-
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
-
-      </div>
-
-      <div class="notice">
-
-        No stream addon is currently
-        configured.
-
-        <br><br>
-
-        Add your own PenguPlay-compatible
-        manifest in SAUVE Settings.
-
-      </div>
-
-      <div class="hero-buttons">
-
-        <button
-          class="primary"
-          onclick="settings()">
-          ⚡ OPEN SETTINGS
-        </button>
-
-      </div>
-
-    `);
-
-    return;
-  }
-
-
-  $("#sourceArea").innerHTML = `
-    <div class="empty">
-      Contacting stream addon…
-    </div>
-  `;
-
-
-  /*
-    Use the actual stream resource
-    returned by the user's addon.
-  */
-
-  const url =
-    resourceURL(
-      state.stream,
-      "stream",
-      type,
-      id
-    );
-
-
-  try{
-
-    const result =
-      await getJSON(url);
-
-
-    const streams =
-      result.streams || [];
-
-
-    if(!streams.length){
-
-      $("#sourceArea").innerHTML = `
-        <div class="empty">
-          No streams were returned
-          for this title.
-        </div>
-      `;
-
-      return;
-    }
-
-
-    $("#sourceArea").innerHTML = `
-
-      <div class="section-heading">
-
-        <h2>Sources</h2>
-
-        <span>
-          ${streams.length} FOUND
-        </span>
-
-      </div>
-
-      ${streams.map(
-        (stream,index) => {
-
-          const streamURL =
-            stream.url || "";
-
-          const title =
-            stream.name ||
-            stream.title ||
-            "SOURCE " + (index + 1);
-
-          const description =
-            stream.description ||
-            stream.quality ||
-            stream.type ||
-            "HTTP source";
-
-          return `
-
-            <button
-              class="source"
-              data-stream-index="${index}">
-
-              <strong>
-                ${escapeHTML(title)}
-              </strong>
-
-              <small>
-                ${escapeHTML(description)}
-              </small>
-
-            </button>
-
-          `;
-
-        }
-      ).join("")}
-
-    `;
-
-
-    $("#sourceArea")
-      .querySelectorAll(
-        "[data-stream-index]"
-      )
-      .forEach(button => {
-
-        const index =
-          Number(
-            button.dataset.streamIndex
-          );
-
-        button.onclick =
-          () => playStream(
-            streams[index]
-          );
-
-      });
-
-  }
-  catch(error){
-
-    $("#sourceArea").innerHTML = `
-
-      <div class="notice">
-
-        Stream addon request failed.
-
-        <br><br>
-
-        ${escapeHTML(error.message)}
-
-      </div>
-
-    `;
-
-  }
-
-}
-
-
-/* =========================================================
-   STREAM TYPE DETECTION
-   ========================================================= */
-
-function detectStreamType(stream){
+function detectStreamType(
+  stream
+){
 
   if(!stream){
+
     return "unknown";
+
   }
 
 
@@ -1568,23 +1947,30 @@ function detectStreamType(stream){
     ).toLowerCase();
 
 
-  const hint =
+  const name =
     String(
-      stream.behaviorHints?.videoSize ||
+      stream.name ||
+      stream.title ||
+      stream.description ||
       ""
     ).toLowerCase();
 
 
-  /*
-    HLS
-  */
-
   if(
+
     type.includes("mpegurl") ||
     type.includes("m3u8") ||
+
     url.includes(".m3u8") ||
-    url.includes("application/vnd.apple.mpegurl") ||
-    url.includes("application/x-mpegurl")
+
+    url.includes(
+      "application/vnd.apple.mpegurl"
+    ) ||
+
+    url.includes(
+      "application/x-mpegurl"
+    )
+
   ){
 
     return "hls";
@@ -1592,14 +1978,15 @@ function detectStreamType(stream){
   }
 
 
-  /*
-    MP4
-  */
-
   if(
-    type.includes("mp4") ||
+
     type.includes("video/mp4") ||
-    url.includes(".mp4")
+    type.includes("mp4") ||
+
+    url.includes(".mp4") ||
+
+    name.includes("mp4")
+
   ){
 
     return "mp4";
@@ -1607,23 +1994,20 @@ function detectStreamType(stream){
   }
 
 
-  /*
-    WebM
-  */
-
   if(
+
     type.includes("webm") ||
-    url.includes(".webm")
+
+    url.includes(".webm") ||
+
+    name.includes("webm")
+
   ){
 
     return "webm";
 
   }
 
-
-  /*
-    Generic HTTP video
-  */
 
   if(
     type.startsWith("video/")
@@ -1634,7 +2018,605 @@ function detectStreamType(stream){
   }
 
 
+  if(
+    url.includes(
+      "pengu.uk/direct/external"
+    )
+  ){
+
+    return "external";
+
+  }
+
+
   return "unknown";
+
+}
+
+
+/* =========================================================
+   SOURCE SCORE
+   ========================================================= */
+
+function streamScore(
+  stream
+){
+
+  switch(
+    detectStreamType(stream)
+  ){
+
+    case "hls":
+      return 100;
+
+    case "mp4":
+      return 95;
+
+    case "webm":
+      return 90;
+
+    case "video":
+      return 80;
+
+    case "unknown":
+      return 30;
+
+    case "external":
+      return 5;
+
+    default:
+      return 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   SOURCE LABEL
+   ========================================================= */
+
+function streamLabel(
+  stream
+){
+
+  const type =
+    detectStreamType(
+      stream
+    );
+
+
+  if(type === "hls")
+    return "HLS • iPhone Ready";
+
+
+  if(type === "mp4")
+    return "MP4 • iPhone Ready";
+
+
+  if(type === "webm")
+    return "WEBM • Browser Ready";
+
+
+  if(type === "video")
+    return "VIDEO • Browser Compatible";
+
+
+  if(type === "external")
+    return "EXTERNAL • Download Source";
+
+
+  return "UNKNOWN • May Not Play";
+
+}
+
+
+/* =========================================================
+   FIND STREAMS
+   ========================================================= */
+
+async function findStreams(
+  type,
+  id
+){
+
+  if(!state.stream){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          ADD STREAM ADDON
+        </h2>
+
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        No stream addon is configured.
+
+        <br><br>
+
+        Add your own PenguPlay-compatible
+        manifest in SAUVE Settings.
+
+      </div>
+
+
+      <div class="hero-buttons">
+
+        <button
+          class="primary"
+          onclick="settings()">
+
+          ⚙ OPEN SETTINGS
+
+        </button>
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  $("#sourceArea").innerHTML = `
+
+    <div class="empty">
+
+      <span style="
+        color:#22e7ff;
+        text-shadow:
+          0 0 10px #22e7ff;
+      ">
+
+        SCANNING SOURCES…
+
+      </span>
+
+    </div>
+
+  `;
+
+
+  const url =
+    resourceURL(
+      state.stream,
+      "stream",
+      type,
+      id
+    );
+
+
+  try{
+
+    const result =
+      await getJSON(url);
+
+
+    let streams =
+      result.streams ||
+      [];
+
+
+    if(!streams.length){
+
+      $("#sourceArea").innerHTML = `
+
+        <div class="empty">
+
+          No sources were returned
+          for this title.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    /*
+      Add type and score.
+    */
+
+    streams =
+      streams.map(
+        (
+          stream,
+          index
+        ) => ({
+
+          ...stream,
+
+          _index:index,
+
+          _type:
+            detectStreamType(
+              stream
+            ),
+
+          _score:
+            streamScore(
+              stream
+            )
+
+        })
+      );
+
+
+    /*
+      Put playable sources first.
+    */
+
+    streams.sort(
+      (a,b) =>
+        b._score -
+        a._score
+    );
+
+
+    /*
+      Find best source.
+    */
+
+    const bestPlayable =
+      streams.find(
+        stream =>
+
+          stream._type === "hls" ||
+          stream._type === "mp4" ||
+          stream._type === "webm" ||
+          stream._type === "video"
+
+      );
+
+
+    $("#sourceArea").innerHTML = `
+
+      <div class="section-heading">
+
+        <h2>
+          PLAYBACK SOURCES
+        </h2>
+
+        <span>
+
+          ${streams.length}
+          FOUND
+
+        </span>
+
+      </div>
+
+
+      ${
+        bestPlayable
+        ?
+
+        `
+
+          <button
+            class="primary"
+            id="bestSource"
+
+            style="
+              width:100%;
+              margin-bottom:14px;
+              padding:16px;
+            ">
+
+            ▶ PLAY BEST AVAILABLE SOURCE
+
+          </button>
+
+        `
+
+        :
+
+        `
+
+          <div class="notice">
+
+            No browser-playable source
+            was detected.
+
+          </div>
+
+        `
+      }
+
+
+      <div>
+
+        ${streams.map(
+          (
+            stream,
+            index
+          ) => {
+
+            const title =
+              stream.name ||
+              stream.title ||
+              "SOURCE";
+
+
+            const quality =
+              stream.quality ||
+              "";
+
+
+            const description =
+              stream.description ||
+              "";
+
+
+            const label =
+              streamLabel(
+                stream
+              );
+
+
+            const playable =
+              stream._type !==
+                "external" &&
+              stream._type !==
+                "unknown";
+
+
+            const icon =
+              playable
+              ? "▶"
+              : "⚠";
+
+
+            return `
+
+              <button
+
+                class="source"
+
+                data-stream-index="${index}"
+
+                style="
+                  opacity:
+                    ${playable
+                      ? "1"
+                      : ".62"};
+                "
+
+              >
+
+                <div style="
+                  display:flex;
+                  align-items:center;
+                  gap:10px;
+                ">
+
+                  <span style="
+                    font-size:20px;
+                    color:
+                      ${
+                        playable
+                        ? "#22e7ff"
+                        : "#ff7043"
+                      };
+                  ">
+
+                    ${icon}
+
+                  </span>
+
+
+                  <div style="
+                    flex:1;
+                  ">
+
+                    <strong>
+
+                      ${escapeHTML(
+                        title
+                      )}
+
+                    </strong>
+
+
+                    <small>
+
+                      ${escapeHTML(
+                        label
+                      )}
+
+                      ${
+                        quality
+                        ? " • " +
+                          escapeHTML(
+                            quality
+                          )
+                        : ""
+                      }
+
+                    </small>
+
+
+                    ${
+                      description
+                      ?
+
+                      `
+
+                        <small style="
+                          opacity:.65;
+                        ">
+
+                          ${escapeHTML(
+                            description
+                          )}
+
+                        </small>
+
+                      `
+
+                      :
+
+                      ""
+
+                    }
+
+                  </div>
+
+                </div>
+
+              </button>
+
+            `;
+
+          }
+        ).join("")}
+
+      </div>
+
+    `;
+
+
+    if(bestPlayable){
+
+      $("#bestSource").onclick =
+        () =>
+          playStream(
+            bestPlayable
+          );
+
+    }
+
+
+    $("#sourceArea")
+      .querySelectorAll(
+        "[data-stream-index]"
+      )
+      .forEach(
+        button => {
+
+          button.onclick =
+            () => {
+
+              const index =
+                Number(
+                  button.dataset
+                    .streamIndex
+                );
+
+
+              const stream =
+                streams[index];
+
+
+              if(
+                stream._type ===
+                "external"
+              ){
+
+                openModal(`
+
+                  <div class="sheet-header">
+
+                    <h2>
+                      EXTERNAL SOURCE
+                    </h2>
+
+
+                    <button
+                      class="close"
+                      onclick="closeModal()">
+
+                      ×
+
+                    </button>
+
+                  </div>
+
+
+                  <div class="notice">
+
+                    This source appears to be
+                    a download-style endpoint
+                    rather than a browser-playable
+                    video stream.
+
+                    <br><br>
+
+                    SAUVE has therefore prevented
+                    the web player from attempting
+                    to play it.
+
+                  </div>
+
+                `);
+
+                return;
+
+              }
+
+
+              if(
+                stream._type ===
+                "unknown"
+              ){
+
+                playStream(
+                  stream
+                );
+
+                return;
+
+              }
+
+
+              playStream(
+                stream
+              );
+
+            };
+
+        }
+      );
+
+  }
+  catch(error){
+
+    $("#sourceArea").innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          STREAM SEARCH FAILED
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
 
 }
 
@@ -1643,7 +2625,9 @@ function detectStreamType(stream){
    PLAYER
    ========================================================= */
 
-function playStream(stream){
+function playStream(
+  stream
+){
 
   const url =
     stream?.url ||
@@ -1654,43 +2638,60 @@ function playStream(stream){
 
     showPlaybackError(
       "",
-      "The stream addon did not return a playable URL."
+      "No playable URL was returned."
     );
 
     return;
+
   }
 
 
-  /*
-    Only HTTP/HTTPS sources can be
-    handled by the browser player.
-  */
+  const type =
+    detectStreamType(
+      stream
+    );
+
+
+  if(type === "external"){
+
+    showPlaybackError(
+      url,
+      "This source is a download endpoint rather than a browser-playable video stream."
+    );
+
+    return;
+
+  }
+
 
   if(
-    !/^https?:\/\//i.test(url)
+    !/^https?:\/\//i.test(
+      url
+    )
   ){
 
     showPlaybackError(
       url,
-      "This source uses a protocol that the iPhone browser cannot play directly."
+      "This source does not use a browser-supported HTTP protocol."
     );
 
     return;
+
   }
 
 
-  const streamType =
-    detectStreamType(stream);
-
-
   const label =
-    streamType === "hls"
+
+    type === "hls"
       ? "HLS"
-      : streamType === "mp4"
+
+    : type === "mp4"
       ? "MP4"
-      : streamType === "webm"
+
+    : type === "webm"
       ? "WEBM"
-      : "HTTP VIDEO";
+
+    : "VIDEO";
 
 
   openModal(`
@@ -1701,10 +2702,13 @@ function playStream(stream){
         NOW PLAYING
       </h2>
 
+
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -1713,13 +2717,18 @@ function playStream(stream){
     <div class="player-wrap">
 
       <video
-        id="sauveVideo"
-        controls
-        playsinline
-        webkit-playsinline
-        preload="metadata">
 
-      </video>
+        id="sauveVideo"
+
+        controls
+
+        playsinline
+
+        webkit-playsinline
+
+        preload="metadata"
+
+      ></video>
 
 
       <div class="player-info">
@@ -1728,8 +2737,13 @@ function playStream(stream){
           SAUVE PLAYER
         </strong>
 
-        <small id="playerStatus">
-          Preparing ${label} source…
+
+        <small
+          id="playerStatus">
+
+          Loading
+          ${label}…
+
         </small>
 
       </div>
@@ -1752,100 +2766,35 @@ function playStream(stream){
 
 
   /*
-    Store a little playback history.
+    Set MIME type where known.
   */
 
-  try{
+  if(type === "mp4"){
 
-    state.history.unshift({
-      url:url,
-      time:Date.now()
-    });
-
-    state.history =
-      state.history.slice(0,20);
-
-    localStorage.setItem(
-      "sauve_history",
-      JSON.stringify(
-        state.history
-      )
+    video.setAttribute(
+      "type",
+      "video/mp4"
     );
 
   }
-  catch(e){}
+
+
+  if(type === "webm"){
+
+    video.setAttribute(
+      "type",
+      "video/webm"
+    );
+
+  }
 
 
   /*
-    IMPORTANT:
     iPhone Safari has native HLS support.
   */
 
-  if(streamType === "hls"){
-
-    status.textContent =
-      "Loading HLS stream…";
-
-
-    video.src = url;
-
-
-    video.addEventListener(
-      "loadedmetadata",
-      () => {
-
-        status.textContent =
-          "HLS stream ready.";
-
-        video.play()
-          .catch(() => {});
-
-      },
-      {once:true}
-    );
-
-
-    video.addEventListener(
-      "canplay",
-      () => {
-
-        status.textContent =
-          "Ready to play.";
-
-      },
-      {once:true}
-    );
-
-
-    video.addEventListener(
-      "error",
-      () => {
-
-        showPlaybackError(
-          url,
-          "Safari could not load this HLS stream."
-        );
-
-      },
-      {once:true}
-    );
-
-
-    video.load();
-
-    return;
-  }
-
-
-  /*
-    MP4 / WebM / ordinary browser video.
-  */
-
-  status.textContent =
-    "Loading video…";
-
-
-  video.src = url;
+  video.src =
+    url;
 
 
   video.addEventListener(
@@ -1853,13 +2802,18 @@ function playStream(stream){
     () => {
 
       status.textContent =
-        "Video ready.";
+        "READY TO PLAY";
+
 
       video.play()
-        .catch(() => {});
+        .catch(
+          () => {}
+        );
 
     },
-    {once:true}
+    {
+      once:true
+    }
   );
 
 
@@ -1868,10 +2822,34 @@ function playStream(stream){
     () => {
 
       status.textContent =
-        "Ready to play.";
+        "READY";
 
     },
-    {once:true}
+    {
+      once:true
+    }
+  );
+
+
+  video.addEventListener(
+    "playing",
+    () => {
+
+      status.textContent =
+        "PLAYING";
+
+    }
+  );
+
+
+  video.addEventListener(
+    "waiting",
+    () => {
+
+      status.textContent =
+        "BUFFERING…";
+
+    }
   );
 
 
@@ -1881,11 +2859,13 @@ function playStream(stream){
 
       showPlaybackError(
         url,
-        "Safari could not decode or access this video source."
+        "Safari could not play this source."
       );
 
     },
-    {once:true}
+    {
+      once:true
+    }
   );
 
 
@@ -1908,13 +2888,16 @@ function showPlaybackError(
     <div class="sheet-header">
 
       <h2>
-        PLAYBACK FAILED
+        PLAYBACK ERROR
       </h2>
+
 
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -1923,63 +2906,29 @@ function showPlaybackError(
     <div class="notice">
 
       <strong>
-        ${escapeHTML(message)}
+
+        ${escapeHTML(
+          message
+        )}
+
       </strong>
 
-      <br><br>
-
-      SAUVE successfully received a
-      source from your stream addon,
-      but the iPhone browser couldn't
-      play that source directly.
 
       <br><br>
 
-      Possible causes include:
-
-      <br>
-
-      • Browser-incompatible format
-      <br>
-      • Required authorization headers
-      <br>
-      • CORS restrictions
-      <br>
-      • DRM protection
-      <br>
-      • Expired source
-      <br>
-      • Provider-specific playback requirements
+      Try another source from
+      the playback list.
 
     </div>
-
-
-    ${
-      url
-      ? `
-        <div class="field">
-
-          <label>
-            Returned Source
-          </label>
-
-          <input
-            readonly
-            value="${escapeHTML(url)}">
-
-        </div>
-      `
-      : ""
-    }
 
 
     <div class="hero-buttons">
 
       <button
-        class="secondary"
-        onclick="settings()">
+        class="primary"
+        onclick="closeModal()">
 
-        ⚙ SETTINGS
+        ← BACK TO SOURCES
 
       </button>
 
@@ -1994,27 +2943,35 @@ function showPlaybackError(
    FAVORITES
    ========================================================= */
 
-function toggleFavorite(id){
+function toggleFavorite(
+  id
+){
 
   if(
-    state.favorites.includes(id)
+    state.favorites.includes(
+      id
+    )
   ){
 
     state.favorites =
       state.favorites.filter(
-        item => item !== id
+        item =>
+          item !== id
       );
 
   }
   else{
 
-    state.favorites.push(id);
+    state.favorites.push(
+      id
+    );
 
   }
 
 
   localStorage.setItem(
     "sauve_favorites",
+
     JSON.stringify(
       state.favorites
     )
@@ -2040,10 +2997,13 @@ function settings(){
         SAUVE SETTINGS
       </h2>
 
+
       <button
         class="close"
         onclick="closeModal()">
+
         ×
+
       </button>
 
     </div>
@@ -2055,9 +3015,16 @@ function settings(){
         AIO Metadata Manifest
       </label>
 
+
       <input
+
         id="metadataURL"
-        value="${escapeHTML(state.metadata)}">
+
+        value="${escapeHTML(
+          state.metadata
+        )}"
+
+      >
 
     </div>
 
@@ -2065,40 +3032,37 @@ function settings(){
     <div class="field">
 
       <label>
-        Your PenguPlay / HTTP Stream Manifest
+        Your Stream Manifest
       </label>
 
+
       <input
+
         id="streamURL"
-        placeholder="Paste your own manifest URL"
-        value="${escapeHTML(state.stream)}">
+
+        placeholder="
+          Paste your own manifest URL
+        "
+
+        value="${escapeHTML(
+          state.stream
+        )}"
+
+      >
 
     </div>
 
 
     <div class="notice">
 
-      <strong>
-        YOUR CONFIGURATION
-      </strong>
-
-      <br><br>
-
-      SAUVE stores these manifest URLs
+      Your manifest URLs are stored
       locally on this device.
 
       <br><br>
 
-      No Real-Debrid API key is embedded
-      in this application.
-
-      <br><br>
-
-      If your addon itself requires a
-      private credential, keep that
-      credential inside the addon/provider
-      configuration rather than publishing
-      it in this HTML file.
+      SAUVE does not require your
+      Real-Debrid API key in this
+      HTML application.
 
     </div>
 
@@ -2161,22 +3125,26 @@ function settings(){
 
       $("#settingsStatus")
         .textContent =
-        "Testing metadata connection…";
+        "Testing metadata…";
 
 
       try{
 
-        await getJSON(metadata);
-
-
-        $("#settingsStatus")
-          .textContent =
-          "Testing stream addon…";
+        await getJSON(
+          metadata
+        );
 
 
         if(stream){
 
-          await getJSON(stream);
+          $("#settingsStatus")
+            .textContent =
+            "Testing stream addon…";
+
+
+          await getJSON(
+            stream
+          );
 
         }
 
@@ -2216,10 +3184,13 @@ function settings(){
 
             <span style="
               color:#22e7ff;
-              text-shadow:0 0 8px #22e7ff;
+              text-shadow:
+                0 0 8px #22e7ff;
               font-weight:bold;
             ">
+
               ✓ SAUVE CONNECTED
+
             </span>
 
           `;
@@ -2229,6 +3200,7 @@ function settings(){
           () => {
 
             closeModal();
+
             loadHome();
 
           },
@@ -2266,7 +3238,8 @@ function settings(){
   $("#disconnect").onclick =
     () => {
 
-      state.stream = "";
+      state.stream =
+        "";
 
       localStorage.removeItem(
         "sauve_stream"
@@ -2283,7 +3256,9 @@ function settings(){
    MODAL
    ========================================================= */
 
-function openModal(html){
+function openModal(
+  html
+){
 
   $("#sheet").innerHTML =
     html;
@@ -2299,7 +3274,9 @@ function closeModal(){
 
   $("#modal")
     .classList
-    .remove("open");
+    .remove(
+      "open"
+    );
 
   $("#sheet").innerHTML =
     "";
@@ -2319,8 +3296,13 @@ $("#searchButton").onclick =
         .value
         .trim();
 
+
     if(query){
-      search(query);
+
+      search(
+        query
+      );
+
     }
 
   };
@@ -2346,12 +3328,14 @@ $("#searchInput")
 
 $("#searchFocus").onclick =
   () =>
-    $("#searchInput").focus();
+    $("#searchInput")
+      .focus();
 
 
 $("#heroSearch").onclick =
   () =>
-    $("#searchInput").focus();
+    $("#searchInput")
+      .focus();
 
 
 $("#heroSettings").onclick =
@@ -2371,7 +3355,9 @@ document.addEventListener(
   event => {
 
     const card =
-      event.target.closest(".card");
+      event.target.closest(
+        ".card"
+      );
 
 
     if(!card){
@@ -2380,8 +3366,11 @@ document.addEventListener(
 
 
     openDetails(
+
       card.dataset.type,
+
       card.dataset.id
+
     );
 
   }
@@ -2392,20 +3381,22 @@ document.addEventListener(
    MODAL BACKDROP
    ========================================================= */
 
-$("#modal").addEventListener(
-  "click",
-  event => {
+$("#modal")
+  .addEventListener(
+    "click",
+    event => {
 
-    if(
-      event.target.id === "modal"
-    ){
+      if(
+        event.target.id ===
+        "modal"
+      ){
 
-      closeModal();
+        closeModal();
+
+      }
 
     }
-
-  }
-);
+  );
 
 
 /* =========================================================
@@ -2413,84 +3404,104 @@ $("#modal").addEventListener(
    ========================================================= */
 
 document
-  .querySelectorAll(".nav-btn")
-  .forEach(button => {
+  .querySelectorAll(
+    ".nav-btn"
+  )
+  .forEach(
+    button => {
 
-    button.onclick = () => {
+      button.onclick =
+        () => {
 
-      document
-        .querySelectorAll(".nav-btn")
-        .forEach(item =>
-          item.classList.remove("active")
-        );
-
-
-      button.classList.add("active");
-
-
-      if(
-        button.dataset.page === "home"
-      ){
-
-        location.reload();
-
-      }
+          document
+            .querySelectorAll(
+              ".nav-btn"
+            )
+            .forEach(
+              item =>
+                item.classList
+                  .remove(
+                    "active"
+                  )
+            );
 
 
-      if(
-        button.dataset.page === "search"
-      ){
-
-        $("#searchInput").focus();
-
-      }
+          button.classList
+            .add(
+              "active"
+            );
 
 
-      if(
-        button.dataset.page === "settings"
-      ){
+          if(
+            button.dataset.page ===
+            "home"
+          ){
 
-        settings();
+            location.reload();
 
-      }
+          }
 
 
-      if(
-        button.dataset.page === "library"
-      ){
+          if(
+            button.dataset.page ===
+            "search"
+          ){
 
-        $("#main").innerHTML = `
+            $("#searchInput")
+              .focus();
 
-          <section>
+          }
 
-            <div class="section-heading">
 
-              <h2>
-                Library
-              </h2>
+          if(
+            button.dataset.page ===
+            "settings"
+          ){
 
-              <span>
-                SAVED TITLES
-              </span>
+            settings();
 
-            </div>
+          }
 
-            <div class="empty">
 
-              Your saved titles will
-              appear here.
+          if(
+            button.dataset.page ===
+            "library"
+          ){
 
-            </div>
+            $("#main").innerHTML = `
 
-          </section>
+              <section>
 
-        `;
+                <div class="section-heading">
 
-      }
+                  <h2>
+                    Library
+                  </h2>
 
-    };
+                  <span>
+                    SAVED TITLES
+                  </span>
 
-  });
+                </div>
+
+
+                <div class="empty">
+
+                  Your saved titles will
+                  appear here.
+
+                </div>
+
+              </section>
+
+            `;
+
+          }
+
+        };
+
+    }
+  );
 
 
 /* =========================================================
