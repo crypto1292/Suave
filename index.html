@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070510">
+
+<meta name="theme-color" content="#05030b">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -18,10 +19,9 @@
   --purple:#8a4dff;
   --cyan:#19eaff;
   --yellow:#ffd45a;
-  --white:#fff;
-  --muted:#a999b0;
-  --danger:#ff5577;
   --green:#42ffb0;
+  --red:#ff5577;
+  --muted:#a999b0;
 }
 
 *{
@@ -35,7 +35,7 @@ html,body{
 }
 
 body{
-  color:white;
+  color:#fff;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -75,9 +75,9 @@ button:active{
   transform:scale(.98);
 }
 
-/* ================================
+/* =========================
    HEADER
-================================ */
+========================= */
 
 header{
   position:sticky;
@@ -85,7 +85,7 @@ header{
   z-index:100;
 
   padding:
-    calc(14px + env(safe-area-inset-top))
+    calc(12px + env(safe-area-inset-top))
     14px
     14px;
 
@@ -110,7 +110,7 @@ header{
   font-style:italic;
 
   font-size:
-    clamp(64px,18vw,112px);
+    clamp(65px,18vw,115px);
 
   line-height:.78;
 
@@ -141,9 +141,12 @@ header{
 
   letter-spacing:4px;
 
-  text-shadow:
-    0 0 10px var(--cyan);
+  text-shadow:0 0 10px var(--cyan);
 }
+
+/* =========================
+   SEARCH
+========================= */
 
 .searchbar{
   display:flex;
@@ -183,7 +186,6 @@ header{
   padding:0 18px;
 
   border:0;
-
   border-radius:8px;
 
   color:white;
@@ -196,14 +198,11 @@ header{
       var(--pink),
       var(--purple)
     );
-
-  box-shadow:
-    0 0 18px rgba(255,22,216,.30);
 }
 
-/* ================================
+/* =========================
    MAIN
-================================ */
+========================= */
 
 main{
   width:100%;
@@ -211,9 +210,7 @@ main{
 
   margin:auto;
 
-  padding:16px;
-
-  padding-bottom:100px;
+  padding:16px 16px 105px;
 }
 
 .hero{
@@ -374,9 +371,9 @@ main{
     1px solid rgba(25,234,255,.38);
 }
 
-/* ================================
+/* =========================
    SECTIONS
-================================ */
+========================= */
 
 section{
   margin:32px 0;
@@ -386,13 +383,11 @@ section{
   display:flex;
 
   align-items:center;
-
   justify-content:space-between;
 
   gap:10px;
 
   margin-bottom:15px;
-
   padding-bottom:10px;
 
   border-bottom:
@@ -448,9 +443,9 @@ section{
   font-size:12px;
 }
 
-/* ================================
+/* =========================
    GRID
-================================ */
+========================= */
 
 .grid{
   display:grid;
@@ -527,9 +522,9 @@ section{
   font-size:10px;
 }
 
-/* ================================
+/* =========================
    MODAL
-================================ */
+========================= */
 
 .modal{
   position:fixed;
@@ -619,9 +614,9 @@ section{
   font-size:22px;
 }
 
-/* ================================
+/* =========================
    DETAILS
-================================ */
+========================= */
 
 .details{
   display:grid;
@@ -660,9 +655,85 @@ section{
   margin-bottom:7px;
 }
 
-/* ================================
+/* =========================
+   EPISODES
+========================= */
+
+.season-title{
+  margin-top:24px;
+  margin-bottom:10px;
+
+  color:var(--pink);
+
+  font-family:Impact, sans-serif;
+
+  font-size:20px;
+}
+
+.episode{
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:13px;
+
+  margin-bottom:8px;
+
+  text-align:left;
+
+  color:#fff;
+
+  background:
+    linear-gradient(
+      100deg,
+      #160b27,
+      #0b0714
+    );
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius:9px;
+}
+
+.episode:hover{
+  border-color:var(--cyan);
+
+  box-shadow:
+    0 0 15px rgba(25,234,255,.10);
+}
+
+.episode-number{
+  min-width:42px;
+
+  color:var(--cyan);
+
+  font-weight:900;
+
+  font-size:12px;
+}
+
+.episode-title{
+  font-weight:850;
+
+  font-size:13px;
+}
+
+.episode-meta{
+  margin-top:4px;
+
+  color:#8f8397;
+
+  font-size:10px;
+}
+
+/* =========================
    SOURCES
-================================ */
+========================= */
 
 .source{
   width:100%;
@@ -675,7 +746,7 @@ section{
 
   color:white;
 
-  border-radius:9px;
+  border-radius:10px;
 
   background:
     linear-gradient(
@@ -686,6 +757,8 @@ section{
 
   border:
     1px solid rgba(25,234,255,.15);
+
+  transition:.18s;
 }
 
 .source:hover{
@@ -704,13 +777,15 @@ section{
 }
 
 .source-icon{
-  width:36px;
-  height:36px;
+  width:38px;
+  height:38px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
+
+  flex-shrink:0;
 
   border-radius:50%;
 
@@ -718,10 +793,14 @@ section{
 
   background:
     rgba(25,234,255,.08);
+
+  font-weight:900;
 }
 
 .source-name{
   font-weight:900;
+
+  font-size:13px;
 }
 
 .provider{
@@ -738,56 +817,120 @@ section{
   text-transform:uppercase;
 }
 
+/* =========================
+   BADGES
+========================= */
+
 .badges{
-  margin-top:8px;
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-top:10px;
 }
 
 .badge{
-  display:inline-block;
+  display:inline-flex;
 
-  padding:4px 7px;
+  align-items:center;
 
-  margin-right:5px;
+  min-height:22px;
+
+  padding:3px 7px;
 
   border-radius:5px;
 
   background:
-    rgba(255,22,216,.10);
+    rgba(255,255,255,.07);
 
-  color:#ff7be4;
+  border:
+    1px solid rgba(255,255,255,.10);
+
+  color:white;
 
   font-size:8px;
 
   font-weight:900;
 
-  letter-spacing:.7px;
+  letter-spacing:.4px;
+
+  overflow:hidden;
 }
 
-.badge.ok{
-  background:
-    rgba(25,234,255,.10);
+.badge img{
+  display:block;
 
-  color:var(--cyan);
+  max-width:72px;
+  max-height:22px;
+
+  object-fit:contain;
 }
 
-.badge.good{
-  background:
-    rgba(66,255,176,.10);
+.badge.text-only{
+  color:#ddd;
+}
 
+.badge.warning{
+  color:var(--yellow);
+
+  border-color:
+    rgba(255,212,90,.25);
+}
+
+.badge.ready{
   color:var(--green);
+
+  border-color:
+    rgba(66,255,176,.25);
 }
 
 .source-desc{
-  margin-top:7px;
+  margin-top:9px;
 
   color:#91859b;
 
   font-size:10px;
+
+  line-height:1.5;
 }
 
-/* ================================
+/* =========================
+   STREAM INFO
+========================= */
+
+.stream-info{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:6px;
+
+  margin-top:10px;
+}
+
+.stream-info-item{
+  padding:7px 8px;
+
+  border-radius:6px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  color:#a99cad;
+
+  font-size:9px;
+}
+
+.stream-info-item strong{
+  color:#fff;
+}
+
+/* =========================
    PLAYER
-================================ */
+========================= */
 
 .player-shell{
   position:relative;
@@ -812,8 +955,6 @@ video{
 
   width:100%;
 
-  height:auto;
-
   max-height:70vh;
 
   background:#000;
@@ -823,10 +964,7 @@ iframe{
   display:block;
 
   width:100%;
-
   height:100%;
-
-  min-height:240px;
 
   border:0;
 
@@ -859,7 +997,7 @@ iframe{
 }
 
 .player-status.error{
-  color:var(--danger);
+  color:var(--red);
 }
 
 .player-controls{
@@ -900,9 +1038,9 @@ iframe{
   border:0;
 }
 
-/* ================================
+/* =========================
    SETTINGS
-================================ */
+========================= */
 
 .field{
   margin:18px 0;
@@ -941,9 +1079,9 @@ iframe{
   outline:none;
 }
 
-/* ================================
+/* =========================
    NAV
-================================ */
+========================= */
 
 .nav{
   position:fixed;
@@ -1017,8 +1155,12 @@ iframe{
   .details img{
     width:190px;
   }
-}
 
+  .stream-info{
+    grid-template-columns:
+      repeat(4,minmax(0,1fr));
+  }
+}
 </style>
 </head>
 
@@ -1067,9 +1209,9 @@ iframe{
       </h1>
 
       <p>
-        Search your metadata catalogs,
-        discover available sources,
-        and play compatible streams
+        Discover movies and television,
+        explore episodes, compare sources,
+        and attempt compatible playback
         directly inside SAUVE.
       </p>
 
@@ -1103,7 +1245,7 @@ iframe{
       </h2>
 
       <span>
-        AIO METADATA
+        SAUVE
       </span>
 
     </div>
@@ -1166,7 +1308,7 @@ iframe{
 <script>
 
 /* ============================================================
-   SAUVE CONFIGURATION
+   CONFIG
 ============================================================ */
 
 const DEFAULT_METADATA =
@@ -1196,15 +1338,201 @@ let currentPlayableStreams = [];
 
 let currentPlayerIndex = 0;
 
+let currentTitleType = "";
+
+let currentTitleId = "";
+
+
+/* ============================================================
+   FUSION BADGES
+   Based on the badge configuration supplied
+============================================================ */
+
+const FUSION_BADGES = [
+
+  {
+    name:"Remux",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-remux.png",
+    regex:/\bremux\b/i
+  },
+
+  {
+    name:"BluRay",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-bluray.png",
+    regex:/\bblu[\s._-]?ray\b/i
+  },
+
+  {
+    name:"WebDL",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-webdl.png",
+    regex:/\b(?:web[\s._-]?dl|webdl|webrip|web[\s._-]?rip)\b/i
+  },
+
+  {
+    name:"SeaDex",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/mono-SeaDex.png",
+    regex:/\b(?:seadex|best[\s._-]?release|alt[\s._-]?(?:best[\s._-]?)?release)\b/i
+  },
+
+  {
+    name:"4K",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/4k.png",
+    regex:/(?:2160p?|4k|uhd)/i
+  },
+
+  {
+    name:"1080p",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/1080p.png",
+    regex:/\b1080p?\b/i
+  },
+
+  {
+    name:"720p",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/720p.png",
+    regex:/\b720p?\b/i
+  },
+
+  {
+    name:"DTS:X",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtsx.png",
+    regex:/\bdts[\s._:-]?x\b/i
+  },
+
+  {
+    name:"DTS-HD MA",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtshdma.png",
+    regex:/\bdts[\s._-]?hd[\s._-]?ma\b/i
+  },
+
+  {
+    name:"DTS-HD",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dtshd.png",
+    regex:/\bdts[\s._-]?hd\b/i
+  },
+
+  {
+    name:"DTS",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/dts.png",
+    regex:/\bdts\b/i
+  },
+
+  {
+    name:"HDR10+",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR10Plus.png",
+    regex:/\bhdr[\s._-]?10[\s._-]?(?:\+|plus|p)\b/i
+  },
+
+  {
+    name:"HDR10",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR10.png",
+    regex:/\bhdr[\s._-]?10\b/i
+  },
+
+  {
+    name:"HDR",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/HDR.png",
+    regex:/\bhdr\b/i
+  },
+
+  {
+    name:"IMAX Enhanced",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/IMAX-enhanced.png",
+    regex:/\bimax[\s._-]?enhanced\b/i
+  },
+
+  {
+    name:"IMAX",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/IMAX.png",
+    regex:/\bimax\b/i
+  },
+
+  {
+    name:"Atmos",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/atmos.png",
+    regex:/\batmos\b/i
+  },
+
+  {
+    name:"TrueHD",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/truehd.png",
+    regex:/\btrue[\s._-]?hd\b/i
+  },
+
+  {
+    name:"Dolby Vision",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/vision.png",
+    regex:/\b(?:dv|dovi|dolby[\s._-]?vision)\b/i
+  },
+
+  {
+    name:"DD+",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/digitalplus.png",
+    regex:/\b(?:ddp|dd\+|eac-?3|e-?ac-?3)\b/i
+  },
+
+  {
+    name:"7.1",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/7dot1.png",
+    regex:/\b7[. ]1\b/i
+  },
+
+  {
+    name:"5.1",
+    image:"https://raw.githubusercontent.com/9mousaa/BetterFormatter/main/images/5dot1.png",
+    regex:/\b5[. ]1\b/i
+  },
+
+  {
+    name:"NETFLIX",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/Netflix.png",
+    regex:/\b(?:nflx|nf|netflix)\b/i
+  },
+
+  {
+    name:"PRIME VIDEO",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/amazon%20prime.png",
+    regex:/\b(?:amzn|amazon|prime)\b/i
+  },
+
+  {
+    name:"APPLE TV+",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/atv%2B.png",
+    regex:/\b(?:atvp|appletv)\b/i
+  },
+
+  {
+    name:"DISNEY+",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/d%2B.png",
+    regex:/\b(?:dsnp|dsny|disney|disney\+)\b/i
+  },
+
+  {
+    name:"MAX",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/hmax.png",
+    regex:/\b(?:hmax|hbomax|hbo|max)\b/i
+  },
+
+  {
+    name:"HULU",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/hulu.png",
+    regex:/\bhulu\b/i
+  },
+
+  {
+    name:"PEACOCK",
+    image:"https://raw.githubusercontent.com/je19921/cardgenerator.github.io/refs/heads/main/peacock.png",
+    regex:/\b(?:pcok|peac|peacock)\b/i
+  }
+
+];
+
 
 /* ============================================================
    HELPERS
 ============================================================ */
 
 function $(id){
-
   return document.getElementById(id);
-
 }
 
 
@@ -1240,7 +1568,6 @@ function normalizeManifest(url){
 function addonRoot(url){
 
   return normalizeManifest(url) + "/";
-
 }
 
 
@@ -1258,7 +1585,6 @@ async function fetchJSON(url){
       }
     );
 
-
   if(!response.ok){
 
     throw new Error(
@@ -1268,14 +1594,103 @@ async function fetchJSON(url){
 
   }
 
-
   return response.json();
 
 }
 
 
 /* ============================================================
-   MANIFEST / CATALOG
+   BADGES
+============================================================ */
+
+function streamSearchText(stream){
+
+  return [
+    stream?.name,
+    stream?.title,
+    stream?.description,
+    stream?.filename,
+    stream?.fileName,
+    stream?.url,
+    stream?.quality,
+    stream?.resolution,
+    stream?.videoHash,
+    stream?.behaviorHints?.filename
+  ]
+  .filter(Boolean)
+  .join(" ");
+
+}
+
+
+function getFusionBadges(stream){
+
+  const text =
+    streamSearchText(stream);
+
+
+  return FUSION_BADGES
+    .filter(
+      badge =>
+        badge.regex.test(text)
+    )
+    .slice(0,12);
+
+}
+
+
+function renderBadges(stream){
+
+  const badges =
+    getFusionBadges(stream);
+
+
+  if(!badges.length){
+
+    return `
+      <span class="badge text-only">
+        SOURCE
+      </span>
+    `;
+
+  }
+
+
+  return badges
+    .map(
+      badge => `
+
+        <span
+          class="badge"
+          title="${escapeHTML(
+            badge.name
+          )}">
+
+          <img
+            src="${escapeHTML(
+              badge.image
+            )}"
+            alt="${escapeHTML(
+              badge.name
+            )}"
+            loading="lazy"
+            onerror="
+              this.parentElement.innerHTML='${escapeHTML(
+                badge.name
+              )}'
+            ">
+
+        </span>
+
+      `
+    )
+    .join("");
+
+}
+
+
+/* ============================================================
+   METADATA
 ============================================================ */
 
 async function getManifest(){
@@ -1425,30 +1840,28 @@ async function loadHome(){
     const selected = [];
 
 
-    for(
-      const type of [
-        "movie",
-        "series"
-      ]
-    ){
+    ["movie","series"]
+      .forEach(
+        type => {
 
-      const catalog =
-        catalogs.find(
-          c =>
-            c &&
-            c.type === type
-        );
+          const catalog =
+            catalogs.find(
+              c =>
+                c &&
+                c.type === type
+            );
 
 
-      if(catalog){
+          if(catalog){
 
-        selected.push(
-          catalog
-        );
+            selected.push(
+              catalog
+            );
 
-      }
+          }
 
-    }
+        }
+      );
 
 
     if(!selected.length){
@@ -1456,11 +1869,8 @@ async function loadHome(){
       box.innerHTML = `
 
         <div class="notice">
-
-          No movie or series catalogs
-          were advertised by the metadata
-          addon.
-
+          No movie or television catalogs
+          were advertised by the metadata addon.
         </div>
 
       `;
@@ -1486,23 +1896,22 @@ async function loadHome(){
     const metas = [];
 
 
-    for(
-      const result
-      of responses
-    ){
+    responses.forEach(
+      result => {
 
-      if(
-        result.status ===
-        "fulfilled"
-      ){
+        if(
+          result.status ===
+          "fulfilled"
+        ){
 
-        metas.push(
-          ...(result.value.metas || [])
-        );
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
 
       }
-
-    }
+    );
 
 
     box.innerHTML =
@@ -1575,7 +1984,6 @@ async function performSearch(){
 
       </div>
 
-
       <div
         id="searchResults"
         class="empty">
@@ -1629,23 +2037,22 @@ async function performSearch(){
     const metas = [];
 
 
-    for(
-      const response
-      of responses
-    ){
+    responses.forEach(
+      result => {
 
-      if(
-        response.status ===
-        "fulfilled"
-      ){
+        if(
+          result.status ===
+          "fulfilled"
+        ){
 
-        metas.push(
-          ...(response.value.metas || [])
-        );
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
 
       }
-
-    }
+    );
 
 
     const results =
@@ -1699,7 +2106,7 @@ async function performSearch(){
 
 
 /* ============================================================
-   RESULT GRID
+   GRID
 ============================================================ */
 
 function dedupeMetas(
@@ -1819,12 +2226,22 @@ function renderGrid(
 
                 <div class="card-sub">
 
-                  ${escapeHTML(
+                  ${
+                    item.type === "series"
+                      ? "TELEVISION"
+                      : "MOVIE"
+                  }
+
+                  ${
                     item.releaseInfo ||
-                    item.year ||
-                    item.type ||
-                    ""
-                  )}
+                    item.year
+                      ? " • " +
+                        escapeHTML(
+                          item.releaseInfo ||
+                          item.year
+                        )
+                      : ""
+                  }
 
                 </div>
 
@@ -1845,7 +2262,7 @@ function renderGrid(
 
 
 /* ============================================================
-   TITLE DETAILS
+   TITLE
 ============================================================ */
 
 async function openTitle(
@@ -1865,6 +2282,13 @@ async function openTitle(
     );
 
 
+  currentTitleType =
+    type;
+
+  currentTitleId =
+    id;
+
+
   openModal(`
 
     <div class="sheet-header">
@@ -1880,7 +2304,6 @@ async function openTitle(
       </button>
 
     </div>
-
 
     <div class="empty">
       Loading title…
@@ -1917,89 +2340,29 @@ async function openTitle(
       data;
 
 
-    openModal(`
+    /*
+      SERIES:
+      Show seasons and episodes instead
+      of trying to request streams for the
+      series root ID.
+    */
 
-      <div class="sheet-header">
+    if(type === "series"){
 
-        <h2>
-          ${escapeHTML(
-            meta.name ||
-            "TITLE"
-          )}
-        </h2>
+      renderSeriesDetails(
+        meta
+      );
 
-        <button
-          class="close"
-          onclick="closeModal()">
-          ×
-        </button>
+      return;
 
-      </div>
+    }
 
 
-      <div class="details">
-
-        <img
-          src="${escapeHTML(
-            meta.poster ||
-            meta.logo ||
-            ""
-          )}">
-
-
-        <div>
-
-          <div class="meta">
-
-            ${escapeHTML(
-              meta.releaseInfo ||
-              meta.year ||
-              meta.type ||
-              ""
-            )}
-
-          </div>
-
-
-          <p>
-
-            ${escapeHTML(
-              meta.description ||
-              "No description available."
-            )}
-
-          </p>
-
-
-          <button
-            class="primary"
-            id="sourceButton">
-
-            ▶ FIND SOURCES
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div
-        id="sources"
-        style="margin-top:25px">
-
-      </div>
-
-    `);
-
-
-    $("sourceButton")
-      .onclick =
-      () =>
-        findSources(
-          type,
-          id
-        );
+    renderMovieDetails(
+      meta,
+      type,
+      id
+    );
 
   }
   catch(error){
@@ -2037,7 +2400,374 @@ async function openTitle(
 
 
 /* ============================================================
-   STREAM
+   MOVIE DETAILS
+============================================================ */
+
+function renderMovieDetails(
+  meta,
+  type,
+  id
+){
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        ${escapeHTML(
+          meta.name ||
+          "TITLE"
+        )}
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(
+          meta.poster ||
+          meta.logo ||
+          ""
+        )}">
+
+
+      <div>
+
+        <div class="meta">
+
+          ${escapeHTML(
+            meta.releaseInfo ||
+            meta.year ||
+            "MOVIE"
+          )}
+
+        </div>
+
+
+        <p>
+
+          ${escapeHTML(
+            meta.description ||
+            "No description available."
+          )}
+
+        </p>
+
+
+        <button
+          class="primary"
+          id="sourceButton">
+
+          ▶ FIND SOURCES
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="sources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
+
+
+  $("sourceButton")
+    .onclick =
+      () =>
+        findSources(
+          type,
+          id
+        );
+
+}
+
+
+/* ============================================================
+   SERIES DETAILS
+============================================================ */
+
+function renderSeriesDetails(
+  meta
+){
+
+  const videos =
+    Array.isArray(
+      meta.videos
+    )
+      ? meta.videos
+      : [];
+
+
+  if(!videos.length){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          ${escapeHTML(
+            meta.name ||
+            "SERIES"
+          )}
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        This television series did not
+        return episode information from
+        the metadata addon.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  const grouped = {};
+
+
+  videos.forEach(
+    episode => {
+
+      const season =
+        Number(
+          episode.season ||
+          1
+        );
+
+
+      if(!grouped[season]){
+
+        grouped[season] = [];
+
+      }
+
+
+      grouped[season].push(
+        episode
+      );
+
+    }
+  );
+
+
+  const seasons =
+    Object.keys(
+      grouped
+    )
+    .sort(
+      (a,b) =>
+        Number(a) -
+        Number(b)
+    );
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        ${escapeHTML(
+          meta.name ||
+          "TELEVISION"
+        )}
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(
+          meta.poster ||
+          meta.logo ||
+          ""
+        )}">
+
+
+      <div>
+
+        <div class="meta">
+          TELEVISION SERIES
+        </div>
+
+
+        <p>
+
+          ${escapeHTML(
+            meta.description ||
+            "Select an episode to find available sources."
+          )}
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="episodeList"
+      style="margin-top:20px">
+
+      ${seasons.map(
+        season => `
+
+          <div class="season-title">
+
+            SEASON ${escapeHTML(season)}
+
+          </div>
+
+
+          ${grouped[season]
+            .sort(
+              (a,b) =>
+                Number(
+                  a.episode ||
+                  0
+                ) -
+                Number(
+                  b.episode ||
+                  0
+                )
+            )
+            .map(
+              episode => {
+
+                const episodeId =
+                  encodeURIComponent(
+                    episode.id ||
+                    ""
+                  );
+
+
+                return `
+
+                  <button
+                    class="episode"
+                    onclick="
+                      findEpisodeSources(
+                        '${episodeId}',
+                        '${escapeHTML(
+                          episode.title ||
+                          episode.name ||
+                          "Episode"
+                        ).replace(
+                          /'/g,
+                          "\\'"
+                        )}'
+                      )
+                    ">
+
+                    <div class="episode-number">
+
+                      E${String(
+                        episode.episode ||
+                        ""
+                      ).padStart(
+                        2,
+                        "0"
+                      )}
+
+                    </div>
+
+
+                    <div>
+
+                      <div class="episode-title">
+
+                        ${escapeHTML(
+                          episode.title ||
+                          episode.name ||
+                          "Episode"
+                        )}
+
+                      </div>
+
+
+                      <div class="episode-meta">
+
+                        ${
+                          episode.released
+                            ? escapeHTML(
+                                episode.released
+                              )
+                            : ""
+                        }
+
+                        ${
+                          episode.runtime
+                            ? " • " +
+                              escapeHTML(
+                                episode.runtime
+                              )
+                            : ""
+                        }
+
+                      </div>
+
+                    </div>
+
+                  </button>
+
+                `;
+
+              }
+            )
+            .join("")}
+
+        `
+      ).join("")}
+
+    </div>
+
+
+    <div
+      id="sources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
+
+}
+
+
+/* ============================================================
+   STREAM URL
 ============================================================ */
 
 function buildStreamURL(
@@ -2059,56 +2789,8 @@ function buildStreamURL(
 }
 
 
-function providerName(
-  stream
-){
-
-  const text =
-    [
-      stream.name,
-      stream.title,
-      stream.description,
-      stream.url
-    ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-
-
-  const names = [
-    "2peckle",
-    "vidking",
-    "vidfast",
-    "vidlink",
-    "vidplay",
-    "streamwish",
-    "filemoon",
-    "megacloud"
-  ];
-
-
-  for(
-    const name of names
-  ){
-
-    if(
-      text.includes(name)
-    ){
-
-      return name;
-
-    }
-
-  }
-
-
-  return "stream source";
-
-}
-
-
 /* ============================================================
-   SOURCE TYPE DETECTION
+   STREAM INFORMATION
 ============================================================ */
 
 function getStreamURL(
@@ -2119,6 +2801,90 @@ function getStreamURL(
     stream?.url ||
     ""
   ).trim();
+
+}
+
+
+function streamType(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+
+  if(
+    type.includes("mpegurl") ||
+    type.includes("m3u8") ||
+    url.includes(".m3u8")
+  ){
+
+    return "HLS";
+
+  }
+
+
+  if(
+    type.includes("mp4") ||
+    url.includes(".mp4")
+  ){
+
+    return "MP4";
+
+  }
+
+
+  if(
+    type.includes("webm") ||
+    url.includes(".webm")
+  ){
+
+    return "WEBM";
+
+  }
+
+
+  if(
+    stream?.playerFrameUrl
+  ){
+
+    return "PLAYER";
+
+  }
+
+
+  return "SOURCE";
+
+}
+
+
+function isExternal(
+  stream
+){
+
+  return Boolean(
+    stream?.externalUrl
+  );
+
+}
+
+
+function isPlayerFrame(
+  stream
+){
+
+  return Boolean(
+    stream?.playerFrameUrl
+  );
 
 }
 
@@ -2136,178 +2902,248 @@ function isNotWebReady(
 }
 
 
-function isPlayerFrame(
-  stream
-){
-
-  return Boolean(
-    stream?.playerFrameUrl
-  );
-
-}
-
-
-function isExternal(
-  stream
-){
-
-  return Boolean(
-    stream?.externalUrl
-  );
-
-}
-
-
-function isHLS(
-  stream
-){
-
-  const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
-
-
-  const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
-
-
-  return (
-    type.includes(
-      "mpegurl"
-    )
-    ||
-    type.includes(
-      "application/x-mpegurl"
-    )
-    ||
-    type.includes(
-      "m3u8"
-    )
-    ||
-    url.includes(
-      ".m3u8"
-    )
-  );
-
-}
-
-
-function isMP4(
-  stream
-){
-
-  const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
-
-
-  const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
-
-
-  return (
-    type.includes("mp4")
-    ||
-    url.includes(".mp4")
-  );
-
-}
-
-
-function isWebM(
-  stream
-){
-
-  const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
-
-
-  const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
-
-
-  return (
-    type.includes("webm")
-    ||
-    url.includes(".webm")
-  );
-
-}
-
-
 /*
-  These are the sources we can sensibly
-  attempt inside the SAUVE browser player.
+ IMPORTANT:
+
+ We intentionally DO NOT use a strict
+ "playable" filter anymore.
+
+ Every returned source is displayed.
 */
 
-function isPlayableCandidate(
+function compatibilityScore(
   stream
 ){
 
+  let score = 0;
+
+
   if(
-    isNotWebReady(
-      stream
-    )
+    streamType(stream) ===
+    "MP4"
   ){
 
-    return false;
+    score += 90;
 
   }
 
 
   if(
-    isPlayerFrame(
-      stream
-    )
+    streamType(stream) ===
+    "HLS"
   ){
 
-    return true;
+    score += 85;
 
   }
 
 
   if(
-    isExternal(
-      stream
-    )
+    streamType(stream) ===
+    "WEBM"
   ){
 
-    return false;
+    score += 80;
 
   }
 
 
   if(
-    isHLS(stream) ||
-    isMP4(stream) ||
-    isWebM(stream)
+    isPlayerFrame(stream)
   ){
 
-    return true;
+    score += 75;
 
   }
 
 
-  return false;
+  if(
+    isNotWebReady(stream)
+  ){
+
+    score += 1;
+
+  }
+
+
+  return score;
 
 }
 
 
 /* ============================================================
-   SOURCE LIST
+   STREAM DETAILS
+============================================================ */
+
+function getStreamInfo(
+  stream
+){
+
+  const hints =
+    stream?.behaviorHints ||
+    {};
+
+
+  const info = [];
+
+
+  const quality =
+    stream.quality ||
+    stream.resolution ||
+    hints.videoSize;
+
+
+  if(quality){
+
+    info.push({
+      label:"QUALITY",
+      value:String(quality)
+    });
+
+  }
+
+
+  if(stream.videoCodec){
+
+    info.push({
+      label:"VIDEO",
+      value:String(
+        stream.videoCodec
+      )
+    });
+
+  }
+
+
+  if(stream.audioCodec){
+
+    info.push({
+      label:"AUDIO",
+      value:String(
+        stream.audioCodec
+      )
+    });
+
+  }
+
+
+  if(stream.audio){
+
+    info.push({
+      label:"AUDIO",
+      value:String(
+        stream.audio
+      )
+    });
+
+  }
+
+
+  if(stream.language){
+
+    info.push({
+      label:"LANGUAGE",
+      value:String(
+        stream.language
+      )
+    });
+
+  }
+
+
+  if(stream.size){
+
+    info.push({
+      label:"SIZE",
+      value:String(
+        stream.size
+      )
+    });
+
+  }
+
+
+  if(stream.bitrate){
+
+    info.push({
+      label:"BITRATE",
+      value:String(
+        stream.bitrate
+      )
+    });
+
+  }
+
+
+  if(stream.container){
+
+    info.push({
+      label:"CONTAINER",
+      value:String(
+        stream.container
+      )
+    });
+
+  }
+
+
+  return info;
+
+}
+
+
+function renderStreamInfo(
+  stream
+){
+
+  const info =
+    getStreamInfo(
+      stream
+    );
+
+
+  if(!info.length){
+
+    return "";
+
+  }
+
+
+  return `
+
+    <div class="stream-info">
+
+      ${info.map(
+        item => `
+
+          <div class="stream-info-item">
+
+            ${escapeHTML(
+              item.label
+            )}
+
+            <br>
+
+            <strong>
+              ${escapeHTML(
+                item.value
+              )}
+            </strong>
+
+          </div>
+
+        `
+      ).join("")}
+
+    </div>
+
+  `;
+
+}
+
+
+/* ============================================================
+   SOURCE UI
 ============================================================ */
 
 function renderSource(
@@ -2315,60 +3151,20 @@ function renderSource(
   index
 ){
 
-  const webReady =
-    !isNotWebReady(
+  const format =
+    streamType(
       stream
     );
 
 
-  let format =
-    "SOURCE";
+  const warning =
+    isNotWebReady(
+      stream
+    );
 
 
-  if(
-    isHLS(stream)
-  ){
-
-    format =
-      "HLS";
-
-  }
-  else if(
-    isMP4(stream)
-  ){
-
-    format =
-      "MP4";
-
-  }
-  else if(
-    isWebM(stream)
-  ){
-
-    format =
-      "WEBM";
-
-  }
-  else if(
-    isPlayerFrame(stream)
-  ){
-
-    format =
-      "PLAYER";
-
-  }
-  else if(
-    isExternal(stream)
-  ){
-
-    format =
-      "EXTERNAL";
-
-  }
-
-
-  const playable =
-    isPlayableCandidate(
+  const external =
+    isExternal(
       stream
     );
 
@@ -2377,29 +3173,13 @@ function renderSource(
 
     <button
       class="source"
-      ${
-        playable
-          ? `onclick="playSource(${index})"`
-          : `disabled`
-      }
-      style="
-        ${
-          !playable
-            ? "opacity:.52;cursor:not-allowed;"
-            : ""
-        }
-      ">
+      onclick="playSource(${index})">
+
 
       <div class="source-top">
 
         <div class="source-icon">
-
-          ${
-            playable
-              ? "▶"
-              : "×"
-          }
-
+          ▶
         </div>
 
 
@@ -2410,7 +3190,7 @@ function renderSource(
             ${escapeHTML(
               stream.name ||
               stream.title ||
-              "SOURCE"
+              "STREAM SOURCE"
             )}
 
           </div>
@@ -2433,61 +3213,64 @@ function renderSource(
 
       <div class="badges">
 
+        ${renderBadges(
+          stream
+        )}
+
+
         <span class="
           badge
-          ${playable ? "good" : ""}
+          ${warning
+            ? "warning"
+            : "ready"}
         ">
 
-          ${format}
+          ${
+            warning
+              ? "NOT WEB READY"
+              : "AVAILABLE"
+          }
 
         </span>
 
 
         <span class="badge">
 
-          ${
-            isNotWebReady(stream)
-              ? "NOT WEB READY"
-              :
-            isExternal(stream)
-              ? "EXTERNAL"
-              :
-            playable
-              ? "PLAYABLE"
-              : "UNSUPPORTED"
-          }
+          ${format}
 
         </span>
 
-
-        ${
-          stream.quality
-            ?
-            `<span class="badge">
-              ${escapeHTML(
-                stream.quality
-              )}
-            </span>`
-            :
-            ""
-        }
-
       </div>
+
+
+      ${renderStreamInfo(
+        stream
+      )}
 
 
       <div class="source-desc">
 
         ${
-          isNotWebReady(stream)
-            ? "Provider marked this source as not web-ready."
+          external
+
+            ? "External destination returned by provider. SAUVE will not treat it as a normal direct media file."
+
             :
-          isExternal(stream)
-            ? "This source is an external destination, not a video stream."
+
+          isPlayerFrame(stream)
+
+            ? "Provider player detected. Tap to open the embedded player."
+
             :
-          playable
-            ? "Tap to play inside SAUVE."
+
+          warning
+
+            ? "Provider marked this source not web-ready. SAUVE will still let you attempt it."
+
             :
-          "This source cannot be played by the built-in player."
+
+          "Tap to attempt playback."
+
         }
 
       </div>
@@ -2500,7 +3283,60 @@ function renderSource(
 
 
 /* ============================================================
-   FIND SOURCES
+   PROVIDER
+============================================================ */
+
+function providerName(
+  stream
+){
+
+  const text =
+    [
+      stream.name,
+      stream.title,
+      stream.description,
+      stream.url
+    ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+
+  const providers = [
+    "2peckle",
+    "pengu",
+    "vidking",
+    "vidfast",
+    "vidlink",
+    "vidplay",
+    "streamwish",
+    "filemoon",
+    "megacloud"
+  ];
+
+
+  for(
+    const name of providers
+  ){
+
+    if(
+      text.includes(name)
+    ){
+
+      return name;
+
+    }
+
+  }
+
+
+  return "stream source";
+
+}
+
+
+/* ============================================================
+   FIND MOVIE SOURCES
 ============================================================ */
 
 async function findSources(
@@ -2567,13 +3403,6 @@ async function findSources(
     }
 
 
-    /*
-      Put likely browser-compatible
-      sources first.
-
-      We are not modifying the URLs.
-    */
-
     currentStreams.sort(
       (a,b) =>
         compatibilityScore(b) -
@@ -2581,10 +3410,13 @@ async function findSources(
     );
 
 
+    /*
+      EVERYTHING returned by the addon
+      remains visible.
+    */
+
     currentPlayableStreams =
-      currentStreams.filter(
-        isPlayableCandidate
-      );
+      currentStreams.slice();
 
 
     $("sources").innerHTML = `
@@ -2598,6 +3430,23 @@ async function findSources(
         <span>
           ${currentStreams.length}
         </span>
+
+      </div>
+
+
+      <div class="notice">
+
+        <strong>
+          ${currentStreams.length}
+        </strong>
+        source(s) returned.
+
+        <br><br>
+
+        Sources are no longer automatically
+        disabled because of
+        <strong>NOT WEB READY</strong>.
+        Tap any source to attempt playback.
 
       </div>
 
@@ -2637,68 +3486,178 @@ async function findSources(
 
 
 /* ============================================================
-   COMPATIBILITY SCORE
+   FIND EPISODE SOURCES
 ============================================================ */
 
-function compatibilityScore(
-  stream
+async function findEpisodeSources(
+  encodedId,
+  episodeTitle
 ){
 
-  if(
-    isNotWebReady(stream)
-  ){
+  const episodeId =
+    decodeURIComponent(
+      encodedId
+    );
 
-    return -100;
+
+  currentTitleType =
+    "series";
+
+
+  currentTitleId =
+    episodeId;
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        ${escapeHTML(
+          episodeTitle ||
+          "EPISODE"
+        )}
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="sources"
+      style="margin-top:5px">
+
+      <div class="empty">
+
+        Loading episode sources…
+
+      </div>
+
+    </div>
+
+  `);
+
+
+  if(!state.stream){
+
+    openSettings();
+
+    return;
 
   }
 
 
-  if(
-    isExternal(stream)
-  ){
+  try{
 
-    return -50;
+    const data =
+      await fetchJSON(
+        buildStreamURL(
+          "series",
+          episodeId
+        )
+      );
+
+
+    currentStreams =
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
+
+
+    currentStreams.sort(
+      (a,b) =>
+        compatibilityScore(b) -
+        compatibilityScore(a)
+    );
+
+
+    currentPlayableStreams =
+      currentStreams.slice();
+
+
+    if(!currentStreams.length){
+
+      $("sources").innerHTML = `
+
+        <div class="notice">
+
+          No sources were returned for
+          this episode.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    $("sources").innerHTML = `
+
+      <div class="heading">
+
+        <h2>
+          SOURCES
+        </h2>
+
+        <span>
+          ${currentStreams.length}
+        </span>
+
+      </div>
+
+
+      <div class="notice">
+
+        ${currentStreams.length}
+        source(s) found for this episode.
+
+        <br><br>
+
+        All returned sources remain
+        selectable.
+
+      </div>
+
+
+      ${currentStreams
+        .map(
+          renderSource
+        )
+        .join("")}
+
+    `;
 
   }
+  catch(error){
 
+    $("sources").innerHTML = `
 
-  if(
-    isPlayerFrame(stream)
-  ){
+      <div class="notice">
 
-    return 80;
+        <strong>
+          EPISODE STREAM ERROR
+        </strong>
 
-  }
+        <br><br>
 
+        ${escapeHTML(
+          error.message
+        )}
 
-  if(
-    isMP4(stream)
-  ){
+      </div>
 
-    return 70;
-
-  }
-
-
-  if(
-    isHLS(stream)
-  ){
-
-    return 65;
+    `;
 
   }
-
-
-  if(
-    isWebM(stream)
-  ){
-
-    return 60;
-
-  }
-
-
-  return 0;
 
 }
 
@@ -2722,16 +3681,13 @@ function playSource(
   }
 
 
-  if(
-    !isPlayableCandidate(
-      stream
-    )
-  ){
+  currentPlayerIndex =
+    index;
 
-    return;
 
-  }
-
+  /*
+    Provider player gets priority.
+  */
 
   if(
     isPlayerFrame(stream)
@@ -2746,22 +3702,64 @@ function playSource(
   }
 
 
+  /*
+    Direct URL gets sent to the
+    browser video element.
+  */
+
   playDirectStream(
-    stream,
-    index
+    stream
   );
 
 }
 
 
 /* ============================================================
-   DIRECT PLAYER
+   DIRECT PLAYBACK
 ============================================================ */
 
 function playDirectStream(
-  stream,
-  sourceIndex
+  stream
 ){
+
+  const url =
+    getStreamURL(
+      stream
+    );
+
+
+  if(!url){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          SOURCE
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="notice">
+
+        This source did not provide a
+        direct media URL.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
 
   openModal(`
 
@@ -2791,7 +3789,6 @@ function playDirectStream(
         playsinline
         webkit-playsinline
         preload="metadata">
-
       </video>
 
 
@@ -2838,40 +3835,12 @@ function playDirectStream(
     $("playerStatus");
 
 
-  const url =
-    getStreamURL(
-      stream
-    );
-
-
-  if(!url){
-
-    showPlayerError(
-      "This source did not provide a direct media URL."
-    );
-
-    return;
-
-  }
-
-
-  /*
-    Native HLS works on Safari/iPhone.
-
-    We deliberately do not inject a
-    third-party player or proxy here.
-  */
-
-  video.src =
-    url;
-
-
   video.addEventListener(
     "loadedmetadata",
     () => {
 
       status.textContent =
-        "Ready";
+        "Ready — press play";
 
       status.className =
         "player-status ready";
@@ -2912,26 +3881,21 @@ function playDirectStream(
     "error",
     () => {
 
-      showPlayerError(
-        "Safari could not decode or access this source."
-      );
+      status.textContent =
+        "Safari could not decode or access this source.";
 
-    },
-    {
-      once:true
+      status.className =
+        "player-status error";
+
     }
   );
 
 
+  video.src =
+    url;
+
+
   video.load();
-
-
-  /*
-    Don't force autoplay.
-
-    iOS frequently blocks autoplay,
-    especially when the source is remote.
-  */
 
 }
 
@@ -2944,18 +3908,14 @@ function openEmbeddedPlayer(
   stream
 ){
 
-  const frameURL =
+  const url =
     String(
       stream.playerFrameUrl ||
       ""
     ).trim();
 
 
-  if(!frameURL){
-
-    showPlayerError(
-      "The provider did not return a player URL."
-    );
+  if(!url){
 
     return;
 
@@ -2987,13 +3947,10 @@ function openEmbeddedPlayer(
 
     <div class="player-shell">
 
-      <div
-        class="iframe-player">
+      <div class="iframe-player">
 
         <iframe
-          src="${escapeHTML(
-            frameURL
-          )}"
+          src="${escapeHTML(url)}"
           allow="
             autoplay;
             fullscreen;
@@ -3019,7 +3976,7 @@ function openEmbeddedPlayer(
     <div class="player-controls">
 
       <button
-        class="player-button"
+        class="player-button primary"
         onclick="tryNextSource()">
 
         TRY NEXT SOURCE
@@ -3043,108 +4000,46 @@ function openEmbeddedPlayer(
 
 
 /* ============================================================
-   PLAYER ERROR
-============================================================ */
-
-function showPlayerError(
-  message
-){
-
-  const status =
-    $("playerStatus");
-
-
-  if(status){
-
-    status.textContent =
-      message;
-
-    status.className =
-      "player-status error";
-
-  }
-
-}
-
-
-/* ============================================================
    NEXT SOURCE
 ============================================================ */
 
 function tryNextSource(){
 
   if(
-    !currentPlayableStreams.length
+    !currentStreams.length
   ){
-
-    showPlayerError(
-      "No other compatible sources are available."
-    );
 
     return;
 
   }
 
 
-  /*
-    Find the current stream's position
-    and advance.
-
-    If there is only one source, start
-    again with that source.
-  */
-
-  let current =
-    currentPlayerIndex;
-
-
-  current++;
+  let next =
+    currentPlayerIndex + 1;
 
 
   if(
-    current >=
-    currentPlayableStreams.length
+    next >= currentStreams.length
   ){
 
-    current = 0;
+    next = 0;
 
   }
 
 
   currentPlayerIndex =
-    current;
-
-
-  const next =
-    currentPlayableStreams[
-      current
-    ];
-
-
-  const originalIndex =
-    currentStreams.indexOf(
-      next
-    );
-
-
-  if(
-    originalIndex < 0
-  ){
-
-    return;
-
-  }
+    next;
 
 
   playSource(
-    originalIndex
+    next
   );
 
 }
 
 
 /* ============================================================
-   SHOW SOURCES
+   SOURCES AGAIN
 ============================================================ */
 
 function showSourcesAgain(){
@@ -3169,19 +4064,32 @@ function showSourcesAgain(){
     </div>
 
 
+    <div
+      class="notice">
+
+      All sources returned by the
+      stream addon are shown below.
+
+    </div>
+
+
     ${
       currentStreams.length
+
         ?
+
         currentStreams
           .map(
             renderSource
           )
           .join("")
+
         :
+
         `
-        <div class="empty">
-          No sources available.
-        </div>
+          <div class="empty">
+            No sources available.
+          </div>
         `
     }
 
@@ -3251,15 +4159,15 @@ function openSettings(){
 
     <div class="notice">
 
-      SAUVE stores these manifest addresses
+      Your manifest addresses are stored
       locally in this browser.
 
       <br><br>
 
-      The built-in player does not bypass
-      DRM, provider authentication,
-      CORS restrictions, or
-      not-web-ready restrictions.
+      SAUVE now displays all sources returned
+      by the stream addon instead of
+      automatically removing sources marked
+      NOT WEB READY.
 
     </div>
 
