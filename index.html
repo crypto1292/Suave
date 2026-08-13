@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <meta name="theme-color" content="#080612">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -14,67 +15,61 @@
 
 :root{
   --bg:#07050f;
-  --panel:#130d24;
-  --panel2:#1b1030;
-  --white:#fff8ff;
-  --muted:#a99bb9;
+  --panel:#110b20;
+  --panel2:#19102d;
   --pink:#ff2ed1;
-  --purple:#9b5cff;
+  --purple:#995cff;
   --cyan:#22e7ff;
-  --orange:#ff7043;
   --yellow:#ffd166;
+  --orange:#ff7043;
+  --white:#fff8ff;
+  --muted:#a99ab8;
 }
 
 *{
   box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
   margin:0;
-  padding:0;
   min-height:100%;
   background:var(--bg);
 }
 
 body{
   color:var(--white);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
-  "Segoe UI",Arial,sans-serif;
-  overflow-x:hidden;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
 
   background:
-    radial-gradient(circle at 50% -10%,
-      rgba(155,92,255,.28),
-      transparent 34%),
-    radial-gradient(circle at 0% 40%,
-      rgba(255,46,209,.11),
-      transparent 30%),
-    radial-gradient(circle at 100% 55%,
-      rgba(34,231,255,.09),
-      transparent 28%),
-    linear-gradient(180deg,#07050f,#090611 65%,#040308);
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:999;
-  opacity:.045;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 3px,
-      rgba(255,255,255,.18) 4px
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(153,92,255,.28),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 0% 40%,
+      rgba(255,46,209,.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 55%,
+      rgba(34,231,255,.1),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #07050f,
+      #090611 70%,
+      #040308
     );
 }
 
-button,
-input{
+button,input{
   font:inherit;
 }
 
@@ -83,15 +78,14 @@ button{
 }
 
 .app{
-  position:relative;
-  z-index:2;
   min-height:100vh;
-  padding-bottom:calc(82px + env(safe-area-inset-bottom));
+  padding-bottom:
+    calc(82px + env(safe-area-inset-bottom));
 }
 
-/* =========================================================
+/* =====================================================
    HEADER
-   ========================================================= */
+===================================================== */
 
 header{
   position:sticky;
@@ -99,7 +93,7 @@ header{
   z-index:50;
 
   padding:
-    calc(15px + env(safe-area-inset-top))
+    calc(14px + env(safe-area-inset-top))
     15px
     14px;
 
@@ -126,7 +120,8 @@ header{
     "Arial Narrow Bold",
     sans-serif;
 
-  font-size:clamp(64px,18vw,118px);
+  font-size:
+    clamp(65px,18vw,120px);
 
   line-height:.78;
 
@@ -141,39 +136,24 @@ header{
   text-shadow:
     0 0 3px #fff,
     0 0 8px var(--pink),
-    0 0 18px var(--pink),
-    0 0 38px var(--purple),
+    0 0 20px var(--pink),
+    0 0 40px var(--purple),
     5px 5px 0 rgba(34,231,255,.55);
-
-  animation:
-    logoPulse 3.5s ease-in-out infinite;
 }
 
 .logo-sub{
   margin-top:12px;
 
+  color:var(--cyan);
+
   font-size:9px;
 
   letter-spacing:5px;
 
-  color:var(--cyan);
+  font-weight:900;
 
   text-shadow:
-    0 0 8px var(--cyan);
-
-  font-weight:800;
-}
-
-@keyframes logoPulse{
-
-  0%,100%{
-    filter:brightness(1);
-  }
-
-  50%{
-    filter:brightness(1.2);
-  }
-
+    0 0 9px var(--cyan);
 }
 
 .header-actions{
@@ -192,12 +172,12 @@ header{
   border:
     1px solid rgba(34,231,255,.3);
 
-  background:rgba(15,9,29,.9);
+  background:#100a20;
 
   color:var(--cyan);
 
   box-shadow:
-    0 0 10px rgba(34,231,255,.12);
+    0 0 12px rgba(34,231,255,.12);
 }
 
 .search{
@@ -205,7 +185,6 @@ header{
   gap:8px;
 
   max-width:800px;
-
   margin:auto;
 }
 
@@ -214,11 +193,11 @@ header{
   min-width:0;
 
   border:
-    1px solid rgba(155,92,255,.35);
+    1px solid rgba(153,92,255,.35);
 
   border-radius:8px;
 
-  background:rgba(18,13,39,.92);
+  background:#120c23;
 
   color:white;
 
@@ -234,16 +213,15 @@ header{
     0 0 15px rgba(255,46,209,.2);
 }
 
-.search button{
+.search button,
+.primary{
   border:0;
-
-  border-radius:8px;
-
-  padding:0 15px;
 
   color:white;
 
   font-weight:900;
+
+  border-radius:8px;
 
   background:
     linear-gradient(
@@ -253,26 +231,24 @@ header{
     );
 
   box-shadow:
-    0 0 10px rgba(255,46,209,.75),
-    0 0 28px rgba(255,46,209,.35);
+    0 0 12px rgba(255,46,209,.65),
+    0 0 30px rgba(255,46,209,.25);
 }
 
-/* =========================================================
+/* =====================================================
    MAIN
-   ========================================================= */
+===================================================== */
 
 main{
   width:100%;
   max-width:1350px;
-
   margin:auto;
-
   padding:17px;
 }
 
-/* =========================================================
+/* =====================================================
    HERO
-   ========================================================= */
+===================================================== */
 
 .hero{
   position:relative;
@@ -310,62 +286,29 @@ main{
       #190b31 55%,
       #0b1024
     );
-
-  box-shadow:
-    inset 0 0 70px rgba(155,92,255,.12),
-    0 0 35px rgba(255,46,209,.08);
 }
 
 .hero:before{
   content:"";
-
   position:absolute;
-
   inset:0;
 
   background:
     linear-gradient(
       90deg,
       rgba(7,5,15,.98),
-      rgba(7,5,15,.73) 42%,
+      rgba(7,5,15,.72) 45%,
       rgba(7,5,15,.08)
     );
 }
 
-.hero:after{
-  content:"";
-
-  position:absolute;
-
-  width:420px;
-  height:420px;
-
-  right:-100px;
-  top:-80px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(34,231,255,.35),
-      transparent 62%
-    );
-
-  filter:blur(25px);
-}
-
 .hero-content{
   position:relative;
-
-  z-index:3;
-
+  z-index:2;
   max-width:680px;
 }
 
 .kicker{
-  display:inline-block;
-
   color:var(--cyan);
 
   font-size:10px;
@@ -374,16 +317,12 @@ main{
 
   font-weight:900;
 
-  text-transform:uppercase;
-
   text-shadow:
     0 0 10px var(--cyan);
-
-  margin-bottom:15px;
 }
 
 .hero h1{
-  margin:0;
+  margin:15px 0 0;
 
   font-family:
     Impact,
@@ -404,66 +343,38 @@ main{
 
 .hero p{
   color:#c4b7d3;
-
   line-height:1.65;
-
   max-width:560px;
-
   font-size:14px;
 }
 
 .hero-buttons{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:10px;
-
   margin-top:20px;
 }
 
 .primary,
 .secondary{
-  border-radius:8px;
-
   padding:13px 18px;
-
-  font-weight:900;
-}
-
-.primary{
-  border:0;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--purple)
-    );
-
-  box-shadow:
-    0 0 10px rgba(255,46,209,.75),
-    0 0 28px rgba(255,46,209,.35);
 }
 
 .secondary{
   border:
     1px solid rgba(34,231,255,.4);
 
+  border-radius:8px;
+
   color:var(--cyan);
 
   background:
     rgba(34,231,255,.06);
-
-  box-shadow:
-    0 0 15px rgba(34,231,255,.08);
 }
 
-/* =========================================================
+/* =====================================================
    SECTIONS
-   ========================================================= */
+===================================================== */
 
 section{
   margin:34px 0;
@@ -471,19 +382,17 @@ section{
 
 .section-heading{
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
 
   gap:12px;
 
   margin-bottom:15px;
 
+  padding-bottom:10px;
+
   border-bottom:
     1px solid rgba(255,46,209,.18);
-
-  padding-bottom:10px;
 }
 
 .section-heading h2{
@@ -495,8 +404,6 @@ section{
     sans-serif;
 
   font-size:25px;
-
-  letter-spacing:1px;
 
   text-transform:uppercase;
 
@@ -511,33 +418,28 @@ section{
 
   letter-spacing:2px;
 
-  font-weight:bold;
+  font-weight:900;
 }
 
-/* =========================================================
+/* =====================================================
    CARDS
-   ========================================================= */
+===================================================== */
 
 .grid{
   display:grid;
 
   grid-template-columns:
-    repeat(
-      2,
-      minmax(0,1fr)
-    );
+    repeat(2,minmax(0,1fr));
 
   gap:13px;
 }
 
 .card{
-  appearance:none;
-
   padding:0;
 
-  text-align:left;
-
   overflow:hidden;
+
+  text-align:left;
 
   border:
     1px solid rgba(255,255,255,.09);
@@ -551,17 +453,10 @@ section{
       #0f0b20
     );
 
-  color:#fff;
-
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease;
+  color:white;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-
   border-color:
     rgba(255,46,209,.5);
 
@@ -586,13 +481,11 @@ section{
 }
 
 .card-title{
-  white-space:nowrap;
-
   overflow:hidden;
-
+  white-space:nowrap;
   text-overflow:ellipsis;
 
-  font-weight:bold;
+  font-weight:800;
 
   font-size:14px;
 }
@@ -605,13 +498,12 @@ section{
   font-size:10px;
 }
 
-/* =========================================================
+/* =====================================================
    MODAL
-   ========================================================= */
+===================================================== */
 
 .modal{
   position:fixed;
-
   inset:0;
 
   z-index:100;
@@ -624,7 +516,6 @@ section{
     rgba(0,0,0,.78);
 
   backdrop-filter:blur(7px);
-
   -webkit-backdrop-filter:blur(7px);
 }
 
@@ -634,7 +525,6 @@ section{
 
 .sheet{
   width:100%;
-
   max-height:94vh;
 
   overflow:auto;
@@ -642,7 +532,7 @@ section{
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(155,92,255,.15),
+      rgba(153,92,255,.15),
       transparent 40%
     ),
     #0d0920;
@@ -656,17 +546,12 @@ section{
   padding:
     20px
     18px
-    calc(
-      30px +
-      env(safe-area-inset-bottom)
-    );
+    calc(30px + env(safe-area-inset-bottom));
 }
 
 .sheet-header{
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
 
   margin-bottom:20px;
@@ -680,12 +565,7 @@ section{
     Haettenschweiler,
     sans-serif;
 
-  letter-spacing:1px;
-
   font-size:27px;
-
-  text-shadow:
-    0 0 15px rgba(255,46,209,.4);
 }
 
 .close{
@@ -694,19 +574,19 @@ section{
 
   border-radius:50%;
 
-  background:#17102c;
-
   border:
     1px solid rgba(34,231,255,.25);
+
+  background:#17102c;
 
   color:var(--cyan);
 
   font-size:22px;
 }
 
-/* =========================================================
+/* =====================================================
    DETAILS
-   ========================================================= */
+===================================================== */
 
 .details{
   display:grid;
@@ -725,9 +605,6 @@ section{
   object-fit:cover;
 
   border-radius:8px;
-
-  box-shadow:
-    0 0 18px rgba(255,46,209,.18);
 }
 
 .details p{
@@ -746,12 +623,12 @@ section{
   letter-spacing:1px;
 }
 
-/* =========================================================
-   SOURCES
-   ========================================================= */
+/* =====================================================
+   PROVIDER SOURCE LIST
+===================================================== */
 
 .source-list{
-  margin-top:20px;
+  margin-top:22px;
 }
 
 .source{
@@ -760,6 +637,12 @@ section{
   width:100%;
 
   text-align:left;
+
+  margin-top:9px;
+
+  padding:14px;
+
+  border-radius:9px;
 
   border:
     1px solid rgba(34,231,255,.18);
@@ -771,13 +654,7 @@ section{
       #0d0a1d
     );
 
-  color:#fff;
-
-  padding:14px;
-
-  margin-top:8px;
-
-  border-radius:8px;
+  color:white;
 
   transition:.2s ease;
 }
@@ -789,21 +666,93 @@ section{
     0 0 15px rgba(34,231,255,.2);
 }
 
-.source strong{
-  display:block;
+.source-main{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.source small{
-  display:block;
+.source-icon{
+  width:34px;
+  height:34px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  flex:none;
+
+  border-radius:50%;
+
+  background:
+    rgba(34,231,255,.08);
+
+  color:var(--cyan);
+}
+
+.source-title{
+  font-weight:900;
+}
+
+.source-provider{
+  margin-top:4px;
+
+  color:var(--cyan);
+
+  font-size:10px;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+.source-details{
+  margin-top:6px;
 
   color:var(--muted);
 
-  margin-top:5px;
+  font-size:10px;
 }
 
-/* =========================================================
+.source-status{
+  margin-top:8px;
+
+  font-size:10px;
+
+  color:#aaa;
+}
+
+.badge{
+  display:inline-block;
+
+  padding:4px 7px;
+
+  margin-right:5px;
+
+  border-radius:5px;
+
+  font-size:8px;
+
+  letter-spacing:1px;
+
+  font-weight:900;
+
+  background:
+    rgba(255,46,209,.12);
+
+  color:#ff74df;
+}
+
+.badge.ready{
+  background:
+    rgba(34,231,255,.1);
+
+  color:var(--cyan);
+}
+
+/* =====================================================
    PLAYER
-   ========================================================= */
+===================================================== */
 
 .player-wrap{
   background:#000;
@@ -845,9 +794,9 @@ video{
   color:var(--muted);
 }
 
-/* =========================================================
+/* =====================================================
    SETTINGS
-   ========================================================= */
+===================================================== */
 
 .field{
   margin:18px 0;
@@ -866,7 +815,7 @@ video{
 
   text-transform:uppercase;
 
-  font-weight:bold;
+  font-weight:900;
 }
 
 .field input{
@@ -877,20 +826,13 @@ video{
   border-radius:7px;
 
   border:
-    1px solid rgba(155,92,255,.3);
+    1px solid rgba(153,92,255,.3);
 
   background:#080612;
 
-  color:#fff;
+  color:white;
 
   outline:none;
-}
-
-.field input:focus{
-  border-color:var(--pink);
-
-  box-shadow:
-    0 0 15px rgba(255,46,209,.12);
 }
 
 .notice{
@@ -911,15 +853,9 @@ video{
   line-height:1.6;
 }
 
-.status{
-  margin-top:13px;
-
-  font-size:12px;
-}
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
 
 .bottom-nav{
   position:fixed;
@@ -938,14 +874,12 @@ video{
   display:flex;
 
   justify-content:space-around;
-
   align-items:center;
 
   background:
     rgba(8,6,18,.94);
 
   backdrop-filter:blur(20px);
-
   -webkit-backdrop-filter:blur(20px);
 
   border-top:
@@ -953,9 +887,8 @@ video{
 }
 
 .nav-btn{
-  background:none;
-
   border:0;
+  background:none;
 
   color:#75687f;
 
@@ -983,10 +916,6 @@ video{
     0 0 10px var(--pink);
 }
 
-/* =========================================================
-   EMPTY
-   ========================================================= */
-
 .empty{
   padding:25px 0;
 
@@ -995,22 +924,11 @@ video{
   font-size:13px;
 }
 
-/* =========================================================
-   DESKTOP
-   ========================================================= */
-
 @media(min-width:700px){
 
   .grid{
     grid-template-columns:
-      repeat(
-        5,
-        minmax(0,1fr)
-      );
-  }
-
-  .hero{
-    min-height:530px;
+      repeat(5,minmax(0,1fr));
   }
 
   .details{
@@ -1024,27 +942,8 @@ video{
 
 }
 
-@media(max-width:430px){
-
-  .logo{
-    font-size:64px;
-  }
-
-  .hero{
-    min-height:410px;
-
-    padding:25px;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-}
-
 </style>
 </head>
-
 
 <body>
 
@@ -1064,7 +963,6 @@ video{
 
   </div>
 
-
   <div class="header-actions">
 
     <button
@@ -1081,13 +979,11 @@ video{
 
   </div>
 
-
   <div class="search">
 
     <input
       id="searchInput"
-      placeholder="Search movies & television"
-      autocomplete="off">
+      placeholder="Search movies & television">
 
     <button
       id="searchButton">
@@ -1097,7 +993,6 @@ video{
   </div>
 
 </header>
-
 
 <main id="main">
 
@@ -1110,13 +1005,13 @@ video{
       </div>
 
       <h1>
-        Cinema<br>
-        After Dark
+        CINEMA<br>
+        AFTER DARK
       </h1>
 
       <p>
         A neon media experience powered by
-        your metadata and your own compatible
+        your metadata and your compatible
         streaming addon.
       </p>
 
@@ -1139,7 +1034,6 @@ video{
     </div>
 
   </div>
-
 
   <section>
 
@@ -1165,33 +1059,7 @@ video{
 
   </section>
 
-
-  <section>
-
-    <div class="section-heading">
-
-      <h2>
-        Television
-      </h2>
-
-      <span>
-        SERIES
-      </span>
-
-    </div>
-
-    <div
-      id="series"
-      class="empty">
-
-      Loading television…
-
-    </div>
-
-  </section>
-
 </main>
-
 
 <nav class="bottom-nav">
 
@@ -1200,40 +1068,33 @@ video{
     data-page="home">
 
     <span>⌂</span>
-
     HOME
 
   </button>
-
 
   <button
     class="nav-btn"
     data-page="search">
 
     <span>⌕</span>
-
     SEARCH
 
   </button>
-
 
   <button
     class="nav-btn"
     data-page="library">
 
     <span>♡</span>
-
     LIBRARY
 
   </button>
-
 
   <button
     class="nav-btn"
     data-page="settings">
 
     <span>⚙</span>
-
     SETTINGS
 
   </button>
@@ -1241,7 +1102,6 @@ video{
 </nav>
 
 </div>
-
 
 <div
   class="modal"
@@ -1254,12 +1114,11 @@ video{
 
 </div>
 
-
 <script>
 
-/* =========================================================
-   CONFIGURATION
-   ========================================================= */
+/* =====================================================
+   CONFIG
+===================================================== */
 
 const DEFAULT_METADATA =
 "https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
@@ -1283,31 +1142,18 @@ const state = {
     JSON.parse(
       localStorage.getItem(
         "sauve_favorites"
-      ) ||
-      "[]"
-    ),
-
-  history:
-    JSON.parse(
-      localStorage.getItem(
-        "sauve_history"
-      ) ||
-      "[]"
+      ) || "[]"
     )
 
 };
 
 
-/* =========================================================
+/* =====================================================
    HELPERS
-   ========================================================= */
+===================================================== */
 
 function $(selector){
-
-  return document.querySelector(
-    selector
-  );
-
+  return document.querySelector(selector);
 }
 
 
@@ -1316,15 +1162,13 @@ function escapeHTML(value=""){
   return String(value)
     .replace(
       /[&<>"']/g,
-      character => ({
-
+      c => ({
         "&":"&amp;",
         "<":"&lt;",
         ">":"&gt;",
         '"':"&quot;",
         "'":"&#039;"
-
-      }[character])
+      }[c])
     );
 
 }
@@ -1333,26 +1177,18 @@ function escapeHTML(value=""){
 async function getJSON(url){
 
   const response =
-    await fetch(
-      url,
-      {
-        headers:{
-          Accept:
-            "application/json"
-        }
+    await fetch(url,{
+      headers:{
+        Accept:"application/json"
       }
-    );
-
+    });
 
   if(!response.ok){
-
     throw new Error(
       "HTTP " +
       response.status
     );
-
   }
-
 
   return response.json();
 
@@ -1389,9 +1225,236 @@ function resourceURL(
 }
 
 
-/* =========================================================
+/* =====================================================
+   STREAM FORMAT DETECTION
+===================================================== */
+
+function detectStreamFormat(stream){
+
+  const url =
+    String(
+      stream?.url || ""
+    ).toLowerCase();
+
+  const type =
+    String(
+      stream?.type || ""
+    ).toLowerCase();
+
+  const title =
+    String(
+      stream?.title ||
+      stream?.name ||
+      stream?.description ||
+      ""
+    ).toLowerCase();
+
+
+  if(
+    type.includes("mpegurl") ||
+    type.includes("m3u8") ||
+    url.includes(".m3u8")
+  ){
+
+    return "hls";
+
+  }
+
+
+  if(
+    type.includes("mp4") ||
+    url.includes(".mp4") ||
+    title.includes("mp4")
+  ){
+
+    return "mp4";
+
+  }
+
+
+  if(
+    type.includes("webm") ||
+    url.includes(".webm") ||
+    title.includes("webm")
+  ){
+
+    return "webm";
+
+  }
+
+
+  if(
+    type.startsWith("video/")
+  ){
+
+    return "video";
+
+  }
+
+
+  return "unknown";
+
+}
+
+
+/* =====================================================
+   PROVIDER DETECTION
+===================================================== */
+
+function detectProvider(stream){
+
+  const text =
+    (
+      stream?.name ||
+      stream?.title ||
+      stream?.description ||
+      stream?.url ||
+      ""
+    ).toLowerCase();
+
+
+  const providers = [
+
+    "2peckle",
+    "4khdhub",
+    "111477",
+    "vidking",
+    "vidfast",
+    "vidlink",
+    "moviebox",
+    "moviesdrives",
+    "miruro",
+    "cinefreak",
+    "aniwaves",
+    "vegamovies",
+    "vaplayer",
+    "zxcstream",
+    "aether",
+    "animesuge"
+
+  ];
+
+
+  for(
+    const provider of providers
+  ){
+
+    if(
+      text.includes(provider)
+    ){
+
+      return provider;
+
+    }
+
+  }
+
+
+  return "stream provider";
+
+}
+
+
+/* =====================================================
+   PLAYABILITY SCORE
+===================================================== */
+
+function scoreStream(stream){
+
+  const format =
+    detectStreamFormat(
+      stream
+    );
+
+  const provider =
+    detectProvider(
+      stream
+    );
+
+
+  let score = 0;
+
+
+  /*
+    Native browser formats.
+  */
+
+  if(format === "hls"){
+    score += 100;
+  }
+
+  else if(format === "mp4"){
+    score += 95;
+  }
+
+  else if(format === "webm"){
+    score += 90;
+  }
+
+  else if(format === "video"){
+    score += 80;
+  }
+
+  else{
+    score += 50;
+  }
+
+
+  /*
+    2Peckle gets a small preference
+    because you've confirmed it works
+    in your current iPhone setup.
+
+    It is NOT treated as the only
+    playable provider.
+  */
+
+  if(provider === "2peckle"){
+    score += 10;
+  }
+
+
+  return score;
+
+}
+
+
+/* =====================================================
+   SOURCE LABEL
+===================================================== */
+
+function sourceLabel(stream){
+
+  const format =
+    detectStreamFormat(
+      stream
+    );
+
+
+  if(format === "hls"){
+    return "HLS";
+  }
+
+  if(format === "mp4"){
+    return "MP4";
+  }
+
+  if(format === "webm"){
+    return "WEBM";
+  }
+
+  if(format === "video"){
+    return "VIDEO";
+  }
+
+  return "HTTP";
+
+}
+
+
+/* =====================================================
    POSTER
-   ========================================================= */
+===================================================== */
 
 function getPoster(item){
 
@@ -1404,45 +1467,26 @@ function getPoster(item){
 }
 
 
-/* =========================================================
+/* =====================================================
    CARD
-   ========================================================= */
+===================================================== */
 
 function cardHTML(item){
 
   return `
 
     <button
-
       class="card"
-
-      data-id="${escapeHTML(
-        item.id || ""
-      )}"
-
-      data-type="${escapeHTML(
-        item.type ||
-        "movie"
-      )}"
-
-    >
+      data-id="${escapeHTML(item.id || "")}"
+      data-type="${escapeHTML(item.type || "movie")}">
 
       <img
-
         class="poster"
-
-        src="${escapeHTML(
-          getPoster(item)
-        )}"
-
+        src="${escapeHTML(getPoster(item))}"
         loading="lazy"
-
         onerror="
           this.style.visibility='hidden'
-        "
-
-      >
-
+        ">
 
       <div class="card-info">
 
@@ -1454,7 +1498,6 @@ function cardHTML(item){
           )}
 
         </div>
-
 
         <div class="card-sub">
 
@@ -1487,43 +1530,24 @@ function gridHTML(items=[]){
 
   }
 
-
   return `
-
     <div class="grid">
-
-      ${items
-        .map(cardHTML)
-        .join("")}
-
+      ${items.map(cardHTML).join("")}
     </div>
-
   `;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    HOME
-   ========================================================= */
+===================================================== */
 
 async function loadHome(){
 
-  $("#trending").innerHTML =
-    `<div class="empty">
-      Loading cinema…
-    </div>`;
-
-
-  $("#series").innerHTML =
-    `<div class="empty">
-      Loading television…
-    </div>`;
-
-
   try{
 
-    const movieURL =
+    const url =
       resourceURL(
         state.metadata,
         "catalog",
@@ -1533,15 +1557,12 @@ async function loadHome(){
 
 
     const result =
-      await getJSON(
-        movieURL
-      );
+      await getJSON(url);
 
 
     $("#trending").innerHTML =
       gridHTML(
-        result.metas ||
-        []
+        result.metas || []
       );
 
   }
@@ -1549,7 +1570,7 @@ async function loadHome(){
 
     $("#trending").innerHTML = `
 
-      <div class="empty">
+      <div class="notice">
 
         Metadata catalog unavailable.
 
@@ -1565,163 +1586,12 @@ async function loadHome(){
 
   }
 
-
-  try{
-
-    const seriesURL =
-      resourceURL(
-        state.metadata,
-        "catalog",
-        "series",
-        "tmdb.trending"
-      );
-
-
-    const result =
-      await getJSON(
-        seriesURL
-      );
-
-
-    $("#series").innerHTML =
-      gridHTML(
-        result.metas ||
-        []
-      );
-
-  }
-  catch(error){
-
-    $("#series").innerHTML = `
-
-      <div class="empty">
-
-        Television catalog unavailable.
-
-      </div>
-
-    `;
-
-  }
-
 }
 
 
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-async function search(query){
-
-  $("#main").innerHTML = `
-
-    <section>
-
-      <div class="section-heading">
-
-        <h2>
-          Search
-        </h2>
-
-        <span>
-          ${escapeHTML(query)}
-        </span>
-
-      </div>
-
-
-      <div
-        id="searchResults"
-        class="empty">
-
-        Searching…
-
-      </div>
-
-    </section>
-
-  `;
-
-
-  try{
-
-    const movieURL =
-      resourceURL(
-        state.metadata,
-        "catalog",
-        "movie",
-        "search"
-      ) +
-      "?search=" +
-      encodeURIComponent(
-        query
-      );
-
-
-    const seriesURL =
-      resourceURL(
-        state.metadata,
-        "catalog",
-        "series",
-        "search"
-      ) +
-      "?search=" +
-      encodeURIComponent(
-        query
-      );
-
-
-    const [
-      movies,
-      series
-    ] =
-      await Promise.all([
-        getJSON(movieURL),
-        getJSON(seriesURL)
-      ]);
-
-
-    const results = [
-
-      ...(movies.metas || []),
-
-      ...(series.metas || [])
-
-    ];
-
-
-    $("#searchResults")
-      .innerHTML =
-      gridHTML(results);
-
-  }
-  catch(error){
-
-    $("#searchResults")
-      .innerHTML = `
-
-        <div class="empty">
-
-          Search unavailable.
-
-          <br><br>
-
-          ${escapeHTML(
-            error.message
-          )}
-
-        </div>
-
-      `;
-
-  }
-
-}
-
-
-/* =========================================================
+/* =====================================================
    DETAILS
-   ========================================================= */
+===================================================== */
 
 async function openDetails(
   type,
@@ -1729,11 +1599,9 @@ async function openDetails(
 ){
 
   openModal(`
-
     <div class="empty">
       Loading title…
     </div>
-
   `);
 
 
@@ -1741,14 +1609,12 @@ async function openDetails(
 
     const result =
       await getJSON(
-
         resourceURL(
           state.metadata,
           "meta",
           type,
           id
         )
-
       );
 
 
@@ -1757,31 +1623,21 @@ async function openDetails(
       result;
 
 
-    const saved =
-      state.favorites
-        .includes(id);
-
-
     openModal(`
 
       <div class="sheet-header">
 
         <h2>
-
           ${escapeHTML(
             item.name ||
-            "Title"
+            "TITLE"
           )}
-
         </h2>
-
 
         <button
           class="close"
           onclick="closeModal()">
-
           ×
-
         </button>
 
       </div>
@@ -1790,16 +1646,9 @@ async function openDetails(
       <div class="details">
 
         <img
-
           src="${escapeHTML(
             getPoster(item)
-          )}"
-
-          onerror="
-            this.style.visibility='hidden'
-          "
-
-        >
+          )}">
 
 
         <div>
@@ -1825,30 +1674,13 @@ async function openDetails(
           </p>
 
 
-          <div class="hero-buttons">
+          <button
+            class="primary"
+            id="findSources">
 
-            <button
-              class="primary"
-              id="findSources">
+            ▶ FIND SOURCES
 
-              ▶ FIND SOURCES
-
-            </button>
-
-
-            <button
-              class="secondary"
-              id="favoriteTitle">
-
-              ${
-                saved
-                ? "♥ SAVED"
-                : "♡ SAVE"
-              }
-
-            </button>
-
-          </div>
+          </button>
 
         </div>
 
@@ -1871,11 +1703,6 @@ async function openDetails(
           id
         );
 
-
-    $("#favoriteTitle").onclick =
-      () =>
-        toggleFavorite(id);
-
   }
   catch(error){
 
@@ -1884,26 +1711,18 @@ async function openDetails(
       <div class="sheet-header">
 
         <h2>
-          SAUVE
+          ERROR
         </h2>
-
 
         <button
           class="close"
           onclick="closeModal()">
-
           ×
-
         </button>
 
       </div>
 
-
       <div class="notice">
-
-        Unable to load this title.
-
-        <br><br>
 
         ${escapeHTML(
           error.message
@@ -1918,202 +1737,9 @@ async function openDetails(
 }
 
 
-/* =========================================================
-   STREAM TYPE
-   ========================================================= */
-
-function detectStreamType(
-  stream
-){
-
-  if(!stream){
-
-    return "unknown";
-
-  }
-
-
-  const url =
-    String(
-      stream.url ||
-      ""
-    ).toLowerCase();
-
-
-  const type =
-    String(
-      stream.type ||
-      ""
-    ).toLowerCase();
-
-
-  const name =
-    String(
-      stream.name ||
-      stream.title ||
-      stream.description ||
-      ""
-    ).toLowerCase();
-
-
-  if(
-
-    type.includes("mpegurl") ||
-    type.includes("m3u8") ||
-
-    url.includes(".m3u8") ||
-
-    url.includes(
-      "application/vnd.apple.mpegurl"
-    ) ||
-
-    url.includes(
-      "application/x-mpegurl"
-    )
-
-  ){
-
-    return "hls";
-
-  }
-
-
-  if(
-
-    type.includes("video/mp4") ||
-    type.includes("mp4") ||
-
-    url.includes(".mp4") ||
-
-    name.includes("mp4")
-
-  ){
-
-    return "mp4";
-
-  }
-
-
-  if(
-
-    type.includes("webm") ||
-
-    url.includes(".webm") ||
-
-    name.includes("webm")
-
-  ){
-
-    return "webm";
-
-  }
-
-
-  if(
-    type.startsWith("video/")
-  ){
-
-    return "video";
-
-  }
-
-
-  if(
-    url.includes(
-      "pengu.uk/direct/external"
-    )
-  ){
-
-    return "external";
-
-  }
-
-
-  return "unknown";
-
-}
-
-
-/* =========================================================
-   SOURCE SCORE
-   ========================================================= */
-
-function streamScore(
-  stream
-){
-
-  switch(
-    detectStreamType(stream)
-  ){
-
-    case "hls":
-      return 100;
-
-    case "mp4":
-      return 95;
-
-    case "webm":
-      return 90;
-
-    case "video":
-      return 80;
-
-    case "unknown":
-      return 30;
-
-    case "external":
-      return 5;
-
-    default:
-      return 0;
-
-  }
-
-}
-
-
-/* =========================================================
-   SOURCE LABEL
-   ========================================================= */
-
-function streamLabel(
-  stream
-){
-
-  const type =
-    detectStreamType(
-      stream
-    );
-
-
-  if(type === "hls")
-    return "HLS • iPhone Ready";
-
-
-  if(type === "mp4")
-    return "MP4 • iPhone Ready";
-
-
-  if(type === "webm")
-    return "WEBM • Browser Ready";
-
-
-  if(type === "video")
-    return "VIDEO • Browser Compatible";
-
-
-  if(type === "external")
-    return "EXTERNAL • Download Source";
-
-
-  return "UNKNOWN • May Not Play";
-
-}
-
-
-/* =========================================================
-   FIND STREAMS
-   ========================================================= */
+/* =====================================================
+   STREAM SEARCH
+===================================================== */
 
 async function findStreams(
   type,
@@ -2122,51 +1748,7 @@ async function findStreams(
 
   if(!state.stream){
 
-    openModal(`
-
-      <div class="sheet-header">
-
-        <h2>
-          ADD STREAM ADDON
-        </h2>
-
-
-        <button
-          class="close"
-          onclick="closeModal()">
-
-          ×
-
-        </button>
-
-      </div>
-
-
-      <div class="notice">
-
-        No stream addon is configured.
-
-        <br><br>
-
-        Add your own PenguPlay-compatible
-        manifest in SAUVE Settings.
-
-      </div>
-
-
-      <div class="hero-buttons">
-
-        <button
-          class="primary"
-          onclick="settings()">
-
-          ⚙ OPEN SETTINGS
-
-        </button>
-
-      </div>
-
-    `);
+    settings();
 
     return;
 
@@ -2183,7 +1765,7 @@ async function findStreams(
           0 0 10px #22e7ff;
       ">
 
-        SCANNING SOURCES…
+        SCANNING PROVIDERS…
 
       </span>
 
@@ -2192,19 +1774,19 @@ async function findStreams(
   `;
 
 
-  const url =
-    resourceURL(
-      state.stream,
-      "stream",
-      type,
-      id
-    );
-
-
   try{
 
     const result =
-      await getJSON(url);
+      await getJSON(
+
+        resourceURL(
+          state.stream,
+          "stream",
+          type,
+          id
+        )
+
+      );
 
 
     let streams =
@@ -2216,10 +1798,9 @@ async function findStreams(
 
       $("#sourceArea").innerHTML = `
 
-        <div class="empty">
+        <div class="notice">
 
-          No sources were returned
-          for this title.
+          No sources were returned.
 
         </div>
 
@@ -2231,27 +1812,29 @@ async function findStreams(
 
 
     /*
-      Add type and score.
+      Enrich every source.
     */
 
     streams =
       streams.map(
-        (
-          stream,
-          index
-        ) => ({
+        (stream,index) => ({
 
           ...stream,
 
           _index:index,
 
-          _type:
-            detectStreamType(
+          _provider:
+            detectProvider(
+              stream
+            ),
+
+          _format:
+            detectStreamFormat(
               stream
             ),
 
           _score:
-            streamScore(
+            scoreStream(
               stream
             )
 
@@ -2260,7 +1843,7 @@ async function findStreams(
 
 
     /*
-      Put playable sources first.
+      Sort best candidates first.
     */
 
     streams.sort(
@@ -2270,222 +1853,106 @@ async function findStreams(
     );
 
 
-    /*
-      Find best source.
-    */
-
-    const bestPlayable =
-      streams.find(
-        stream =>
-
-          stream._type === "hls" ||
-          stream._type === "mp4" ||
-          stream._type === "webm" ||
-          stream._type === "video"
-
-      );
-
-
     $("#sourceArea").innerHTML = `
 
       <div class="section-heading">
 
         <h2>
-          PLAYBACK SOURCES
+          SOURCES
         </h2>
 
         <span>
-
-          ${streams.length}
-          FOUND
-
+          ${streams.length} FOUND
         </span>
 
       </div>
 
 
-      ${
-        bestPlayable
-        ?
-
-        `
-
-          <button
-            class="primary"
-            id="bestSource"
-
-            style="
-              width:100%;
-              margin-bottom:14px;
-              padding:16px;
-            ">
-
-            ▶ PLAY BEST AVAILABLE SOURCE
-
-          </button>
-
-        `
-
-        :
-
-        `
-
-          <div class="notice">
-
-            No browser-playable source
-            was detected.
-
-          </div>
-
-        `
-      }
-
-
       <div>
 
         ${streams.map(
-          (
-            stream,
-            index
-          ) => {
+          (stream,index) => `
 
-            const title =
-              stream.name ||
-              stream.title ||
-              "SOURCE";
+            <button
+              class="source"
+              data-source-index="${index}">
 
+              <div class="source-main">
 
-            const quality =
-              stream.quality ||
-              "";
+                <div class="source-icon">
 
+                  ▶
 
-            const description =
-              stream.description ||
-              "";
+                </div>
 
 
-            const label =
-              streamLabel(
-                stream
-              );
+                <div>
+
+                  <div class="source-title">
+
+                    ${escapeHTML(
+                      stream.name ||
+                      stream.title ||
+                      "STREAM"
+                    )}
+
+                  </div>
 
 
-            const playable =
-              stream._type !==
-                "external" &&
-              stream._type !==
-                "unknown";
+                  <div class="source-provider">
+
+                    ${escapeHTML(
+                      stream._provider
+                    )}
+
+                  </div>
 
 
-            const icon =
-              playable
-              ? "▶"
-              : "⚠";
+                  <div class="source-details">
 
-
-            return `
-
-              <button
-
-                class="source"
-
-                data-stream-index="${index}"
-
-                style="
-                  opacity:
-                    ${playable
-                      ? "1"
-                      : ".62"};
-                "
-
-              >
-
-                <div style="
-                  display:flex;
-                  align-items:center;
-                  gap:10px;
-                ">
-
-                  <span style="
-                    font-size:20px;
-                    color:
-                      ${
-                        playable
-                        ? "#22e7ff"
-                        : "#ff7043"
-                      };
-                  ">
-
-                    ${icon}
-
-                  </span>
-
-
-                  <div style="
-                    flex:1;
-                  ">
-
-                    <strong>
+                    <span class="badge ready">
 
                       ${escapeHTML(
-                        title
+                        sourceLabel(stream)
                       )}
 
-                    </strong>
-
-
-                    <small>
-
-                      ${escapeHTML(
-                        label
-                      )}
-
-                      ${
-                        quality
-                        ? " • " +
-                          escapeHTML(
-                            quality
-                          )
-                        : ""
-                      }
-
-                    </small>
+                    </span>
 
 
                     ${
-                      description
+                      stream.quality
                       ?
 
-                      `
-
-                        <small style="
-                          opacity:.65;
-                        ">
-
-                          ${escapeHTML(
-                            description
-                          )}
-
-                        </small>
-
-                      `
+                      `<span class="badge">
+                        ${escapeHTML(
+                          stream.quality
+                        )}
+                      </span>`
 
                       :
 
                       ""
-
                     }
 
                   </div>
 
                 </div>
 
-              </button>
+              </div>
 
-            `;
 
-          }
+              <div class="source-status">
+
+                ${escapeHTML(
+                  stream.description ||
+                  "HTTP source"
+                )}
+
+              </div>
+
+            </button>
+
+          `
         ).join("")}
 
       </div>
@@ -2493,20 +1960,9 @@ async function findStreams(
     `;
 
 
-    if(bestPlayable){
-
-      $("#bestSource").onclick =
-        () =>
-          playStream(
-            bestPlayable
-          );
-
-    }
-
-
     $("#sourceArea")
       .querySelectorAll(
-        "[data-stream-index]"
+        "[data-source-index]"
       )
       .forEach(
         button => {
@@ -2517,77 +1973,12 @@ async function findStreams(
               const index =
                 Number(
                   button.dataset
-                    .streamIndex
+                    .sourceIndex
                 );
-
-
-              const stream =
-                streams[index];
-
-
-              if(
-                stream._type ===
-                "external"
-              ){
-
-                openModal(`
-
-                  <div class="sheet-header">
-
-                    <h2>
-                      EXTERNAL SOURCE
-                    </h2>
-
-
-                    <button
-                      class="close"
-                      onclick="closeModal()">
-
-                      ×
-
-                    </button>
-
-                  </div>
-
-
-                  <div class="notice">
-
-                    This source appears to be
-                    a download-style endpoint
-                    rather than a browser-playable
-                    video stream.
-
-                    <br><br>
-
-                    SAUVE has therefore prevented
-                    the web player from attempting
-                    to play it.
-
-                  </div>
-
-                `);
-
-                return;
-
-              }
-
-
-              if(
-                stream._type ===
-                "unknown"
-              ){
-
-                playStream(
-                  stream
-                );
-
-                return;
-
-              }
 
 
               playStream(
-                stream
+                streams[index]
               );
 
             };
@@ -2603,7 +1994,7 @@ async function findStreams(
       <div class="notice">
 
         <strong>
-          STREAM SEARCH FAILED
+          SOURCE SEARCH FAILED
         </strong>
 
         <br><br>
@@ -2621,13 +2012,11 @@ async function findStreams(
 }
 
 
-/* =========================================================
+/* =====================================================
    PLAYER
-   ========================================================= */
+===================================================== */
 
-function playStream(
-  stream
-){
+function playStream(stream){
 
   const url =
     stream?.url ||
@@ -2636,9 +2025,8 @@ function playStream(
 
   if(!url){
 
-    showPlaybackError(
-      "",
-      "No playable URL was returned."
+    playbackError(
+      "This source did not provide a playable URL."
     );
 
     return;
@@ -2646,52 +2034,16 @@ function playStream(
   }
 
 
-  const type =
-    detectStreamType(
+  const provider =
+    detectProvider(
       stream
     );
 
 
-  if(type === "external"){
-
-    showPlaybackError(
-      url,
-      "This source is a download endpoint rather than a browser-playable video stream."
+  const format =
+    detectStreamFormat(
+      stream
     );
-
-    return;
-
-  }
-
-
-  if(
-    !/^https?:\/\//i.test(
-      url
-    )
-  ){
-
-    showPlaybackError(
-      url,
-      "This source does not use a browser-supported HTTP protocol."
-    );
-
-    return;
-
-  }
-
-
-  const label =
-
-    type === "hls"
-      ? "HLS"
-
-    : type === "mp4"
-      ? "MP4"
-
-    : type === "webm"
-      ? "WEBM"
-
-    : "VIDEO";
 
 
   openModal(`
@@ -2702,13 +2054,10 @@ function playStream(
         NOW PLAYING
       </h2>
 
-
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -2717,32 +2066,30 @@ function playStream(
     <div class="player-wrap">
 
       <video
-
         id="sauveVideo"
-
         controls
-
         playsinline
-
         webkit-playsinline
-
-        preload="metadata"
-
-      ></video>
+        preload="metadata">
+      </video>
 
 
       <div class="player-info">
 
         <strong>
-          SAUVE PLAYER
+
+          ${escapeHTML(
+            provider
+          )}
+
         </strong>
 
 
-        <small
-          id="playerStatus">
+        <small id="playerStatus">
 
           Loading
-          ${label}…
+          ${escapeHTML(format.toUpperCase())}
+          …
 
         </small>
 
@@ -2754,43 +2101,20 @@ function playStream(
 
 
   const video =
-    document.getElementById(
-      "sauveVideo"
-    );
+    $("#sauveVideo");
 
 
   const status =
-    document.getElementById(
-      "playerStatus"
-    );
+    $("#playerStatus");
 
 
   /*
-    Set MIME type where known.
-  */
+    IMPORTANT:
+    We use the URL exactly as returned
+    by the user's configured addon.
 
-  if(type === "mp4"){
-
-    video.setAttribute(
-      "type",
-      "video/mp4"
-    );
-
-  }
-
-
-  if(type === "webm"){
-
-    video.setAttribute(
-      "type",
-      "video/webm"
-    );
-
-  }
-
-
-  /*
-    iPhone Safari has native HLS support.
+    We do not invent headers or bypass
+    provider authorization.
   */
 
   video.src =
@@ -2802,27 +2126,13 @@ function playStream(
     () => {
 
       status.textContent =
-        "READY TO PLAY";
+        "READY";
 
 
       video.play()
         .catch(
           () => {}
         );
-
-    },
-    {
-      once:true
-    }
-  );
-
-
-  video.addEventListener(
-    "canplay",
-    () => {
-
-      status.textContent =
-        "READY";
 
     },
     {
@@ -2857,9 +2167,8 @@ function playStream(
     "error",
     () => {
 
-      showPlaybackError(
-        url,
-        "Safari could not play this source."
+      playbackError(
+        "Safari could not decode or access this source. Try another provider."
       );
 
     },
@@ -2874,14 +2183,11 @@ function playStream(
 }
 
 
-/* =========================================================
+/* =====================================================
    PLAYBACK ERROR
-   ========================================================= */
+===================================================== */
 
-function showPlaybackError(
-  url,
-  message
-){
+function playbackError(message){
 
   openModal(`
 
@@ -2891,13 +2197,10 @@ function showPlaybackError(
         PLAYBACK ERROR
       </h2>
 
-
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -2905,32 +2208,19 @@ function showPlaybackError(
 
     <div class="notice">
 
-      <strong>
-
-        ${escapeHTML(
-          message
-        )}
-
-      </strong>
-
+      ${escapeHTML(
+        message
+      )}
 
       <br><br>
 
-      Try another source from
-      the playback list.
+      This usually means the provider
+      requires playback behavior that
+      Safari cannot reproduce directly.
 
-    </div>
+      <br><br>
 
-
-    <div class="hero-buttons">
-
-      <button
-        class="primary"
-        onclick="closeModal()">
-
-        ← BACK TO SOURCES
-
-      </button>
+      Try another source.
 
     </div>
 
@@ -2939,53 +2229,93 @@ function showPlaybackError(
 }
 
 
-/* =========================================================
-   FAVORITES
-   ========================================================= */
+/* =====================================================
+   SEARCH
+===================================================== */
 
-function toggleFavorite(
-  id
-){
+async function search(query){
 
-  if(
-    state.favorites.includes(
-      id
-    )
-  ){
+  $("#main").innerHTML = `
 
-    state.favorites =
-      state.favorites.filter(
-        item =>
-          item !== id
+    <section>
+
+      <div class="section-heading">
+
+        <h2>
+          SEARCH
+        </h2>
+
+        <span>
+          ${escapeHTML(query)}
+        </span>
+
+      </div>
+
+
+      <div
+        id="searchResults"
+        class="empty">
+
+        Searching…
+
+      </div>
+
+    </section>
+
+  `;
+
+
+  try{
+
+    const url =
+      resourceURL(
+        state.metadata,
+        "catalog",
+        "movie",
+        "search"
+      ) +
+      "?search=" +
+      encodeURIComponent(
+        query
+      );
+
+
+    const result =
+      await getJSON(url);
+
+
+    $("#searchResults").innerHTML =
+      gridHTML(
+        result.metas || []
       );
 
   }
-  else{
+  catch(error){
 
-    state.favorites.push(
-      id
-    );
+    $("#searchResults").innerHTML = `
+
+      <div class="notice">
+
+        Search failed.
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
 
   }
-
-
-  localStorage.setItem(
-    "sauve_favorites",
-
-    JSON.stringify(
-      state.favorites
-    )
-  );
-
-
-  closeModal();
 
 }
 
 
-/* =========================================================
+/* =====================================================
    SETTINGS
-   ========================================================= */
+===================================================== */
 
 function settings(){
 
@@ -2997,13 +2327,10 @@ function settings(){
         SAUVE SETTINGS
       </h2>
 
-
       <button
         class="close"
         onclick="closeModal()">
-
         ×
-
       </button>
 
     </div>
@@ -3015,16 +2342,11 @@ function settings(){
         AIO Metadata Manifest
       </label>
 
-
       <input
-
         id="metadataURL"
-
         value="${escapeHTML(
           state.metadata
-        )}"
-
-      >
+        )}">
 
     </div>
 
@@ -3032,37 +2354,28 @@ function settings(){
     <div class="field">
 
       <label>
-        Your Stream Manifest
+        Stream Manifest
       </label>
 
-
       <input
-
         id="streamURL"
-
-        placeholder="
-          Paste your own manifest URL
-        "
-
+        placeholder="Paste your stream manifest"
         value="${escapeHTML(
           state.stream
-        )}"
-
-      >
+        )}">
 
     </div>
 
 
     <div class="notice">
 
-      Your manifest URLs are stored
+      SAUVE stores these manifest URLs
       locally on this device.
 
       <br><br>
 
-      SAUVE does not require your
-      Real-Debrid API key in this
-      HTML application.
+      SAUVE does not ask for or store
+      your Real-Debrid API key.
 
     </div>
 
@@ -3073,16 +2386,7 @@ function settings(){
         class="primary"
         id="saveSettings">
 
-        ✓ SAVE & TEST
-
-      </button>
-
-
-      <button
-        class="secondary"
-        id="disconnect">
-
-        DISCONNECT STREAM
+        ✓ SAVE
 
       </button>
 
@@ -3091,14 +2395,17 @@ function settings(){
 
     <div
       id="settingsStatus"
-      class="status">
+      style="
+        margin-top:15px;
+        color:#22e7ff;
+      ">
     </div>
 
   `);
 
 
   $("#saveSettings").onclick =
-    async () => {
+    () => {
 
       const metadata =
         $("#metadataURL")
@@ -3116,149 +2423,69 @@ function settings(){
 
         $("#settingsStatus")
           .textContent =
-          "Enter an AIO metadata manifest.";
+          "Metadata manifest required.";
 
         return;
 
       }
 
 
-      $("#settingsStatus")
-        .textContent =
-        "Testing metadata…";
-
-
-      try{
-
-        await getJSON(
-          metadata
-        );
-
-
-        if(stream){
-
-          $("#settingsStatus")
-            .textContent =
-            "Testing stream addon…";
-
-
-          await getJSON(
-            stream
-          );
-
-        }
-
-
-        state.metadata =
-          metadata;
-
-        state.stream =
-          stream;
-
-
-        localStorage.setItem(
-          "sauve_metadata",
-          metadata
-        );
-
-
-        if(stream){
-
-          localStorage.setItem(
-            "sauve_stream",
-            stream
-          );
-
-        }
-        else{
-
-          localStorage.removeItem(
-            "sauve_stream"
-          );
-
-        }
-
-
-        $("#settingsStatus")
-          .innerHTML = `
-
-            <span style="
-              color:#22e7ff;
-              text-shadow:
-                0 0 8px #22e7ff;
-              font-weight:bold;
-            ">
-
-              ✓ SAUVE CONNECTED
-
-            </span>
-
-          `;
-
-
-        setTimeout(
-          () => {
-
-            closeModal();
-
-            loadHome();
-
-          },
-          700
-        );
-
-      }
-      catch(error){
-
-        $("#settingsStatus")
-          .innerHTML = `
-
-            <span style="
-              color:#ff46d5;
-              font-weight:bold;
-            ">
-
-              CONNECTION FAILED
-
-              <br><br>
-
-              ${escapeHTML(
-                error.message
-              )}
-
-            </span>
-
-          `;
-
-      }
-
-    };
-
-
-  $("#disconnect").onclick =
-    () => {
+      state.metadata =
+        metadata;
 
       state.stream =
-        "";
+        stream;
 
-      localStorage.removeItem(
-        "sauve_stream"
+
+      localStorage.setItem(
+        "sauve_metadata",
+        metadata
       );
 
-      settings();
+
+      if(stream){
+
+        localStorage.setItem(
+          "sauve_stream",
+          stream
+        );
+
+      }
+      else{
+
+        localStorage.removeItem(
+          "sauve_stream"
+        );
+
+      }
+
+
+      $("#settingsStatus")
+        .textContent =
+        "✓ SETTINGS SAVED";
+
+
+      setTimeout(
+        () => {
+
+          closeModal();
+
+          loadHome();
+
+        },
+        600
+      );
 
     };
 
 }
 
 
-/* =========================================================
+/* =====================================================
    MODAL
-   ========================================================= */
+===================================================== */
 
-function openModal(
-  html
-){
+function openModal(html){
 
   $("#sheet").innerHTML =
     html;
@@ -3274,9 +2501,7 @@ function closeModal(){
 
   $("#modal")
     .classList
-    .remove(
-      "open"
-    );
+    .remove("open");
 
   $("#sheet").innerHTML =
     "";
@@ -3284,9 +2509,9 @@ function closeModal(){
 }
 
 
-/* =========================================================
-   SEARCH EVENTS
-   ========================================================= */
+/* =====================================================
+   EVENTS
+===================================================== */
 
 $("#searchButton").onclick =
   () => {
@@ -3298,11 +2523,7 @@ $("#searchButton").onclick =
 
 
     if(query){
-
-      search(
-        query
-      );
-
+      search(query);
     }
 
   };
@@ -3311,10 +2532,10 @@ $("#searchButton").onclick =
 $("#searchInput")
   .addEventListener(
     "keydown",
-    event => {
+    e => {
 
       if(
-        event.key === "Enter"
+        e.key === "Enter"
       ){
 
         $("#searchButton")
@@ -3346,10 +2567,6 @@ $("#settingsButton").onclick =
   settings;
 
 
-/* =========================================================
-   CARD EVENTS
-   ========================================================= */
-
 document.addEventListener(
   "click",
   event => {
@@ -3366,20 +2583,13 @@ document.addEventListener(
 
 
     openDetails(
-
       card.dataset.type,
-
       card.dataset.id
-
     );
 
   }
 );
 
-
-/* =========================================================
-   MODAL BACKDROP
-   ========================================================= */
 
 $("#modal")
   .addEventListener(
@@ -3399,10 +2609,6 @@ $("#modal")
   );
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
 document
   .querySelectorAll(
     ".nav-btn"
@@ -3412,25 +2618,6 @@ document
 
       button.onclick =
         () => {
-
-          document
-            .querySelectorAll(
-              ".nav-btn"
-            )
-            .forEach(
-              item =>
-                item.classList
-                  .remove(
-                    "active"
-                  )
-            );
-
-
-          button.classList
-            .add(
-              "active"
-            );
-
 
           if(
             button.dataset.page ===
@@ -3462,51 +2649,15 @@ document
 
           }
 
-
-          if(
-            button.dataset.page ===
-            "library"
-          ){
-
-            $("#main").innerHTML = `
-
-              <section>
-
-                <div class="section-heading">
-
-                  <h2>
-                    Library
-                  </h2>
-
-                  <span>
-                    SAVED TITLES
-                  </span>
-
-                </div>
-
-
-                <div class="empty">
-
-                  Your saved titles will
-                  appear here.
-
-                </div>
-
-              </section>
-
-            `;
-
-          }
-
         };
 
     }
   );
 
 
-/* =========================================================
+/* =====================================================
    START
-   ========================================================= */
+===================================================== */
 
 loadHome();
 
