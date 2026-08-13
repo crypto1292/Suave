@@ -13,19 +13,18 @@
 :root{
   --bg:#05030b;
   --panel:#0d0718;
-  --panel2:#160b27;
+  --panel2:#170b2a;
   --pink:#ff16d8;
   --purple:#8a4dff;
   --cyan:#19eaff;
   --yellow:#ffd45a;
   --green:#42ffb0;
   --red:#ff5577;
-  --muted:#a999b0;
+  --muted:#9d91a7;
 }
 
 *{
   box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
@@ -36,16 +35,23 @@ html,body{
 
 body{
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
 
   background:
-    radial-gradient(circle at 50% -10%,rgba(138,77,255,.35),transparent 36%),
+    radial-gradient(circle at 50% -10%,rgba(138,77,255,.38),transparent 35%),
     radial-gradient(circle at 0 45%,rgba(255,22,216,.13),transparent 30%),
     radial-gradient(circle at 100% 55%,rgba(25,234,255,.10),transparent 30%),
     #05030b;
 }
 
-button,input{
+button,
+input,
+select{
   font:inherit;
 }
 
@@ -57,9 +63,7 @@ button:active{
   transform:scale(.98);
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
   position:sticky;
@@ -67,9 +71,9 @@ header{
   z-index:100;
 
   padding:
-    calc(12px + env(safe-area-inset-top))
+    calc(14px + env(safe-area-inset-top))
     14px
-    14px;
+    15px;
 
   background:rgba(5,3,11,.94);
 
@@ -82,11 +86,15 @@ header{
 .logo{
   text-align:center;
 
-  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
 
   font-style:italic;
 
-  font-size:clamp(65px,18vw,115px);
+  font-size:clamp(70px,19vw,125px);
 
   line-height:.78;
 
@@ -120,10 +128,6 @@ header{
   text-shadow:0 0 10px var(--cyan);
 }
 
-/* =========================
-   SEARCH
-========================= */
-
 .searchbar{
   display:flex;
   gap:8px;
@@ -143,17 +147,11 @@ header{
 
   background:#0c0715;
 
-  color:white;
+  color:#fff;
 
   border:1px solid rgba(138,77,255,.45);
 
   outline:none;
-}
-
-.searchbar input:focus{
-  border-color:var(--pink);
-
-  box-shadow:0 0 18px rgba(255,22,216,.18);
 }
 
 .searchbar button{
@@ -162,41 +160,39 @@ header{
   border:0;
   border-radius:8px;
 
-  color:white;
+  color:#fff;
 
   font-weight:900;
 
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+  background:linear-gradient(
+    135deg,
+    var(--pink),
+    var(--purple)
+  );
 }
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 main{
   width:100%;
-  max-width:1500px;
+  max-width:1450px;
 
   margin:auto;
 
   padding:16px 16px 105px;
 }
 
-/* =========================
-   NETFLIX STYLE HERO
-========================= */
-
 .hero{
   position:relative;
 
-  min-height:clamp(430px,62vh,650px);
+  min-height:clamp(390px,58vh,600px);
 
   overflow:hidden;
 
   display:flex;
   align-items:flex-end;
 
-  padding:clamp(25px,5vw,65px);
+  padding:clamp(25px,5vw,60px);
 
   border-radius:18px;
 
@@ -208,20 +204,6 @@ main{
     linear-gradient(110deg,#090511,#190c2e,#07121e);
 }
 
-.hero-poster{
-  position:absolute;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  opacity:.45;
-
-  display:none;
-}
-
 .hero:before{
   content:"";
 
@@ -231,14 +213,9 @@ main{
   background:
     linear-gradient(
       90deg,
-      rgba(5,3,11,.99),
-      rgba(5,3,11,.78) 45%,
-      rgba(5,3,11,.15) 80%
-    ),
-    linear-gradient(
-      0deg,
       rgba(5,3,11,.98),
-      transparent 55%
+      rgba(5,3,11,.72) 50%,
+      rgba(5,3,11,.05)
     );
 }
 
@@ -248,7 +225,7 @@ main{
   position:absolute;
   inset:0;
 
-  opacity:.08;
+  opacity:.09;
 
   background:
     repeating-linear-gradient(
@@ -319,11 +296,17 @@ main{
 .primary{
   border:0;
 
-  color:white;
+  color:#fff;
 
-  background:linear-gradient(135deg,var(--pink),var(--purple));
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
 
-  box-shadow:0 0 18px rgba(255,22,216,.25);
+  box-shadow:
+    0 0 18px rgba(255,22,216,.25);
 }
 
 .secondary{
@@ -334,184 +317,7 @@ main{
   border:1px solid rgba(25,234,255,.38);
 }
 
-/* =========================
-   NETFLIX RAILS
-========================= */
-
-.netflix-rail{
-  margin:34px 0;
-}
-
-.rail-heading{
-  display:flex;
-
-  align-items:center;
-  justify-content:space-between;
-
-  margin-bottom:13px;
-}
-
-.rail-heading h2{
-  margin:0;
-
-  font-family:Impact,Haettenschweiler,sans-serif;
-
-  font-size:25px;
-
-  letter-spacing:1px;
-}
-
-.rail-heading span{
-  color:var(--cyan);
-
-  font-size:9px;
-
-  font-weight:900;
-
-  letter-spacing:2px;
-}
-
-.rail{
-  display:flex;
-
-  gap:13px;
-
-  overflow-x:auto;
-
-  overflow-y:hidden;
-
-  padding:3px 2px 12px;
-
-  scroll-snap-type:x proximity;
-
-  scrollbar-width:none;
-}
-
-.rail::-webkit-scrollbar{
-  display:none;
-}
-
-.rail-card{
-  position:relative;
-
-  flex:0 0 145px;
-
-  width:145px;
-
-  overflow:hidden;
-
-  border:0;
-
-  padding:0;
-
-  border-radius:9px;
-
-  background:#11091e;
-
-  color:white;
-
-  text-align:left;
-
-  scroll-snap-align:start;
-}
-
-.rail-card:hover{
-  box-shadow:
-    0 0 20px rgba(255,22,216,.25);
-
-  outline:1px solid rgba(255,22,216,.55);
-}
-
-.rail-poster{
-  display:block;
-
-  width:100%;
-
-  aspect-ratio:2/3;
-
-  object-fit:cover;
-
-  background:#171027;
-}
-
-.rail-gradient{
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:45%;
-
-  background:linear-gradient(
-    transparent,
-    rgba(0,0,0,.95)
-  );
-}
-
-.rail-info{
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  padding:11px;
-}
-
-.rail-title{
-  font-size:12px;
-
-  font-weight:900;
-
-  white-space:nowrap;
-
-  overflow:hidden;
-
-  text-overflow:ellipsis;
-}
-
-.rail-meta{
-  margin-top:4px;
-
-  color:#c8bacf;
-
-  font-size:9px;
-}
-
-.rail-badge{
-  position:absolute;
-
-  top:7px;
-  left:7px;
-
-  padding:4px 6px;
-
-  border-radius:4px;
-
-  color:#fff;
-
-  background:rgba(255,22,216,.82);
-
-  font-size:7px;
-
-  font-weight:900;
-
-  letter-spacing:1px;
-}
-
-@media(min-width:700px){
-
-  .rail-card{
-    flex-basis:190px;
-    width:190px;
-  }
-
-}
-
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section{
   margin:32px 0;
@@ -537,6 +343,8 @@ section{
   font-family:Impact,Haettenschweiler,sans-serif;
 
   font-size:25px;
+
+  letter-spacing:1px;
 }
 
 .heading span{
@@ -573,9 +381,7 @@ section{
   font-size:12px;
 }
 
-/* =========================
-   GRID
-========================= */
+/* GRID */
 
 .grid{
   display:grid;
@@ -593,19 +399,18 @@ section{
 
   text-align:left;
 
-  color:white;
+  color:#fff;
 
-  background:linear-gradient(180deg,#170d27,#0d0717);
+  background:
+    linear-gradient(
+      180deg,
+      #170d27,
+      #0d0717
+    );
 
   border:1px solid rgba(255,255,255,.08);
 
   border-radius:10px;
-}
-
-.card:hover{
-  border-color:rgba(255,22,216,.55);
-
-  box-shadow:0 0 18px rgba(255,22,216,.12);
 }
 
 .poster{
@@ -644,9 +449,7 @@ section{
   font-size:10px;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
   position:fixed;
@@ -659,7 +462,7 @@ section{
 
   align-items:flex-end;
 
-  background:rgba(0,0,0,.86);
+  background:rgba(0,0,0,.88);
 
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
@@ -728,9 +531,7 @@ section{
   font-size:22px;
 }
 
-/* =========================
-   DETAILS
-========================= */
+/* DETAILS */
 
 .details{
   display:grid;
@@ -768,70 +569,60 @@ section{
   margin-bottom:7px;
 }
 
-/* =========================
-   SEASONS / EPISODES
-========================= */
+/* SERIES */
 
 .season-select{
   width:100%;
 
   padding:13px;
 
-  margin-top:20px;
+  margin:20px 0 12px;
 
   border-radius:8px;
 
-  background:#080510;
+  background:#10091d;
 
-  color:white;
+  color:#fff;
 
   border:1px solid rgba(138,77,255,.4);
 
   outline:none;
 }
 
-.episode-list{
-  margin-top:18px;
-}
-
 .episode{
+  width:100%;
+
   display:flex;
 
   gap:12px;
 
-  width:100%;
+  align-items:center;
 
-  padding:12px;
+  margin-top:9px;
 
-  margin-bottom:9px;
+  padding:13px;
 
-  border-radius:9px;
+  text-align:left;
 
-  border:1px solid rgba(255,255,255,.08);
+  color:#fff;
 
   background:#120a20;
 
-  color:white;
+  border:1px solid rgba(255,255,255,.08);
 
-  text-align:left;
-}
-
-.episode:hover{
-  border-color:var(--cyan);
+  border-radius:9px;
 }
 
 .episode-number{
-  width:34px;
-  height:34px;
-
-  flex:0 0 34px;
+  min-width:38px;
+  height:38px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
 
-  border-radius:7px;
+  border-radius:8px;
 
   color:var(--cyan);
 
@@ -841,24 +632,20 @@ section{
 }
 
 .episode-title{
-  font-weight:900;
+  font-weight:800;
 
-  font-size:12px;
+  font-size:13px;
 }
 
 .episode-desc{
   margin-top:4px;
 
-  color:#8f8298;
+  color:#8e8198;
 
   font-size:10px;
-
-  line-height:1.4;
 }
 
-/* =========================
-   SOURCES
-========================= */
+/* SOURCES */
 
 .source{
   width:100%;
@@ -869,24 +656,21 @@ section{
 
   text-align:left;
 
-  color:white;
+  color:#fff;
 
   border-radius:9px;
 
-  background:linear-gradient(100deg,#150c29,#0d0819);
+  background:
+    linear-gradient(
+      100deg,
+      #150c29,
+      #0d0819
+    );
 
   border:1px solid rgba(25,234,255,.15);
 }
 
-.source:hover{
-  border-color:var(--cyan);
-
-  box-shadow:0 0 16px rgba(25,234,255,.14);
-}
-
 .source:disabled{
-  opacity:.45;
-
   cursor:not-allowed;
 }
 
@@ -968,17 +752,7 @@ section{
   color:var(--yellow);
 }
 
-.source-desc{
-  margin-top:7px;
-
-  color:#91859b;
-
-  font-size:10px;
-}
-
-/* =========================
-   PLAYER
-========================= */
+/* PLAYER */
 
 .player-shell{
   position:relative;
@@ -1003,26 +777,9 @@ video{
 
   height:auto;
 
+  min-height:180px;
+
   max-height:70vh;
-
-  background:#000;
-}
-
-iframe{
-  display:block;
-
-  width:100%;
-  height:100%;
-
-  border:0;
-
-  background:#000;
-}
-
-.iframe-player{
-  width:100%;
-
-  aspect-ratio:16/9;
 
   background:#000;
 }
@@ -1062,7 +819,7 @@ iframe{
 
   border-radius:7px;
 
-  color:white;
+  color:#fff;
 
   background:#170d27;
 
@@ -1073,15 +830,7 @@ iframe{
   font-size:11px;
 }
 
-.player-button.primary{
-  background:linear-gradient(135deg,var(--pink),var(--purple));
-
-  border:0;
-}
-
-/* =========================
-   SETTINGS
-========================= */
+/* SETTINGS */
 
 .field{
   margin:18px 0;
@@ -1112,16 +861,14 @@ iframe{
 
   background:#080510;
 
-  color:white;
+  color:#fff;
 
   border:1px solid rgba(138,77,255,.3);
 
   outline:none;
 }
 
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 .nav{
   position:fixed;
@@ -1139,7 +886,6 @@ iframe{
   display:flex;
 
   align-items:center;
-
   justify-content:space-around;
 
   background:rgba(8,5,17,.96);
@@ -1176,10 +922,6 @@ iframe{
   text-shadow:0 0 10px var(--pink);
 }
 
-/* =========================
-   DESKTOP
-========================= */
-
 @media(min-width:700px){
 
   .grid{
@@ -1194,9 +936,7 @@ iframe{
   .details img{
     width:190px;
   }
-
 }
-
 </style>
 </head>
 
@@ -1226,33 +966,25 @@ iframe{
 
 </header>
 
-
 <main id="main">
 
-  <div class="hero" id="hero">
-
-    <img
-      id="heroPoster"
-      class="hero-poster"
-      alt="">
+  <div class="hero">
 
     <div class="hero-content">
 
       <div class="hero-kicker">
-        SAUVE ORIGINAL EXPERIENCE
+        WELCOME TO SAUVE
       </div>
 
-      <h1 id="heroTitle">
+      <h1>
         CINEMA<br>
         AFTER DARK
       </h1>
 
-      <p id="heroDescription">
-        Your neon-retro home for movies
-        and television. Browse your AIO
-        metadata catalog, explore titles,
-        select seasons and episodes, and
-        find available stream sources.
+      <p>
+        Discover movies and television,
+        explore seasons and episodes,
+        and find available sources.
       </p>
 
       <div class="hero-buttons">
@@ -1275,34 +1007,27 @@ iframe{
 
   </div>
 
-
-  <div id="homeRails">
-
-    <div class="empty">
-      Loading SAUVE…
-    </div>
-
-  </div>
-
-
-  <section id="searchSection" style="display:none">
+  <section>
 
     <div class="heading">
 
-      <h2>SEARCH</h2>
+      <h2>DISCOVER</h2>
 
-      <span id="searchLabel">
-        RESULTS
-      </span>
+      <span>AIO METADATA</span>
 
     </div>
 
-    <div id="searchResults"></div>
+    <div
+      id="homeResults"
+      class="empty">
+
+      Loading…
+
+    </div>
 
   </section>
 
 </main>
-
 
 <nav class="nav">
 
@@ -1333,7 +1058,6 @@ iframe{
 
 </nav>
 
-
 <div
   class="modal"
   id="modal">
@@ -1344,7 +1068,6 @@ iframe{
   </div>
 
 </div>
-
 
 <script>
 
@@ -1358,15 +1081,13 @@ const DEFAULT_METADATA =
 const state = {
 
   metadata:
-    localStorage.getItem(
-      "sauve_metadata"
-    ) ||
+    localStorage.getItem("sauve_metadata")
+    ||
     DEFAULT_METADATA,
 
   stream:
-    localStorage.getItem(
-      "sauve_stream"
-    ) ||
+    localStorage.getItem("sauve_stream")
+    ||
     ""
 
 };
@@ -1380,8 +1101,6 @@ let currentPlayerIndex = 0;
 let currentTitleType = "";
 
 let currentTitleId = "";
-
-let currentSeriesMeta = null;
 
 
 /* ============================================================
@@ -1463,95 +1182,69 @@ async function getManifest(){
 
 }
 
-function supportsExtra(
-  catalog,
-  name
-){
+function supportsSearch(catalog){
 
-  return Array.isArray(
-    catalog.extra
-  ) &&
-  catalog.extra.some(
-    extra =>
-      typeof extra === "string"
-        ? extra === name
-        : extra &&
-          extra.name === name
-  );
+  return Array.isArray(catalog.extra)
+    &&
+    catalog.extra.some(
+      extra =>
+        typeof extra === "string"
+          ? extra === "search"
+          : extra &&
+            extra.name === "search"
+    );
 
 }
 
-function getSearchCatalogs(
-  manifest
-){
+function getSearchCatalogs(manifest){
 
-  const catalogs =
-    Array.isArray(
-      manifest.catalogs
-    )
+  return (
+    Array.isArray(manifest.catalogs)
       ? manifest.catalogs
-      : [];
-
-  return catalogs.filter(
+      : []
+  )
+  .filter(
     catalog =>
       catalog &&
       catalog.id &&
       catalog.type &&
-      supportsExtra(
-        catalog,
-        "search"
-      )
+      supportsSearch(catalog)
   );
 
 }
 
-function makeExtraProps(
-  values
-){
+function makeExtraProps(values){
 
-  return Object.entries(
-    values
-  )
-  .filter(
-    ([,value]) =>
-      value !== undefined &&
-      value !== null &&
-      String(value).length
-  )
-  .map(
-    ([key,value]) =>
-      key +
-      "=" +
-      encodeURIComponent(
-        String(value)
-      )
-  )
-  .join("&");
+  return Object.entries(values)
+    .filter(
+      ([,value]) =>
+        value !== undefined &&
+        value !== null &&
+        String(value).length
+    )
+    .map(
+      ([key,value]) =>
+        key +
+        "=" +
+        encodeURIComponent(
+          String(value)
+        )
+    )
+    .join("&");
 
 }
 
-function buildCatalogURL(
-  catalog,
-  extra={}
-){
+function buildCatalogURL(catalog,extra={}){
 
   let url =
-    addonRoot(
-      state.metadata
-    ) +
+    addonRoot(state.metadata) +
     "catalog/" +
-    encodeURIComponent(
-      catalog.type
-    ) +
+    encodeURIComponent(catalog.type) +
     "/" +
-    encodeURIComponent(
-      catalog.id
-    );
+    encodeURIComponent(catalog.id);
 
   const props =
-    makeExtraProps(
-      extra
-    );
+    makeExtraProps(extra);
 
   if(props){
 
@@ -1570,8 +1263,8 @@ function buildCatalogURL(
 
 async function loadHome(){
 
-  const rails =
-    $("homeRails");
+  const box =
+    $("homeResults");
 
   try{
 
@@ -1579,43 +1272,34 @@ async function loadHome(){
       await getManifest();
 
     const catalogs =
-      Array.isArray(
-        manifest.catalogs
-      )
+      Array.isArray(manifest.catalogs)
         ? manifest.catalogs
         : [];
 
-    const movies =
-      catalogs.filter(
-        c =>
-          c &&
-          c.type === "movie"
-      );
-
-    const series =
-      catalogs.filter(
-        c =>
-          c &&
-          c.type === "series"
-      );
-
     const selected = [];
 
-    if(movies[0]){
-      selected.push(movies[0]);
-    }
+    ["movie","series"]
+      .forEach(type => {
 
-    if(series[0]){
-      selected.push(series[0]);
-    }
+        const catalog =
+          catalogs.find(
+            c =>
+              c &&
+              c.type === type
+          );
+
+        if(catalog){
+          selected.push(catalog);
+        }
+
+      });
 
     if(!selected.length){
 
-      rails.innerHTML = `
+      box.innerHTML = `
         <div class="notice">
-          No movie or television catalogs
-          were advertised by your metadata
-          addon.
+          No movie or series catalogs
+          were advertised by the metadata addon.
         </div>
       `;
 
@@ -1628,286 +1312,50 @@ async function loadHome(){
         selected.map(
           catalog =>
             fetchJSON(
-              buildCatalogURL(
-                catalog
-              )
+              buildCatalogURL(catalog)
             )
         )
       );
 
-    let movieMetas = [];
-    let seriesMetas = [];
+    const metas = [];
 
-    responses.forEach(
-      (result,index) => {
+    responses.forEach(result => {
 
-        if(
-          result.status !==
-          "fulfilled"
-        ){
+      if(
+        result.status === "fulfilled"
+      ){
 
-          return;
-
-        }
-
-        const metas =
-          result.value.metas ||
-          [];
-
-        if(
-          selected[index].type ===
-          "movie"
-        ){
-
-          movieMetas =
-            dedupeMetas(
-              metas
-            );
-
-        }
-
-        if(
-          selected[index].type ===
-          "series"
-        ){
-
-          seriesMetas =
-            dedupeMetas(
-              metas
-            );
-
-        }
+        metas.push(
+          ...(result.value.metas || [])
+        );
 
       }
-    );
 
-    const all =
-      [
-        ...movieMetas,
-        ...seriesMetas
-      ];
+    });
 
-    setHero(
-      all
-    );
-
-    rails.innerHTML = `
-
-      ${renderRail(
-        "TRENDING NOW",
-        all,
-        "TRENDING"
-      )}
-
-      ${renderRail(
-        "MOVIES",
-        movieMetas,
-        "FILM"
-      )}
-
-      ${renderRail(
-        "TELEVISION",
-        seriesMetas,
-        "SERIES"
-      )}
-
-    `;
+    box.innerHTML =
+      renderGrid(
+        dedupeMetas(metas)
+      );
 
   }
   catch(error){
 
-    rails.innerHTML = `
+    box.innerHTML = `
       <div class="notice">
+
         <strong>
           METADATA ERROR
         </strong>
 
         <br><br>
 
-        ${escapeHTML(
-          error.message
-        )}
+        ${escapeHTML(error.message)}
+
       </div>
     `;
 
   }
-
-}
-
-
-/* ============================================================
-   HERO
-============================================================ */
-
-function setHero(
-  metas
-){
-
-  if(!metas.length){
-
-    return;
-
-  }
-
-  const selected =
-    metas[
-      Math.floor(
-        Math.random() *
-        metas.length
-      )
-    ];
-
-  if(
-    selected.poster
-  ){
-
-    $("heroPoster").src =
-      selected.poster;
-
-    $("heroPoster").style.display =
-      "block";
-
-  }
-
-  $("heroTitle").innerHTML =
-    escapeHTML(
-      selected.name ||
-      "CINEMA AFTER DARK"
-    );
-
-  $("heroDescription").textContent =
-    selected.description ||
-    "Discover movies and television through SAUVE.";
-
-  $("hero").onclick =
-    () =>
-      openTitleFromObject(
-        selected
-      );
-
-}
-
-
-/* ============================================================
-   RAIL
-============================================================ */
-
-function renderRail(
-  title,
-  metas,
-  badge
-){
-
-  if(!metas.length){
-
-    return "";
-
-  }
-
-  return `
-
-    <section class="netflix-rail">
-
-      <div class="rail-heading">
-
-        <h2>
-          ${escapeHTML(title)}
-        </h2>
-
-        <span>
-          SAUVE
-        </span>
-
-      </div>
-
-      <div class="rail">
-
-        ${metas.map(
-          item =>
-            renderRailCard(
-              item,
-              badge
-            )
-        ).join("")}
-
-      </div>
-
-    </section>
-
-  `;
-
-}
-
-
-function renderRailCard(
-  item,
-  badge
-){
-
-  const encodedType =
-    encodeURIComponent(
-      item.type || "movie"
-    );
-
-  const encodedId =
-    encodeURIComponent(
-      item.id || ""
-    );
-
-  return `
-
-    <button
-      class="rail-card"
-      onclick="
-        openTitle(
-          '${encodedType}',
-          '${encodedId}'
-        )
-      ">
-
-      <img
-        class="rail-poster"
-        src="${escapeHTML(
-          item.poster ||
-          item.logo ||
-          ""
-        )}"
-        loading="lazy"
-        onerror="
-          this.style.opacity='0'
-        ">
-
-      <div class="rail-gradient"></div>
-
-      <div class="rail-badge">
-        ${escapeHTML(badge)}
-      </div>
-
-      <div class="rail-info">
-
-        <div class="rail-title">
-          ${escapeHTML(
-            item.name ||
-            "Untitled"
-          )}
-        </div>
-
-        <div class="rail-meta">
-
-          ${escapeHTML(
-            item.releaseInfo ||
-            item.year ||
-            item.type ||
-            ""
-          )}
-
-        </div>
-
-      </div>
-
-    </button>
-
-  `;
 
 }
 
@@ -1931,25 +1379,31 @@ async function performSearch(){
 
   }
 
-  $("searchSection").style.display =
-    "block";
+  $("main").innerHTML = `
 
-  $("homeRails").style.display =
-    "none";
+    <section>
 
-  $("searchLabel").textContent =
-    query.toUpperCase();
+      <div class="heading">
 
-  $("searchResults").innerHTML = `
-    <div class="empty">
-      Searching…
-    </div>
+        <h2>SEARCH</h2>
+
+        <span>
+          ${escapeHTML(query)}
+        </span>
+
+      </div>
+
+      <div
+        id="searchResults"
+        class="empty">
+
+        Searching…
+
+      </div>
+
+    </section>
+
   `;
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
 
   try{
 
@@ -1986,27 +1440,22 @@ async function performSearch(){
 
     const metas = [];
 
-    responses.forEach(
-      result => {
+    responses.forEach(result => {
 
-        if(
-          result.status ===
-          "fulfilled"
-        ){
+      if(
+        result.status === "fulfilled"
+      ){
 
-          metas.push(
-            ...(result.value.metas || [])
-          );
-
-        }
+        metas.push(
+          ...(result.value.metas || [])
+        );
 
       }
-    );
+
+    });
 
     const results =
-      dedupeMetas(
-        metas
-      );
+      dedupeMetas(metas);
 
     $("searchResults").innerHTML =
       results.length
@@ -2032,9 +1481,7 @@ async function performSearch(){
 
         <br><br>
 
-        ${escapeHTML(
-          error.message
-        )}
+        ${escapeHTML(error.message)}
 
       </div>
     `;
@@ -2048,129 +1495,114 @@ async function performSearch(){
    GRID
 ============================================================ */
 
-function dedupeMetas(
-  metas
-){
+function dedupeMetas(metas){
 
   const seen =
     new Set();
 
-  return metas.filter(
-    item => {
+  return metas.filter(item => {
 
-      const key =
-        String(
-          item.type || ""
-        ) +
-        "|" +
-        String(
-          item.id || ""
-        );
+    const key =
+      String(item.type || "") +
+      "|" +
+      String(item.id || "");
 
-      if(
-        seen.has(key)
-      ){
-
-        return false;
-
-      }
-
-      seen.add(key);
-
-      return true;
-
+    if(seen.has(key)){
+      return false;
     }
-  );
+
+    seen.add(key);
+
+    return true;
+
+  });
 
 }
 
+function renderGrid(metas){
 
-function renderGrid(
-  metas
-){
+  if(
+    !metas ||
+    !metas.length
+  ){
+
+    return `
+      <div class="empty">
+        No results.
+      </div>
+    `;
+
+  }
 
   return `
-
     <div class="grid">
 
-      ${metas.map(
-        item => {
+      ${metas.map(item => {
 
-          const type =
-            encodeURIComponent(
-              item.type ||
-              "movie"
-            );
+        const type =
+          encodeURIComponent(
+            item.type || "movie"
+          );
 
-          const id =
-            encodeURIComponent(
-              item.id ||
-              ""
-            );
+        const id =
+          encodeURIComponent(
+            item.id || ""
+          );
 
-          return `
+        return `
 
-            <button
-              class="card"
-              onclick="
-                openTitle(
-                  '${type}',
-                  '${id}'
-                )
-              ">
+          <button
+            class="card"
+            onclick="openTitle('${type}','${id}')">
 
-              <img
-                class="poster"
-                src="${escapeHTML(
-                  item.poster ||
-                  item.logo ||
-                  ""
-                )}"
-                loading="lazy"
-                onerror="
-                  this.style.opacity='0'
-                ">
+            <img
+              class="poster"
+              src="${escapeHTML(
+                item.poster ||
+                item.logo ||
+                ""
+              )}"
+              loading="lazy"
+              onerror="this.style.opacity='0'">
 
-              <div class="card-info">
+            <div class="card-info">
 
-                <div class="card-title">
+              <div class="card-title">
 
-                  ${escapeHTML(
-                    item.name ||
-                    "Untitled"
-                  )}
-
-                </div>
-
-                <div class="card-sub">
-
-                  ${escapeHTML(
-                    item.releaseInfo ||
-                    item.year ||
-                    item.type ||
-                    ""
-                  )}
-
-                </div>
+                ${escapeHTML(
+                  item.name ||
+                  "Untitled"
+                )}
 
               </div>
 
-            </button>
+              <div class="card-sub">
 
-          `;
+                ${escapeHTML(
+                  item.releaseInfo ||
+                  item.year ||
+                  item.type ||
+                  ""
+                )}
 
-        }
-      ).join("")}
+              </div>
+
+            </div>
+
+          </button>
+
+        `;
+
+      }).join("")}
 
     </div>
-
   `;
 
 }
 
 
 /* ============================================================
-   OPEN TITLE
+   TITLE
 ============================================================ */
 
 async function openTitle(
@@ -2179,28 +1611,19 @@ async function openTitle(
 ){
 
   const type =
-    decodeURIComponent(
-      encodedType
-    );
+    decodeURIComponent(encodedType);
 
   const id =
-    decodeURIComponent(
-      encodedId
-    );
+    decodeURIComponent(encodedId);
 
-  currentTitleType =
-    type;
-
-  currentTitleId =
-    id;
+  currentTitleType = type;
+  currentTitleId = id;
 
   openModal(`
 
     <div class="sheet-header">
 
-      <h2>
-        LOADING
-      </h2>
+      <h2>LOADING</h2>
 
       <button
         class="close"
@@ -2219,36 +1642,112 @@ async function openTitle(
   try{
 
     const url =
-      addonRoot(
-        state.metadata
-      ) +
+      addonRoot(state.metadata) +
       "meta/" +
-      encodeURIComponent(
-        type
-      ) +
+      encodeURIComponent(type) +
       "/" +
-      encodeURIComponent(
-        id
-      ) +
+      encodeURIComponent(id) +
       ".json";
 
     const data =
-      await fetchJSON(
-        url
-      );
+      await fetchJSON(url);
 
     const meta =
-      data.meta ||
-      data;
+      data.meta || data;
 
-    currentSeriesMeta =
-      meta;
+    const isSeries =
+      type === "series";
 
-    openTitleModal(
-      meta,
-      type,
-      id
-    );
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          ${escapeHTML(
+            meta.name || "TITLE"
+          )}
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+          ×
+        </button>
+
+      </div>
+
+      <div class="details">
+
+        <img
+          src="${escapeHTML(
+            meta.poster ||
+            meta.logo ||
+            ""
+          )}">
+
+        <div>
+
+          <div class="meta">
+
+            ${escapeHTML(
+              meta.releaseInfo ||
+              meta.year ||
+              type
+            )}
+
+          </div>
+
+          <p>
+
+            ${escapeHTML(
+              meta.description ||
+              "No description available."
+            )}
+
+          </p>
+
+          ${
+            isSeries
+              ?
+              `
+                <button
+                  class="primary"
+                  onclick="showSeriesEpisodes()">
+
+                  ▶ SELECT EPISODE
+
+                </button>
+              `
+              :
+              `
+                <button
+                  class="primary"
+                  onclick="findSources(
+                    '${escapeHTML(type)}',
+                    '${escapeHTML(id)}'
+                  )">
+
+                  ▶ FIND SOURCES
+
+                </button>
+              `
+          }
+
+        </div>
+
+      </div>
+
+      <div id="seriesArea"></div>
+
+      <div id="sources"></div>
+
+    `);
+
+    if(isSeries){
+
+      await showSeriesEpisodes();
+
+    }
 
   }
   catch(error){
@@ -2257,9 +1756,7 @@ async function openTitle(
 
       <div class="sheet-header">
 
-        <h2>
-          ERROR
-        </h2>
+        <h2>ERROR</h2>
 
         <button
           class="close"
@@ -2271,9 +1768,7 @@ async function openTitle(
 
       <div class="notice">
 
-        ${escapeHTML(
-          error.message
-        )}
+        ${escapeHTML(error.message)}
 
       </div>
 
@@ -2284,594 +1779,215 @@ async function openTitle(
 }
 
 
-function openTitleFromObject(
-  meta
-){
-
-  const type =
-    meta.type ||
-    "movie";
-
-  const id =
-    meta.id ||
-    "";
-
-  openTitle(
-    encodeURIComponent(type),
-    encodeURIComponent(id)
-  );
-
-}
-
-
 /* ============================================================
-   TITLE MODAL
+   SERIES / EPISODES
 ============================================================ */
 
-function openTitleModal(
-  meta,
-  type,
-  id
-){
+async function showSeriesEpisodes(){
 
-  const isSeries =
-    type === "series";
+  const area =
+    $("seriesArea");
 
-  openModal(`
-
-    <div class="sheet-header">
-
-      <h2>
-        ${escapeHTML(
-          meta.name ||
-          "TITLE"
-        )}
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-    <div class="details">
-
-      <img
-        src="${escapeHTML(
-          meta.poster ||
-          meta.logo ||
-          ""
-        )}">
-
-      <div>
-
-        <div class="meta">
-
-          ${escapeHTML(
-            meta.releaseInfo ||
-            meta.year ||
-            type
-          )}
-
-        </div>
-
-        <p>
-
-          ${escapeHTML(
-            meta.description ||
-            "No description available."
-          )}
-
-        </p>
-
-        ${
-          isSeries
-
-          ?
-
-          `
-
-          <div class="meta">
-            TELEVISION
-          </div>
-
-          <div id="seriesControls">
-
-            <div class="empty">
-              Loading seasons…
-            </div>
-
-          </div>
-
-          `
-
-          :
-
-          `
-
-          <button
-            class="primary"
-            onclick="
-              findSources(
-                '${escapeHTML(type)}',
-                '${escapeHTML(id)}'
-              )
-            ">
-
-            ▶ FIND SOURCES
-
-          </button>
-
-          <div
-            id="sources"
-            style="margin-top:25px">
-          </div>
-
-          `
-        }
-
-      </div>
-
-    </div>
-
-  `);
-
-  if(isSeries){
-
-    loadSeriesEpisodes(
-      meta,
-      type,
-      id
-    );
-
-  }
-
-}
-
-
-/* ============================================================
-   SERIES SUPPORT
-============================================================ */
-
-/*
-  This is the important change for TV.
-
-  A series title normally returns:
-    meta.videos
-
-  Each video represents an episode and has
-  its own ID.
-
-  We therefore request streams using:
-
-  stream/series/<episode-id>.json
-
-  rather than trying to request streams
-  using the parent series ID.
-*/
-
-function getVideos(
-  meta
-){
-
-  if(
-    !Array.isArray(
-      meta.videos
-    )
-  ){
-
-    return [];
-
-  }
-
-  return meta.videos;
-
-}
-
-
-function getSeasons(
-  videos
-){
-
-  const seasons =
-    new Map();
-
-  videos.forEach(
-    episode => {
-
-      const season =
-        Number(
-          episode.season ??
-          episode.seasonNumber ??
-          1
-        );
-
-      if(
-        !seasons.has(season)
-      ){
-
-        seasons.set(
-          season,
-          []
-        );
-
-      }
-
-      seasons
-        .get(season)
-        .push(
-          episode
-        );
-
-    }
-  );
-
-  return seasons;
-
-}
-
-
-async function loadSeriesEpisodes(
-  meta,
-  type,
-  id
-){
-
-  const container =
-    $("seriesControls");
-
-  const videos =
-    getVideos(
-      meta
-    );
-
-  if(!videos.length){
-
-    container.innerHTML = `
-
-      <div class="notice">
-
-        This metadata addon did not return
-        episode information for this series.
-
-        <br><br>
-
-        The series itself was found, but
-        there are no episode IDs available
-        to request stream sources.
-
-      </div>
-
-    `;
-
+  if(!area){
     return;
-
   }
 
-  const seasons =
-    getSeasons(
-      videos
-    );
-
-  const seasonNumbers =
-    [...seasons.keys()]
-      .sort(
-        (a,b) => a-b
-      );
-
-  const firstSeason =
-    seasonNumbers[0];
-
-  container.innerHTML = `
-
-    <select
-      id="seasonSelect"
-      class="season-select">
-
-      ${seasonNumbers.map(
-        season =>
-          `<option value="${season}">
-            Season ${season}
-          </option>`
-      ).join("")}
-
-    </select>
-
-    <div
-      id="episodeList"
-      class="episode-list">
-    </div>
-
-  `;
-
-  $("seasonSelect")
-    .addEventListener(
-      "change",
-      () => {
-
-        renderEpisodes(
-          seasons,
-          Number(
-            $("seasonSelect").value
-          )
-        );
-
-      }
-    );
-
-  renderEpisodes(
-    seasons,
-    firstSeason
-  );
-
-}
-
-
-function renderEpisodes(
-  seasons,
-  seasonNumber
-){
-
-  const episodes =
-    seasons.get(
-      seasonNumber
-    ) || [];
-
-  episodes.sort(
-    (a,b) =>
-      Number(
-        a.episode ??
-        a.number ??
-        0
-      ) -
-      Number(
-        b.episode ??
-        b.number ??
-        0
-      )
-  );
-
-  $("episodeList").innerHTML = `
-
-    ${episodes.map(
-      episode => {
-
-        const episodeId =
-          episode.id ||
-          episode.videoId ||
-          "";
-
-        const number =
-          episode.episode ??
-          episode.number ??
-          "?";
-
-        return `
-
-          <button
-            class="episode"
-            onclick="
-              selectEpisode(
-                '${encodeURIComponent(
-                  episodeId
-                )}'
-              )
-            ">
-
-            <div class="episode-number">
-              ${escapeHTML(number)}
-            </div>
-
-            <div>
-
-              <div class="episode-title">
-
-                ${escapeHTML(
-                  episode.title ||
-                  episode.name ||
-                  "Episode " + number
-                )}
-
-              </div>
-
-              <div class="episode-desc">
-
-                ${escapeHTML(
-                  episode.overview ||
-                  episode.description ||
-                  "Tap to find available sources."
-                )}
-
-              </div>
-
-            </div>
-
-          </button>
-
-        `;
-
-      }
-    ).join("")}
-
-  `;
-
-}
-
-
-/* ============================================================
-   EPISODE
-============================================================ */
-
-async function selectEpisode(
-  encodedEpisodeId
-){
-
-  const episodeId =
-    decodeURIComponent(
-      encodedEpisodeId
-    );
-
-  if(!episodeId){
-
-    alert(
-      "This episode does not have a usable episode ID."
-    );
-
-    return;
-
-  }
-
-  const container =
-    $("episodeList");
-
-  container.innerHTML = `
-
+  area.innerHTML = `
     <div class="empty">
-
-      Loading episode sources…
-
+      Loading seasons…
     </div>
-
   `;
 
   try{
 
-    await loadEpisodeSources(
-      episodeId
+    const url =
+      addonRoot(state.metadata) +
+      "meta/" +
+      encodeURIComponent(currentTitleType) +
+      "/" +
+      encodeURIComponent(currentTitleId) +
+      ".json";
+
+    const data =
+      await fetchJSON(url);
+
+    const meta =
+      data.meta || data;
+
+    const videos =
+      Array.isArray(meta.videos)
+        ? meta.videos
+        : [];
+
+    if(!videos.length){
+
+      area.innerHTML = `
+        <div class="notice">
+          This series did not return
+          episode information.
+        </div>
+      `;
+
+      return;
+
+    }
+
+    const seasons =
+      [...new Set(
+        videos.map(
+          v => Number(v.season || 1)
+        )
+      )]
+      .sort(
+        (a,b) => a-b
+      );
+
+    area.innerHTML = `
+
+      <select
+        class="season-select"
+        id="seasonSelect">
+
+        ${seasons.map(
+          season => `
+            <option value="${season}">
+              Season ${season}
+            </option>
+          `
+        ).join("")}
+
+      </select>
+
+      <div id="episodeList"></div>
+
+    `;
+
+    $("seasonSelect")
+      .addEventListener(
+        "change",
+        () =>
+          renderEpisodes(
+            videos,
+            Number(
+              $("seasonSelect").value
+            )
+          )
+      );
+
+    renderEpisodes(
+      videos,
+      seasons[0]
     );
 
   }
   catch(error){
 
-    container.innerHTML = `
-
+    area.innerHTML = `
       <div class="notice">
 
-        <strong>
-          EPISODE SOURCE ERROR
-        </strong>
-
-        <br><br>
-
-        ${escapeHTML(
-          error.message
-        )}
+        ${escapeHTML(error.message)}
 
       </div>
-
     `;
 
   }
 
 }
 
-
-async function loadEpisodeSources(
-  episodeId
+function renderEpisodes(
+  videos,
+  season
 ){
 
-  if(!state.stream){
+  const list =
+    $("episodeList");
 
-    openSettings();
-
+  if(!list){
     return;
-
   }
 
-  const url =
-    buildStreamURL(
-      "series",
-      episodeId
-    );
+  const episodes =
+    videos
+      .filter(
+        v =>
+          Number(v.season || 1)
+          === season
+      )
+      .sort(
+        (a,b) =>
+          Number(a.episode || 0)
+          -
+          Number(b.episode || 0)
+      );
 
-  const data =
-    await fetchJSON(
-      url
-    );
+  list.innerHTML =
+    episodes.length
+      ?
+      episodes.map(
+        episode => {
 
-  currentStreams =
-    Array.isArray(
-      data.streams
-    )
-      ? data.streams
-      : [];
+          const episodeId =
+            episode.id ||
+            `${currentTitleId}:${season}:${episode.episode}`;
 
-  currentStreams.sort(
-    (a,b) =>
-      compatibilityScore(b) -
-      compatibilityScore(a)
-  );
+          return `
 
-  currentPlayableStreams =
-    currentStreams.filter(
-      isPlayableCandidate
-    );
+            <button
+              class="episode"
+              onclick="findEpisodeSources(
+                'series',
+                '${escapeHTML(episodeId)}'
+              )">
 
-  openModal(`
+              <div class="episode-number">
 
-    <div class="sheet-header">
+                ${escapeHTML(
+                  episode.episode ||
+                  "?"
+                )}
 
-      <h2>
-        EPISODE SOURCES
-      </h2>
+              </div>
 
-      <button
-        class="close"
-        onclick="closeModal()">
-        ×
-      </button>
+              <div>
 
-    </div>
+                <div class="episode-title">
 
-    <div class="notice">
+                  ${escapeHTML(
+                    episode.title ||
+                    `Episode ${episode.episode || ""}`
+                  )}
 
-      ${currentStreams.length}
+                </div>
 
-      source(s) returned.
+                <div class="episode-desc">
 
-      <br>
+                  ${escapeHTML(
+                    episode.overview ||
+                    ""
+                  )}
 
-      ${currentPlayableStreams.length}
+                </div>
 
-      browser-compatible candidate(s)
-      detected.
+              </div>
 
-    </div>
+            </button>
 
-    <div style="margin-top:18px">
+          `;
 
-      ${
-        currentStreams.length
-
-        ?
-
-        currentStreams
-          .map(
-            renderSource
-          )
-          .join("")
-
-        :
-
-        `
+        }
+      ).join("")
+      :
+      `
         <div class="empty">
-          No sources were returned for
-          this episode.
+          No episodes found.
         </div>
-        `
-      }
-
-    </div>
-
-  `);
+      `;
 
 }
 
 
 /* ============================================================
-   STREAM URL
+   STREAM
 ============================================================ */
 
 function buildStreamURL(
@@ -2880,9 +1996,7 @@ function buildStreamURL(
 ){
 
   return (
-    addonRoot(
-      state.stream
-    ) +
+    addonRoot(state.stream) +
     "stream/" +
     encodeURIComponent(type) +
     "/" +
@@ -2892,68 +2006,48 @@ function buildStreamURL(
 
 }
 
-
-/* ============================================================
-   STREAM IDENTIFICATION
-============================================================ */
-
-function getStreamURL(
-  stream
+async function findEpisodeSources(
+  type,
+  id
 ){
 
+  await findSources(
+    type,
+    id
+  );
+
+}
+
+
+/* ============================================================
+   SOURCE DETECTION
+============================================================ */
+
+function getStreamURL(stream){
+
   return String(
-    stream?.url ||
-    ""
+    stream?.url || ""
   ).trim();
 
 }
 
-function isNotWebReady(
-  stream
-){
+function getStreamType(stream){
 
-  return Boolean(
-    stream
-      ?.behaviorHints
-      ?.notWebReady
-  );
+  return String(
+    stream?.type ||
+    ""
+  ).toLowerCase();
 
 }
 
-function isPlayerFrame(
-  stream
-){
-
-  return Boolean(
-    stream?.playerFrameUrl
-  );
-
-}
-
-function isExternal(
-  stream
-){
-
-  return Boolean(
-    stream?.externalUrl
-  );
-
-}
-
-function isHLS(
-  stream
-){
+function isHLS(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
+    getStreamType(stream);
 
   return (
     type.includes("mpegurl") ||
@@ -2963,92 +2057,67 @@ function isHLS(
 
 }
 
-function isMP4(
-  stream
-){
+function isMP4(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
+    getStreamType(stream);
 
   return (
     type.includes("mp4") ||
+    type.includes("video/mp4") ||
     url.includes(".mp4")
   );
 
 }
 
-function isWebM(
-  stream
-){
+function isWebM(stream){
 
   const url =
-    getStreamURL(
-      stream
-    ).toLowerCase();
+    getStreamURL(stream)
+      .toLowerCase();
 
   const type =
-    String(
-      stream?.type ||
-      ""
-    ).toLowerCase();
+    getStreamType(stream);
 
   return (
     type.includes("webm") ||
+    type.includes("video/webm") ||
     url.includes(".webm")
   );
 
 }
 
-function isPlayableCandidate(
-  stream
-){
+function isDirectVideo(stream){
 
-  if(
-    isPlayerFrame(stream)
-  ){
-
-    return true;
-
-  }
-
-  if(
-    isExternal(stream)
-  ){
-
-    return false;
-
-  }
-
-  if(
+  return (
     isHLS(stream) ||
     isMP4(stream) ||
     isWebM(stream)
-  ){
-
-    return true;
-
-  }
-
-  return false;
+  );
 
 }
 
+function hasPlayerFrame(stream){
 
-/* ============================================================
-   PROVIDER
-============================================================ */
+  return Boolean(
+    stream?.playerFrameUrl
+  );
 
-function providerName(
-  stream
-){
+}
+
+function isExternal(stream){
+
+  return Boolean(
+    stream?.externalUrl
+  );
+
+}
+
+function providerName(stream){
 
   const text =
     [
@@ -3069,20 +2138,17 @@ function providerName(
     "vidplay",
     "streamwish",
     "filemoon",
-    "megacloud"
+    "megacloud",
+    "pengu",
+    "penguplay"
   ];
 
   for(
-    const name
-    of providers
+    const provider of providers
   ){
 
-    if(
-      text.includes(name)
-    ){
-
-      return name;
-
+    if(text.includes(provider)){
+      return provider;
     }
 
   }
@@ -3093,53 +2159,38 @@ function providerName(
 
 
 /* ============================================================
-   SCORE
+   SOURCE SCORE
 ============================================================ */
 
-function compatibilityScore(
-  stream
-){
+function compatibilityScore(stream){
 
   let score = 0;
 
-  if(
-    isMP4(stream)
-  ){
+  if(isMP4(stream)){
+    score += 100;
+  }
 
-    score += 80;
+  if(isHLS(stream)){
+    score += 95;
+  }
 
+  if(isWebM(stream)){
+    score += 85;
+  }
+
+  if(hasPlayerFrame(stream)){
+    score += 60;
   }
 
   if(
-    isHLS(stream)
+    stream?.behaviorHints
+      ?.notWebReady
   ){
-
-    score += 75;
-
+    score -= 10;
   }
 
-  if(
-    isWebM(stream)
-  ){
-
-    score += 70;
-
-  }
-
-  if(
-    isPlayerFrame(stream)
-  ){
-
-    score += 65;
-
-  }
-
-  if(
-    isExternal(stream)
-  ){
-
+  if(isExternal(stream)){
     score -= 100;
-
   }
 
   return score;
@@ -3156,74 +2207,51 @@ function renderSource(
   index
 ){
 
+  const direct =
+    isDirectVideo(stream);
+
+  const frame =
+    hasPlayerFrame(stream);
+
   const playable =
-    isPlayableCandidate(
-      stream
-    );
+    direct || frame;
 
   let format =
     "SOURCE";
 
-  if(
-    isMP4(stream)
-  ){
-
-    format =
-      "MP4";
-
+  if(isMP4(stream)){
+    format = "MP4";
   }
-  else if(
-    isHLS(stream)
-  ){
-
-    format =
-      "HLS";
-
+  else if(isHLS(stream)){
+    format = "HLS";
   }
-  else if(
-    isWebM(stream)
-  ){
-
-    format =
-      "WEBM";
-
+  else if(isWebM(stream)){
+    format = "WEBM";
   }
-  else if(
-    isPlayerFrame(stream)
-  ){
-
-    format =
-      "PLAYER";
-
-  }
-  else if(
-    isExternal(stream)
-  ){
-
-    format =
-      "EXTERNAL";
-
+  else if(frame){
+    format = "PLAYER";
   }
 
   return `
 
     <button
       class="source"
-      ${
-        playable
-          ? `onclick="playSource(${index})"`
-          : `disabled`
-      }>
+      ${playable
+        ? `onclick="playSource(${index})"`
+        : `disabled`
+      }
+      style="
+        ${playable
+          ? ""
+          : "opacity:.48;cursor:not-allowed;"
+        }
+      ">
 
       <div class="source-top">
 
         <div class="source-icon">
 
-          ${
-            playable
-              ? "▶"
-              : "×"
-          }
+          ${playable ? "▶" : "×"}
 
         </div>
 
@@ -3242,9 +2270,7 @@ function renderSource(
           <div class="provider">
 
             ${escapeHTML(
-              providerName(
-                stream
-              )
+              providerName(stream)
             )}
 
           </div>
@@ -3265,63 +2291,20 @@ function renderSource(
         </span>
 
         ${
-          isNotWebReady(stream)
-
+          stream?.behaviorHints
+            ?.notWebReady
             ?
-
-            `<span class="badge warning">
-              NOT WEB READY
-            </span>`
-
+            `
+              <span class="badge warning">
+                PROVIDER FLAG
+              </span>
+            `
             :
-
-            `<span class="badge good">
-              WEB READY
-            </span>`
-        }
-
-        ${
-          stream.quality
-            ?
-            `<span class="badge">
-              ${escapeHTML(
-                stream.quality
-              )}
-            </span>`
-            :
-            ""
-        }
-
-      </div>
-
-      <div class="source-desc">
-
-        ${
-          isNotWebReady(stream)
-
-            ?
-
-            "Provider marked this source not web-ready. SAUVE will still attempt compatible playback."
-
-            :
-
-          isExternal(stream)
-
-            ?
-
-            "External destination — not a direct media source."
-
-            :
-
-          playable
-
-            ?
-
-            "Tap to attempt playback inside SAUVE."
-
-            :
-
-            "This source does not expose a recognized browser media URL."
+            `
+              <span class="badge good">
+                DETECTED
+              </span>
+            `
         }
 
       </div>
@@ -3334,7 +2317,7 @@ function renderSource(
 
 
 /* ============================================================
-   MOVIE SOURCES
+   FIND SOURCES
 ============================================================ */
 
 async function findSources(
@@ -3350,7 +2333,14 @@ async function findSources(
 
   }
 
-  $("sources").innerHTML = `
+  const box =
+    $("sources");
+
+  if(!box){
+    return;
+  }
+
+  box.innerHTML = `
     <div class="empty">
       Loading stream sources…
     </div>
@@ -3360,18 +2350,28 @@ async function findSources(
 
     const data =
       await fetchJSON(
-        buildStreamURL(
-          type,
-          id
-        )
+        buildStreamURL(type,id)
       );
 
     currentStreams =
-      Array.isArray(
-        data.streams
-      )
+      Array.isArray(data.streams)
         ? data.streams
         : [];
+
+    if(!currentStreams.length){
+
+      box.innerHTML = `
+        <div class="notice">
+
+          No stream sources were returned
+          for this title or episode.
+
+        </div>
+      `;
+
+      return;
+
+    }
 
     currentStreams.sort(
       (a,b) =>
@@ -3381,16 +2381,16 @@ async function findSources(
 
     currentPlayableStreams =
       currentStreams.filter(
-        isPlayableCandidate
+        stream =>
+          isDirectVideo(stream) ||
+          hasPlayerFrame(stream)
       );
 
-    $("sources").innerHTML = `
+    box.innerHTML = `
 
       <div class="heading">
 
-        <h2>
-          SOURCES
-        </h2>
+        <h2>SOURCES</h2>
 
         <span>
           ${currentStreams.length}
@@ -3400,17 +2400,20 @@ async function findSources(
 
       <div class="notice">
 
-        <strong>
-          ${currentPlayableStreams.length}
-        </strong>
-        compatible source(s) detected.
+        ${currentPlayableStreams.length}
+        source(s) can be attempted by
+        the SAUVE player.
+
+        <br><br>
+
+        Sources that aren't directly
+        browser-playable are shown separately
+        rather than pretending they are video.
 
       </div>
 
       ${currentStreams
-        .map(
-          renderSource
-        )
+        .map(renderSource)
         .join("")}
 
     `;
@@ -3418,8 +2421,7 @@ async function findSources(
   }
   catch(error){
 
-    $("sources").innerHTML = `
-
+    box.innerHTML = `
       <div class="notice">
 
         <strong>
@@ -3433,7 +2435,6 @@ async function findSources(
         )}
 
       </div>
-
     `;
 
   }
@@ -3442,65 +2443,74 @@ async function findSources(
 
 
 /* ============================================================
-   PLAY
+   PLAY SOURCE
 ============================================================ */
 
-function playSource(
-  index
-){
+function playSource(index){
 
   const stream =
     currentStreams[index];
 
   if(!stream){
-
     return;
-
   }
 
   currentPlayerIndex =
-    currentPlayableStreams.indexOf(
-      stream
-    );
+    currentPlayableStreams.indexOf(stream);
 
-  if(
-    currentPlayerIndex < 0
-  ){
-
+  if(currentPlayerIndex < 0){
     currentPlayerIndex = 0;
-
   }
 
-  if(
-    isPlayerFrame(stream)
-  ){
+  if(hasPlayerFrame(stream)){
 
-    openEmbeddedPlayer(
-      stream
-    );
+    openEmbeddedPlayer(stream);
 
     return;
 
   }
 
-  playDirectStream(
-    stream
-  );
+  playDirectStream(stream);
 
 }
 
 
-function playDirectStream(
-  stream
-){
+/* ============================================================
+   DIRECT PLAYER
+============================================================ */
+
+function playDirectStream(stream){
+
+  const url =
+    getStreamURL(stream);
+
+  if(!url){
+
+    showPlayerError(
+      "The source did not return a media URL."
+    );
+
+    return;
+
+  }
+
+  let mime = "";
+
+  if(isHLS(stream)){
+    mime = "application/vnd.apple.mpegurl";
+  }
+  else if(isMP4(stream)){
+    mime = "video/mp4";
+  }
+  else if(isWebM(stream)){
+    mime = "video/webm";
+  }
 
   openModal(`
 
     <div class="sheet-header">
 
-      <h2>
-        NOW PLAYING
-      </h2>
+      <h2>NOW PLAYING</h2>
 
       <button
         class="close"
@@ -3517,14 +2527,18 @@ function playDirectStream(
         controls
         playsinline
         webkit-playsinline
-        preload="metadata">
+        preload="metadata"
+        ${mime
+          ? `type="${mime}"`
+          : ""
+        }>
       </video>
 
       <div
         id="playerStatus"
         class="player-status">
 
-        Preparing playback…
+        Checking source…
 
       </div>
 
@@ -3533,7 +2547,7 @@ function playDirectStream(
     <div class="player-controls">
 
       <button
-        class="player-button primary"
+        class="player-button"
         onclick="tryNextSource()">
 
         ▶ TRY NEXT SOURCE
@@ -3558,23 +2572,76 @@ function playDirectStream(
   const status =
     $("playerStatus");
 
-  const url =
-    getStreamURL(
-      stream
-    );
+  if(!video){
+    return;
+  }
 
-  if(!url){
+  if(
+    isHLS(stream) &&
+    !video.canPlayType(
+      "application/vnd.apple.mpegurl"
+    )
+  ){
 
-    showPlayerError(
-      "No direct media URL was returned."
-    );
+    status.textContent =
+      "Safari does not report native HLS support for this source.";
+
+    status.className =
+      "player-status error";
 
     return;
 
   }
 
-  video.src =
-    url;
+  if(
+    isMP4(stream) &&
+    !video.canPlayType("video/mp4")
+  ){
+
+    status.textContent =
+      "Safari does not report MP4 support for this source.";
+
+    status.className =
+      "player-status error";
+
+    return;
+
+  }
+
+  if(
+    isWebM(stream) &&
+    !video.canPlayType("video/webm")
+  ){
+
+    status.textContent =
+      "Safari does not report WebM support for this source.";
+
+    status.className =
+      "player-status error";
+
+    return;
+
+  }
+
+  status.textContent =
+    "Loading video…";
+
+  try{
+
+    video.src = url;
+
+    video.load();
+
+  }
+  catch(error){
+
+    showPlayerError(
+      error.message
+    );
+
+    return;
+
+  }
 
   video.addEventListener(
     "loadedmetadata",
@@ -3587,9 +2654,21 @@ function playDirectStream(
         "player-status ready";
 
     },
-    {
-      once:true
-    }
+    {once:true}
+  );
+
+  video.addEventListener(
+    "canplay",
+    () => {
+
+      status.textContent =
+        "Ready";
+
+      status.className =
+        "player-status ready";
+
+    },
+    {once:true}
   );
 
   video.addEventListener(
@@ -3619,32 +2698,63 @@ function playDirectStream(
     "error",
     () => {
 
-      showPlayerError(
-        "Safari could not decode or access this source."
-      );
+      const error =
+        video.error;
+
+      let message =
+        "Safari could not play this source.";
+
+      if(error){
+
+        switch(error.code){
+
+          case MediaError.MEDIA_ERR_ABORTED:
+            message =
+              "Playback was aborted.";
+            break;
+
+          case MediaError.MEDIA_ERR_NETWORK:
+            message =
+              "The video server or network rejected the media request.";
+            break;
+
+          case MediaError.MEDIA_ERR_DECODE:
+            message =
+              "Safari received the source but could not decode its video format or codec.";
+            break;
+
+          case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
+            message =
+              "Safari does not support the returned media format, MIME type, or source URL.";
+            break;
+
+        }
+
+      }
+
+      showPlayerError(message);
 
     }
   );
 
-  video.load();
-
 }
 
 
-function openEmbeddedPlayer(
-  stream
-){
+/* ============================================================
+   EMBEDDED PROVIDER PLAYER
+============================================================ */
+
+function openEmbeddedPlayer(stream){
 
   const url =
     String(
-      stream.playerFrameUrl ||
-      ""
+      stream.playerFrameUrl || ""
     ).trim();
 
   if(!url){
 
     showPlayerError(
-      "No player URL was returned."
+      "No provider player URL was returned."
     );
 
     return;
@@ -3655,12 +2765,7 @@ function openEmbeddedPlayer(
 
     <div class="sheet-header">
 
-      <h2>
-        ${escapeHTML(
-          stream.name ||
-          "PLAYER"
-        )}
-      </h2>
+      <h2>PROVIDER PLAYER</h2>
 
       <button
         class="close"
@@ -3672,10 +2777,20 @@ function openEmbeddedPlayer(
 
     <div class="player-shell">
 
-      <div class="iframe-player">
+      <div
+        style="
+          width:100%;
+          aspect-ratio:16/9;
+          background:#000;
+        ">
 
         <iframe
           src="${escapeHTML(url)}"
+          style="
+            width:100%;
+            height:100%;
+            border:0;
+          "
           allow="
             autoplay;
             fullscreen;
@@ -3687,10 +2802,9 @@ function openEmbeddedPlayer(
 
       </div>
 
-      <div
-        class="player-status ready">
+      <div class="player-status ready">
 
-        Provider player loaded inside SAUVE.
+        Provider player loaded.
 
       </div>
 
@@ -3699,10 +2813,10 @@ function openEmbeddedPlayer(
     <div class="player-controls">
 
       <button
-        class="player-button primary"
+        class="player-button"
         onclick="tryNextSource()">
 
-        TRY NEXT SOURCE
+        ▶ TRY NEXT SOURCE
 
       </button>
 
@@ -3721,25 +2835,31 @@ function openEmbeddedPlayer(
 }
 
 
-function showPlayerError(
-  message
-){
+/* ============================================================
+   PLAYER ERRORS
+============================================================ */
+
+function showPlayerError(message){
 
   const status =
     $("playerStatus");
 
-  if(status){
-
-    status.textContent =
-      message;
-
-    status.className =
-      "player-status error";
-
+  if(!status){
+    return;
   }
+
+  status.textContent =
+    message;
+
+  status.className =
+    "player-status error";
 
 }
 
+
+/* ============================================================
+   NEXT SOURCE
+============================================================ */
 
 function tryNextSource(){
 
@@ -3748,7 +2868,7 @@ function tryNextSource(){
   ){
 
     showPlayerError(
-      "No compatible sources were detected."
+      "No browser-playable sources were detected."
     );
 
     return;
@@ -3771,29 +2891,25 @@ function tryNextSource(){
     next;
 
   const stream =
-    currentPlayableStreams[
-      next
-    ];
+    currentPlayableStreams[next];
 
-  if(
-    isPlayerFrame(stream)
-  ){
+  if(hasPlayerFrame(stream)){
 
-    openEmbeddedPlayer(
-      stream
-    );
+    openEmbeddedPlayer(stream);
 
   }
   else{
 
-    playDirectStream(
-      stream
-    );
+    playDirectStream(stream);
 
   }
 
 }
 
+
+/* ============================================================
+   SHOW SOURCES
+============================================================ */
 
 function showSourcesAgain(){
 
@@ -3801,9 +2917,7 @@ function showSourcesAgain(){
 
     <div class="sheet-header">
 
-      <h2>
-        SOURCES
-      </h2>
+      <h2>SOURCES</h2>
 
       <button
         class="close"
@@ -3815,21 +2929,15 @@ function showSourcesAgain(){
 
     ${
       currentStreams.length
-
         ?
-
         currentStreams
-          .map(
-            renderSource
-          )
+          .map(renderSource)
           .join("")
-
         :
-
         `
-        <div class="empty">
-          No sources available.
-        </div>
+          <div class="empty">
+            No sources available.
+          </div>
         `
     }
 
@@ -3848,9 +2956,7 @@ function openSettings(){
 
     <div class="sheet-header">
 
-      <h2>
-        SAUVE SETTINGS
-      </h2>
+      <h2>SAUVE SETTINGS</h2>
 
       <button
         class="close"
@@ -3892,13 +2998,13 @@ function openSettings(){
     <div class="notice">
 
       Your manifest addresses are stored
-      locally on this device.
+      locally in this browser.
 
       <br><br>
 
       SAUVE does not bypass DRM,
-      authentication, CORS restrictions,
-      or provider playback restrictions.
+      authentication, CORS, or provider
+      restrictions.
 
     </div>
 
@@ -3915,7 +3021,6 @@ function openSettings(){
   `);
 
 }
-
 
 function saveSettings(){
 
@@ -3968,36 +3073,29 @@ function saveSettings(){
 
 function focusSearch(){
 
-  $("searchInput")
-    .focus();
+  const input =
+    $("searchInput");
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  if(input){
+
+    input.focus();
+
+    input.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
 
 }
-
 
 function goHome(){
 
-  $("searchSection").style.display =
-    "none";
-
-  $("homeRails").style.display =
-    "block";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  location.reload();
 
 }
 
-
-function openModal(
-  html
-){
+function openModal(html){
 
   $("sheet").innerHTML =
     html;
@@ -4008,8 +3106,23 @@ function openModal(
 
 }
 
-
 function closeModal(){
+
+  const video =
+    $("sauveVideo");
+
+  if(video){
+
+    try{
+      video.pause();
+    }
+    catch(e){}
+
+    video.removeAttribute("src");
+
+    video.load();
+
+  }
 
   $("modal")
     .classList
@@ -4019,7 +3132,6 @@ function closeModal(){
     "";
 
 }
-
 
 $("modal")
   .addEventListener(
@@ -4038,13 +3150,11 @@ $("modal")
     }
   );
 
-
 $("searchButton")
   .addEventListener(
     "click",
     performSearch
   );
-
 
 $("searchInput")
   .addEventListener(
@@ -4052,8 +3162,7 @@ $("searchInput")
     event => {
 
       if(
-        event.key ===
-        "Enter"
+        event.key === "Enter"
       ){
 
         performSearch();
