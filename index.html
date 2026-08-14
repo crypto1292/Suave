@@ -311,6 +311,215 @@ main{
 }
 
 
+
+/* =========================================================
+   STREAMING PREMIERES / FEATURED POSTERS
+========================================================= */
+
+.streaming-featured{
+  position:relative;
+  margin:0 0 22px;
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(18,10,30,.96),rgba(5,3,11,.98));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 55px rgba(0,0,0,.35);
+}
+
+.streaming-featured-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  padding:20px 18px 12px;
+}
+
+.streaming-featured-kicker{
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2.5px;
+}
+
+.streaming-featured-title{
+  margin:4px 0 0;
+  font-size:24px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.6px;
+}
+
+.streaming-featured-note{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.featured-poster-row{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:4px 18px 20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+
+.featured-poster-row::-webkit-scrollbar{
+  display:none;
+}
+
+.featured-poster{
+  position:relative;
+  flex:0 0 clamp(145px,42vw,185px);
+  aspect-ratio:2/3;
+  padding:0;
+  border:0;
+  border-radius:15px;
+  overflow:hidden;
+  background:#120b1c;
+  scroll-snap-align:start;
+  box-shadow:0 10px 28px rgba(0,0,0,.4);
+}
+
+.featured-poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+
+.featured-poster:active img{
+  transform:scale(.97);
+}
+
+.featured-poster:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:42%;
+  background:linear-gradient(transparent,rgba(0,0,0,.92));
+  pointer-events:none;
+}
+
+.featured-poster-info{
+  position:absolute;
+  z-index:2;
+  left:11px;
+  right:11px;
+  bottom:10px;
+  text-align:left;
+}
+
+.featured-poster-name{
+  font-size:13px;
+  line-height:1.15;
+  font-weight:900;
+  color:#fff;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+
+.featured-poster-year{
+  margin-top:4px;
+  font-size:10px;
+  color:#c9becf;
+  font-weight:800;
+}
+
+.no-featured-posters{
+  margin:0 18px 20px;
+  padding:24px 16px;
+  border-radius:15px;
+  color:var(--muted);
+  text-align:center;
+  background:rgba(255,255,255,.035);
+}
+
+/* =========================================================
+   POPCORN STREAM LOADER
+========================================================= */
+
+.popcorn-loader{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:120px;
+  padding:20px;
+  color:#fff;
+  text-align:center;
+  transition:opacity .25s ease,transform .25s ease;
+}
+
+.popcorn-loader.hidden{
+  display:none;
+}
+
+.popcorn-machine{
+  position:relative;
+  width:92px;
+  height:86px;
+}
+
+.popcorn-bucket{
+  position:absolute;
+  left:20px;
+  bottom:0;
+  width:52px;
+  height:52px;
+  border-radius:6px 6px 11px 11px;
+  background:repeating-linear-gradient(
+    90deg,
+    #fff 0 8px,
+    #ff365f 8px 17px
+  );
+  border:2px solid rgba(255,255,255,.8);
+  transform-origin:bottom center;
+  animation:bucketWiggle 1.5s ease-in-out infinite;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+.popcorn-kernel{
+  position:absolute;
+  width:15px;
+  height:15px;
+  border-radius:50% 50% 45% 45%;
+  background:#ffe08a;
+  box-shadow:0 2px 5px rgba(0,0,0,.25);
+  animation:popcornJump 1.25s ease-in-out infinite;
+}
+
+.popcorn-kernel:nth-child(2){left:25px;top:13px;animation-delay:0s}
+.popcorn-kernel:nth-child(3){left:45px;top:7px;animation-delay:.18s}
+.popcorn-kernel:nth-child(4){left:58px;top:20px;animation-delay:.36s}
+.popcorn-kernel:nth-child(5){left:36px;top:23px;animation-delay:.54s}
+.popcorn-kernel:nth-child(6){left:13px;top:23px;animation-delay:.72s}
+
+.popcorn-loader-text{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#d9cce1;
+}
+
+@keyframes popcornJump{
+  0%,100%{transform:translateY(10px) rotate(0deg) scale(.9);opacity:.65}
+  35%{transform:translateY(-10px) rotate(12deg) scale(1)}
+  65%{transform:translateY(2px) rotate(-9deg) scale(1)}
+}
+
+@keyframes bucketWiggle{
+  0%,100%{transform:rotate(-2deg)}
+  50%{transform:rotate(2deg)}
+}
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -1609,6 +1818,55 @@ iframe{
 
 }
 
+
+
+/* =========================================================
+   SAUVE 2.0 — iPHONE UI POLISH
+   Visual layer only; existing app logic remains intact.
+========================================================= */
+:root{
+  --bg:#06050a;
+  --panel:#0d0b13;
+  --panel2:#15121d;
+  --pink:#ff2bd6;
+  --purple:#8b5cf6;
+  --cyan:#62e8ff;
+  --text:#fff;
+  --muted:#aaa1b4;
+  --glass:rgba(18,15,26,.78);
+  --line:rgba(255,255,255,.09);
+}
+html{background:#06050a;scroll-behavior:smooth}
+body{background:radial-gradient(circle at 50% -10%,rgba(139,92,246,.28),transparent 32%),linear-gradient(180deg,#07060b 0%,#050408 100%);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",sans-serif}
+header{padding:calc(12px + env(safe-area-inset-top)) 14px 12px;background:rgba(6,5,10,.78);border-bottom:1px solid var(--line);backdrop-filter:blur(28px) saturate(150%);-webkit-backdrop-filter:blur(28px) saturate(150%)}
+.logo{font-size:clamp(46px,14vw,82px);letter-spacing:5px;text-shadow:0 0 8px #fff,0 0 18px var(--pink),0 0 36px rgba(139,92,246,.8);line-height:.8}
+.logo-sub{margin-top:9px;font-size:8px;letter-spacing:3px;color:#d8cde0}
+.searchbar{max-width:760px;margin:14px auto 0;gap:8px}
+.searchbar input{height:48px;padding:0 15px;border-radius:16px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.searchbar button{min-width:82px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 8px 25px rgba(255,43,214,.18)}
+main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom))}
+.hero{min-height:min(570px,68vh);border-radius:28px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.34);padding:clamp(24px,6vw,52px);background:radial-gradient(circle at 78% 20%,rgba(98,232,255,.16),transparent 25%),radial-gradient(circle at 80% 78%,rgba(255,43,214,.22),transparent 36%),linear-gradient(125deg,#0b0811,#181025 52%,#080d14)}
+.hero:before{background:linear-gradient(90deg,rgba(5,3,11,.98),rgba(5,3,11,.68) 52%,rgba(5,3,11,.12))}
+.hero:after{opacity:.035}
+.hero-content{max-width:620px}
+.hero-kicker{font-size:9px;letter-spacing:3px;color:var(--cyan)}
+.hero h1{font-size:clamp(48px,12vw,94px);letter-spacing:-1px;margin:14px 0}
+.hero p{font-size:14px;color:#c9c1ce;max-width:520px}
+.hero-buttons{gap:9px}.primary,.secondary{min-height:46px;padding:12px 17px;border-radius:15px}
+.primary{box-shadow:0 10px 28px rgba(255,43,214,.18)}
+.secondary{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.14);color:#fff}
+.catalog-section{margin:28px 0 0}.catalog-heading{border:0;padding:0;margin-bottom:12px}.catalog-heading h2{font-size:18px;letter-spacing:-.2px}
+.catalog-row{gap:11px;padding-bottom:5px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.poster-card{scroll-snap-align:start;border-radius:15px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.07);background:#0e0b13}
+.nav{position:fixed;left:10px;right:10px;bottom:calc(9px + env(safe-area-inset-bottom));height:66px;z-index:500;border:1px solid rgba(255,255,255,.10);border-radius:23px;background:rgba(17,14,23,.82);backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);box-shadow:0 15px 45px rgba(0,0,0,.45);padding:5px 8px;display:flex;justify-content:space-around}
+.nav button{border:0;background:transparent;color:#8e8697;flex:1;border-radius:18px;font-size:9px;font-weight:800;letter-spacing:1px}.nav button span{display:block;font-size:22px;line-height:26px;margin-bottom:2px}.nav button.active{color:#fff;background:linear-gradient(180deg,rgba(255,43,214,.18),rgba(139,92,246,.10));box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.modal{padding:0 10px calc(10px + env(safe-area-inset-bottom));background:rgba(0,0,0,.62);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.sheet{width:min(760px,100%);max-height:calc(100dvh - 18px - env(safe-area-inset-top));overflow:auto;border-radius:28px;background:linear-gradient(180deg,#15111c,#0c0a10);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 90px rgba(0,0,0,.65);padding:20px 16px calc(22px + env(safe-area-inset-bottom))}
+.sheet-header{position:sticky;top:-20px;z-index:3;padding:18px 0 14px;background:linear-gradient(#15111c 70%,transparent);display:flex;align-items:center;justify-content:space-between}.sheet-header h2{font-size:20px;letter-spacing:-.3px}.close{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.07);color:#fff;font-size:24px}
+.field{margin:16px 0}.field label{display:block;margin:0 0 8px;color:#bcb2c4;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.field input{width:100%;min-height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:#09070d;color:#fff;padding:12px 14px;outline:none}.field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.section-title{margin:24px 0 8px;color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px}.notice{border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);padding:13px;color:#aaa1b4;font-size:12px;line-height:1.55}.notice strong{color:#fff}.addon-item{border-radius:16px!important;background:rgba(255,255,255,.045)!important;border:1px solid rgba(255,255,255,.07)!important;padding:13px!important;margin:8px 0}.addon-name{font-weight:800}.addon-url{color:#8e8697;font-size:11px;word-break:break-all;margin-top:5px}.remove-addon{border-radius:10px!important}
+@media (max-width:600px){header{position:sticky}.hero{min-height:470px;padding:24px 20px;border-radius:24px}.hero h1{font-size:50px}.hero p{font-size:13px;line-height:1.55}.searchbar button{padding:0 12px;min-width:70px}.catalog-row{overflow-x:auto}.sheet{border-radius:26px}.primary,.secondary{flex:1;min-width:135px}}
+
 </style>
 </head>
 
@@ -1656,46 +1914,30 @@ iframe{
 
 <main id="main">
 
-  <div class="hero">
+  <section class="streaming-featured" id="featuredStreaming">
 
-    <div class="hero-content">
-
-      <div class="hero-kicker">
-        WELCOME TO SAUVE
+    <div class="streaming-featured-header">
+      <div>
+        <div class="streaming-featured-kicker">
+          NEW ON STREAMING
+        </div>
+        <h1 class="streaming-featured-title">
+          Fresh Releases
+        </h1>
       </div>
 
-      <h1>
-        CINEMA<br>
-        AFTER DARK
-      </h1>
-
-      <p>
-        Browse your Stremio catalogs,
-        MDBList collections and television.
-        Select a show, choose a season and
-        pick an individual episode to find
-        its available sources.
-      </p>
-
-      <div class="hero-buttons">
-
-        <button
-          class="primary"
-          onclick="focusSearch()">
-          ⌕ SEARCH
-        </button>
-
-        <button
-          class="secondary"
-          onclick="openSettings()">
-          ⚙ SETTINGS
-        </button>
-
+      <div class="streaming-featured-note">
+        TAP TO WATCH
       </div>
-
     </div>
 
-  </div>
+    <div class="featured-poster-row" id="featuredPosterRow">
+      <div class="no-featured-posters">
+        Loading new releases…
+      </div>
+    </div>
+
+  </section>
 
 
   <div id="catalogContainer">
@@ -1800,7 +2042,19 @@ const state = {
     loadJSON(
       "sauve_addons",
       []
-    )
+    ),
+
+  aiostreams:
+    localStorage.getItem(
+      "sauve_aiostreams"
+    ) ||
+    "",
+
+  realdebrid:
+    localStorage.getItem(
+      "sauve_realdebrid"
+    ) ||
+    ""
 
 };
 
@@ -1879,6 +2133,16 @@ function saveState(){
     JSON.stringify(
       state.addons
     )
+  );
+
+  localStorage.setItem(
+    "sauve_aiostreams",
+    state.aiostreams || ""
+  );
+
+  localStorage.setItem(
+    "sauve_realdebrid",
+    state.realdebrid || ""
   );
 
 }
@@ -2480,6 +2744,8 @@ async function loadHome(){
         30
       );
 
+    let featuredMetas = [];
+
     const results =
       await Promise.allSettled(
         selected.map(
@@ -2528,6 +2794,39 @@ async function loadHome(){
 
           return;
 
+        }
+
+        const catalogName = String(
+          result.value.catalog.name ||
+          result.value.catalog.id ||
+          ""
+        ).toLowerCase();
+
+        if(
+          !featuredMetas.length &&
+          (
+            catalogName.includes("new") ||
+            catalogName.includes("latest") ||
+            catalogName.includes("digital") ||
+            catalogName.includes("streaming") ||
+            catalogName.includes("release") ||
+            catalogName.includes("premiere")
+          )
+        ){
+          featuredMetas =
+            result.value.metas;
+        }
+
+        if(!featuredMetas.length){
+          const movieMetas =
+            result.value.metas.filter(
+              item =>
+                String(item.type || "").toLowerCase() === "movie"
+            );
+
+          if(movieMetas.length){
+            featuredMetas = movieMetas;
+          }
         }
 
         mainHTML +=
@@ -2733,6 +3032,73 @@ function renderPosterCard(
 
 }
 
+
+
+/* =========================================================
+   FEATURED NEW-ON-STREAMING POSTERS
+========================================================= */
+
+function renderFeaturedPosters(metas){
+
+  const row = $("featuredPosterRow");
+
+  if(!row){
+    return;
+  }
+
+  const items = dedupeMetas(
+    (Array.isArray(metas) ? metas : [])
+      .filter(item =>
+        item &&
+        (item.poster || item.logo) &&
+        String(item.type || "movie").toLowerCase() === "movie"
+      )
+  ).slice(0,12);
+
+  if(!items.length){
+
+    row.innerHTML = `
+      <div class="no-featured-posters">
+        New streaming posters will appear here when your metadata source provides them.
+      </div>
+    `;
+
+    return;
+  }
+
+  row.innerHTML = items.map(item => {
+
+    const type = encodeURIComponent(item.type || "movie");
+    const id = encodeURIComponent(item.id || "");
+    const poster = item.poster || item.logo || "";
+    const year = item.releaseInfo || item.year || "";
+
+    return `
+      <button
+        class="featured-poster"
+        onclick="openTitle('${escapeHTML(type)}','${escapeHTML(id)}')">
+
+        <img
+          src="${escapeHTML(poster)}"
+          alt="${escapeHTML(item.name || "Movie")}"
+          loading="lazy"
+          onerror="this.style.opacity='.2'">
+
+        <div class="featured-poster-info">
+          <div class="featured-poster-name">
+            ${escapeHTML(item.name || "Untitled")}
+          </div>
+          <div class="featured-poster-year">
+            ${escapeHTML(year)}
+          </div>
+        </div>
+
+      </button>
+    `;
+
+  }).join("");
+
+}
 
 /* =========================================================
    CATALOG ROW
@@ -4684,6 +5050,25 @@ function playDirectStream(
 
     <div class="player-shell">
 
+      <div
+        class="popcorn-loader"
+        id="popcornLoader">
+
+        <div class="popcorn-machine">
+          <div class="popcorn-bucket"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+        </div>
+
+        <div class="popcorn-loader-text">
+          POPCORN IS POPPING…
+        </div>
+
+      </div>
+
       <video
         id="sauveVideo"
         controls
@@ -4691,7 +5076,6 @@ function playDirectStream(
         webkit-playsinline
         preload="metadata">
       </video>
-
 
       <div
         id="playerStatus"
@@ -4767,6 +5151,13 @@ function playDirectStream(
       status.className =
         "player-status ready";
 
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
+
     },
     {
       once:true
@@ -4783,6 +5174,13 @@ function playDirectStream(
 
       status.className =
         "player-status ready";
+
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
 
     }
   );
@@ -4802,6 +5200,13 @@ function playDirectStream(
   video.addEventListener(
     "error",
     () => {
+
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
 
       showPlayerError(
         "Safari could not decode or access this video source."
@@ -4869,6 +5274,25 @@ function openEmbeddedPlayer(
 
     <div class="player-shell">
 
+      <div
+        class="popcorn-loader"
+        id="popcornLoader">
+
+        <div class="popcorn-machine">
+          <div class="popcorn-bucket"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+        </div>
+
+        <div class="popcorn-loader-text">
+          POPCORN IS POPPING…
+        </div>
+
+      </div>
+
       <div class="iframe-player">
 
         <iframe
@@ -4923,6 +5347,13 @@ function openEmbeddedPlayer(
     </div>
 
   `);
+
+  setTimeout(() => {
+    const popcorn = $("popcornLoader");
+    if(popcorn){
+      popcorn.classList.add("hidden");
+    }
+  }, 1400);
 
 }
 
@@ -5618,6 +6049,36 @@ function openSettings(){
     <br><br>
 
 
+    <div class="section-title">AIOSTREAMS</div>
+
+    <div class="notice">
+      Add your AIOStreams manifest URL here. If provided, SAUVE will use it as the primary stream manifest.
+    </div>
+
+    <div class="field">
+      <label>AIOStreams Manifest URL</label>
+      <input
+        id="aioStreamsURL"
+        value="${escapeHTML(state.aiostreams || "")}"
+        placeholder="https://…/manifest.json">
+    </div>
+
+    <div class="section-title">REAL-DEBRID</div>
+
+    <div class="notice">
+      Real-Debrid is kept as a local setting and is never written into this GitHub repository. For the safest setup, configure Real-Debrid inside AIOStreams and let AIOStreams provide the resulting streams to SAUVE.
+    </div>
+
+    <div class="field">
+      <label>Real-Debrid Account / Token (optional)</label>
+      <input
+        id="realDebridToken"
+        type="password"
+        autocomplete="off"
+        value="${escapeHTML(state.realdebrid || "")}"
+        placeholder="Stored only on this device">
+    </div>
+
     <button
       class="primary"
       onclick="saveSettings()">
@@ -5727,6 +6188,13 @@ function removeAddon(
 
 
 /* =========================================================
+   REAL-DEBRID / AIOSTREAMS NOTE
+   The browser stores these values locally only. AIOStreams is the
+   recommended place to configure Real-Debrid for this public PWA;
+   no credential is embedded in the GitHub source.
+========================================================= */
+
+/* =========================================================
    SAVE SETTINGS
 ========================================================= */
 
@@ -5742,6 +6210,16 @@ function saveSettings(){
     $("streamURL")
       ?.value
       .trim();
+
+  const aiostreams =
+    $("aioStreamsURL")
+      ?.value
+      .trim() || "";
+
+  const realdebrid =
+    $("realDebridToken")
+      ?.value
+      .trim() || "";
 
 
   if(!metadata){
@@ -5761,7 +6239,14 @@ function saveSettings(){
 
   state.stream =
     stream ||
+    aiostreams ||
     "";
+
+  state.aiostreams =
+    aiostreams;
+
+  state.realdebrid =
+    realdebrid;
 
 
   saveState();
