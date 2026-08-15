@@ -1,0 +1,6819 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no,
+               viewport-fit=cover">
+
+<meta name="theme-color"
+      content="#05030b">
+
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+<meta name="mobile-web-app-capable"
+      content="yes">
+
+<meta name="apple-mobile-web-app-title"
+      content="SAUVE">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
+<meta name="description"
+      content="SAUVE Cinema Television">
+
+<link rel="manifest"
+      href="./manifest.json">
+
+<link rel="apple-touch-icon"
+      href="./icons/apple-touch-icon.png">
+
+<title>SAUVE Cinema Television</title>
+
+<style>
+
+/* =========================================================
+   SAUVE
+   CINEMA TELEVISION
+   iPHONE / PWA EDITION
+========================================================= */
+
+:root{
+  --bg:#05030b;
+  --panel:#0d0718;
+  --panel2:#150b25;
+  --pink:#ff16d8;
+  --purple:#8a4dff;
+  --cyan:#19eaff;
+  --yellow:#ffd45a;
+  --green:#42ffb0;
+  --red:#ff5577;
+  --text:#fff;
+  --muted:#9d91a6;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background:#05030b;
+  overscroll-behavior:none;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  min-height:100dvh;
+
+  color:white;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Segoe UI",
+    sans-serif;
+
+  overflow-x:hidden;
+
+  overscroll-behavior:none;
+
+  -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+  user-select:none;
+  -webkit-user-select:none;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(138,77,255,.38),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 0 30%,
+      rgba(255,22,216,.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      rgba(25,234,255,.10),
+      transparent 30%
+    ),
+    #05030b;
+}
+
+body.modal-open{
+  overflow:hidden;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-user-select:none;
+  user-select:none;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+input{
+  user-select:text;
+  -webkit-user-select:text;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  padding:
+    calc(10px + env(safe-area-inset-top))
+    14px
+    14px;
+
+  background:
+    rgba(5,3,11,.94);
+
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+
+  border-bottom:
+    1px solid rgba(255,22,216,.18);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+  text-align:center;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-style:italic;
+
+  font-size:
+    clamp(
+      68px,
+      19vw,
+      120px
+    );
+
+  line-height:.78;
+
+  letter-spacing:7px;
+
+  transform:skewX(-7deg);
+
+  color:white;
+
+  text-shadow:
+    0 0 4px white,
+    0 0 9px var(--pink),
+    0 0 20px var(--pink),
+    0 0 45px var(--purple),
+    6px 5px 0 rgba(25,234,255,.55);
+}
+
+.logo-sub{
+  margin-top:14px;
+
+  text-align:center;
+
+  color:var(--cyan);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:4px;
+
+  text-shadow:
+    0 0 10px var(--cyan);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.searchbar{
+  display:flex;
+
+  gap:8px;
+
+  max-width:900px;
+
+  margin:
+    18px auto 0;
+}
+
+.searchbar input{
+  flex:1;
+
+  min-width:0;
+
+  padding:14px;
+
+  border-radius:8px;
+
+  background:#0c0715;
+
+  color:white;
+
+  border:
+    1px solid rgba(138,77,255,.45);
+
+  outline:none;
+
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+.searchbar input:focus{
+  border-color:var(--pink);
+
+  box-shadow:
+    0 0 18px
+    rgba(255,22,216,.18);
+}
+
+.searchbar button{
+  padding:
+    0 18px;
+
+  border:0;
+
+  border-radius:8px;
+
+  color:white;
+
+  font-weight:900;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+  width:100%;
+
+  max-width:1500px;
+
+  margin:auto;
+
+  padding:
+    16px
+    16px
+    calc(
+      110px +
+      env(safe-area-inset-bottom)
+    );
+}
+
+
+
+/* =========================================================
+   STREAMING PREMIERES / FEATURED POSTERS
+========================================================= */
+
+.streaming-featured{
+  position:relative;
+  margin:0 0 22px;
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(18,10,30,.96),rgba(5,3,11,.98));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 18px 55px rgba(0,0,0,.35);
+}
+
+.streaming-featured-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  padding:20px 18px 12px;
+}
+
+.streaming-featured-kicker{
+  color:var(--cyan);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2.5px;
+}
+
+.streaming-featured-title{
+  margin:4px 0 0;
+  font-size:24px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.6px;
+}
+
+.streaming-featured-note{
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.featured-poster-row{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:4px 18px 20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+
+.featured-poster-row::-webkit-scrollbar{
+  display:none;
+}
+
+.featured-poster{
+  position:relative;
+  flex:0 0 clamp(145px,42vw,185px);
+  aspect-ratio:2/3;
+  padding:0;
+  border:0;
+  border-radius:15px;
+  overflow:hidden;
+  background:#120b1c;
+  scroll-snap-align:start;
+  box-shadow:0 10px 28px rgba(0,0,0,.4);
+}
+
+.featured-poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+
+.featured-poster:active img{
+  transform:scale(.97);
+}
+
+.featured-poster:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:42%;
+  background:linear-gradient(transparent,rgba(0,0,0,.92));
+  pointer-events:none;
+}
+
+.featured-poster-info{
+  position:absolute;
+  z-index:2;
+  left:11px;
+  right:11px;
+  bottom:10px;
+  text-align:left;
+}
+
+.featured-poster-name{
+  font-size:13px;
+  line-height:1.15;
+  font-weight:900;
+  color:#fff;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+}
+
+.featured-poster-year{
+  margin-top:4px;
+  font-size:10px;
+  color:#c9becf;
+  font-weight:800;
+}
+
+.no-featured-posters{
+  margin:0 18px 20px;
+  padding:24px 16px;
+  border-radius:15px;
+  color:var(--muted);
+  text-align:center;
+  background:rgba(255,255,255,.035);
+}
+
+/* =========================================================
+   POPCORN STREAM LOADER
+========================================================= */
+
+.popcorn-loader{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:120px;
+  padding:20px;
+  color:#fff;
+  text-align:center;
+  transition:opacity .25s ease,transform .25s ease;
+}
+
+.popcorn-loader.hidden{
+  display:none;
+}
+
+.popcorn-machine{
+  position:relative;
+  width:92px;
+  height:86px;
+}
+
+.popcorn-bucket{
+  position:absolute;
+  left:20px;
+  bottom:0;
+  width:52px;
+  height:52px;
+  border-radius:6px 6px 11px 11px;
+  background:repeating-linear-gradient(
+    90deg,
+    #fff 0 8px,
+    #ff365f 8px 17px
+  );
+  border:2px solid rgba(255,255,255,.8);
+  transform-origin:bottom center;
+  animation:bucketWiggle 1.5s ease-in-out infinite;
+  box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+.popcorn-kernel{
+  position:absolute;
+  width:15px;
+  height:15px;
+  border-radius:50% 50% 45% 45%;
+  background:#ffe08a;
+  box-shadow:0 2px 5px rgba(0,0,0,.25);
+  animation:popcornJump 1.25s ease-in-out infinite;
+}
+
+.popcorn-kernel:nth-child(2){left:25px;top:13px;animation-delay:0s}
+.popcorn-kernel:nth-child(3){left:45px;top:7px;animation-delay:.18s}
+.popcorn-kernel:nth-child(4){left:58px;top:20px;animation-delay:.36s}
+.popcorn-kernel:nth-child(5){left:36px;top:23px;animation-delay:.54s}
+.popcorn-kernel:nth-child(6){left:13px;top:23px;animation-delay:.72s}
+
+.popcorn-loader-text{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  color:#d9cce1;
+}
+
+@keyframes popcornJump{
+  0%,100%{transform:translateY(10px) rotate(0deg) scale(.9);opacity:.65}
+  35%{transform:translateY(-10px) rotate(12deg) scale(1)}
+  65%{transform:translateY(2px) rotate(-9deg) scale(1)}
+}
+
+@keyframes bucketWiggle{
+  0%,100%{transform:rotate(-2deg)}
+  50%{transform:rotate(2deg)}
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  position:relative;
+
+  min-height:
+    clamp(
+      400px,
+      58vh,
+      620px
+    );
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  padding:
+    clamp(
+      25px,
+      5vw,
+      60px
+    );
+
+  border-radius:18px;
+
+  border:
+    1px solid
+    rgba(255,22,216,.25);
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(25,234,255,.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255,22,216,.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      110deg,
+      #090511,
+      #190c2e,
+      #07121e
+    );
+}
+
+.hero:before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,3,11,.98),
+      rgba(5,3,11,.72) 48%,
+      rgba(5,3,11,.05)
+    );
+}
+
+.hero:after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  opacity:.08;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(255,255,255,.18) 4px
+    );
+}
+
+.hero-content{
+  position:relative;
+
+  z-index:3;
+
+  max-width:720px;
+}
+
+.hero-kicker{
+  color:var(--cyan);
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+}
+
+.hero h1{
+  margin:15px 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:
+    clamp(
+      46px,
+      9vw,
+      95px
+    );
+
+  line-height:.85;
+
+  text-transform:uppercase;
+
+  text-shadow:
+    0 0 20px
+    rgba(255,22,216,.35);
+}
+
+.hero p{
+  color:#c7b9ce;
+
+  line-height:1.6;
+
+  font-size:14px;
+}
+
+.hero-buttons{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:20px;
+}
+
+.primary,
+.secondary{
+  padding:
+    13px 18px;
+
+  border-radius:8px;
+
+  font-weight:900;
+}
+
+.primary{
+  border:0;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(255,22,216,.25);
+}
+
+.secondary{
+  color:var(--cyan);
+
+  background:
+    rgba(25,234,255,.04);
+
+  border:
+    1px solid
+    rgba(25,234,255,.38);
+}
+
+
+/* =========================================================
+   CATALOGS
+========================================================= */
+
+.catalog-section{
+  margin:30px 0 0;
+}
+
+.catalog-heading{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-bottom:12px;
+
+  padding-bottom:9px;
+
+  border-bottom:
+    1px solid
+    rgba(255,22,216,.15);
+}
+
+.catalog-title{
+  margin:0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:25px;
+
+  letter-spacing:1px;
+}
+
+.catalog-label{
+  color:var(--cyan);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+.row{
+  display:flex;
+
+  gap:13px;
+
+  overflow-x:auto;
+
+  overflow-y:hidden;
+
+  padding:
+    3px
+    1px
+    12px;
+
+  scroll-snap-type:
+    x proximity;
+
+  scrollbar-width:none;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.row::-webkit-scrollbar{
+  display:none;
+}
+
+.poster-card{
+  position:relative;
+
+  flex:
+    0 0 145px;
+
+  overflow:hidden;
+
+  border:0;
+
+  padding:0;
+
+  text-align:left;
+
+  color:white;
+
+  background:#10091c;
+
+  border-radius:8px;
+
+  scroll-snap-align:start;
+
+  box-shadow:
+    0 7px 22px
+    rgba(0,0,0,.32);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.poster-card img{
+  display:block;
+
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+
+  background:#171027;
+}
+
+.poster-overlay{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  padding:
+    38px
+    9px
+    9px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.94)
+    );
+}
+
+.poster-name{
+  font-size:12px;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+.poster-year{
+  margin-top:3px;
+
+  color:#bdb0c6;
+
+  font-size:9px;
+}
+
+.poster-type{
+  position:absolute;
+
+  top:7px;
+  left:7px;
+
+  padding:
+    4px 6px;
+
+  border-radius:4px;
+
+  background:
+    rgba(0,0,0,.72);
+
+  color:var(--cyan);
+
+  font-size:7px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+}
+
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.empty{
+  padding:
+    28px 5px;
+
+  color:var(--muted);
+
+  font-size:13px;
+}
+
+.notice{
+  padding:16px;
+
+  border-radius:9px;
+
+  background:
+    rgba(255,22,216,.045);
+
+  border:
+    1px solid
+    rgba(255,22,216,.17);
+
+  color:#c8bacf;
+
+  line-height:1.6;
+
+  font-size:12px;
+}
+
+.loading{
+  padding:25px;
+
+  text-align:center;
+
+  color:#bcaec5;
+}
+
+.spinner{
+  width:28px;
+  height:28px;
+
+  margin:
+    0 auto 12px;
+
+  border-radius:50%;
+
+  border:
+    3px solid
+    rgba(255,255,255,.12);
+
+  border-top-color:
+    var(--pink);
+
+  animation:
+    spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:500;
+
+  display:none;
+
+  align-items:flex-end;
+
+  background:
+    rgba(0,0,0,.88);
+
+  backdrop-filter:blur(10px);
+
+  -webkit-backdrop-filter:blur(10px);
+
+  padding-top:
+    env(safe-area-inset-top);
+}
+
+.modal.open{
+  display:flex;
+}
+
+.sheet{
+  width:100%;
+
+  max-height:95vh;
+
+  overflow:auto;
+
+  -webkit-overflow-scrolling:touch;
+
+  padding:
+    20px
+    18px
+    calc(
+      30px +
+      env(safe-area-inset-bottom)
+    );
+
+  border-radius:
+    22px
+    22px
+    0
+    0;
+
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      rgba(138,77,255,.18),
+      transparent 40%
+    ),
+    #0c0718;
+
+  border-top:
+    1px solid
+    rgba(255,22,216,.35);
+}
+
+.sheet-header{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-bottom:18px;
+}
+
+.sheet-header h2{
+  margin:0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:27px;
+}
+
+.close{
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  background:#170d27;
+
+  color:var(--cyan);
+
+  border:
+    1px solid
+    rgba(25,234,255,.3);
+
+  font-size:22px;
+
+  flex:none;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details{
+  display:grid;
+
+  grid-template-columns:
+    105px 1fr;
+
+  gap:16px;
+}
+
+.details img{
+  width:105px;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+
+  border-radius:8px;
+
+  background:#171027;
+}
+
+.details p{
+  color:#c3b5cb;
+
+  line-height:1.55;
+
+  font-size:13px;
+}
+
+.meta{
+  color:var(--cyan);
+
+  font-size:10px;
+
+  letter-spacing:1px;
+
+  margin-bottom:7px;
+}
+
+.section-title{
+  margin:
+    25px 0 10px;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    sans-serif;
+
+  font-size:22px;
+}
+
+
+/* =========================================================
+   SEASONS
+========================================================= */
+
+.season-tabs{
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding-bottom:8px;
+
+  scrollbar-width:none;
+
+  -webkit-overflow-scrolling:touch;
+}
+
+.season-tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.season-button{
+  flex:none;
+
+  padding:
+    9px 13px;
+
+  border-radius:7px;
+
+  border:
+    1px solid
+    rgba(138,77,255,.3);
+
+  background:#140b23;
+
+  color:#bfb1c8;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  touch-action:manipulation;
+}
+
+.season-button.active{
+  color:white;
+
+  border-color:
+    var(--pink);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,22,216,.35),
+      rgba(138,77,255,.35)
+    );
+}
+
+
+/* =========================================================
+   EPISODES
+========================================================= */
+
+.episode-list{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+}
+
+.episode{
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    80px 1fr;
+
+  gap:12px;
+
+  padding:8px;
+
+  border-radius:8px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.07);
+
+  background:#120a20;
+
+  color:white;
+
+  text-align:left;
+}
+
+.episode img{
+  width:80px;
+
+  aspect-ratio:16/9;
+
+  object-fit:cover;
+
+  border-radius:5px;
+
+  background:#08050d;
+}
+
+.episode-number{
+  color:var(--cyan);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+}
+
+.episode-name{
+  margin-top:4px;
+
+  font-weight:900;
+
+  font-size:12px;
+}
+
+.episode-desc{
+  margin-top:5px;
+
+  color:#8f8499;
+
+  font-size:9px;
+
+  line-height:1.4;
+}
+
+
+/* =========================================================
+   SOURCES
+========================================================= */
+
+.source{
+  width:100%;
+
+  margin-top:9px;
+
+  padding:14px;
+
+  text-align:left;
+
+  color:white;
+
+  border-radius:9px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #150c29,
+      #0d0819
+    );
+
+  border:
+    1px solid
+    rgba(25,234,255,.15);
+}
+
+.source-top{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+}
+
+.source-icon{
+  width:36px;
+  height:36px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex:none;
+
+  border-radius:50%;
+
+  color:var(--cyan);
+
+  background:
+    rgba(25,234,255,.08);
+}
+
+.source-name{
+  font-weight:900;
+}
+
+.provider{
+  margin-top:4px;
+
+  color:var(--cyan);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+.badges{
+  margin-top:8px;
+}
+
+.badge{
+  display:inline-block;
+
+  padding:
+    4px 7px;
+
+  margin-right:5px;
+
+  margin-bottom:4px;
+
+  border-radius:5px;
+
+  background:
+    rgba(255,22,216,.10);
+
+  color:#ff7be4;
+
+  font-size:8px;
+
+  font-weight:900;
+
+  letter-spacing:.7px;
+}
+
+.badge.good{
+  background:
+    rgba(66,255,176,.10);
+
+  color:var(--green);
+}
+
+.badge.warning{
+  background:
+    rgba(255,212,90,.10);
+
+  color:var(--yellow);
+}
+
+.badge.blue{
+  background:
+    rgba(25,234,255,.10);
+
+  color:var(--cyan);
+}
+
+.source-desc{
+  margin-top:7px;
+
+  color:#91859b;
+
+  font-size:10px;
+}
+
+
+/* =========================================================
+   PLAYER
+========================================================= */
+
+.player-shell{
+  position:relative;
+
+  width:100%;
+
+  overflow:hidden;
+
+  border-radius:12px;
+
+  background:#000;
+
+  border:
+    1px solid
+    rgba(25,234,255,.25);
+
+  box-shadow:
+    0 0 30px
+    rgba(25,234,255,.08);
+}
+
+video{
+  display:block;
+
+  width:100%;
+
+  max-height:70vh;
+
+  background:#000;
+}
+
+.iframe-player{
+  width:100%;
+
+  aspect-ratio:16/9;
+
+  background:#000;
+}
+
+iframe{
+  display:block;
+
+  width:100%;
+
+  height:100%;
+
+  border:0;
+
+  background:#000;
+}
+
+.player-status{
+  padding:
+    11px 13px;
+
+  background:#0e0818;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.07);
+
+  color:#aaa;
+
+  font-size:11px;
+}
+
+.player-status.ready{
+  color:var(--green);
+}
+
+.player-status.error{
+  color:var(--red);
+}
+
+.player-controls{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-top:12px;
+}
+
+.player-button{
+  padding:
+    10px 13px;
+
+  border-radius:7px;
+
+  color:white;
+
+  background:#170d27;
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
+  font-weight:800;
+
+  font-size:11px;
+}
+
+.player-button.primary{
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--purple)
+    );
+
+  border:0;
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+.field{
+  margin:18px 0;
+}
+
+.field label{
+  display:block;
+
+  margin-bottom:8px;
+
+  color:var(--cyan);
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+}
+
+.field input{
+  width:100%;
+
+  padding:13px;
+
+  border-radius:7px;
+
+  background:#080510;
+
+  color:white;
+
+  border:
+    1px solid
+    rgba(138,77,255,.3);
+
+  outline:none;
+
+  -webkit-appearance:none;
+}
+
+.addon-item{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:12px;
+
+  margin-bottom:8px;
+
+  border-radius:8px;
+
+  background:#10091c;
+
+  border:
+    1px solid
+    rgba(138,77,255,.2);
+}
+
+.addon-info{
+  flex:1;
+
+  min-width:0;
+}
+
+.addon-name{
+  font-weight:900;
+
+  font-size:12px;
+}
+
+.addon-url{
+  margin-top:4px;
+
+  color:#80748b;
+
+  font-size:9px;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+.remove-addon{
+  flex:none;
+
+  padding:
+    7px 9px;
+
+  border-radius:6px;
+
+  border:
+    1px solid
+    rgba(255,85,119,.3);
+
+  color:var(--red);
+
+  background:
+    rgba(255,85,119,.06);
+
+  font-size:9px;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   NATIVE-STYLE NAVIGATION
+========================================================= */
+
+.nav{
+  position:fixed;
+
+  z-index:400;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:
+    calc(
+      76px +
+      env(safe-area-inset-bottom)
+    );
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-around;
+
+  background:
+    rgba(8,5,17,.96);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+
+  border-top:
+    1px solid
+    rgba(255,22,216,.18);
+}
+
+.nav button{
+  border:0;
+
+  background:none;
+
+  color:#766a80;
+
+  font-size:9px;
+
+  letter-spacing:1px;
+
+  min-width:70px;
+
+  min-height:50px;
+
+  padding:5px 10px;
+}
+
+.nav button span{
+  display:block;
+
+  font-size:22px;
+
+  margin-bottom:4px;
+}
+
+.nav button.active{
+  color:var(--pink);
+
+  text-shadow:
+    0 0 10px
+    var(--pink);
+}
+
+
+/* =========================================================
+   iPHONE / TOUCH POLISH
+========================================================= */
+
+@media (hover:none){
+
+  .poster-card:hover{
+    transform:none;
+
+    box-shadow:
+      0 7px 22px
+      rgba(0,0,0,.32);
+  }
+
+  .episode:hover{
+    border-color:
+      rgba(255,255,255,.07);
+  }
+
+  .source:hover{
+    border-color:
+      rgba(25,234,255,.15);
+
+    box-shadow:none;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media(min-width:700px){
+
+  .poster-card{
+    flex-basis:180px;
+  }
+
+  .details{
+    grid-template-columns:
+      190px 1fr;
+  }
+
+  .details img{
+    width:190px;
+  }
+
+  .hero{
+    min-height:580px;
+  }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE iPHONE
+========================================================= */
+
+@media
+  (orientation:landscape)
+  and (max-height:500px){
+
+  .hero{
+    min-height:350px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  main{
+    padding-bottom:30px;
+  }
+
+}
+
+
+/* =========================================================
+   STANDALONE PWA MODE
+========================================================= */
+
+@media
+  (display-mode:standalone){
+
+  body{
+    min-height:100dvh;
+  }
+
+  header{
+    padding-top:
+      calc(
+        12px +
+        env(safe-area-inset-top)
+      );
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media
+  (prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    scroll-behavior:auto !important;
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.01ms !important;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   SAUVE 2.0 — iPHONE UI POLISH
+   Visual layer only; existing app logic remains intact.
+========================================================= */
+:root{
+  --bg:#06050a;
+  --panel:#0d0b13;
+  --panel2:#15121d;
+  --pink:#ff2bd6;
+  --purple:#8b5cf6;
+  --cyan:#62e8ff;
+  --text:#fff;
+  --muted:#aaa1b4;
+  --glass:rgba(18,15,26,.78);
+  --line:rgba(255,255,255,.09);
+}
+html{background:#06050a;scroll-behavior:smooth}
+body{background:radial-gradient(circle at 50% -10%,rgba(139,92,246,.28),transparent 32%),linear-gradient(180deg,#07060b 0%,#050408 100%);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",sans-serif}
+header{padding:calc(12px + env(safe-area-inset-top)) 14px 12px;background:rgba(6,5,10,.78);border-bottom:1px solid var(--line);backdrop-filter:blur(28px) saturate(150%);-webkit-backdrop-filter:blur(28px) saturate(150%)}
+.logo{font-size:clamp(46px,14vw,82px);letter-spacing:5px;text-shadow:0 0 8px #fff,0 0 18px var(--pink),0 0 36px rgba(139,92,246,.8);line-height:.8}
+.logo-sub{margin-top:9px;font-size:8px;letter-spacing:3px;color:#d8cde0}
+.searchbar{max-width:760px;margin:14px auto 0;gap:8px}
+.searchbar input{height:48px;padding:0 15px;border-radius:16px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.searchbar button{min-width:82px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 8px 25px rgba(255,43,214,.18)}
+main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom))}
+.hero{min-height:min(570px,68vh);border-radius:28px;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.34);padding:clamp(24px,6vw,52px);background:radial-gradient(circle at 78% 20%,rgba(98,232,255,.16),transparent 25%),radial-gradient(circle at 80% 78%,rgba(255,43,214,.22),transparent 36%),linear-gradient(125deg,#0b0811,#181025 52%,#080d14)}
+.hero:before{background:linear-gradient(90deg,rgba(5,3,11,.98),rgba(5,3,11,.68) 52%,rgba(5,3,11,.12))}
+.hero:after{opacity:.035}
+.hero-content{max-width:620px}
+.hero-kicker{font-size:9px;letter-spacing:3px;color:var(--cyan)}
+.hero h1{font-size:clamp(48px,12vw,94px);letter-spacing:-1px;margin:14px 0}
+.hero p{font-size:14px;color:#c9c1ce;max-width:520px}
+.hero-buttons{gap:9px}.primary,.secondary{min-height:46px;padding:12px 17px;border-radius:15px}
+.primary{box-shadow:0 10px 28px rgba(255,43,214,.18)}
+.secondary{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.14);color:#fff}
+.catalog-section{margin:28px 0 0}.catalog-heading{border:0;padding:0;margin-bottom:12px}.catalog-heading h2{font-size:18px;letter-spacing:-.2px}
+.catalog-row{gap:11px;padding-bottom:5px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.poster-card{scroll-snap-align:start;border-radius:15px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.07);background:#0e0b13}
+.nav{position:fixed;left:10px;right:10px;bottom:calc(9px + env(safe-area-inset-bottom));height:66px;z-index:500;border:1px solid rgba(255,255,255,.10);border-radius:23px;background:rgba(17,14,23,.82);backdrop-filter:blur(26px) saturate(160%);-webkit-backdrop-filter:blur(26px) saturate(160%);box-shadow:0 15px 45px rgba(0,0,0,.45);padding:5px 8px;display:flex;justify-content:space-around}
+.nav button{border:0;background:transparent;color:#8e8697;flex:1;border-radius:18px;font-size:9px;font-weight:800;letter-spacing:1px}.nav button span{display:block;font-size:22px;line-height:26px;margin-bottom:2px}.nav button.active{color:#fff;background:linear-gradient(180deg,rgba(255,43,214,.18),rgba(139,92,246,.10));box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.modal{padding:0 10px calc(10px + env(safe-area-inset-bottom));background:rgba(0,0,0,.62);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.sheet{width:min(760px,100%);max-height:calc(100dvh - 18px - env(safe-area-inset-top));overflow:auto;border-radius:28px;background:linear-gradient(180deg,#15111c,#0c0a10);border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 90px rgba(0,0,0,.65);padding:20px 16px calc(22px + env(safe-area-inset-bottom))}
+.sheet-header{position:sticky;top:-20px;z-index:3;padding:18px 0 14px;background:linear-gradient(#15111c 70%,transparent);display:flex;align-items:center;justify-content:space-between}.sheet-header h2{font-size:20px;letter-spacing:-.3px}.close{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.07);color:#fff;font-size:24px}
+.field{margin:16px 0}.field label{display:block;margin:0 0 8px;color:#bcb2c4;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.field input{width:100%;min-height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:#09070d;color:#fff;padding:12px 14px;outline:none}.field input:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.section-title{margin:24px 0 8px;color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px}.notice{border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);padding:13px;color:#aaa1b4;font-size:12px;line-height:1.55}.notice strong{color:#fff}.addon-item{border-radius:16px!important;background:rgba(255,255,255,.045)!important;border:1px solid rgba(255,255,255,.07)!important;padding:13px!important;margin:8px 0}.addon-name{font-weight:800}.addon-url{color:#8e8697;font-size:11px;word-break:break-all;margin-top:5px}.remove-addon{border-radius:10px!important}
+@media (max-width:600px){header{position:sticky}.hero{min-height:470px;padding:24px 20px;border-radius:24px}.hero h1{font-size:50px}.hero p{font-size:13px;line-height:1.55}.searchbar button{padding:0 12px;min-width:70px}.catalog-row{overflow-x:auto}.sheet{border-radius:26px}.primary,.secondary{flex:1;min-width:135px}}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+  <div class="logo">
+    SAUVE
+  </div>
+
+  <div class="logo-sub">
+    CINEMA • TELEVISION • AFTER DARK
+  </div>
+
+  <div class="searchbar">
+
+    <input
+      id="searchInput"
+      type="search"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Search movies & television">
+
+    <button
+      id="searchButton">
+      SEARCH
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main id="main">
+
+  <section class="streaming-featured" id="featuredStreaming">
+
+    <div class="streaming-featured-header">
+      <div>
+        <div class="streaming-featured-kicker">
+          NEW ON STREAMING
+        </div>
+        <h1 class="streaming-featured-title">
+          Fresh Releases
+        </h1>
+      </div>
+
+      <div class="streaming-featured-note">
+        TAP TO WATCH
+      </div>
+    </div>
+
+    <div class="featured-poster-row" id="featuredPosterRow">
+      <div class="no-featured-posters">
+        Loading new releases…
+      </div>
+    </div>
+
+  </section>
+
+
+  <div id="catalogContainer">
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading SAUVE…
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- =======================================================
+     BOTTOM NAV
+======================================================= -->
+
+<nav class="nav">
+
+  <button
+    class="active"
+    onclick="goHome()">
+
+    <span>⌂</span>
+
+    HOME
+
+  </button>
+
+
+  <button
+    onclick="focusSearch()">
+
+    <span>⌕</span>
+
+    SEARCH
+
+  </button>
+
+
+  <button
+    onclick="openSettings()">
+
+    <span>⚙</span>
+
+    SETTINGS
+
+  </button>
+
+</nav>
+
+
+<!-- =======================================================
+     MODAL
+======================================================= -->
+
+<div
+  class="modal"
+  id="modal">
+
+  <div
+    class="sheet"
+    id="sheet">
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CONFIG
+========================================================= */
+
+const DEFAULT_METADATA =
+"https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+
+const DEFAULT_ADDON =
+"";
+
+
+const state = {
+
+  metadata:
+    localStorage.getItem(
+      "sauve_metadata"
+    ) ||
+    DEFAULT_METADATA,
+
+  stream:
+    localStorage.getItem(
+      "sauve_stream"
+    ) ||
+    "",
+
+  addons:
+    loadJSON(
+      "sauve_addons",
+      []
+    ),
+
+  aiostreams:
+    localStorage.getItem(
+      "sauve_aiostreams"
+    ) ||
+    "",
+
+  realdebrid:
+    localStorage.getItem(
+      "sauve_realdebrid"
+    ) ||
+    ""
+
+};
+
+
+let currentStreams = [];
+
+let currentPlayableStreams = [];
+
+let currentPlayerIndex = 0;
+
+let currentTitle = null;
+
+let currentSeriesId = "";
+
+let currentSelectedSeason = 1;
+
+
+/* =========================================================
+   EPISODE STORE
+========================================================= */
+
+const episodeStore =
+  new Map();
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+function loadJSON(
+  key,
+  fallback
+){
+
+  try{
+
+    const value =
+      localStorage.getItem(
+        key
+      );
+
+    if(!value){
+
+      return fallback;
+
+    }
+
+    return JSON.parse(
+      value
+    );
+
+  }
+  catch(e){
+
+    return fallback;
+
+  }
+
+}
+
+
+function saveState(){
+
+  localStorage.setItem(
+    "sauve_metadata",
+    state.metadata
+  );
+
+  localStorage.setItem(
+    "sauve_stream",
+    state.stream
+  );
+
+  localStorage.setItem(
+    "sauve_addons",
+    JSON.stringify(
+      state.addons
+    )
+  );
+
+  localStorage.setItem(
+    "sauve_aiostreams",
+    state.aiostreams || ""
+  );
+
+  localStorage.setItem(
+    "sauve_realdebrid",
+    state.realdebrid || ""
+  );
+
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function $(id){
+
+  return document.getElementById(
+    id
+  );
+
+}
+
+
+function escapeHTML(
+  value=""
+){
+
+  return String(
+    value
+  )
+  .replace(
+    /[&<>"']/g,
+    c => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[c])
+  );
+
+}
+
+
+function normalizeManifest(
+  url
+){
+
+  return String(
+    url || ""
+  )
+  .trim()
+  .replace(
+    /\/manifest\.json\/?$/i,
+    ""
+  );
+
+}
+
+
+function toHTTP(
+  url
+){
+
+  let value =
+    String(
+      url || ""
+    )
+    .trim();
+
+  if(
+    value.startsWith(
+      "stremio://"
+    )
+  ){
+
+    value =
+      "https://" +
+      value.substring(
+        "stremio://".length
+      );
+
+  }
+
+  return value;
+
+}
+
+
+function addonRoot(
+  url
+){
+
+  return normalizeManifest(
+    toHTTP(url)
+  ) + "/";
+
+}
+
+
+async function fetchJSON(
+  url
+){
+
+  const response =
+    await fetch(
+      toHTTP(url),
+      {
+        method:"GET",
+
+        headers:{
+          Accept:
+            "application/json"
+        },
+
+        cache:"no-store"
+      }
+    );
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " +
+      response.status
+    );
+
+  }
+
+  return response.json();
+
+}
+
+
+/* =========================================================
+   CATALOG URL
+========================================================= */
+
+function makeExtraProps(
+  values
+){
+
+  return Object.entries(
+    values
+  )
+  .filter(
+    ([,value]) =>
+      value !== undefined &&
+      value !== null &&
+      String(value).length
+  )
+  .map(
+    ([key,value]) =>
+      key +
+      "=" +
+      encodeURIComponent(
+        String(value)
+      )
+  )
+  .join("&");
+
+}
+
+
+function buildCatalogURL(
+  addon,
+  catalog,
+  extra={}
+){
+
+  let url =
+    addonRoot(
+      addon
+    ) +
+    "catalog/" +
+    encodeURIComponent(
+      catalog.type
+    ) +
+    "/" +
+    encodeURIComponent(
+      catalog.id
+    );
+
+  const props =
+    makeExtraProps(
+      extra
+    );
+
+  if(props){
+
+    url +=
+      "/" +
+      props;
+
+  }
+
+  return url +
+    ".json";
+
+}
+
+
+/* =========================================================
+   META URL
+========================================================= */
+
+function buildMetaURL(
+  addon,
+  type,
+  id
+){
+
+  return (
+    addonRoot(
+      addon
+    ) +
+    "meta/" +
+    encodeURIComponent(
+      type
+    ) +
+    "/" +
+    encodeURIComponent(
+      id
+    ) +
+    ".json"
+  );
+
+}
+
+
+/* =========================================================
+   STREAM URL
+========================================================= */
+
+function buildStreamURL(
+  type,
+  id
+){
+
+  if(!state.stream){
+
+    return "";
+
+  }
+
+  return (
+    addonRoot(
+      state.stream
+    ) +
+    "stream/" +
+    encodeURIComponent(
+      type
+    ) +
+    "/" +
+    encodeURIComponent(
+      id
+    ) +
+    ".json"
+  );
+
+}
+
+
+/* =========================================================
+   TV EPISODE STREAM URL
+========================================================= */
+
+function buildEpisodeStreamURL(
+  seriesId,
+  season,
+  episode
+){
+
+  if(!state.stream){
+
+    return "";
+
+  }
+
+  const episodeId =
+    seriesId +
+    ":" +
+    season +
+    ":" +
+    episode;
+
+  return (
+    addonRoot(
+      state.stream
+    ) +
+    "stream/series/" +
+    encodeURIComponent(
+      episodeId
+    ) +
+    ".json"
+  );
+
+}
+
+
+/* =========================================================
+   CATALOG NAME
+========================================================= */
+
+function prettyCatalogName(
+  catalog
+){
+
+  const raw =
+    String(
+      catalog.name ||
+      catalog.id ||
+      "CATALOG"
+    );
+
+  const lower =
+    raw.toLowerCase();
+
+  const mappings = [
+
+    ["netflix","NETFLIX"],
+    ["disney+","DISNEY+"],
+    ["disney","DISNEY+"],
+    ["apple tv","APPLE TV+"],
+    ["apple","APPLE TV+"],
+    ["hbo","HBO"],
+    ["max","MAX"],
+    ["hulu","HULU"],
+    ["prime","PRIME VIDEO"],
+    ["amazon","PRIME VIDEO"],
+    ["paramount","PARAMOUNT+"],
+    ["peacock","PEACOCK"],
+    ["marvel","MARVEL"],
+    ["dc","DC"],
+    ["popular","POPULAR"],
+    ["trending","TRENDING"],
+    ["featured","FEATURED"],
+    ["latest","LATEST"],
+    ["digital","DIGITAL RELEASES"],
+    ["top","TOP PICKS"],
+    ["new","NEW RELEASES"]
+
+  ];
+
+  for(
+    const [
+      needle,
+      label
+    ]
+    of mappings
+  ){
+
+    if(
+      lower.includes(
+        needle
+      )
+    ){
+
+      return label;
+
+    }
+
+  }
+
+  return raw.toUpperCase();
+
+}
+
+
+/* =========================================================
+   CATALOG PRIORITY
+========================================================= */
+
+function catalogPriority(
+  catalog
+){
+
+  const name =
+    String(
+      catalog.name ||
+      catalog.id ||
+      ""
+    )
+    .toLowerCase();
+
+  const priority = [
+
+    "featured",
+    "trending",
+    "popular",
+    "netflix",
+    "disney",
+    "apple",
+    "hbo",
+    "max",
+    "hulu",
+    "prime",
+    "amazon",
+    "paramount",
+    "peacock",
+    "marvel",
+    "dc",
+    "latest",
+    "digital",
+    "top",
+    "new"
+
+  ];
+
+  const index =
+    priority.findIndex(
+      word =>
+        name.includes(
+          word
+        )
+    );
+
+  return index < 0
+    ? 999
+    : index;
+
+}
+
+
+/* =========================================================
+   ADDON MANIFEST
+========================================================= */
+
+async function loadAddonManifest(
+  addon
+){
+
+  const manifestURL =
+    normalizeManifest(
+      toHTTP(addon)
+    ) +
+    "/manifest.json";
+
+  return fetchJSON(
+    manifestURL
+  );
+
+}
+
+
+/* =========================================================
+   EXTERNAL ADDONS
+========================================================= */
+
+async function loadExternalAddons(){
+
+  const addons =
+    state.addons
+      .filter(Boolean);
+
+  if(!addons.length){
+
+    return "";
+
+  }
+
+  let html = "";
+
+  for(
+    const addon
+    of addons
+  ){
+
+    try{
+
+      const manifest =
+        await loadAddonManifest(
+          addon
+        );
+
+      const catalogs =
+        Array.isArray(
+          manifest.catalogs
+        )
+          ? manifest.catalogs
+          : [];
+
+      for(
+        const catalog
+        of catalogs.slice(
+          0,
+          20
+        )
+      ){
+
+        try{
+
+          const data =
+            await fetchJSON(
+              buildCatalogURL(
+                addon,
+                catalog
+              )
+            );
+
+          const metas =
+            Array.isArray(
+              data.metas
+            )
+              ? data.metas
+              : [];
+
+          if(!metas.length){
+
+            continue;
+
+          }
+
+          html +=
+            renderCatalogRow(
+              catalog,
+              metas
+            );
+
+        }
+        catch(e){
+
+          console.warn(
+            "Catalog failed:",
+            catalog,
+            e
+          );
+
+        }
+
+      }
+
+    }
+    catch(error){
+
+      console.warn(
+        "Addon failed:",
+        addon,
+        error
+      );
+
+    }
+
+  }
+
+  return html;
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+async function loadHome(){
+
+  const container =
+    $("catalogContainer");
+
+  container.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading catalogs…
+
+    </div>
+
+  `;
+
+  let mainHTML = "";
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.metadata
+      );
+
+    const catalogs =
+      Array.isArray(
+        manifest.catalogs
+      )
+        ? manifest.catalogs
+        : [];
+
+    const usable =
+      catalogs
+        .filter(
+          c =>
+            c &&
+            c.id &&
+            c.type
+        )
+        .sort(
+          (a,b) =>
+            catalogPriority(a) -
+            catalogPriority(b)
+        );
+
+    const selected =
+      usable.slice(
+        0,
+        30
+      );
+
+    let featuredMetas = [];
+
+    const results =
+      await Promise.allSettled(
+        selected.map(
+          async catalog => {
+
+            const data =
+              await fetchJSON(
+                buildCatalogURL(
+                  state.metadata,
+                  catalog
+                )
+              );
+
+            return {
+
+              catalog,
+
+              metas:
+                Array.isArray(
+                  data.metas
+                )
+                  ? data.metas
+                  : []
+
+            };
+
+          }
+        )
+      );
+
+    results.forEach(
+      result => {
+
+        if(
+          result.status !==
+          "fulfilled"
+        ){
+
+          return;
+
+        }
+
+        if(
+          !result.value.metas.length
+        ){
+
+          return;
+
+        }
+
+        const catalogName = String(
+          result.value.catalog.name ||
+          result.value.catalog.id ||
+          ""
+        ).toLowerCase();
+
+        if(
+          !featuredMetas.length &&
+          (
+            catalogName.includes("new") ||
+            catalogName.includes("latest") ||
+            catalogName.includes("digital") ||
+            catalogName.includes("streaming") ||
+            catalogName.includes("release") ||
+            catalogName.includes("premiere")
+          )
+        ){
+          featuredMetas =
+            result.value.metas;
+        }
+
+        if(!featuredMetas.length){
+          const movieMetas =
+            result.value.metas.filter(
+              item =>
+                String(item.type || "").toLowerCase() === "movie"
+            );
+
+          if(movieMetas.length){
+            featuredMetas = movieMetas;
+          }
+        }
+
+        mainHTML +=
+          renderCatalogRow(
+            result.value.catalog,
+            result.value.metas
+          );
+
+      }
+    );
+
+  }
+  catch(error){
+
+    mainHTML += `
+
+      <div class="notice">
+
+        Metadata catalog error:
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+
+  try{
+
+    const addonHTML =
+      await loadExternalAddons();
+
+    mainHTML +=
+      addonHTML;
+
+  }
+  catch(error){
+
+    console.warn(
+      "External addons failed",
+      error
+    );
+
+  }
+
+
+  if(!mainHTML){
+
+    mainHTML = `
+
+      <div class="notice">
+
+        No catalogs could be loaded.
+
+        <br><br>
+
+        Open Settings and verify your
+        metadata addon or Stremio list.
+
+      </div>
+
+    `;
+
+  }
+
+  container.innerHTML =
+    mainHTML;
+
+}
+
+
+/* =========================================================
+   DEDUPE
+========================================================= */
+
+function dedupeMetas(
+  metas
+){
+
+  const seen =
+    new Set();
+
+  return metas.filter(
+    item => {
+
+      const key =
+        String(
+          item.type || ""
+        ) +
+        "|" +
+        String(
+          item.id || ""
+        );
+
+      if(
+        seen.has(key)
+      ){
+
+        return false;
+
+      }
+
+      seen.add(key);
+
+      return true;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   POSTER CARD
+========================================================= */
+
+function renderPosterCard(
+  item
+){
+
+  const type =
+    encodeURIComponent(
+      item.type ||
+      "movie"
+    );
+
+  const id =
+    encodeURIComponent(
+      item.id ||
+      ""
+    );
+
+  const poster =
+    item.poster ||
+    item.logo ||
+    "";
+
+  const year =
+    item.releaseInfo ||
+    item.year ||
+    "";
+
+  const kind =
+    String(
+      item.type ||
+      "movie"
+    ).toUpperCase();
+
+  return `
+
+    <button
+      class="poster-card"
+      data-type="${escapeHTML(type)}"
+      data-id="${escapeHTML(id)}">
+
+      <img
+        src="${escapeHTML(
+          poster
+        )}"
+        loading="lazy"
+        onerror="
+          this.style.opacity='.25'
+        ">
+
+      <div class="poster-type">
+
+        ${escapeHTML(
+          kind
+        )}
+
+      </div>
+
+      <div class="poster-overlay">
+
+        <div class="poster-name">
+
+          ${escapeHTML(
+            item.name ||
+            "Untitled"
+          )}
+
+        </div>
+
+        <div class="poster-year">
+
+          ${escapeHTML(
+            year
+          )}
+
+        </div>
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+
+/* =========================================================
+   FEATURED NEW-ON-STREAMING POSTERS
+========================================================= */
+
+function renderFeaturedPosters(metas){
+
+  const row = $("featuredPosterRow");
+
+  if(!row){
+    return;
+  }
+
+  const items = dedupeMetas(
+    (Array.isArray(metas) ? metas : [])
+      .filter(item =>
+        item &&
+        (item.poster || item.logo) &&
+        String(item.type || "movie").toLowerCase() === "movie"
+      )
+  ).slice(0,12);
+
+  if(!items.length){
+
+    row.innerHTML = `
+      <div class="no-featured-posters">
+        New streaming posters will appear here when your metadata source provides them.
+      </div>
+    `;
+
+    return;
+  }
+
+  row.innerHTML = items.map(item => {
+
+    const type = encodeURIComponent(item.type || "movie");
+    const id = encodeURIComponent(item.id || "");
+    const poster = item.poster || item.logo || "";
+    const year = item.releaseInfo || item.year || "";
+
+    return `
+      <button
+        class="featured-poster"
+        onclick="openTitle('${escapeHTML(type)}','${escapeHTML(id)}')">
+
+        <img
+          src="${escapeHTML(poster)}"
+          alt="${escapeHTML(item.name || "Movie")}"
+          loading="lazy"
+          onerror="this.style.opacity='.2'">
+
+        <div class="featured-poster-info">
+          <div class="featured-poster-name">
+            ${escapeHTML(item.name || "Untitled")}
+          </div>
+          <div class="featured-poster-year">
+            ${escapeHTML(year)}
+          </div>
+        </div>
+
+      </button>
+    `;
+
+  }).join("");
+
+}
+
+/* =========================================================
+   CATALOG ROW
+========================================================= */
+
+function renderCatalogRow(
+  catalog,
+  metas
+){
+
+  const unique =
+    dedupeMetas(
+      metas
+    ).slice(
+      0,
+      40
+    );
+
+  if(!unique.length){
+
+    return "";
+
+  }
+
+  return `
+
+    <section
+      class="catalog-section">
+
+      <div class="catalog-heading">
+
+        <h2
+          class="catalog-title">
+
+          ${escapeHTML(
+            prettyCatalogName(
+              catalog
+            )
+          )}
+
+        </h2>
+
+        <span
+          class="catalog-label">
+
+          ${escapeHTML(
+            String(
+              catalog.type ||
+              "CATALOG"
+            ).toUpperCase()
+          )}
+
+        </span>
+
+      </div>
+
+      <div class="row">
+
+        ${unique
+          .map(
+            renderPosterCard
+          )
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* =========================================================
+   OPEN TITLE
+========================================================= */
+
+async function openTitle(
+  encodedType,
+  encodedId
+){
+
+  const type =
+    decodeURIComponent(
+      encodedType
+    );
+
+  const id =
+    decodeURIComponent(
+      encodedId
+    );
+
+  currentSeriesId =
+    id;
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        LOADING
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Loading title…
+
+    </div>
+
+  `);
+
+
+  try{
+
+    const addons = [
+
+      state.metadata,
+
+      ...state.addons
+
+    ]
+    .filter(Boolean);
+
+
+    let meta = null;
+
+
+    for(
+      const addon
+      of addons
+    ){
+
+      try{
+
+        const data =
+          await fetchJSON(
+            buildMetaURL(
+              addon,
+              type,
+              id
+            )
+          );
+
+        if(
+          data &&
+          (
+            data.meta ||
+            data.name
+          )
+        ){
+
+          meta =
+            data.meta ||
+            data;
+
+          break;
+
+        }
+
+      }
+      catch(e){
+
+        console.warn(
+          "Metadata source failed",
+          addon,
+          e
+        );
+
+      }
+
+    }
+
+
+    if(!meta){
+
+      throw new Error(
+        "Unable to load title information."
+      );
+
+    }
+
+
+    currentTitle =
+      meta;
+
+
+    if(
+      type !== "series"
+    ){
+
+      renderMovieTitle(
+        meta,
+        type,
+        id
+      );
+
+      return;
+
+    }
+
+
+    renderSeriesTitle(
+      meta,
+      id
+    );
+
+  }
+  catch(error){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+          ERROR
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+      <div class="notice">
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `);
+
+  }
+
+}
+
+
+/* =========================================================
+   POPCORN MOVIES — EXACT TITLE DEEP LINK
+   Resolve the title to a TMDB ID, then open the exact
+   PopcornMovies movie/TV page. Uses existing metadata first,
+   then Wikidata as a no-key IMDb -> TMDB resolver.
+========================================================= */
+function popcornType(type){
+  const t=String(type||"movie").toLowerCase();
+  return (t==="series"||t==="tv"||t==="show") ? "tv" : "movie";
+}
+
+function popcornTMDBFromValue(value){
+  if(value===null||value===undefined) return "";
+  const v=String(value).trim();
+  if(/^\d+$/.test(v)) return v;
+  const m=v.match(/(?:tmdb[:/]|themoviedb\.org\/(?:movie|tv)\/)(\d+)/i);
+  return m ? m[1] : "";
+}
+
+function popcornTMDBFromMeta(meta,id){
+  const values=[
+    id, meta?.tmdbId, meta?.tmdb_id, meta?.tmdb,
+    meta?.ids?.tmdb, meta?.external_ids?.tmdb,
+    meta?.externalIds?.tmdb, meta?.moviedb_id, meta?.movieDbId
+  ];
+  for(const v of values){
+    const n=popcornTMDBFromValue(v);
+    if(n) return n;
+  }
+  const links=Array.isArray(meta?.links)?meta.links:[];
+  for(const link of links){
+    const n=popcornTMDBFromValue(link?.url||link?.href||link?.id||"");
+    if(n) return n;
+  }
+  return "";
+}
+
+function popcornIMDbFromMeta(meta,id){
+  const values=[
+    id, meta?.imdb_id, meta?.imdbId, meta?.imdb,
+    meta?.ids?.imdb, meta?.external_ids?.imdb,
+    meta?.externalIds?.imdb
+  ];
+  for(const v of values){
+    if(v===null||v===undefined) continue;
+    const m=String(v).match(/tt\d{5,12}/i);
+    if(m) return m[0];
+  }
+  const links=Array.isArray(meta?.links)?meta.links:[];
+  for(const link of links){
+    const m=String(link?.url||link?.href||link?.id||"").match(/tt\d{5,12}/i);
+    if(m) return m[0];
+  }
+  return "";
+}
+
+function popcornTitle(meta){
+  return String(meta?.name||meta?.title||meta?.originalName||meta?.original_title||"").trim();
+}
+
+function popcornYear(meta){
+  const v=String(meta?.releaseInfo||meta?.year||meta?.releaseDate||meta?.first_air_date||"");
+  const m=v.match(/(?:19|20)\d{2}/);
+  return m?m[0]:"";
+}
+
+async function popcornWikidataTMDB(imdbId){
+  if(!imdbId) return "";
+  try{
+    const query=`SELECT ?tmdb WHERE { ?item wdt:P345 "${imdbId}". ?item wdt:P4947 ?tmdb. } LIMIT 1`;
+    const url="https://query.wikidata.org/sparql?format=json&query="+encodeURIComponent(query);
+    const r=await fetch(url,{cache:"no-store"});
+    if(!r.ok) return "";
+    const j=await r.json();
+    return j?.results?.bindings?.[0]?.tmdb?.value || "";
+  }catch(e){
+    console.warn("Popcorn Wikidata resolver failed",e);
+    return "";
+  }
+}
+
+async function popcornWikidataTitle(title,year,type){
+  if(!title) return "";
+  try{
+    const searchUrl="https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+
+      encodeURIComponent(title)+"&language=en&format=json&origin=*&limit=10";
+    const r=await fetch(searchUrl,{cache:"no-store"});
+    if(!r.ok) return "";
+    const j=await r.json();
+    const ids=(j?.search||[]).map(x=>x.id).filter(Boolean);
+    for(const qid of ids){
+      const cr=await fetch("https://www.wikidata.org/wiki/Special:EntityData/"+qid+".json",{cache:"no-store"});
+      if(!cr.ok) continue;
+      const ej=await cr.json();
+      const ent=ej?.entities?.[qid];
+      const claims=ent?.claims||{};
+      const tmdb=claims?.P4947?.[0]?.mainsnak?.datavalue?.value;
+      if(!tmdb) continue;
+      if(year){
+        const dates=[...(claims.P577||[]),...(claims.P580||[])];
+        const hasYear=dates.some(c=>String(c?.mainsnak?.datavalue?.value?.time||"").includes(year));
+        if(!hasYear) continue;
+      }
+      return String(tmdb);
+    }
+  }catch(e){
+    console.warn("Popcorn title resolver failed",e);
+  }
+  return "";
+}
+
+async function openPopcornMovies(type,id,metaOverride){
+  const meta=metaOverride||currentTitle||{};
+  const kind=popcornType(type);
+  let tmdb=popcornTMDBFromMeta(meta,id);
+
+  if(!tmdb){
+    const imdb=popcornIMDbFromMeta(meta,id);
+    tmdb=await popcornWikidataTMDB(imdb);
+  }
+
+  if(!tmdb){
+    tmdb=await popcornWikidataTitle(
+      popcornTitle(meta),
+      popcornYear(meta),
+      kind
+    );
+  }
+
+  if(tmdb){
+    window.location.assign(
+      "https://popcornmovies.io/"+kind+"/"+encodeURIComponent(tmdb)
+    );
+    return;
+  }
+
+  /* Last resort: title/year discovery. This is only reached when
+     no exact external ID can be resolved. */
+  const q=[popcornTitle(meta),popcornYear(meta)].filter(Boolean).join(" ");
+  window.location.assign(
+    q ? "https://popcornmovies.io/browse?search="+encodeURIComponent(q)
+      : "https://popcornmovies.io/browse"
+  );
+}
+
+function popcornButton(type,id,meta){
+  return `
+    <button class="primary" type="button"
+      onclick="openPopcornMovies(${JSON.stringify(type)},${JSON.stringify(id)},currentTitle)"
+      style="margin-top:10px;width:100%;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">
+      🍿 OPEN ON POPCORN
+    </button>`;
+}
+
+/* =========================================================
+   MOVIE
+========================================================= */
+
+function renderMovieTitle(
+  meta,
+  type,
+  id
+){
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+
+        ${escapeHTML(
+          meta.name ||
+          "MOVIE"
+        )}
+
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(
+          meta.poster ||
+          meta.logo ||
+          ""
+        )}">
+
+      <div>
+
+        <div class="meta">
+
+          ${escapeHTML(
+            meta.releaseInfo ||
+            meta.year ||
+            type
+          )}
+
+        </div>
+
+        <p>
+
+          ${escapeHTML(
+            meta.description ||
+            "No description available."
+          )}
+
+        </p>
+
+        <button
+          class="primary"
+          id="sourceButton">
+
+          ▶ FIND SOURCES
+
+        </button>
+
+        ${popcornButton(type,id,meta)}
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="sources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
+
+
+  $("sourceButton")
+    .onclick =
+    () =>
+      findMovieSources(
+        type,
+        id
+      );
+
+}
+
+
+/* =========================================================
+   SERIES
+========================================================= */
+
+function renderSeriesTitle(
+  meta,
+  id
+){
+
+  const videos =
+    Array.isArray(
+      meta.videos
+    )
+      ? meta.videos
+      : [];
+
+
+  const seasons =
+    getSeasons(
+      videos
+    );
+
+
+  if(!seasons.length){
+
+    openModal(`
+
+      <div class="sheet-header">
+
+        <h2>
+
+          ${escapeHTML(
+            meta.name ||
+            "SERIES"
+          )}
+
+        </h2>
+
+        <button
+          class="close"
+          onclick="closeModal()">
+
+          ×
+
+        </button>
+
+      </div>
+
+      <div class="details">
+
+        <img
+          src="${escapeHTML(
+            meta.poster ||
+            meta.logo ||
+            ""
+          )}">
+
+        <div>
+
+          <div class="meta">
+            TV SERIES
+          </div>
+
+          <p>
+
+            ${escapeHTML(
+              meta.description ||
+              "No description available."
+            )}
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="notice">
+
+        This metadata source did not return
+        episode information for this series.
+
+        <br><br>
+
+        Try another metadata/list addon
+        that provides TV episodes.
+
+      </div>
+
+    `);
+
+    return;
+
+  }
+
+
+  currentSelectedSeason =
+    seasons[0];
+
+
+  renderSeriesSeason(
+    meta,
+    id,
+    videos,
+    currentSelectedSeason
+  );
+
+}
+
+
+/* =========================================================
+   SEASONS
+========================================================= */
+
+function getSeasons(
+  videos
+){
+
+  return [
+    ...new Set(
+      videos
+        .map(
+          v =>
+            Number(
+              v.season
+            )
+        )
+        .filter(
+          n =>
+            Number.isFinite(n) &&
+            n > 0
+        )
+    )
+  ]
+  .sort(
+    (a,b) =>
+      a-b
+  );
+
+}
+
+
+/* =========================================================
+   SERIES SEASON
+========================================================= */
+
+function renderSeriesSeason(
+  meta,
+  id,
+  videos,
+  season
+){
+
+  currentSelectedSeason =
+    season;
+
+
+  const seasons =
+    getSeasons(
+      videos
+    );
+
+
+  const episodes =
+    videos
+      .filter(
+        video =>
+          Number(
+            video.season
+          ) ===
+          Number(
+            season
+          )
+      )
+      .sort(
+        (a,b) =>
+          Number(
+            a.episode ||
+            a.number ||
+            0
+          ) -
+          Number(
+            b.episode ||
+            b.number ||
+            0
+          )
+      );
+
+
+  episodeStore.clear();
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+
+        ${escapeHTML(
+          meta.name ||
+          "SERIES"
+        )}
+
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="details">
+
+      <img
+        src="${escapeHTML(
+          meta.poster ||
+          meta.logo ||
+          ""
+        )}">
+
+      <div>
+
+        <div class="meta">
+
+          TV SERIES
+
+        </div>
+
+        <p>
+
+          ${escapeHTML(
+            meta.description ||
+            "Select a season and episode."
+          )}
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    ${popcornButton("series",id,meta)}
+
+    <div class="section-title">
+
+      SEASONS
+
+    </div>
+
+
+    <div class="season-tabs">
+
+      ${seasons
+        .map(
+          s => `
+
+            <button
+              class="
+                season-button
+                ${
+                  Number(s) ===
+                  Number(season)
+                    ? "active"
+                    : ""
+                }
+              "
+              onclick="
+                selectSeason(
+                  ${Number(s)}
+                )
+              ">
+
+              SEASON ${Number(s)}
+
+            </button>
+
+          `
+        )
+        .join("")}
+
+    </div>
+
+
+    <div class="section-title">
+
+      EPISODES
+
+    </div>
+
+
+    <div class="episode-list">
+
+      ${
+        episodes.length
+
+          ?
+
+          episodes
+            .map(
+              renderEpisode
+            )
+            .join("")
+
+          :
+
+          `
+
+            <div class="notice">
+
+              No episodes were returned
+              for this season.
+
+            </div>
+
+          `
+      }
+
+    </div>
+
+
+    <div
+      id="episodeSources"
+      style="margin-top:25px">
+
+    </div>
+
+  `);
+
+}
+
+
+/* =========================================================
+   EPISODE
+========================================================= */
+
+function renderEpisode(
+  episode
+){
+
+  const number =
+    Number(
+      episode.episode ||
+      episode.number ||
+      0
+    );
+
+  const title =
+    episode.name ||
+    episode.title ||
+    (
+      "Episode " +
+      number
+    );
+
+  const image =
+    episode.thumbnail ||
+    episode.poster ||
+    episode.image ||
+    currentTitle?.poster ||
+    "";
+
+  const overview =
+    episode.overview ||
+    episode.description ||
+    "";
+
+
+  const key =
+    "ep_" +
+    Math.random()
+      .toString(36)
+      .slice(2);
+
+
+  episodeStore.set(
+    key,
+    episode
+  );
+
+
+  return `
+
+    <button
+      class="episode"
+      data-episode-key="${escapeHTML(key)}">
+
+      <img
+        src="${escapeHTML(
+          image
+        )}"
+        loading="lazy"
+        onerror="
+          this.style.opacity='.25'
+        ">
+
+
+      <div>
+
+        <div class="episode-number">
+
+          EPISODE ${number}
+
+        </div>
+
+        <div class="episode-name">
+
+          ${escapeHTML(
+            title
+          )}
+
+        </div>
+
+        ${
+          overview
+
+            ?
+
+            `
+
+              <div class="episode-desc">
+
+                ${escapeHTML(
+                  overview
+                )}
+
+              </div>
+
+            `
+
+            :
+
+            ""
+
+        }
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SELECT SEASON
+========================================================= */
+
+function selectSeason(
+  season
+){
+
+  if(!currentTitle){
+
+    return;
+
+  }
+
+  renderSeriesSeason(
+    currentTitle,
+    currentSeriesId,
+    currentTitle.videos || [],
+    season
+  );
+
+}
+
+
+/* =========================================================
+   SELECT EPISODE
+========================================================= */
+
+async function selectEpisode(
+  key
+){
+
+  const episode =
+    episodeStore.get(
+      key
+    );
+
+
+  if(!episode){
+
+    return;
+
+  }
+
+
+  const season =
+    Number(
+      episode.season
+    );
+
+
+  const episodeNumber =
+    Number(
+      episode.episode ||
+      episode.number
+    );
+
+
+  if(
+    !season ||
+    !episodeNumber
+  ){
+
+    alert(
+      "This episode is missing its season or episode number."
+    );
+
+    return;
+
+  }
+
+
+  const sources =
+    $("episodeSources");
+
+
+  if(!sources){
+
+    return;
+
+  }
+
+
+  sources.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Finding sources for
+
+      <strong>
+
+        ${escapeHTML(
+          episode.name ||
+          "Episode " +
+          episodeNumber
+        )}
+
+      </strong>
+
+      …
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const url =
+      buildEpisodeStreamURL(
+        currentSeriesId,
+        season,
+        episodeNumber
+      );
+
+
+    if(!url){
+
+      throw new Error(
+        "No stream addon is configured."
+      );
+
+    }
+
+
+    const data =
+      await fetchJSON(
+        url
+      );
+
+
+    currentStreams =
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
+
+
+    currentStreams.sort(
+      (a,b) =>
+        compatibilityScore(b) -
+        compatibilityScore(a)
+    );
+
+
+    currentPlayableStreams =
+      currentStreams.filter(
+        isPlayableCandidate
+      );
+
+
+    if(
+      !currentStreams.length
+    ){
+
+      sources.innerHTML = `
+
+        <div class="notice">
+
+          No sources were returned for
+
+          <strong>
+
+            ${escapeHTML(
+              episode.name ||
+              "Episode " +
+              episodeNumber
+            )}
+
+          </strong>.
+
+          <br><br>
+
+          Stream addons normally require
+          the episode ID in this format:
+
+          <br><br>
+
+          series:id:season:episode
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    sources.innerHTML = `
+
+      <div class="section-title">
+
+        SOURCES
+
+      </div>
+
+      <div class="notice">
+
+        ${currentStreams.length}
+        source(s) found for
+
+        <strong>
+
+          S${season}E${episodeNumber}
+
+        </strong>.
+
+        <br><br>
+
+        ${currentPlayableStreams.length}
+        potentially browser-compatible.
+
+      </div>
+
+
+      ${currentStreams
+        .map(
+          renderSource
+        )
+        .join("")}
+
+    `;
+
+  }
+  catch(error){
+
+    sources.innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          EPISODE SOURCE ERROR
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+        <br><br>
+
+        Episode requested:
+
+        <strong>
+
+          ${escapeHTML(
+            currentSeriesId
+          )}:${season}:${episodeNumber}
+
+        </strong>
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOVIE SOURCES
+========================================================= */
+
+async function findMovieSources(
+  type,
+  id
+){
+
+  const sources =
+    $("sources");
+
+
+  if(!sources){
+
+    return;
+
+  }
+
+
+  if(!state.stream){
+
+    sources.innerHTML = `
+
+      <div class="notice">
+
+        No stream addon is configured.
+
+        <br><br>
+
+        Open Settings and add your
+        stream manifest.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  sources.innerHTML = `
+
+    <div class="loading">
+
+      <div class="spinner"></div>
+
+      Finding sources…
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const data =
+      await fetchJSON(
+        buildStreamURL(
+          type,
+          id
+        )
+      );
+
+
+    currentStreams =
+      Array.isArray(
+        data.streams
+      )
+        ? data.streams
+        : [];
+
+
+    currentStreams.sort(
+      (a,b) =>
+        compatibilityScore(b) -
+        compatibilityScore(a)
+    );
+
+
+    currentPlayableStreams =
+      currentStreams.filter(
+        isPlayableCandidate
+      );
+
+
+    if(
+      !currentStreams.length
+    ){
+
+      sources.innerHTML = `
+
+        <div class="notice">
+
+          No stream sources were returned
+          for this title.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    sources.innerHTML = `
+
+      <div class="section-title">
+
+        SOURCES
+
+      </div>
+
+      <div class="notice">
+
+        ${currentStreams.length}
+        source(s) found.
+
+        <br><br>
+
+        ${currentPlayableStreams.length}
+        potentially compatible.
+
+      </div>
+
+
+      ${currentStreams
+        .map(
+          renderSource
+        )
+        .join("")}
+
+    `;
+
+  }
+  catch(error){
+
+    sources.innerHTML = `
+
+      <div class="notice">
+
+        <strong>
+          STREAM ERROR
+        </strong>
+
+        <br><br>
+
+        ${escapeHTML(
+          error.message
+        )}
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/* =========================================================
+   STREAM DETECTION
+========================================================= */
+
+function getStreamURL(
+  stream
+){
+
+  return String(
+    stream?.url ||
+    ""
+  ).trim();
+
+}
+
+
+function isPlayerFrame(
+  stream
+){
+
+  return Boolean(
+    stream?.playerFrameUrl
+  );
+
+}
+
+
+function isExternal(
+  stream
+){
+
+  return Boolean(
+    stream?.externalUrl
+  );
+
+}
+
+
+function isNotWebReady(
+  stream
+){
+
+  return Boolean(
+    stream
+      ?.behaviorHints
+      ?.notWebReady
+  );
+
+}
+
+
+function isHLS(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+  return (
+    url.includes(".m3u8") ||
+    type.includes("m3u8") ||
+    type.includes("mpegurl")
+  );
+
+}
+
+
+function isMP4(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+  return (
+    url.includes(".mp4") ||
+    type.includes("mp4")
+  );
+
+}
+
+
+function isWebM(
+  stream
+){
+
+  const url =
+    getStreamURL(
+      stream
+    ).toLowerCase();
+
+  const type =
+    String(
+      stream?.type ||
+      ""
+    ).toLowerCase();
+
+  return (
+    url.includes(".webm") ||
+    type.includes("webm")
+  );
+
+}
+
+
+function isPlayableCandidate(
+  stream
+){
+
+  if(
+    isPlayerFrame(
+      stream
+    )
+  ){
+
+    return true;
+
+  }
+
+  if(
+    isExternal(
+      stream
+    )
+  ){
+
+    return false;
+
+  }
+
+  return (
+    isMP4(stream) ||
+    isHLS(stream) ||
+    isWebM(stream)
+  );
+
+}
+
+
+/* =========================================================
+   PROVIDER
+========================================================= */
+
+function providerName(
+  stream
+){
+
+  const text =
+    [
+      stream.name,
+      stream.title,
+      stream.description,
+      stream.url
+    ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+
+  const providers = [
+
+    "2peckle",
+    "vidking",
+    "vidfast",
+    "vidlink",
+    "vidplay",
+    "streamwish",
+    "filemoon",
+    "megacloud",
+    "torbox",
+    "realdebrid",
+    "debrid",
+    "usenet"
+
+  ];
+
+
+  for(
+    const name
+    of providers
+  ){
+
+    if(
+      text.includes(
+        name
+      )
+    ){
+
+      return name;
+
+    }
+
+  }
+
+
+  return "stream source";
+
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+function extractBadges(
+  stream
+){
+
+  const values = [
+
+    stream.name,
+
+    stream.title,
+
+    stream.description,
+
+    stream.behaviorHints?.proxyHeaders
+      ? "proxy"
+      : "",
+
+    stream.quality,
+
+    stream.resolution,
+
+    stream.type
+
+  ]
+  .filter(Boolean)
+  .join(" ")
+  .toLowerCase();
+
+
+  const badges = [];
+
+
+  const checks = [
+
+    ["4k","4K","good"],
+    ["2160","4K","good"],
+    ["uhd","UHD","good"],
+    ["1080","1080P","blue"],
+    ["720","720P","blue"],
+    ["hdr10+","HDR10+","good"],
+    ["hdr10","HDR10","good"],
+    [" dolby vision","DV","good"],
+    ["dv ","DV","good"],
+    ["atmos","ATMOS","good"],
+    ["truehd","TRUEHD","good"],
+    ["hevc","HEVC","blue"],
+    ["h265","H265","blue"],
+    ["h.265","H265","blue"],
+    ["av1","AV1","blue"],
+    ["web-dl","WEB-DL","blue"],
+    ["webdl","WEB-DL","blue"],
+    ["bluray","BLURAY","blue"],
+    ["blu-ray","BLURAY","blue"],
+    ["remux","REMUX","good"],
+    ["aac","AAC","blue"],
+    ["ac3","AC3","blue"],
+    ["eac3","EAC3","blue"],
+    ["dd+","DD+","blue"],
+    ["7.1","7.1","blue"],
+    ["5.1","5.1","blue"],
+    ["multi","MULTI","blue"],
+    ["dual","DUAL","blue"]
+
+  ];
+
+
+  for(
+    const [
+      needle,
+      label,
+      css
+    ]
+    of checks
+  ){
+
+    if(
+      values.includes(
+        needle
+      )
+    ){
+
+      if(
+        !badges.some(
+          b =>
+            b.label ===
+            label
+        )
+      ){
+
+        badges.push({
+          label,
+          css
+        });
+
+      }
+
+    }
+
+  }
+
+
+  return badges;
+
+}
+
+
+/* =========================================================
+   SOURCE UI
+========================================================= */
+
+function renderSource(
+  stream,
+  index
+){
+
+  const playable =
+    isPlayableCandidate(
+      stream
+    );
+
+
+  let format =
+    "SOURCE";
+
+
+  if(
+    isMP4(stream)
+  ){
+
+    format =
+      "MP4";
+
+  }
+  else if(
+    isHLS(stream)
+  ){
+
+    format =
+      "HLS";
+
+  }
+  else if(
+    isWebM(stream)
+  ){
+
+    format =
+      "WEBM";
+
+  }
+  else if(
+    isPlayerFrame(stream)
+  ){
+
+    format =
+      "PLAYER";
+
+  }
+  else if(
+    isExternal(stream)
+  ){
+
+    format =
+      "EXTERNAL";
+
+  }
+
+
+  const fusionBadges =
+    extractBadges(
+      stream
+    );
+
+
+  return `
+
+    <button
+      class="source"
+      data-source-index="${index}">
+
+
+      <div class="source-top">
+
+        <div class="source-icon">
+
+          ${
+            playable
+              ? "▶"
+              : "!"
+          }
+
+        </div>
+
+
+        <div>
+
+          <div class="source-name">
+
+            ${escapeHTML(
+              stream.name ||
+              stream.title ||
+              "SOURCE"
+            )}
+
+          </div>
+
+
+          <div class="provider">
+
+            ${escapeHTML(
+              providerName(
+                stream
+              )
+            )}
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="badges">
+
+        <span class="
+          badge
+          ${playable ? "good" : "warning"}
+        ">
+
+          ${format}
+
+        </span>
+
+
+        ${
+          isNotWebReady(stream)
+
+            ?
+
+            `
+              <span
+                class="badge warning">
+
+                NOT WEB READY
+
+              </span>
+            `
+
+            :
+
+            `
+              <span
+                class="badge good">
+
+                WEB READY
+
+              </span>
+            `
+        }
+
+
+        ${
+          stream.quality
+
+            ?
+
+            `
+              <span
+                class="badge blue">
+
+                ${escapeHTML(
+                  stream.quality
+                )}
+
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${
+          stream.resolution
+
+            ?
+
+            `
+              <span
+                class="badge blue">
+
+                ${escapeHTML(
+                  stream.resolution
+                )}
+
+              </span>
+            `
+
+            :
+
+            ""
+        }
+
+
+        ${fusionBadges
+          .map(
+            badge => `
+
+              <span
+                class="badge ${badge.css}">
+
+                ${escapeHTML(
+                  badge.label
+                )}
+
+              </span>
+
+            `
+          )
+          .join("")}
+
+      </div>
+
+
+      <div class="source-desc">
+
+        ${
+          isExternal(stream)
+
+            ?
+
+            "External destination."
+
+            :
+
+          isNotWebReady(stream)
+
+            ?
+
+            "Provider marked this source as not web-ready."
+
+            :
+
+          playable
+
+            ?
+
+            "Tap to attempt playback inside SAUVE."
+
+            :
+
+            "No browser-compatible media URL was detected."
+
+        }
+
+      </div>
+
+    </button>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+function compatibilityScore(
+  stream
+){
+
+  let score = 0;
+
+
+  if(
+    isMP4(stream)
+  ){
+
+    score += 100;
+
+  }
+
+
+  if(
+    isHLS(stream)
+  ){
+
+    score += 90;
+
+  }
+
+
+  if(
+    isWebM(stream)
+  ){
+
+    score += 80;
+
+  }
+
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    score += 70;
+
+  }
+
+
+  if(
+    isExternal(stream)
+  ){
+
+    score -= 100;
+
+  }
+
+
+  return score;
+
+}
+
+
+/* =========================================================
+   PLAY SOURCE
+========================================================= */
+
+function playSource(
+  index
+){
+
+  const stream =
+    currentStreams[index];
+
+
+  if(!stream){
+
+    return;
+
+  }
+
+
+  currentPlayerIndex =
+    currentPlayableStreams.indexOf(
+      stream
+    );
+
+
+  if(
+    currentPlayerIndex < 0
+  ){
+
+    currentPlayerIndex = 0;
+
+  }
+
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    openEmbeddedPlayer(
+      stream
+    );
+
+    return;
+
+  }
+
+
+  playDirectStream(
+    stream
+  );
+
+}
+
+
+/* =========================================================
+   DIRECT PLAYER
+========================================================= */
+
+function playDirectStream(
+  stream
+){
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        NOW PLAYING
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="player-shell">
+
+      <div
+        class="popcorn-loader"
+        id="popcornLoader">
+
+        <div class="popcorn-machine">
+          <div class="popcorn-bucket"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+        </div>
+
+        <div class="popcorn-loader-text">
+          POPCORN IS POPPING…
+        </div>
+
+      </div>
+
+      <video
+        id="sauveVideo"
+        controls
+        playsinline
+        webkit-playsinline
+        preload="metadata">
+      </video>
+
+      <div
+        id="playerStatus"
+        class="player-status">
+
+        Preparing playback…
+
+      </div>
+
+    </div>
+
+
+    <div class="player-controls">
+
+      <button
+        class="player-button primary"
+        onclick="tryNextSource()">
+
+        ▶ TRY NEXT SOURCE
+
+      </button>
+
+
+      <button
+        class="player-button"
+        onclick="showSourcesAgain()">
+
+        SOURCES
+
+      </button>
+
+    </div>
+
+  `);
+
+
+  const video =
+    $("sauveVideo");
+
+
+  const status =
+    $("playerStatus");
+
+
+  const url =
+    getStreamURL(
+      stream
+    );
+
+
+  if(!url){
+
+    showPlayerError(
+      "No direct media URL was returned."
+    );
+
+    return;
+
+  }
+
+
+  video.src =
+    toHTTP(url);
+
+
+  video.addEventListener(
+    "loadedmetadata",
+    () => {
+
+      status.textContent =
+        "Ready — press play";
+
+      status.className =
+        "player-status ready";
+
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
+
+    },
+    {
+      once:true
+    }
+  );
+
+
+  video.addEventListener(
+    "playing",
+    () => {
+
+      status.textContent =
+        "Playing";
+
+      status.className =
+        "player-status ready";
+
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
+
+    }
+  );
+
+
+  video.addEventListener(
+    "waiting",
+    () => {
+
+      status.textContent =
+        "Buffering…";
+
+    }
+  );
+
+
+  video.addEventListener(
+    "error",
+    () => {
+
+      const popcorn =
+        $("popcornLoader");
+
+      if(popcorn){
+        popcorn.classList.add("hidden");
+      }
+
+      showPlayerError(
+        "Safari could not decode or access this video source."
+      );
+
+    }
+  );
+
+
+  video.load();
+
+}
+
+
+/* =========================================================
+   EMBEDDED PLAYER
+========================================================= */
+
+function openEmbeddedPlayer(
+  stream
+){
+
+  const url =
+    String(
+      stream.playerFrameUrl ||
+      ""
+    ).trim();
+
+
+  if(!url){
+
+    showPlayerError(
+      "No player URL was returned."
+    );
+
+    return;
+
+  }
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+
+        ${escapeHTML(
+          stream.name ||
+          "PLAYER"
+        )}
+
+      </h2>
+
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="player-shell">
+
+      <div
+        class="popcorn-loader"
+        id="popcornLoader">
+
+        <div class="popcorn-machine">
+          <div class="popcorn-bucket"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+          <div class="popcorn-kernel"></div>
+        </div>
+
+        <div class="popcorn-loader-text">
+          POPCORN IS POPPING…
+        </div>
+
+      </div>
+
+      <div class="iframe-player">
+
+        <iframe
+
+          src="${escapeHTML(
+            toHTTP(url)
+          )}"
+
+          allow="
+            autoplay;
+            fullscreen;
+            picture-in-picture;
+            encrypted-media
+          "
+
+          allowfullscreen>
+
+        </iframe>
+
+      </div>
+
+
+      <div
+        class="player-status ready">
+
+        Provider player loaded inside SAUVE.
+
+      </div>
+
+    </div>
+
+
+    <div class="player-controls">
+
+      <button
+        class="player-button primary"
+        onclick="tryNextSource()">
+
+        TRY NEXT SOURCE
+
+      </button>
+
+
+      <button
+        class="player-button"
+        onclick="showSourcesAgain()">
+
+        SOURCES
+
+      </button>
+
+    </div>
+
+  `);
+
+  setTimeout(() => {
+    const popcorn = $("popcornLoader");
+    if(popcorn){
+      popcorn.classList.add("hidden");
+    }
+  }, 1400);
+
+}
+
+
+/* =========================================================
+   NEXT SOURCE
+========================================================= */
+
+function tryNextSource(){
+
+  if(
+    !currentPlayableStreams.length
+  ){
+
+    showPlayerError(
+      "No compatible sources were detected."
+    );
+
+    return;
+
+  }
+
+
+  let next =
+    currentPlayerIndex + 1;
+
+
+  if(
+    next >=
+    currentPlayableStreams.length
+  ){
+
+    next = 0;
+
+  }
+
+
+  currentPlayerIndex =
+    next;
+
+
+  const stream =
+    currentPlayableStreams[
+      next
+    ];
+
+
+  if(
+    isPlayerFrame(stream)
+  ){
+
+    openEmbeddedPlayer(
+      stream
+    );
+
+  }
+  else{
+
+    playDirectStream(
+      stream
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   PLAYER ERROR
+========================================================= */
+
+function showPlayerError(
+  message
+){
+
+  const status =
+    $("playerStatus");
+
+
+  if(status){
+
+    status.textContent =
+      message;
+
+    status.className =
+      "player-status error";
+
+  }
+
+}
+
+
+/* =========================================================
+   SHOW SOURCES AGAIN
+========================================================= */
+
+function showSourcesAgain(){
+
+  if(
+    !currentStreams.length
+  ){
+
+    return;
+
+  }
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        SOURCES
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    ${currentStreams
+      .map(
+        renderSource
+      )
+      .join("")}
+
+  `);
+
+}
+
+
+/* =========================================================
+   EXPLAIN SOURCE
+========================================================= */
+
+function explainSource(
+  index
+){
+
+  const stream =
+    currentStreams[index];
+
+
+  if(!stream){
+
+    return;
+
+  }
+
+
+  alert(
+
+    isExternal(stream)
+
+      ?
+
+      "This source is an external destination rather than a direct media stream."
+
+      :
+
+      "SAUVE could not identify a browser-compatible video URL for this source."
+
+  );
+
+}
+
+
+/* =========================================================
+   SEARCH SUPPORT
+========================================================= */
+
+function supportsSearch(
+  catalog
+){
+
+  if(
+    !Array.isArray(
+      catalog.extra
+    )
+  ){
+
+    return false;
+
+  }
+
+
+  return catalog.extra.some(
+    extra => {
+
+      if(
+        typeof extra ===
+        "string"
+      ){
+
+        return (
+          extra ===
+          "search"
+        );
+
+      }
+
+
+      return (
+        extra &&
+        (
+          extra.name ===
+          "search" ||
+          extra.name ===
+          "q"
+        )
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+async function performSearch(){
+
+  const query =
+    $("searchInput")
+      .value
+      .trim();
+
+
+  if(!query){
+
+    focusSearch();
+
+    return;
+
+  }
+
+
+  $("main").innerHTML = `
+
+    <div class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-kicker">
+
+          SAUVE SEARCH
+
+        </div>
+
+        <h1>
+
+          ${escapeHTML(
+            query
+          )}
+
+        </h1>
+
+        <p>
+
+          Searching movies and television…
+
+        </p>
+
+      </div>
+
+    </div>
+
+    <div
+      id="searchResults"
+      class="loading">
+
+      <div class="spinner"></div>
+
+      Searching…
+
+    </div>
+
+  `;
+
+
+  try{
+
+    const manifest =
+      await fetchJSON(
+        state.metadata
+      );
+
+
+    const catalogs =
+      Array.isArray(
+        manifest.catalogs
+      )
+        ? manifest.catalogs
+        : [];
+
+
+    const searchable =
+      catalogs.filter(
+        supportsSearch
+      );
+
+
+    const metas = [];
+
+
+    const responses =
+      await Promise.allSettled(
+
+        searchable.map(
+          catalog =>
+            fetchJSON(
+              buildCatalogURL(
+                state.metadata,
+                catalog,
+                {
+                  search:
+                    query
+                }
+              )
+            )
+        )
+
+      );
+
+
+    responses.forEach(
+      result => {
+
+        if(
+          result.status ===
+          "fulfilled"
+        ){
+
+          metas.push(
+            ...(result.value.metas || [])
+          );
+
+        }
+
+      }
+    );
+
+
+    for(
+      const addon
+      of state.addons
+    ){
+
+      try{
+
+        const addonManifest =
+          await loadAddonManifest(
+            addon
+          );
+
+
+        const addonCatalogs =
+          Array.isArray(
+            addonManifest.catalogs
+          )
+            ? addonManifest.catalogs
+            : [];
+
+
+        const addonSearchable =
+          addonCatalogs.filter(
+            supportsSearch
+          );
+
+
+        const addonResults =
+          await Promise.allSettled(
+            addonSearchable.map(
+              catalog =>
+                fetchJSON(
+                  buildCatalogURL(
+                    addon,
+                    catalog,
+                    {
+                      search:
+                        query
+                    }
+                  )
+                )
+            )
+          );
+
+
+        addonResults.forEach(
+          result => {
+
+            if(
+              result.status ===
+              "fulfilled"
+            ){
+
+              metas.push(
+                ...(result.value.metas || [])
+              );
+
+            }
+
+          }
+        );
+
+      }
+      catch(e){
+
+        console.warn(
+          "Addon search failed",
+          e
+        );
+
+      }
+
+    }
+
+
+    const results =
+      dedupeMetas(
+        metas
+      );
+
+
+    $("searchResults")
+      .outerHTML =
+
+      results.length
+
+        ?
+
+        `
+
+          <section>
+
+            <div
+              class="catalog-heading">
+
+              <h2
+                class="catalog-title">
+
+                RESULTS
+
+              </h2>
+
+              <span
+                class="catalog-label">
+
+                ${results.length}
+
+              </span>
+
+            </div>
+
+            <div
+              class="row">
+
+              ${results
+                .map(
+                  renderPosterCard
+                )
+                .join("")}
+
+            </div>
+
+          </section>
+
+        `
+
+        :
+
+        `
+
+          <div class="notice">
+
+            No results found for
+
+            <strong>
+
+              ${escapeHTML(
+                query
+              )}
+
+            </strong>.
+
+          </div>
+
+        `;
+
+  }
+  catch(error){
+
+    $("searchResults")
+      .outerHTML = `
+
+        <div class="notice">
+
+          <strong>
+            SEARCH FAILED
+          </strong>
+
+          <br><br>
+
+          ${escapeHTML(
+            error.message
+          )}
+
+        </div>
+
+      `;
+
+  }
+
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function openSettings(){
+
+  const addonHTML =
+    state.addons.length
+
+      ?
+
+      state.addons
+        .map(
+          (url,index) => `
+
+            <div class="addon-item">
+
+              <div class="addon-info">
+
+                <div class="addon-name">
+
+                  STREMIO LIST ${index + 1}
+
+                </div>
+
+                <div class="addon-url">
+
+                  ${escapeHTML(
+                    url
+                  )}
+
+                </div>
+
+              </div>
+
+              <button
+                class="remove-addon"
+                onclick="
+                  removeAddon(${index})
+                ">
+
+                REMOVE
+
+              </button>
+
+            </div>
+
+          `
+        )
+        .join("")
+
+      :
+
+      `
+
+        <div class="empty">
+
+          No Stremio lists have been added yet.
+
+        </div>
+
+      `;
+
+
+  openModal(`
+
+    <div class="sheet-header">
+
+      <h2>
+        SAUVE SETTINGS
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Metadata Manifest
+      </label>
+
+      <input
+        id="metadataURL"
+        value="${escapeHTML(
+          state.metadata
+        )}">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Stream Manifest
+      </label>
+
+      <input
+        id="streamURL"
+        value="${escapeHTML(
+          state.stream
+        )}"
+
+        placeholder="Paste stream manifest">
+
+    </div>
+
+
+    <div class="section-title">
+
+      STREMIO LISTS
+
+    </div>
+
+
+    <div class="notice">
+
+      Add Stremio-compatible catalog
+      manifests here.
+
+      <br><br>
+
+      Your MDBList Stremio URL can be
+      pasted directly, including a
+      <strong>stremio://</strong> URL.
+
+    </div>
+
+
+    <br>
+
+
+    <div
+      id="addonList">
+
+      ${addonHTML}
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        Add Stremio / MDBList URL
+      </label>
+
+      <input
+        id="newAddonURL"
+        placeholder="stremio://.../manifest.json">
+
+    </div>
+
+
+    <button
+      class="secondary"
+      onclick="addAddon()">
+
+      + ADD STREMIO LIST
+
+    </button>
+
+
+    <br><br>
+
+
+    <div class="section-title">AIOSTREAMS</div>
+
+    <div class="notice">
+      Add your AIOStreams manifest URL here. If provided, SAUVE will use it as the primary stream manifest.
+    </div>
+
+    <div class="field">
+      <label>AIOStreams Manifest URL</label>
+      <input
+        id="aioStreamsURL"
+        value="${escapeHTML(state.aiostreams || "")}"
+        placeholder="https://…/manifest.json">
+    </div>
+
+    <div class="section-title">REAL-DEBRID</div>
+
+    <div class="notice">
+      Real-Debrid is kept as a local setting and is never written into this GitHub repository. For the safest setup, configure Real-Debrid inside AIOStreams and let AIOStreams provide the resulting streams to SAUVE.
+    </div>
+
+    <div class="field">
+      <label>Real-Debrid Account / Token (optional)</label>
+      <input
+        id="realDebridToken"
+        type="password"
+        autocomplete="off"
+        value="${escapeHTML(state.realdebrid || "")}"
+        placeholder="Stored only on this device">
+    </div>
+
+    <button
+      class="primary"
+      onclick="saveSettings()">
+
+      ✓ SAVE SETTINGS
+
+    </button>
+
+  `);
+
+}
+
+
+/* =========================================================
+   ADD ADDON
+========================================================= */
+
+function addAddon(){
+
+  const input =
+    $("newAddonURL");
+
+
+  if(!input){
+
+    return;
+
+  }
+
+
+  const url =
+    input.value.trim();
+
+
+  if(!url){
+
+    alert(
+      "Paste a Stremio manifest URL first."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !url.includes(
+      "manifest.json"
+    )
+  ){
+
+    alert(
+      "The URL should point to a Stremio manifest.json."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    state.addons.includes(
+      url
+    )
+  ){
+
+    alert(
+      "That list is already added."
+    );
+
+    return;
+
+  }
+
+
+  state.addons.push(
+    url
+  );
+
+
+  saveState();
+
+  openSettings();
+
+}
+
+
+/* =========================================================
+   REMOVE ADDON
+========================================================= */
+
+function removeAddon(
+  index
+){
+
+  state.addons.splice(
+    index,
+    1
+  );
+
+
+  saveState();
+
+  openSettings();
+
+}
+
+
+/* =========================================================
+   REAL-DEBRID / AIOSTREAMS NOTE
+   The browser stores these values locally only. AIOStreams is the
+   recommended place to configure Real-Debrid for this public PWA;
+   no credential is embedded in the GitHub source.
+========================================================= */
+
+/* =========================================================
+   SAVE SETTINGS
+========================================================= */
+
+function saveSettings(){
+
+  const metadata =
+    $("metadataURL")
+      ?.value
+      .trim();
+
+
+  const stream =
+    $("streamURL")
+      ?.value
+      .trim();
+
+  const aiostreams =
+    $("aioStreamsURL")
+      ?.value
+      .trim() || "";
+
+  const realdebrid =
+    $("realDebridToken")
+      ?.value
+      .trim() || "";
+
+
+  if(!metadata){
+
+    alert(
+      "Enter a metadata manifest."
+    );
+
+    return;
+
+  }
+
+
+  state.metadata =
+    metadata;
+
+
+  state.stream =
+    stream ||
+    aiostreams ||
+    "";
+
+  state.aiostreams =
+    aiostreams;
+
+  state.realdebrid =
+    realdebrid;
+
+
+  saveState();
+
+
+  closeModal();
+
+
+  location.reload();
+
+}
+
+
+/* =========================================================
+   UI
+========================================================= */
+
+function focusSearch(){
+
+  const input =
+    $("searchInput");
+
+  if(!input){
+
+    return;
+
+  }
+
+  input.focus();
+
+  /*
+    On iPhone, scrolling the input
+    into view gives a much more
+    native search experience.
+  */
+
+  setTimeout(
+    () => {
+
+      input.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    },
+    100
+  );
+
+}
+
+
+function goHome(){
+
+  location.reload();
+
+}
+
+
+function openModal(
+  html
+){
+
+  $("sheet").innerHTML =
+    html;
+
+  $("modal")
+    .classList
+    .add("open");
+
+  document.body
+    .classList
+    .add("modal-open");
+
+}
+
+
+function closeModal(){
+
+  $("modal")
+    .classList
+    .remove("open");
+
+  $("sheet").innerHTML =
+    "";
+
+  document.body
+    .classList
+    .remove("modal-open");
+
+}
+
+
+/* =========================================================
+   MODAL BACKDROP
+========================================================= */
+
+$("modal")
+  .addEventListener(
+    "click",
+    event => {
+
+      if(
+        event.target.id ===
+        "modal"
+      ){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   iPHONE SHEET SWIPE
+========================================================= */
+
+let modalStartY = 0;
+
+let modalCurrentY = 0;
+
+
+$("sheet")
+  .addEventListener(
+    "touchstart",
+    event => {
+
+      if(
+        event.touches.length !== 1
+      ){
+
+        return;
+
+      }
+
+      modalStartY =
+        event.touches[0].clientY;
+
+      modalCurrentY =
+        modalStartY;
+
+    },
+    {
+      passive:true
+    }
+  );
+
+
+$("sheet")
+  .addEventListener(
+    "touchmove",
+    event => {
+
+      if(
+        event.touches.length !== 1
+      ){
+
+        return;
+
+      }
+
+      modalCurrentY =
+        event.touches[0].clientY;
+
+    },
+    {
+      passive:true
+    }
+  );
+
+
+$("sheet")
+  .addEventListener(
+    "touchend",
+    () => {
+
+      const distance =
+        modalCurrentY -
+        modalStartY;
+
+      if(
+        distance > 120
+      ){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   EVENT DELEGATION
+========================================================= */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const poster =
+      event.target.closest(
+        ".poster-card"
+      );
+
+    if(poster){
+
+      const type =
+        poster.dataset.type;
+
+      const id =
+        poster.dataset.id;
+
+      if(
+        type &&
+        id
+      ){
+
+        openTitle(
+          type,
+          id
+        );
+
+      }
+
+      return;
+
+    }
+
+
+    const episode =
+      event.target.closest(
+        ".episode"
+      );
+
+    if(episode){
+
+      const key =
+        episode.dataset.episodeKey;
+
+      if(key){
+
+        selectEpisode(
+          key
+        );
+
+      }
+
+      return;
+
+    }
+
+
+    const source =
+      event.target.closest(
+        ".source"
+      );
+
+    if(source){
+
+      const index =
+        Number(
+          source.dataset.sourceIndex
+        );
+
+      if(
+        Number.isFinite(index)
+      ){
+
+        if(
+          isPlayableCandidate(
+            currentStreams[index]
+          )
+        ){
+
+          playSource(
+            index
+          );
+
+        }
+        else{
+
+          explainSource(
+            index
+          );
+
+        }
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SEARCH EVENTS
+========================================================= */
+
+$("searchButton")
+  .addEventListener(
+    "click",
+    performSearch
+  );
+
+
+$("searchInput")
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if(
+        event.key ===
+        "Enter"
+      ){
+
+        event.preventDefault();
+
+        performSearch();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   PWA
+========================================================= */
+
+function isSAUVEStandalone(){
+
+  return (
+
+    window.matchMedia(
+      "(display-mode: standalone)"
+    ).matches ||
+
+    window.navigator.standalone === true
+
+  );
+
+}
+
+
+if(
+  isSAUVEStandalone()
+){
+
+  document.documentElement
+    .classList
+    .add(
+      "sauve-standalone"
+    );
+
+}
+
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator.serviceWorker
+        .register(
+          "./service-worker.js",
+          {
+            scope:"./"
+          }
+        )
+        .then(
+          registration => {
+
+            console.log(
+              "SAUVE PWA ready:",
+              registration.scope
+            );
+
+          }
+        )
+        .catch(
+          error => {
+
+            console.warn(
+              "SAUVE PWA unavailable:",
+              error
+            );
+
+          }
+        );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadHome();
+
+</script>
+
+</body>
+</html>
