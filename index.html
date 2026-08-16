@@ -3524,8 +3524,7 @@ function getPopcornMoviesURL(type, tmdbId){
     return "";
   }
 
-  return
-    "https://popcornmovies.io/watch/" +
+  return "https://popcornmovies.io/watch/" +
     getPopcornType(type) +
     "/" +
     encodeURIComponent(tmdbId);
@@ -3561,8 +3560,7 @@ function getPopcornBrowseURL(type, meta){
     params.set("type", "movie");
   }
 
-  return
-    "https://popcornmovies.io/browse?" +
+  return "https://popcornmovies.io/browse?" +
     params.toString();
 }
 
@@ -3829,43 +3827,23 @@ async function openPopcornTV(){
       : {};
 
   const tmdbId =
-    getPopcornTMDBId(
-      currentSeriesId,
-      meta
-    ) ||
-    getPopcornTVTMDBId(
-      meta,
-      currentSeriesId
-    );
-
-  if(tmdbId){
-    window.location.assign(
-      getPopcornMoviesURL(
-        "series",
-        tmdbId
-      )
-    );
-    return;
-  }
-
-  const resolved =
     await resolvePopcornTMDBId(
       "series",
       currentSeriesId,
       meta
     );
 
-  if(resolved){
-    window.location.assign(
-      getPopcornMoviesURL(
-        "series",
-        resolved
-      )
-    );
+  if(!tmdbId){
+    alert("SAUVE could not identify the TMDB ID for this TV show.");
     return;
   }
 
-  alert("SAUVE could not identify the TMDB ID for this TV show.");
+  window.location.assign(
+    getPopcornMoviesURL(
+      "series",
+      tmdbId
+    )
+  );
 }
 
 function popcornTVButton(){
@@ -6842,11 +6820,6 @@ $("sheet").addEventListener(
       ? target.closest(".sheet-header")
       : null;
 
-    /*
-      Settings should not close from ordinary scrolling.
-      Only a deliberate downward gesture that starts in the
-      header can dismiss the sheet.
-    */
     modalSwipeFromHeader = !!header;
 
     if(!modalSwipeFromHeader){
@@ -6871,14 +6844,10 @@ $("sheet").addEventListener(
     modalCurrentY = event.touches[0].clientY;
     modalCurrentX = event.touches[0].clientX;
 
-    const dy = modalCurrentY - modalStartY;
-    const dx = Math.abs(modalCurrentX - modalStartX);
+    const distanceY = modalCurrentY - modalStartY;
+    const distanceX = Math.abs(modalCurrentX - modalStartX);
 
-    /*
-      If the gesture becomes horizontal or upward, cancel the
-      dismiss gesture so normal sheet interaction continues.
-    */
-    if(dy <= 0 || dx > 70){
+    if(distanceY <= 0 || distanceX > 70){
       modalSwipeFromHeader = false;
     }
   },
@@ -6892,25 +6861,16 @@ $("sheet").addEventListener(
       return;
     }
 
-    const distance = modalCurrentY - modalStartY;
-    const horizontalDistance =
-      Math.abs(modalCurrentX - modalStartX);
+    const distanceY = modalCurrentY - modalStartY;
+    const distanceX = Math.abs(modalCurrentX - modalStartX);
 
-    /*
-      Require a much more deliberate downward swipe:
-      280px minimum and mostly vertical.
-    */
-    if(
-      distance > 280 &&
-      horizontalDistance < 70
-    ){
+    if(distanceY > 280 && distanceX < 70){
       closeModal();
     }
 
     modalSwipeFromHeader = false;
   }
 );
-
 
 /* =========================================================
    EVENT DELEGATION
