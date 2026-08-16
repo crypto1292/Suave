@@ -116,6 +116,8 @@ body{
     #05030b;
 }
 
+body.profile-open{overflow:hidden}
+
 body.modal-open{
   overflow:hidden;
 }
@@ -1867,6 +1869,116 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
 .section-title{margin:24px 0 8px;color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px}.notice{border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);padding:13px;color:#aaa1b4;font-size:12px;line-height:1.55}.notice strong{color:#fff}.addon-item{border-radius:16px!important;background:rgba(255,255,255,.045)!important;border:1px solid rgba(255,255,255,.07)!important;padding:13px!important;margin:8px 0}.addon-name{font-weight:800}.addon-url{color:#8e8697;font-size:11px;word-break:break-all;margin-top:5px}.remove-addon{border-radius:10px!important}
 @media (max-width:600px){header{position:sticky}.hero{min-height:470px;padding:24px 20px;border-radius:24px}.hero h1{font-size:50px}.hero p{font-size:13px;line-height:1.55}.searchbar button{padding:0 12px;min-width:70px}.catalog-row{overflow-x:auto}.sheet{border-radius:26px}.primary,.secondary{flex:1;min-width:135px}}
 
+
+/* =========================================================
+   PROFILE SELECTOR
+========================================================= */
+
+.profile-gate{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:28px 18px calc(28px + env(safe-area-inset-bottom));
+  background:radial-gradient(circle at 50% 18%,rgba(138,77,255,.20),transparent 38%),#05030b;
+  overflow:auto;
+}
+
+.profile-gate.open{display:flex}
+
+.profile-gate-inner{
+  width:min(920px,100%);
+  text-align:center;
+}
+
+.profile-gate-logo{
+  font-size:clamp(42px,11vw,78px);
+  line-height:.9;
+  font-weight:1000;
+  letter-spacing:-5px;
+  background:linear-gradient(135deg,var(--pink),var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 40px rgba(255,22,216,.15);
+}
+
+.profile-gate-subtitle{
+  margin:12px 0 42px;
+  color:#a99fb1;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.profile-gate h1{
+  margin:0 0 28px;
+  font-size:clamp(25px,6vw,42px);
+  letter-spacing:-1.5px;
+}
+
+.profile-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px 20px;
+}
+
+.profile-card{
+  width:145px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  padding:0;
+  cursor:pointer;
+  text-align:center;
+}
+
+.profile-avatar{
+  width:128px;
+  height:128px;
+  margin:0 auto 13px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.10);
+  background:linear-gradient(135deg,#211334,#0d0916);
+  box-shadow:0 14px 35px rgba(0,0,0,.45);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+
+.profile-card:active .profile-avatar{transform:scale(.96)}
+.profile-card:hover .profile-avatar{border-color:rgba(255,22,216,.65);box-shadow:0 16px 40px rgba(138,77,255,.22)}
+
+.profile-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-avatar span{font-size:48px;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.profile-name{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#e9e5eb;font-size:15px;font-weight:800}
+
+.profile-add .profile-avatar{
+  border-style:dashed;
+  background:rgba(255,255,255,.035);
+}
+.profile-add .profile-avatar span{font-size:42px;color:#a99fb1;background:none;-webkit-text-fill-color:initial}
+
+.profile-gate-footer{margin-top:40px;color:#766d7b;font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+
+.profile-editor-note{margin:-4px 0 18px;color:#9d91a6;font-size:12px;line-height:1.5}
+.profile-editor-preview{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.profile-editor-preview .profile-avatar{margin:0;width:76px;height:76px;border-radius:18px;flex:none}
+.profile-editor-preview .profile-avatar span{font-size:30px}
+.profile-file{display:block;width:100%;padding:13px;border-radius:14px;border:1px dashed rgba(255,255,255,.18);background:rgba(255,255,255,.035);color:#c9c1ce;font-size:12px}
+.profile-file input{display:block;width:100%;margin-top:8px;color:#fff}
+.profile-danger{margin-top:12px;border:1px solid rgba(255,85,119,.28);background:rgba(255,85,119,.08);color:#ff8da4}
+
+.profile-switch-button{display:flex;align-items:center;gap:10px;width:100%;padding:13px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.035);color:#fff;text-align:left;cursor:pointer;margin-bottom:20px}
+.profile-switch-button .profile-avatar{width:42px;height:42px;margin:0;border-radius:12px;box-shadow:none}
+.profile-switch-button .profile-avatar span{font-size:18px}
+.profile-switch-copy{flex:1;min-width:0}.profile-switch-copy strong{display:block;font-size:13px}.profile-switch-copy span{display:block;margin-top:3px;color:#8f8696;font-size:10px;letter-spacing:1px;text-transform:uppercase}
+
 </style>
 </head>
 
@@ -2011,7 +2123,285 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
 </div>
 
 
+
+<!-- =======================================================
+     PROFILE SELECTOR
+======================================================= -->
+
+<div class="profile-gate" id="profileGate">
+  <div class="profile-gate-inner">
+    <div class="profile-gate-logo">SAUVE</div>
+    <div class="profile-gate-subtitle">Cinema • Television • After Dark</div>
+    <h1>Who's watching?</h1>
+    <div class="profile-grid" id="profileGrid"></div>
+    <div class="profile-gate-footer">Up to 5 profiles • Each profile has its own SAUVE settings</div>
+  </div>
+</div>
+
 <script>
+
+
+/* =========================================================
+   PROFILES
+========================================================= */
+
+const PROFILE_STORAGE_KEY = "sauve_profiles_v1";
+const ACTIVE_PROFILE_KEY = "sauve_active_profile";
+const MAX_PROFILES = 5;
+
+function getLegacyProfileSettings(){
+  return {
+    metadata: localStorage.getItem("sauve_metadata") || DEFAULT_METADATA,
+    stream: localStorage.getItem("sauve_stream") || "",
+    addons: loadJSON("sauve_addons", []),
+    aiostreams: localStorage.getItem("sauve_aiostreams") || "",
+    realdebrid: localStorage.getItem("sauve_realdebrid") || ""
+  };
+}
+
+function profileDefaults(name="Main Profile"){
+  return {
+    id: "profile_" + Date.now() + "_" + Math.random().toString(36).slice(2,8),
+    name,
+    avatar: "",
+    settings: getLegacyProfileSettings()
+  };
+}
+
+function loadProfiles(){
+  try{
+    const raw = localStorage.getItem(PROFILE_STORAGE_KEY);
+    if(raw){
+      const profiles = JSON.parse(raw);
+      if(Array.isArray(profiles)) return profiles.slice(0,MAX_PROFILES);
+    }
+  }catch(e){}
+
+  const migrated = profileDefaults("Main Profile");
+  const profiles = [migrated];
+  localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profiles));
+  localStorage.setItem(ACTIVE_PROFILE_KEY, migrated.id);
+  return profiles;
+}
+
+let profiles = loadProfiles();
+let activeProfileId = localStorage.getItem(ACTIVE_PROFILE_KEY) || "";
+
+function activeProfile(){
+  return profiles.find(p => p.id === activeProfileId) || null;
+}
+
+function ensureActiveProfile(){
+  if(!activeProfile() && profiles.length){
+    activeProfileId = profiles[0].id;
+    localStorage.setItem(ACTIVE_PROFILE_KEY, activeProfileId);
+  }
+}
+
+ensureActiveProfile();
+
+function saveProfiles(){
+  localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profiles));
+}
+
+function profileInitial(name){
+  return escapeHTML((String(name || "S").trim()[0] || "S").toUpperCase());
+}
+
+function profileAvatarHTML(profile, className="profile-avatar"){
+  if(profile && profile.avatar){
+    return `<div class="${className}"><img src="${profile.avatar}" alt=""></div>`;
+  }
+  return `<div class="${className}"><span>${profileInitial(profile?.name)}</span></div>`;
+}
+
+function showProfileChooser(){
+  const gate = $("profileGate");
+  const grid = $("profileGrid");
+  if(!gate || !grid) return;
+
+  grid.innerHTML = profiles.map(profile => `
+    <button class="profile-card" onclick="selectProfile('${profile.id}')">
+      ${profileAvatarHTML(profile)}
+      <span class="profile-name">${escapeHTML(profile.name)}</span>
+    </button>
+  `).join("") + (profiles.length < MAX_PROFILES ? `
+    <button class="profile-card profile-add" onclick="openAddProfile()">
+      <div class="profile-avatar"><span>+</span></div>
+      <span class="profile-name">Add Profile</span>
+    </button>
+  ` : "");
+
+  gate.classList.add("open");
+  document.body.classList.add("profile-open");
+}
+
+function hideProfileChooser(){
+  const gate = $("profileGate");
+  if(gate) gate.classList.remove("open");
+  document.body.classList.remove("profile-open");
+}
+
+function selectProfile(id){
+  if(!profiles.some(p => p.id === id)) return;
+  localStorage.setItem(ACTIVE_PROFILE_KEY, id);
+  localStorage.setItem("sauve_skip_profile_gate", "1");
+  location.reload();
+}
+
+function openAddProfile(){
+  if(profiles.length >= MAX_PROFILES){
+    alert("SAUVE supports up to 5 profiles.");
+    return;
+  }
+
+  openModal(`
+    <div class="sheet-header">
+      <h2>NEW PROFILE</h2>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div class="profile-editor-note">Create a separate SAUVE profile. Its settings stay separate from every other profile on this device.</div>
+    <div class="field">
+      <label>Profile Name</label>
+      <input id="newProfileName" maxlength="24" placeholder="e.g. Chris">
+    </div>
+    <label class="profile-file">
+      Upload Avatar Picture
+      <input id="newProfileAvatar" type="file" accept="image/*" onchange="previewProfileUpload(this, 'newProfilePreview')">
+    </label>
+    <div class="profile-editor-preview">
+      <div id="newProfilePreview">${profileAvatarHTML({name:"New"})}</div>
+      <div class="profile-editor-note" style="margin:0">Your avatar is stored locally in this browser/device.</div>
+    </div>
+    <button class="primary" onclick="createProfile()">✓ CREATE PROFILE</button>
+  `);
+}
+
+function previewProfileUpload(input, previewId){
+  const file = input?.files?.[0];
+  if(!file) return;
+  if(!file.type.startsWith("image/")){
+    alert("Please choose an image file.");
+    input.value = "";
+    return;
+  }
+  if(file.size > 5 * 1024 * 1024){
+    alert("Please choose an image smaller than 5 MB.");
+    input.value = "";
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const target = $(previewId);
+    if(target) target.innerHTML = `<div class="profile-avatar"><img src="${reader.result}" alt=""></div>`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function createProfile(){
+  if(profiles.length >= MAX_PROFILES) return;
+  const name = $("newProfileName")?.value.trim();
+  if(!name){
+    alert("Enter a profile name first.");
+    return;
+  }
+  const input = $("newProfileAvatar");
+  const file = input?.files?.[0];
+  const finish = avatar => {
+    const profile = profileDefaults(name);
+    profile.avatar = avatar || "";
+    profile.settings = {
+      metadata: DEFAULT_METADATA,
+      stream: "",
+      addons: [],
+      aiostreams: "",
+      realdebrid: ""
+    };
+    profiles.push(profile);
+    saveProfiles();
+    localStorage.setItem(ACTIVE_PROFILE_KEY, profile.id);
+    localStorage.setItem("sauve_skip_profile_gate", "1");
+    closeModal();
+    location.reload();
+  };
+  if(file){
+    const reader = new FileReader();
+    reader.onload = () => finish(reader.result);
+    reader.readAsDataURL(file);
+  }else{
+    finish("");
+  }
+}
+
+function openProfileEditor(){
+  const profile = activeProfile();
+  if(!profile) return;
+  openModal(`
+    <div class="sheet-header">
+      <h2>EDIT PROFILE</h2>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div class="profile-editor-note">Change the name or avatar for <strong>${escapeHTML(profile.name)}</strong>.</div>
+    <div class="profile-editor-preview">
+      <div id="editProfilePreview">${profileAvatarHTML(profile)}</div>
+      <div>
+        <strong>${escapeHTML(profile.name)}</strong><br>
+        <span style="color:#8f8696;font-size:11px">PROFILE AVATAR</span>
+      </div>
+    </div>
+    <div class="field">
+      <label>Profile Name</label>
+      <input id="editProfileName" maxlength="24" value="${escapeHTML(profile.name)}">
+    </div>
+    <label class="profile-file">
+      Change Avatar Picture
+      <input id="editProfileAvatar" type="file" accept="image/*" onchange="previewProfileUpload(this, 'editProfilePreview')">
+    </label>
+    <button class="primary" onclick="saveProfileEdits()">✓ SAVE PROFILE</button>
+    ${profiles.length > 1 ? `<button class="profile-danger" onclick="deleteActiveProfile()">DELETE THIS PROFILE</button>` : ""}
+  `);
+}
+
+function saveProfileEdits(){
+  const profile = activeProfile();
+  if(!profile) return;
+  const name = $("editProfileName")?.value.trim();
+  if(!name){ alert("Enter a profile name first."); return; }
+  profile.name = name;
+  const input = $("editProfileAvatar");
+  const file = input?.files?.[0];
+  const finish = avatar => {
+    if(avatar !== null) profile.avatar = avatar;
+    saveProfiles();
+    closeModal();
+    showProfileChooser();
+  };
+  if(file){
+    const reader = new FileReader();
+    reader.onload = () => finish(reader.result);
+    reader.readAsDataURL(file);
+  }else{
+    finish(null);
+  }
+}
+
+function deleteActiveProfile(){
+  const profile = activeProfile();
+  if(!profile || profiles.length <= 1) return;
+  if(!confirm(`Delete the profile “${profile.name}” and its settings?`)) return;
+  profiles = profiles.filter(p => p.id !== profile.id);
+  saveProfiles();
+  activeProfileId = profiles[0].id;
+  localStorage.setItem(ACTIVE_PROFILE_KEY, activeProfileId);
+  closeModal();
+  location.reload();
+}
+
+function switchProfile(){
+  closeModal();
+  showProfileChooser();
+}
+
 
 /* =========================================================
    CONFIG
@@ -2024,37 +2414,21 @@ const DEFAULT_ADDON =
 "";
 
 
+const profileSettings = activeProfile()?.settings || getLegacyProfileSettings();
+
 const state = {
 
-  metadata:
-    localStorage.getItem(
-      "sauve_metadata"
-    ) ||
-    DEFAULT_METADATA,
+  metadata: profileSettings.metadata || DEFAULT_METADATA,
 
-  stream:
-    localStorage.getItem(
-      "sauve_stream"
-    ) ||
-    "",
+  stream: profileSettings.stream || "",
 
-  addons:
-    loadJSON(
-      "sauve_addons",
-      []
-    ),
+  addons: Array.isArray(profileSettings.addons)
+    ? profileSettings.addons
+    : [],
 
-  aiostreams:
-    localStorage.getItem(
-      "sauve_aiostreams"
-    ) ||
-    "",
+  aiostreams: profileSettings.aiostreams || "",
 
-  realdebrid:
-    localStorage.getItem(
-      "sauve_realdebrid"
-    ) ||
-    ""
+  realdebrid: profileSettings.realdebrid || ""
 
 };
 
@@ -2118,32 +2492,18 @@ function loadJSON(
 
 function saveState(){
 
-  localStorage.setItem(
-    "sauve_metadata",
-    state.metadata
-  );
+  const profile = activeProfile();
+  if(!profile) return;
 
-  localStorage.setItem(
-    "sauve_stream",
-    state.stream
-  );
+  profile.settings = {
+    metadata: state.metadata,
+    stream: state.stream,
+    addons: Array.isArray(state.addons) ? state.addons : [],
+    aiostreams: state.aiostreams || "",
+    realdebrid: state.realdebrid || ""
+  };
 
-  localStorage.setItem(
-    "sauve_addons",
-    JSON.stringify(
-      state.addons
-    )
-  );
-
-  localStorage.setItem(
-    "sauve_aiostreams",
-    state.aiostreams || ""
-  );
-
-  localStorage.setItem(
-    "sauve_realdebrid",
-    state.realdebrid || ""
-  );
+  saveProfiles();
 
 }
 
@@ -3354,98 +3714,335 @@ async function openTitle(
 
 
 /* =========================================================
-   POPCORN MOVIES — DIRECT WATCH DEEP LINK
-   PopcornMovies uses /watch/movie/<TMDB_ID> and
-   /watch/tv/<TMDB_ID>. Resolve the TMDB ID from the existing
-   metadata when possible; otherwise use Wikidata as a no-key
-   title/IMDb resolver. This does not embed or proxy the stream.
+   POPCORN MOVIES EXTERNAL SOURCE
+   Matches SAUVE metadata to PopcornMovies.
+
+   Resolution order:
+   1. TMDB ID already present in metadata
+   2. TMDB ID exposed by metadata links
+   3. IMDb -> Cinemeta metadata -> TMDB link
+   4. If no ID can be resolved, open PopcornMovies browse/search
+      using the title so the user can select the exact result.
 ========================================================= */
-function popcornTMDBId(meta,id){
-  const vals=[
-    id,meta?.id,meta?.tmdbId,meta?.tmdb_id,meta?.tmdb,
-    meta?.ids?.tmdb,meta?.external_ids?.tmdb,meta?.externalIds?.tmdb
+
+function getPopcornTMDBId(id, meta){
+
+  const candidates = [
+    id,
+    meta && meta.tmdbId,
+    meta && meta.tmdb_id,
+    meta && meta.tmdb,
+    meta && meta.moviedb_id,
+    meta && meta.movieDbId,
+    meta && meta.ids && meta.ids.tmdb,
+    meta && meta.external_ids && meta.external_ids.tmdb,
+    meta && meta.externalIds && meta.externalIds.tmdb
   ];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const x=String(v).trim();
-    if(/^\d+$/.test(x)) return x;
-    const m=x.match(/(?:tmdb[:/]|themoviedb\.org\/(?:movie|tv)\/)(\d+)/i);
-    if(m) return m[1];
-  }
-  return "";
-}
 
-function popcornIMDbId(meta,id){
-  const vals=[id,meta?.id,meta?.imdb,meta?.imdbId,meta?.imdb_id,meta?.ids?.imdb,meta?.external_ids?.imdb];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const m=String(v).match(/tt\d{5,12}/i);
-    if(m) return m[0];
-  }
-  return "";
-}
+  function extract(value){
 
-function popcornTitle(meta){
-  return String(meta?.name||meta?.title||meta?.originalName||meta?.original_title||"").trim();
-}
-
-function popcornYear(meta){
-  const m=String(meta?.releaseInfo||meta?.year||meta?.releaseDate||meta?.first_air_date||"").match(/(?:19|20)\d{2}/);
-  return m?m[0]:"";
-}
-
-async function popcornWikidataLookup(meta,id){
-  const title=popcornTitle(meta);
-  const year=popcornYear(meta);
-  const imdb=popcornIMDbId(meta,id);
-  try{
-    let query;
-    if(imdb){
-      query=`SELECT ?tmdb WHERE { ?item wdt:P345 "${imdb}". ?item wdt:P4947 ?tmdb. } LIMIT 1`;
-    }else if(title){
-      const search=await fetch("https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+encodeURIComponent(title)+"&language=en&format=json&origin=*&limit=10",{cache:"no-store"});
-      if(!search.ok) return "";
-      const sj=await search.json();
-      for(const item of (sj?.search||[])){
-        const r=await fetch("https://www.wikidata.org/wiki/Special:EntityData/"+encodeURIComponent(item.id)+".json",{cache:"no-store"});
-        if(!r.ok) continue;
-        const ent=(await r.json())?.entities?.[item.id];
-        const claims=ent?.claims||{};
-        const tm=claims?.P4947?.[0]?.mainsnak?.datavalue?.value;
-        if(!tm) continue;
-        if(year){
-          const dates=[...(claims.P577||[])];
-          const ok=dates.some(c=>String(c?.mainsnak?.datavalue?.value?.time||"").includes(year));
-          if(!ok) continue;
-        }
-        return String(tm);
-      }
+    if(value === null || value === undefined){
       return "";
     }
-    const r=await fetch("https://query.wikidata.org/sparql?format=json&query="+encodeURIComponent(query),{cache:"no-store"});
-    if(!r.ok) return "";
-    return (await r.json())?.results?.bindings?.[0]?.tmdb?.value||"";
-  }catch(e){
-    console.warn("Popcorn ID resolver failed",e);
+
+    const text = String(value).trim();
+
+    if(!text){
+      return "";
+    }
+
+    if(/^\d+$/.test(text)){
+      return text;
+    }
+
+    const tmdb = text.match(
+      /(?:themoviedb\.org\/(?:movie|tv)\/|tmdb[:/])([0-9]+)/i
+    );
+
+    return tmdb ? tmdb[1] : "";
+  }
+
+  for(const candidate of candidates){
+    const found = extract(candidate);
+    if(found) return found;
+  }
+
+  const links =
+    meta && Array.isArray(meta.links)
+      ? meta.links
+      : [];
+
+  for(const link of links){
+
+    if(!link) continue;
+
+    const category = String(
+      link.category ||
+      link.name ||
+      link.type ||
+      ""
+    ).toLowerCase();
+
+    const url = String(
+      link.url ||
+      link.href ||
+      ""
+    );
+
+    if(
+      category.includes("themoviedb") ||
+      category.includes("tmdb") ||
+      url.includes("themoviedb.org")
+    ){
+      const found = extract(url);
+      if(found) return found;
+    }
+  }
+
+  return "";
+}
+
+function getPopcornIMDbId(id, meta){
+
+  const candidates = [
+    meta && meta.imdb_id,
+    meta && meta.imdbId,
+    meta && meta.imdb,
+    id,
+    meta && meta.ids && meta.ids.imdb,
+    meta && meta.external_ids && meta.external_ids.imdb,
+    meta && meta.externalIds && meta.externalIds.imdb
+  ];
+
+  for(const candidate of candidates){
+
+    if(candidate === null || candidate === undefined){
+      continue;
+    }
+
+    const value = String(candidate).trim();
+
+    const match =
+      value.match(/tt\d{5,12}/i);
+
+    if(match){
+      return match[0];
+    }
+  }
+
+  return "";
+}
+
+function getPopcornType(type){
+
+  const normalized =
+    String(type || "movie")
+      .toLowerCase();
+
+  return
+    normalized === "series" ||
+    normalized === "tv" ||
+    normalized === "show"
+      ? "tv"
+      : "movie";
+}
+
+function getPopcornTitle(meta){
+
+  return String(
+    meta && (
+      meta.name ||
+      meta.title ||
+      meta.originalName ||
+      meta.original_title ||
+      ""
+    )
+  ).trim();
+}
+
+function getPopcornYear(meta){
+
+  const raw = String(
+    meta && (
+      meta.year ||
+      meta.releaseInfo ||
+      meta.releaseDate ||
+      meta.first_air_date ||
+      ""
+    )
+  );
+
+  const match =
+    raw.match(/(?:19|20)\d{2}/);
+
+  return match ? match[0] : "";
+}
+
+function getPopcornMoviesURL(type, tmdbId){
+
+  if(!tmdbId){
     return "";
   }
+
+  return
+    "https://popcornmovies.io/" +
+    getPopcornType(type) +
+    "/" +
+    encodeURIComponent(tmdbId);
 }
 
-async function openPopcornWatch(type,id,metaOverride){
-  const meta=metaOverride||currentTitle||{};
-  const kind=(String(type||"movie").toLowerCase()==="series"||String(type||"").toLowerCase()==="tv"||String(type||"").toLowerCase()==="show")?"tv":"movie";
-  let tmdb=popcornTMDBId(meta,id);
-  if(!tmdb) tmdb=await popcornWikidataLookup(meta,id);
-  if(tmdb){
-    window.location.assign("https://popcornmovies.io/watch/"+kind+"/"+encodeURIComponent(tmdb));
+function getPopcornBrowseURL(type, meta){
+
+  const title =
+    getPopcornTitle(meta);
+
+  if(!title){
+    return "https://popcornmovies.io/browse";
+  }
+
+  /* PopcornMovies exposes its full catalogue through /browse.
+     Keep the title in the URL so the site/browser can use it as
+     the discovery query even when SAUVE has no TMDB ID. */
+  const params = new URLSearchParams();
+
+  params.set("search", title);
+
+  const year =
+    getPopcornYear(meta);
+
+  if(year){
+    params.set("year", year);
+  }
+
+  if(getPopcornType(type) === "tv"){
+    params.set("type", "tv");
+  }
+  else{
+    params.set("type", "movie");
+  }
+
+  return
+    "https://popcornmovies.io/browse?" +
+    params.toString();
+}
+
+async function resolvePopcornTMDBId(type, id, meta){
+
+  let tmdbId =
+    getPopcornTMDBId(
+      id,
+      meta
+    );
+
+  if(tmdbId){
+    return tmdbId;
+  }
+
+  const imdbId =
+    getPopcornIMDbId(
+      id,
+      meta
+    );
+
+  if(!imdbId){
+    return "";
+  }
+
+  /* Cinemeta commonly exposes a TMDB link for IMDb IDs.
+     This is only used to resolve the destination URL; playback
+     remains on PopcornMovies. */
+  const endpoints = [
+    "https://v3-cinemeta.strem.io/meta/" +
+      encodeURIComponent(getPopcornType(type)) +
+      "/" +
+      encodeURIComponent(imdbId) +
+      ".json",
+    "https://v2.sg.media-imdb.com/suggestion/" +
+      encodeURIComponent(imdbId) +
+      ".json"
+  ];
+
+  try{
+
+    const response =
+      await fetch(
+        endpoints[0],
+        {
+          method:"GET",
+          cache:"no-store"
+        }
+      );
+
+    if(response.ok){
+
+      const data =
+        await response.json();
+
+      const candidate =
+        data && (
+          data.meta ||
+          data
+        );
+
+      tmdbId =
+        getPopcornTMDBId(
+          imdbId,
+          candidate
+        );
+
+      if(tmdbId){
+        return tmdbId;
+      }
+    }
+
+  }
+  catch(error){
+
+    console.warn(
+      "Popcorn TMDB resolution failed:",
+      error
+    );
+
+  }
+
+  return "";
+}
+
+async function openPopcornMovies(type, id){
+
+  const meta =
+    (typeof currentTitle === "object" && currentTitle)
+      ? currentTitle
+      : null;
+
+  const tmdbId =
+    await resolvePopcornTMDBId(
+      type,
+      id,
+      meta
+    );
+
+  if(tmdbId){
+
+    window.location.assign(
+      getPopcornMoviesURL(
+        type,
+        tmdbId
+      )
+    );
+
     return;
   }
-  const q=[popcornTitle(meta),popcornYear(meta)].filter(Boolean).join(" ");
-  window.location.assign(q?"https://popcornmovies.io/browse?search="+encodeURIComponent(q):"https://popcornmovies.io/browse");
-}
 
-function popcornButton(type,id){
-  return `<button class="primary" type="button" id="popcornWatchButton" style="margin-top:10px;width:100%;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">🍿 WATCH ON POPCORN</button>`;
+  /* Never stop with the old "TMDB ID not found" error.
+     PopcornMovies has a browse/search catalogue, so title/year
+     discovery is the final fallback. */
+  window.location.assign(
+    getPopcornBrowseURL(
+      type,
+      meta
+    )
+  );
 }
 
 /* =========================================================
@@ -3512,15 +4109,26 @@ function renderMovieTitle(
 
         </p>
 
-        <button
-          class="primary"
-          id="sourceButton">
+        <div class="hero-buttons" style="margin-top:16px">
 
-          ▶ FIND SOURCES
+          <button
+            class="primary"
+            id="sourceButton">
 
-        </button>
+            ▶ FIND SOURCES
 
-        ${popcornButton(type,id)}
+          </button>
+
+          <button
+            class="secondary"
+            type="button"
+            onclick="openPopcornMovies('${escapeHTML(type)}','${escapeHTML(id)}')">
+
+            🍿 OPEN ON POPCORN
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -3544,17 +4152,64 @@ function renderMovieTitle(
         id
       );
 
-  $("popcornWatchButton")
-    .onclick =
-    () =>
-      openPopcornWatch(
-        type,
-        id,
-        currentTitle
-      );
-
 }
 
+
+/* =========================================================
+   POPCORN MOVIES — TV ONLY
+   This is intentionally separate from the existing movie Popcorn
+   integration. Movies are left untouched.
+========================================================= */
+function getPopcornTVTMDBId(meta, seriesId){
+  const candidates = [
+    meta?.tmdbId,
+    meta?.tmdb_id,
+    meta?.tmdb,
+    meta?.ids?.tmdb,
+    meta?.external_ids?.tmdb,
+    meta?.externalIds?.tmdb,
+    seriesId
+  ];
+
+  for(const candidate of candidates){
+    if(candidate === null || candidate === undefined) continue;
+    const value = String(candidate).trim();
+    if(/^\d+$/.test(value)) return value;
+    const match = value.match(/(?:themoviedb\.org\/tv\/|tmdb[:/]?)(\d+)/i);
+    if(match) return match[1];
+  }
+
+  return "";
+}
+
+function openPopcornTV(){
+  const tmdbId = getPopcornTVTMDBId(
+    currentTitle || {},
+    currentSeriesId
+  );
+
+  if(!tmdbId){
+    alert("SAUVE could not identify the TMDB ID for this TV show.");
+    return;
+  }
+
+  window.location.assign(
+    "https://popcornmovies.io/tv/" +
+    encodeURIComponent(tmdbId)
+  );
+}
+
+function popcornTVButton(){
+  return `
+    <button
+      type="button"
+      class="secondary"
+      onclick="openPopcornTV()"
+      style="width:100%;margin-bottom:16px;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">
+      🍿 OPEN SHOW ON POPCORN
+    </button>
+  `;
+}
 
 /* =========================================================
    SERIES
@@ -3632,7 +4287,15 @@ function renderSeriesTitle(
 
       </div>
 
-      ${popcornButton("series",id)}
+      <button
+        class="secondary"
+        type="button"
+        style="width:100%;margin-top:16px"
+        onclick="openPopcornMovies('series','${escapeHTML(id)}')">
+
+        🍿 OPEN ON POPCORN
+
+      </button>
 
       <div class="notice">
 
@@ -3803,8 +4466,16 @@ function renderSeriesSeason(
 
     </div>
 
+    <button
+      class="secondary"
+      type="button"
+      style="width:100%;margin-top:16px"
+      onclick="openPopcornMovies('series','${escapeHTML(id)}')">
 
-    ${popcornButton("series",id)}
+      🍿 OPEN ON POPCORN
+
+    </button>
+
 
     <div class="section-title">
 
@@ -4092,6 +4763,8 @@ async function selectEpisode(
 
   sources.innerHTML = `
 
+    ${popcornTVButton()}
+
     <div class="loading">
 
       <div class="spinner"></div>
@@ -4167,6 +4840,8 @@ async function selectEpisode(
 
       sources.innerHTML = `
 
+        ${popcornTVButton()}
+
         <div class="notice">
 
           No sources were returned for
@@ -4200,6 +4875,8 @@ async function selectEpisode(
 
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="section-title">
 
@@ -4238,6 +4915,8 @@ async function selectEpisode(
   catch(error){
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="notice">
 
@@ -6069,6 +6748,18 @@ function openSettings(){
 
     </div>
 
+    <button class="profile-switch-button" onclick="switchProfile()">
+      ${profileAvatarHTML(activeProfile())}
+      <div class="profile-switch-copy">
+        <strong>${escapeHTML(activeProfile()?.name || "Profile")}</strong>
+        <span>Current profile • Tap to switch</span>
+      </div>
+      <span style="color:#8f8696;font-size:20px">›</span>
+    </button>
+
+    <button class="secondary" onclick="openProfileEditor()">✎ EDIT PROFILE</button>
+
+    <br><br>
 
     <div class="field">
 
@@ -6364,7 +7055,7 @@ function saveSettings(){
 
   closeModal();
 
-
+  localStorage.setItem("sauve_skip_profile_gate", "1");
   location.reload();
 
 }
@@ -6410,6 +7101,7 @@ function focusSearch(){
 
 function goHome(){
 
+  localStorage.setItem("sauve_skip_profile_gate", "1");
   location.reload();
 
 }
@@ -6476,78 +7168,56 @@ $("modal")
 ========================================================= */
 
 let modalStartY = 0;
-
 let modalCurrentY = 0;
+let modalSwipeFromHeader = false;
 
-
-$("sheet")
-  .addEventListener(
-    "touchstart",
-    event => {
-
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalStartY =
-        event.touches[0].clientY;
-
-      modalCurrentY =
-        modalStartY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchstart",
+  event => {
+    if(event.touches.length !== 1){
+      modalSwipeFromHeader = false;
+      return;
     }
-  );
 
+    const target = event.target;
+    const header = target && target.closest
+      ? target.closest(".sheet-header")
+      : null;
 
-$("sheet")
-  .addEventListener(
-    "touchmove",
-    event => {
+    modalSwipeFromHeader = !!header;
+    modalStartY = event.touches[0].clientY;
+    modalCurrentY = modalStartY;
+  },
+  {passive:true}
+);
 
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalCurrentY =
-        event.touches[0].clientY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchmove",
+  event => {
+    if(event.touches.length !== 1 || !modalSwipeFromHeader){
+      return;
     }
-  );
+    modalCurrentY = event.touches[0].clientY;
+  },
+  {passive:true}
+);
 
-
-$("sheet")
-  .addEventListener(
-    "touchend",
-    () => {
-
-      const distance =
-        modalCurrentY -
-        modalStartY;
-
-      if(
-        distance > 120
-      ){
-
-        closeModal();
-
-      }
-
+$("sheet").addEventListener(
+  "touchend",
+  () => {
+    if(!modalSwipeFromHeader){
+      return;
     }
-  );
+
+    const distance = modalCurrentY - modalStartY;
+
+    if(distance > 190){
+      closeModal();
+    }
+
+    modalSwipeFromHeader = false;
+  }
+);
 
 
 /* =========================================================
@@ -6763,17 +7433,13 @@ if(
    START
 ========================================================= */
 
-loadHome();
-
-
-
-/* Popcorn button delegation for dynamically rendered movie/TV modals. */
-document.addEventListener("click",function(e){
-  const b=e.target.closest && e.target.closest("#popcornWatchButton");
-  if(!b) return;
-  e.preventDefault();
-  openPopcornWatch(currentTitle?.type||"movie", currentSeriesId||"", currentTitle);
-});
+const skipProfileGate = localStorage.getItem("sauve_skip_profile_gate") === "1";
+if(skipProfileGate){
+  localStorage.removeItem("sauve_skip_profile_gate");
+  if(activeProfile()) loadHome();
+}else{
+  showProfileChooser();
+}
 
 </script>
 
