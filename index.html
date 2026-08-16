@@ -3354,98 +3354,336 @@ async function openTitle(
 
 
 /* =========================================================
-   POPCORN MOVIES — DIRECT WATCH DEEP LINK
-   PopcornMovies uses /watch/movie/<TMDB_ID> and
-   /watch/tv/<TMDB_ID>. Resolve the TMDB ID from the existing
-   metadata when possible; otherwise use Wikidata as a no-key
-   title/IMDb resolver. This does not embed or proxy the stream.
+   POPCORN MOVIES EXTERNAL SOURCE
+   Matches SAUVE metadata to PopcornMovies.
+
+   Resolution order:
+   1. TMDB ID already present in metadata
+   2. TMDB ID exposed by metadata links
+   3. IMDb -> Cinemeta metadata -> TMDB link
+   4. If no ID can be resolved, open PopcornMovies browse/search
+      using the title so the user can select the exact result.
 ========================================================= */
-function popcornTMDBId(meta,id){
-  const vals=[
-    id,meta?.id,meta?.tmdbId,meta?.tmdb_id,meta?.tmdb,
-    meta?.ids?.tmdb,meta?.external_ids?.tmdb,meta?.externalIds?.tmdb
+
+function getPopcornTMDBId(id, meta){
+
+  const candidates = [
+    id,
+    meta && meta.tmdbId,
+    meta && meta.tmdb_id,
+    meta && meta.tmdb,
+    meta && meta.moviedb_id,
+    meta && meta.movieDbId,
+    meta && meta.ids && meta.ids.tmdb,
+    meta && meta.external_ids && meta.external_ids.tmdb,
+    meta && meta.externalIds && meta.externalIds.tmdb
   ];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const x=String(v).trim();
-    if(/^\d+$/.test(x)) return x;
-    const m=x.match(/(?:tmdb[:/]|themoviedb\.org\/(?:movie|tv)\/)(\d+)/i);
-    if(m) return m[1];
-  }
-  return "";
-}
 
-function popcornIMDbId(meta,id){
-  const vals=[id,meta?.id,meta?.imdb,meta?.imdbId,meta?.imdb_id,meta?.ids?.imdb,meta?.external_ids?.imdb];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const m=String(v).match(/tt\d{5,12}/i);
-    if(m) return m[0];
-  }
-  return "";
-}
+  function extract(value){
 
-function popcornTitle(meta){
-  return String(meta?.name||meta?.title||meta?.originalName||meta?.original_title||"").trim();
-}
-
-function popcornYear(meta){
-  const m=String(meta?.releaseInfo||meta?.year||meta?.releaseDate||meta?.first_air_date||"").match(/(?:19|20)\d{2}/);
-  return m?m[0]:"";
-}
-
-async function popcornWikidataLookup(meta,id){
-  const title=popcornTitle(meta);
-  const year=popcornYear(meta);
-  const imdb=popcornIMDbId(meta,id);
-  try{
-    let query;
-    if(imdb){
-      query=`SELECT ?tmdb WHERE { ?item wdt:P345 "${imdb}". ?item wdt:P4947 ?tmdb. } LIMIT 1`;
-    }else if(title){
-      const search=await fetch("https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+encodeURIComponent(title)+"&language=en&format=json&origin=*&limit=10",{cache:"no-store"});
-      if(!search.ok) return "";
-      const sj=await search.json();
-      for(const item of (sj?.search||[])){
-        const r=await fetch("https://www.wikidata.org/wiki/Special:EntityData/"+encodeURIComponent(item.id)+".json",{cache:"no-store"});
-        if(!r.ok) continue;
-        const ent=(await r.json())?.entities?.[item.id];
-        const claims=ent?.claims||{};
-        const tm=claims?.P4947?.[0]?.mainsnak?.datavalue?.value;
-        if(!tm) continue;
-        if(year){
-          const dates=[...(claims.P577||[])];
-          const ok=dates.some(c=>String(c?.mainsnak?.datavalue?.value?.time||"").includes(year));
-          if(!ok) continue;
-        }
-        return String(tm);
-      }
+    if(value === null || value === undefined){
       return "";
     }
-    const r=await fetch("https://query.wikidata.org/sparql?format=json&query="+encodeURIComponent(query),{cache:"no-store"});
-    if(!r.ok) return "";
-    return (await r.json())?.results?.bindings?.[0]?.tmdb?.value||"";
-  }catch(e){
-    console.warn("Popcorn ID resolver failed",e);
+
+    const text = String(value).trim();
+
+    if(!text){
+      return "";
+    }
+
+    if(/^\d+$/.test(text)){
+      return text;
+    }
+
+    const tmdb = text.match(
+      /(?:themoviedb\.org\/(?:movie|tv)\/|tmdb[:/])([0-9]+)/i
+    );
+
+    return tmdb ? tmdb[1] : "";
+  }
+
+  for(const candidate of candidates){
+    const found = extract(candidate);
+    if(found) return found;
+  }
+
+  const links =
+    meta && Array.isArray(meta.links)
+      ? meta.links
+      : [];
+
+  for(const link of links){
+
+    if(!link) continue;
+
+    const category = String(
+      link.category ||
+      link.name ||
+      link.type ||
+      ""
+    ).toLowerCase();
+
+    const url = String(
+      link.url ||
+      link.href ||
+      ""
+    );
+
+    if(
+      category.includes("themoviedb") ||
+      category.includes("tmdb") ||
+      url.includes("themoviedb.org")
+    ){
+      const found = extract(url);
+      if(found) return found;
+    }
+  }
+
+  return "";
+}
+
+function getPopcornIMDbId(id, meta){
+
+  const candidates = [
+    meta && meta.imdb_id,
+    meta && meta.imdbId,
+    meta && meta.imdb,
+    id,
+    meta && meta.ids && meta.ids.imdb,
+    meta && meta.external_ids && meta.external_ids.imdb,
+    meta && meta.externalIds && meta.externalIds.imdb
+  ];
+
+  for(const candidate of candidates){
+
+    if(candidate === null || candidate === undefined){
+      continue;
+    }
+
+    const value = String(candidate).trim();
+
+    const match =
+      value.match(/tt\d{5,12}/i);
+
+    if(match){
+      return match[0];
+    }
+  }
+
+  return "";
+}
+
+function getPopcornType(type){
+
+  const normalized =
+    String(type || "movie")
+      .toLowerCase();
+
+  return
+    normalized === "series" ||
+    normalized === "tv" ||
+    normalized === "show"
+      ? "tv"
+      : "movie";
+}
+
+function getPopcornTitle(meta){
+
+  return String(
+    meta && (
+      meta.name ||
+      meta.title ||
+      meta.originalName ||
+      meta.original_title ||
+      ""
+    )
+  ).trim();
+}
+
+function getPopcornYear(meta){
+
+  const raw = String(
+    meta && (
+      meta.year ||
+      meta.releaseInfo ||
+      meta.releaseDate ||
+      meta.first_air_date ||
+      ""
+    )
+  );
+
+  const match =
+    raw.match(/(?:19|20)\d{2}/);
+
+  return match ? match[0] : "";
+}
+
+function getPopcornMoviesURL(type, tmdbId){
+
+  if(!tmdbId){
     return "";
   }
+
+  return "https://popcornmovies.io/watch/" +
+    getPopcornType(type) +
+    "/" +
+    encodeURIComponent(tmdbId);
 }
 
-async function openPopcornWatch(type,id,metaOverride){
-  const meta=metaOverride||currentTitle||{};
-  const kind=(String(type||"movie").toLowerCase()==="series"||String(type||"").toLowerCase()==="tv"||String(type||"").toLowerCase()==="show")?"tv":"movie";
-  let tmdb=popcornTMDBId(meta,id);
-  if(!tmdb) tmdb=await popcornWikidataLookup(meta,id);
-  if(tmdb){
-    window.location.assign("https://popcornmovies.io/watch/"+kind+"/"+encodeURIComponent(tmdb));
+function getPopcornBrowseURL(type, meta){
+
+  const title =
+    getPopcornTitle(meta);
+
+  if(!title){
+    return "https://popcornmovies.io/browse";
+  }
+
+  /* PopcornMovies exposes its full catalogue through /browse.
+     Keep the title in the URL so the site/browser can use it as
+     the discovery query even when SAUVE has no TMDB ID. */
+  const params = new URLSearchParams();
+
+  params.set("search", title);
+
+  const year =
+    getPopcornYear(meta);
+
+  if(year){
+    params.set("year", year);
+  }
+
+  if(getPopcornType(type) === "tv"){
+    params.set("type", "tv");
+  }
+  else{
+    params.set("type", "movie");
+  }
+
+  return "https://popcornmovies.io/browse?" +
+    params.toString();
+}
+
+async function resolvePopcornTMDBId(type, id, meta){
+
+  let tmdbId =
+    getPopcornTMDBId(
+      id,
+      meta
+    );
+
+  if(tmdbId){
+    return tmdbId;
+  }
+
+  const imdbId =
+    getPopcornIMDbId(
+      id,
+      meta
+    );
+
+  if(!imdbId){
+    return "";
+  }
+
+  /* Cinemeta commonly exposes a TMDB link for IMDb IDs.
+     This is only used to resolve the destination URL; playback
+     remains on PopcornMovies. */
+  const endpoints = [
+    "https://v3-cinemeta.strem.io/meta/" +
+      encodeURIComponent(getPopcornType(type)) +
+      "/" +
+      encodeURIComponent(imdbId) +
+      ".json",
+    "https://v2.sg.media-imdb.com/suggestion/" +
+      encodeURIComponent(imdbId) +
+      ".json"
+  ];
+
+  try{
+
+    const response =
+      await fetch(
+        endpoints[0],
+        {
+          method:"GET",
+          cache:"no-store"
+        }
+      );
+
+    if(response.ok){
+
+      const data =
+        await response.json();
+
+      const candidate =
+        data && (
+          data.meta ||
+          data
+        );
+
+      tmdbId =
+        getPopcornTMDBId(
+          imdbId,
+          candidate
+        );
+
+      if(tmdbId){
+        return tmdbId;
+      }
+    }
+
+  }
+  catch(error){
+
+    console.warn(
+      "Popcorn TMDB resolution failed:",
+      error
+    );
+
+  }
+
+  return "";
+}
+
+async function openPopcornMovies(type, id){
+
+  const meta =
+    (typeof currentTitle === "object" && currentTitle)
+      ? currentTitle
+      : null;
+
+  const tmdbId =
+    await resolvePopcornTMDBId(
+      type,
+      id,
+      meta
+    );
+
+  if(tmdbId){
+
+    const popcornURL =
+      getPopcornMoviesURL(
+        type,
+        tmdbId
+      );
+
+    if(popcornURL){
+      window.location.assign(popcornURL);
+    }
+
     return;
   }
-  const q=[popcornTitle(meta),popcornYear(meta)].filter(Boolean).join(" ");
-  window.location.assign(q?"https://popcornmovies.io/browse?search="+encodeURIComponent(q):"https://popcornmovies.io/browse");
-}
 
-function popcornButton(type,id){
-  return `<button class="primary" type="button" id="popcornWatchButton" style="margin-top:10px;width:100%;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">🍿 WATCH ON POPCORN</button>`;
+  /* Never stop with the old "TMDB ID not found" error.
+     PopcornMovies has a browse/search catalogue, so title/year
+     discovery is the final fallback. */
+  window.location.assign(
+    getPopcornBrowseURL(
+      type,
+      meta
+    )
+  );
 }
 
 /* =========================================================
@@ -3512,15 +3750,26 @@ function renderMovieTitle(
 
         </p>
 
-        <button
-          class="primary"
-          id="sourceButton">
+        <div class="hero-buttons" style="margin-top:16px">
 
-          ▶ FIND SOURCES
+          <button
+            class="primary"
+            id="sourceButton">
 
-        </button>
+            ▶ FIND SOURCES
 
-        ${popcornButton(type,id)}
+          </button>
+
+          <button
+            class="secondary"
+            type="button"
+            onclick="openPopcornMovies('${escapeHTML(type)}','${escapeHTML(id)}')">
+
+            🍿 OPEN ON POPCORN
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -3544,17 +3793,52 @@ function renderMovieTitle(
         id
       );
 
-  $("popcornWatchButton")
-    .onclick =
-    () =>
-      openPopcornWatch(
-        type,
-        id,
-        currentTitle
-      );
-
 }
 
+
+/* =========================================================
+   POPCORN MOVIES — TV
+   TV uses the same numeric TMDB-ID resolver as movies.
+========================================================= */
+async function openPopcornTV(){
+  const meta =
+    (typeof currentTitle === "object" && currentTitle)
+      ? currentTitle
+      : {};
+
+  const tmdbId =
+    await resolvePopcornTMDBId(
+      "series",
+      currentSeriesId,
+      meta
+    );
+
+  if(!tmdbId){
+    alert(
+      "SAUVE could not identify the TMDB ID for this TV show."
+    );
+    return;
+  }
+
+  window.location.assign(
+    getPopcornMoviesURL(
+      "series",
+      tmdbId
+    )
+  );
+}
+
+function popcornTVButton(){
+  return `
+    <button
+      type="button"
+      class="secondary"
+      onclick="openPopcornTV()"
+      style="width:100%;margin-bottom:16px;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">
+      🍿 OPEN SHOW ON POPCORN
+    </button>
+  `;
+}
 
 /* =========================================================
    SERIES
@@ -3632,7 +3916,15 @@ function renderSeriesTitle(
 
       </div>
 
-      ${popcornButton("series",id)}
+      <button
+        class="secondary"
+        type="button"
+        style="width:100%;margin-top:16px"
+        onclick="openPopcornMovies('series','${escapeHTML(id)}')">
+
+        🍿 OPEN ON POPCORN
+
+      </button>
 
       <div class="notice">
 
@@ -3803,8 +4095,16 @@ function renderSeriesSeason(
 
     </div>
 
+    <button
+      class="secondary"
+      type="button"
+      style="width:100%;margin-top:16px"
+      onclick="openPopcornMovies('series','${escapeHTML(id)}')">
 
-    ${popcornButton("series",id)}
+      🍿 OPEN ON POPCORN
+
+    </button>
+
 
     <div class="section-title">
 
@@ -4092,6 +4392,8 @@ async function selectEpisode(
 
   sources.innerHTML = `
 
+    ${popcornTVButton()}
+
     <div class="loading">
 
       <div class="spinner"></div>
@@ -4167,6 +4469,8 @@ async function selectEpisode(
 
       sources.innerHTML = `
 
+        ${popcornTVButton()}
+
         <div class="notice">
 
           No sources were returned for
@@ -4200,6 +4504,8 @@ async function selectEpisode(
 
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="section-title">
 
@@ -4238,6 +4544,8 @@ async function selectEpisode(
   catch(error){
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="notice">
 
@@ -6476,78 +6784,73 @@ $("modal")
 ========================================================= */
 
 let modalStartY = 0;
-
 let modalCurrentY = 0;
+let modalStartX = 0;
+let modalCurrentX = 0;
+let modalSwipeFromHeader = false;
 
-
-$("sheet")
-  .addEventListener(
-    "touchstart",
-    event => {
-
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalStartY =
-        event.touches[0].clientY;
-
-      modalCurrentY =
-        modalStartY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchstart",
+  event => {
+    if(event.touches.length !== 1){
+      modalSwipeFromHeader = false;
+      return;
     }
-  );
 
+    const target = event.target;
+    const header = target && target.closest
+      ? target.closest(".sheet-header")
+      : null;
 
-$("sheet")
-  .addEventListener(
-    "touchmove",
-    event => {
+    modalSwipeFromHeader = !!header;
+    modalStartY = event.touches[0].clientY;
+    modalCurrentY = modalStartY;
+    modalStartX = event.touches[0].clientX;
+    modalCurrentX = modalStartX;
+  },
+  {passive:true}
+);
 
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalCurrentY =
-        event.touches[0].clientY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchmove",
+  event => {
+    if(event.touches.length !== 1 || !modalSwipeFromHeader){
+      return;
     }
-  );
+    modalCurrentY = event.touches[0].clientY;
+    modalCurrentX = event.touches[0].clientX;
 
+    const dy = modalCurrentY - modalStartY;
+    const dx = Math.abs(modalCurrentX - modalStartX);
 
-$("sheet")
-  .addEventListener(
-    "touchend",
-    () => {
-
-      const distance =
-        modalCurrentY -
-        modalStartY;
-
-      if(
-        distance > 120
-      ){
-
-        closeModal();
-
-      }
-
+    if(dy <= 0 || dx > 70){
+      modalSwipeFromHeader = false;
     }
-  );
+  },
+  {passive:true}
+);
+
+$("sheet").addEventListener(
+  "touchend",
+  () => {
+    if(!modalSwipeFromHeader){
+      return;
+    }
+
+    const distance = modalCurrentY - modalStartY;
+    const horizontalDistance =
+      Math.abs(modalCurrentX - modalStartX);
+
+    if(
+      distance > 280 &&
+      horizontalDistance < 70
+    ){
+      closeModal();
+    }
+
+    modalSwipeFromHeader = false;
+  }
+);
 
 
 /* =========================================================
@@ -6764,16 +7067,6 @@ if(
 ========================================================= */
 
 loadHome();
-
-
-
-/* Popcorn button delegation for dynamically rendered movie/TV modals. */
-document.addEventListener("click",function(e){
-  const b=e.target.closest && e.target.closest("#popcornWatchButton");
-  if(!b) return;
-  e.preventDefault();
-  openPopcornWatch(currentTitle?.type||"movie", currentSeriesId||"", currentTitle);
-});
 
 </script>
 
