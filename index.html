@@ -68,7 +68,7 @@ html{
   padding:0;
   min-height:100%;
   background:#05030b;
-  overscroll-behavior:none;
+  overscroll-behavior-x:none;
   -webkit-text-size-adjust:100%;
 }
 
@@ -90,7 +90,7 @@ body{
 
   overflow-x:hidden;
 
-  overscroll-behavior:none;
+  overscroll-behavior-x:none;
 
   -webkit-tap-highlight-color:transparent;
   -webkit-touch-callout:none;
@@ -1874,6 +1874,29 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
 
 
 <body>
+
+
+<!-- =======================================================
+     PROFILE GATE (Netflix-style "Who's Watching")
+======================================================= -->
+
+<div class="profile-gate" id="profileGate">
+
+  <div class="profile-panel">
+
+    <div class="profile-logo">SAUVE</div>
+
+    <div class="profile-question">Who's Watching?</div>
+
+    <div class="profile-grid" id="profileGrid"></div>
+
+    <div class="profile-actions">
+      <button class="profile-manage" type="button" onclick="manageProfiles()">Manage Profiles</button>
+    </div>
+
+  </div>
+
+</div>
 
 
 <!-- =======================================================
