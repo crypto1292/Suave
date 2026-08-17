@@ -1867,6 +1867,8 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
 .section-title{margin:24px 0 8px;color:#fff;font-size:11px;font-weight:900;letter-spacing:1.5px}.notice{border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);padding:13px;color:#aaa1b4;font-size:12px;line-height:1.55}.notice strong{color:#fff}.addon-item{border-radius:16px!important;background:rgba(255,255,255,.045)!important;border:1px solid rgba(255,255,255,.07)!important;padding:13px!important;margin:8px 0}.addon-name{font-weight:800}.addon-url{color:#8e8697;font-size:11px;word-break:break-all;margin-top:5px}.remove-addon{border-radius:10px!important}
 @media (max-width:600px){header{position:sticky}.hero{min-height:470px;padding:24px 20px;border-radius:24px}.hero h1{font-size:50px}.hero p{font-size:13px;line-height:1.55}.searchbar button{padding:0 12px;min-width:70px}.catalog-row{overflow-x:auto}.sheet{border-radius:26px}.primary,.secondary{flex:1;min-width:135px}}
 
+
+.profile-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 0%,rgba(139,92,246,.28),transparent 38%),rgba(3,2,6,.98);overflow:auto}.profile-gate.hidden{display:none}.profile-panel{width:min(760px,100%);text-align:center;padding:30px 18px 38px}.profile-logo{font-size:clamp(52px,16vw,92px);font-weight:1000;letter-spacing:6px;line-height:.85;color:#fff;text-shadow:0 0 8px #fff,0 0 18px var(--pink),0 0 40px rgba(139,92,246,.9)}.profile-question{margin:18px 0 28px;color:#fff;font-size:clamp(22px,5vw,34px);font-weight:800}.profile-grid{display:grid;grid-template-columns:repeat(5,minmax(90px,1fr));gap:18px;justify-content:center}.profile-card{border:0;background:transparent;color:#fff;cursor:pointer;padding:0;min-width:0}.profile-avatar{width:min(118px,18vw);aspect-ratio:1;border-radius:18%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,var(--pink),var(--purple));border:2px solid transparent;box-shadow:0 12px 35px rgba(0,0,0,.35);font-size:clamp(30px,7vw,52px);font-weight:900;transition:.18s ease}.profile-card:hover .profile-avatar,.profile-card:active .profile-avatar{transform:scale(1.05);border-color:#fff}.profile-avatar img{width:100%;height:100%;object-fit:cover}.profile-name{font-size:13px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#e9e3ec}.profile-add{border:1px dashed rgba(255,255,255,.28);background:rgba(255,255,255,.045);font-size:44px;color:#aaa}.profile-actions{margin-top:30px;display:flex;justify-content:center}.profile-manage{min-height:44px;padding:10px 16px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-weight:800}.profile-chip{position:absolute;right:14px;top:calc(12px + env(safe-area-inset-top));display:flex;align-items:center;gap:7px;padding:5px 9px 5px 5px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.07);color:#fff;font-size:10px;font-weight:800;z-index:2;cursor:pointer}.profile-chip-avatar{width:28px;height:28px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--pink),var(--purple));font-size:12px}.profile-chip-avatar img{width:100%;height:100%;object-fit:cover}.profile-editor{display:grid;gap:12px}.profile-editor-avatar{width:88px;height:88px;border-radius:18%;overflow:hidden;margin:0 auto 6px;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900}.profile-editor-avatar img{width:100%;height:100%;object-fit:cover}.episode-wrap{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:stretch}.episode-popcorn{min-width:54px!important;padding:8px!important;border-radius:14px!important;font-size:20px!important}@media(max-width:560px){.profile-grid{grid-template-columns:repeat(3,1fr);gap:20px 12px}.profile-avatar{width:76px}.profile-panel{padding-top:45px}}
 </style>
 </head>
 
@@ -1878,7 +1880,9 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
      HEADER
 ======================================================= -->
 
-<header>
+<header style="position:relative">
+
+  <button id="profileButton" class="profile-chip" type="button" onclick="openProfileChooser()"><span id="profileChipAvatar" class="profile-chip-avatar">S</span><span id="profileChipName">PROFILE</span></button>
 
   <div class="logo">
     SAUVE
@@ -2014,50 +2018,33 @@ main{max-width:1400px;padding:14px 14px calc(104px + env(safe-area-inset-bottom)
 <script>
 
 /* =========================================================
-   CONFIG
+   CONFIG + PROFILES
 ========================================================= */
-
-const DEFAULT_METADATA =
-"https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
-
-const DEFAULT_ADDON =
-"";
-
-
-const state = {
-
-  metadata:
-    localStorage.getItem(
-      "sauve_metadata"
-    ) ||
-    DEFAULT_METADATA,
-
-  stream:
-    localStorage.getItem(
-      "sauve_stream"
-    ) ||
-    "",
-
-  addons:
-    loadJSON(
-      "sauve_addons",
-      []
-    ),
-
-  aiostreams:
-    localStorage.getItem(
-      "sauve_aiostreams"
-    ) ||
-    "",
-
-  realdebrid:
-    localStorage.getItem(
-      "sauve_realdebrid"
-    ) ||
-    ""
-
-};
-
+const DEFAULT_METADATA = "https://aiometadatafortheweebs.midnightignite.me/stremio/af628b15-a8b0-4c65-bf0c-f8e1e502f96f/manifest.json";
+const DEFAULT_ADDON = "";
+const PROFILE_KEY="sauve_profiles_v1", ACTIVE_PROFILE_KEY="sauve_active_profile_v1", MAX_PROFILES=5;
+function loadJSON(key,fallback){try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback}catch(e){return fallback}}
+function legacySettings(){return {metadata:localStorage.getItem("sauve_metadata")||DEFAULT_METADATA,stream:localStorage.getItem("sauve_stream")||"",addons:loadJSON("sauve_addons",[]),aiostreams:localStorage.getItem("sauve_aiostreams")||"",realdebrid:localStorage.getItem("sauve_realdebrid")||""}}
+function getProfiles(){let a=loadJSON(PROFILE_KEY,[]);if(!Array.isArray(a))a=[];if(!a.length){a=[{id:"profile_1",name:"Chris",avatar:"",settings:legacySettings()}];localStorage.setItem(PROFILE_KEY,JSON.stringify(a))}return a.slice(0,MAX_PROFILES)}
+let profiles=getProfiles();
+let activeProfileId=localStorage.getItem(ACTIVE_PROFILE_KEY)||profiles[0].id;if(!profiles.some(p=>p.id===activeProfileId))activeProfileId=profiles[0].id;
+function getActiveProfile(){return profiles.find(p=>p.id===activeProfileId)||profiles[0]}
+function persistProfiles(){localStorage.setItem(PROFILE_KEY,JSON.stringify(profiles))}
+const state=(()=>{const s=getActiveProfile().settings||legacySettings();return {metadata:s.metadata||DEFAULT_METADATA,stream:s.stream||"",addons:Array.isArray(s.addons)?s.addons:[],aiostreams:s.aiostreams||"",realdebrid:s.realdebrid||""}})();
+function saveState(){const p=getActiveProfile();p.settings={metadata:state.metadata||DEFAULT_METADATA,stream:state.stream||"",addons:state.addons||[],aiostreams:state.aiostreams||"",realdebrid:state.realdebrid||""};persistProfiles();localStorage.setItem("sauve_metadata",p.settings.metadata);localStorage.setItem("sauve_stream",p.settings.stream);localStorage.setItem("sauve_addons",JSON.stringify(p.settings.addons));localStorage.setItem("sauve_aiostreams",p.settings.aiostreams);localStorage.setItem("sauve_realdebrid",p.settings.realdebrid)}
+function profileLetter(p){return escapeHTML((p.name||"S").trim().charAt(0).toUpperCase()||"S")}
+function avatarMarkup(p,cls="profile-avatar"){return p.avatar?`<div class="${cls}"><img src="${escapeHTML(p.avatar)}" alt=""></div>`:`<div class="${cls}">${profileLetter(p)}</div>`}
+function renderProfileGate(){const g=$("profileGrid");if(!g)return;g.innerHTML=profiles.map(p=>`<button class="profile-card" type="button" onclick="selectProfile('${escapeHTML(p.id)}')">${avatarMarkup(p)}<div class="profile-name">${escapeHTML(p.name||"Profile")}</div></button>`).join("")+(profiles.length<MAX_PROFILES?`<button class="profile-card" type="button" onclick="createProfile()"><div class="profile-avatar profile-add">+</div><div class="profile-name">Add Profile</div></button>`:"")}
+function updateProfileChip(){const p=getActiveProfile(),n=$("profileChipName"),a=$("profileChipAvatar");if(n)n.textContent=p.name||"PROFILE";if(a)a.innerHTML=p.avatar?`<img src="${escapeHTML(p.avatar)}" alt="">`:profileLetter(p)}
+function openProfileChooser(){renderProfileGate();$("profileGate")?.classList.remove("hidden")}
+function selectProfile(id){if(!profiles.some(p=>p.id===id))return;activeProfileId=id;localStorage.setItem(ACTIVE_PROFILE_KEY,id);sessionStorage.setItem("sauve_profile_selected","1");location.reload()}
+function createProfile(){if(profiles.length>=MAX_PROFILES)return alert("SAUVE supports up to 5 profiles.");const id="profile_"+Date.now();profiles.push({id,name:"New Profile",avatar:"",settings:{metadata:DEFAULT_METADATA,stream:"",addons:[],aiostreams:"",realdebrid:""}});persistProfiles();editProfile(id,true)}
+function manageProfiles(){openModal(`<div class="sheet-header"><h2>MANAGE PROFILES</h2><button class="close" onclick="closeModal()">×</button></div><div class="notice">Up to 5 profiles. Each profile has its own SAUVE settings and avatar on this device.</div><div style="margin-top:16px;display:grid;gap:10px">${profiles.map(p=>`<div class="addon-item"><div class="profile-editor-avatar" style="width:54px;height:54px;margin:0;flex:none">${p.avatar?`<img src="${escapeHTML(p.avatar)}" alt="">`:profileLetter(p)}</div><div class="addon-info"><div class="addon-name">${escapeHTML(p.name||"Profile")}</div></div><button class="secondary" onclick="editProfile('${escapeHTML(p.id)}')">EDIT</button></div>`).join("")}</div>${profiles.length<MAX_PROFILES?`<button class="primary" style="width:100%;margin-top:14px" onclick="createProfile()">＋ ADD PROFILE</button>`:""}`)}
+function editProfile(id,focus){const p=profiles.find(x=>x.id===id);if(!p)return;openModal(`<div class="sheet-header"><h2>EDIT PROFILE</h2><button class="close" onclick="manageProfiles()">×</button></div><div class="profile-editor"><div id="profileEditorAvatar" class="profile-editor-avatar">${p.avatar?`<img src="${escapeHTML(p.avatar)}" alt="">`:profileLetter(p)}</div><div class="field"><label>Profile name</label><input id="profileEditName" value="${escapeHTML(p.name||"")}" maxlength="24"></div><div class="field"><label>Avatar picture</label><input type="file" accept="image/*" onchange="previewProfileAvatar(event)"></div><input id="profileEditAvatarData" type="hidden" value="${escapeHTML(p.avatar||"")}"><button class="primary" onclick="saveProfileEdit('${escapeHTML(p.id)}')">SAVE PROFILE</button>${profiles.length>1?`<button class="secondary" onclick="deleteProfile('${escapeHTML(p.id)}')">DELETE PROFILE</button>`:""}</div>`);if(focus)setTimeout(()=>$("profileEditName")?.focus(),50)}
+function previewProfileAvatar(e){const f=e.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{$("profileEditAvatarData").value=String(r.result||"");$("profileEditorAvatar").innerHTML=`<img src="${escapeHTML(String(r.result||""))}" alt="">`};r.readAsDataURL(f)}
+function saveProfileEdit(id){const p=profiles.find(x=>x.id===id);if(!p)return;p.name=(($("profileEditName")?.value)||"Profile").trim()||"Profile";p.avatar=$("profileEditAvatarData")?.value||"";persistProfiles();updateProfileChip();closeModal();renderProfileGate()}
+function deleteProfile(id){if(profiles.length<=1)return;const p=profiles.find(x=>x.id===id);if(!p||!confirm(`Delete ${p.name||"this profile"}?`))return;profiles=profiles.filter(x=>x.id!==id);if(activeProfileId===id){activeProfileId=profiles[0].id;localStorage.setItem(ACTIVE_PROFILE_KEY,activeProfileId)}persistProfiles();manageProfiles()}
+function initializeProfiles(){profiles=getProfiles();updateProfileChip();renderProfileGate();if(sessionStorage.getItem("sauve_profile_selected")){sessionStorage.removeItem("sauve_profile_selected");$("profileGate")?.classList.add("hidden")}}
 
 let currentStreams = [];
 
@@ -2078,74 +2065,6 @@ let currentSelectedSeason = 1;
 
 const episodeStore =
   new Map();
-
-
-/* =========================================================
-   STORAGE
-========================================================= */
-
-function loadJSON(
-  key,
-  fallback
-){
-
-  try{
-
-    const value =
-      localStorage.getItem(
-        key
-      );
-
-    if(!value){
-
-      return fallback;
-
-    }
-
-    return JSON.parse(
-      value
-    );
-
-  }
-  catch(e){
-
-    return fallback;
-
-  }
-
-}
-
-
-function saveState(){
-
-  localStorage.setItem(
-    "sauve_metadata",
-    state.metadata
-  );
-
-  localStorage.setItem(
-    "sauve_stream",
-    state.stream
-  );
-
-  localStorage.setItem(
-    "sauve_addons",
-    JSON.stringify(
-      state.addons
-    )
-  );
-
-  localStorage.setItem(
-    "sauve_aiostreams",
-    state.aiostreams || ""
-  );
-
-  localStorage.setItem(
-    "sauve_realdebrid",
-    state.realdebrid || ""
-  );
-
-}
 
 
 /* =========================================================
@@ -3354,103 +3273,22 @@ async function openTitle(
 
 
 /* =========================================================
-   POPCORN MOVIES — DIRECT WATCH DEEP LINK
-   PopcornMovies uses /watch/movie/<TMDB_ID> and
-   /watch/tv/<TMDB_ID>. Resolve the TMDB ID from the existing
-   metadata when possible; otherwise use Wikidata as a no-key
-   title/IMDb resolver. This does not embed or proxy the stream.
+   POPCORN MOVIES — EXACT WATCH URLS
 ========================================================= */
-function popcornTMDBId(meta,id){
-  const vals=[
-    id,meta?.id,meta?.tmdbId,meta?.tmdb_id,meta?.tmdb,
-    meta?.ids?.tmdb,meta?.external_ids?.tmdb,meta?.externalIds?.tmdb
-  ];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const x=String(v).trim();
-    if(/^\d+$/.test(x)) return x;
-    const m=x.match(/(?:tmdb[:/]|themoviedb\.org\/(?:movie|tv)\/)(\d+)/i);
-    if(m) return m[1];
-  }
-  return "";
-}
-
-function popcornIMDbId(meta,id){
-  const vals=[id,meta?.id,meta?.imdb,meta?.imdbId,meta?.imdb_id,meta?.ids?.imdb,meta?.external_ids?.imdb];
-  for(const v of vals){
-    if(v===null||v===undefined) continue;
-    const m=String(v).match(/tt\d{5,12}/i);
-    if(m) return m[0];
-  }
-  return "";
-}
-
-function popcornTitle(meta){
-  return String(meta?.name||meta?.title||meta?.originalName||meta?.original_title||"").trim();
-}
-
-function popcornYear(meta){
-  const m=String(meta?.releaseInfo||meta?.year||meta?.releaseDate||meta?.first_air_date||"").match(/(?:19|20)\d{2}/);
-  return m?m[0]:"";
-}
-
-async function popcornWikidataLookup(meta,id){
-  const title=popcornTitle(meta);
-  const year=popcornYear(meta);
-  const imdb=popcornIMDbId(meta,id);
-  try{
-    let query;
-    if(imdb){
-      query=`SELECT ?tmdb WHERE { ?item wdt:P345 "${imdb}". ?item wdt:P4947 ?tmdb. } LIMIT 1`;
-    }else if(title){
-      const search=await fetch("https://www.wikidata.org/w/api.php?action=wbsearchentities&search="+encodeURIComponent(title)+"&language=en&format=json&origin=*&limit=10",{cache:"no-store"});
-      if(!search.ok) return "";
-      const sj=await search.json();
-      for(const item of (sj?.search||[])){
-        const r=await fetch("https://www.wikidata.org/wiki/Special:EntityData/"+encodeURIComponent(item.id)+".json",{cache:"no-store"});
-        if(!r.ok) continue;
-        const ent=(await r.json())?.entities?.[item.id];
-        const claims=ent?.claims||{};
-        const tm=claims?.P4947?.[0]?.mainsnak?.datavalue?.value;
-        if(!tm) continue;
-        if(year){
-          const dates=[...(claims.P577||[])];
-          const ok=dates.some(c=>String(c?.mainsnak?.datavalue?.value?.time||"").includes(year));
-          if(!ok) continue;
-        }
-        return String(tm);
-      }
-      return "";
-    }
-    const r=await fetch("https://query.wikidata.org/sparql?format=json&query="+encodeURIComponent(query),{cache:"no-store"});
-    if(!r.ok) return "";
-    return (await r.json())?.results?.bindings?.[0]?.tmdb?.value||"";
-  }catch(e){
-    console.warn("Popcorn ID resolver failed",e);
-    return "";
-  }
-}
-
-async function openPopcornWatch(type,id,metaOverride){
-  const meta=metaOverride||currentTitle||{};
-  const kind=(String(type||"movie").toLowerCase()==="series"||String(type||"").toLowerCase()==="tv"||String(type||"").toLowerCase()==="show")?"tv":"movie";
-  let tmdb=popcornTMDBId(meta,id);
-  if(!tmdb) tmdb=await popcornWikidataLookup(meta,id);
-  if(tmdb){
-    window.location.assign("https://popcornmovies.io/watch/"+kind+"/"+encodeURIComponent(tmdb));
-    return;
-  }
-  const q=[popcornTitle(meta),popcornYear(meta)].filter(Boolean).join(" ");
-  window.location.assign(q?"https://popcornmovies.io/browse?search="+encodeURIComponent(q):"https://popcornmovies.io/browse");
-}
-
-function popcornButton(type,id){
-  return `<button class="primary" type="button" id="popcornWatchButton" style="margin-top:10px;width:100%;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">🍿 WATCH ON POPCORN</button>`;
-}
+function getPopcornTMDBId(id,meta){const c=[id,meta?.id,meta?._id,meta?.tmdbId,meta?.tmdb_id,meta?.tmdb,meta?.moviedb_id,meta?.movieDbId,meta?.ids?.tmdb,meta?.external_ids?.tmdb,meta?.externalIds?.tmdb];function x(v){if(v==null)return"";const t=String(v).trim();if(/^\d+$/.test(t))return t;const m=t.match(/(?:themoviedb\.org\/(?:movie|tv)\/|tmdb[:\/]?)(\d+)/i);return m?m[1]:""}for(const v of c){const f=x(v);if(f)return f}for(const l of (meta?.links||[])){const u=String(l?.url||l?.href||"");const cat=String(l?.category||l?.name||l?.type||"").toLowerCase();if(cat.includes("tmdb")||cat.includes("themoviedb")||u.includes("themoviedb.org")){const f=x(u);if(f)return f}}return""}
+function getPopcornIMDbId(id,meta){for(const v of [meta?.imdb_id,meta?.imdbId,meta?.imdb,id,meta?.ids?.imdb,meta?.external_ids?.imdb,meta?.externalIds?.imdb]){const m=String(v??"").match(/tt\d{5,12}/i);if(m)return m[0]}return""}
+function getPopcornType(type){return ["series","tv","show"].includes(String(type||"").toLowerCase())?"tv":"movie"}
+function getPopcornTitle(meta){return String(meta?.name||meta?.title||meta?.originalName||meta?.original_title||"").trim()}
+function getPopcornYear(meta){const m=String(meta?.year||meta?.releaseInfo||meta?.releaseDate||meta?.first_air_date||"").match(/(?:19|20)\d{2}/);return m?m[0]:""}
+function getPopcornWatchURL(type,tmdbId,season=1,episode=1){if(!tmdbId)return"";if(getPopcornType(type)==="movie")return`https://popcornmovies.io/watch/movie/${encodeURIComponent(tmdbId)}`;return`https://popcornmovies.io/watch/tv/${encodeURIComponent(tmdbId)}?s=${Number(season)||1}&e=${Number(episode)||1}`}
+function getPopcornBrowseURL(type,meta){const title=getPopcornTitle(meta);if(!title)return"https://popcornmovies.io/browse";const p=new URLSearchParams({search:title,type:getPopcornType(type)});const y=getPopcornYear(meta);if(y)p.set("year",y);return"https://popcornmovies.io/browse?"+p.toString()}
+async function resolvePopcornTMDBId(type,id,meta){let t=getPopcornTMDBId(id,meta);if(t)return t;const imdb=getPopcornIMDbId(id,meta);if(!imdb)return"";try{const r=await fetch(`https://v3-cinemeta.strem.io/meta/${getPopcornType(type)}/${encodeURIComponent(imdb)}.json`,{cache:"no-store"});if(r.ok){const d=await r.json();t=getPopcornTMDBId(imdb,d?.meta||d);if(t)return t}}catch(e){console.warn("Popcorn TMDB resolution failed:",e)}return""}
+async function openPopcornMovies(type,id,season=1,episode=1){const meta=currentTitle||{};const t=await resolvePopcornTMDBId(type,id,meta);if(t){const u=getPopcornWatchURL(type,t,season,episode);if(u){window.location.href=u;return}}window.location.href=getPopcornBrowseURL(type,meta)}
 
 /* =========================================================
    MOVIE
 ========================================================= */
+
 
 function renderMovieTitle(
   meta,
@@ -3512,15 +3350,26 @@ function renderMovieTitle(
 
         </p>
 
-        <button
-          class="primary"
-          id="sourceButton">
+        <div class="hero-buttons" style="margin-top:16px">
 
-          ▶ FIND SOURCES
+          <button
+            class="primary"
+            id="sourceButton">
 
-        </button>
+            ▶ FIND SOURCES
 
-        ${popcornButton(type,id)}
+          </button>
+
+          <button
+            class="secondary"
+            type="button"
+            onclick="openPopcornMovies('${escapeHTML(type)}','${escapeHTML(id)}')">
+
+            🍿 OPEN ON POPCORN
+
+          </button>
+
+        </div>
 
       </div>
 
@@ -3544,21 +3393,21 @@ function renderMovieTitle(
         id
       );
 
-  $("popcornWatchButton")
-    .onclick =
-    () =>
-      openPopcornWatch(
-        type,
-        id,
-        currentTitle
-      );
-
 }
 
 
 /* =========================================================
+   POPCORN MOVIES — TV
+========================================================= */
+function getPopcornTVTMDBId(meta,seriesId){return getPopcornTMDBId(seriesId,meta)}
+function openPopcornTV(season=1,episode=1){const t=getPopcornTVTMDBId(currentTitle||{},currentSeriesId);if(t){window.location.href=getPopcornWatchURL("tv",t,season,episode);return}openPopcornMovies("series",currentSeriesId,season,episode)}
+function openPopcornEpisode(key){const ep=episodeStore.get(key);if(!ep)return;openPopcornTV(Number(ep.season)||Number(currentSelectedSeason)||1,Number(ep.episode||ep.number)||1)}
+function popcornTVButton(season=currentSelectedSeason,episode=1){return `<button type="button" class="secondary" onclick="openPopcornTV(${Number(season)||1},${Number(episode)||1})" style="width:100%;margin-bottom:16px;background:linear-gradient(135deg,#ff16d8,#8a4dff,#19eaff);">🍿 OPEN ON POPCORN</button>`}
+
+/* =========================================================
    SERIES
 ========================================================= */
+
 
 function renderSeriesTitle(
   meta,
@@ -3632,7 +3481,15 @@ function renderSeriesTitle(
 
       </div>
 
-      ${popcornButton("series",id)}
+      <button
+        class="secondary"
+        type="button"
+        style="width:100%;margin-top:16px"
+        onclick="openPopcornTV(${Number(season)||1},${Number(episodes[0]?.episode || episodes[0]?.number || 1)})">
+
+        🍿 OPEN ON POPCORN
+
+      </button>
 
       <div class="notice">
 
@@ -3803,8 +3660,16 @@ function renderSeriesSeason(
 
     </div>
 
+    <button
+      class="secondary"
+      type="button"
+      style="width:100%;margin-top:16px"
+      onclick="openPopcornTV(${Number(season)||1},${Number(episodes[0]?.episode || episodes[0]?.number || 1)})">
 
-    ${popcornButton("series",id)}
+      🍿 OPEN ON POPCORN
+
+    </button>
+
 
     <div class="section-title">
 
@@ -3945,6 +3810,7 @@ function renderEpisode(
 
   return `
 
+    <div class="episode-wrap">
     <button
       class="episode"
       data-episode-key="${escapeHTML(key)}">
@@ -4001,6 +3867,8 @@ function renderEpisode(
       </div>
 
     </button>
+    <button type="button" class="secondary episode-popcorn" onclick="event.stopPropagation();openPopcornEpisode('${escapeHTML(key)}')">🍿</button>
+    </div>
 
   `;
 
@@ -4092,6 +3960,8 @@ async function selectEpisode(
 
   sources.innerHTML = `
 
+    ${popcornTVButton()}
+
     <div class="loading">
 
       <div class="spinner"></div>
@@ -4167,6 +4037,8 @@ async function selectEpisode(
 
       sources.innerHTML = `
 
+        ${popcornTVButton()}
+
         <div class="notice">
 
           No sources were returned for
@@ -4200,6 +4072,8 @@ async function selectEpisode(
 
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="section-title">
 
@@ -4238,6 +4112,8 @@ async function selectEpisode(
   catch(error){
 
     sources.innerHTML = `
+
+      ${popcornTVButton()}
 
       <div class="notice">
 
@@ -6476,78 +6352,56 @@ $("modal")
 ========================================================= */
 
 let modalStartY = 0;
-
 let modalCurrentY = 0;
+let modalSwipeFromHeader = false;
 
-
-$("sheet")
-  .addEventListener(
-    "touchstart",
-    event => {
-
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalStartY =
-        event.touches[0].clientY;
-
-      modalCurrentY =
-        modalStartY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchstart",
+  event => {
+    if(event.touches.length !== 1){
+      modalSwipeFromHeader = false;
+      return;
     }
-  );
 
+    const target = event.target;
+    const header = target && target.closest
+      ? target.closest(".sheet-header")
+      : null;
 
-$("sheet")
-  .addEventListener(
-    "touchmove",
-    event => {
+    modalSwipeFromHeader = !!header;
+    modalStartY = event.touches[0].clientY;
+    modalCurrentY = modalStartY;
+  },
+  {passive:true}
+);
 
-      if(
-        event.touches.length !== 1
-      ){
-
-        return;
-
-      }
-
-      modalCurrentY =
-        event.touches[0].clientY;
-
-    },
-    {
-      passive:true
+$("sheet").addEventListener(
+  "touchmove",
+  event => {
+    if(event.touches.length !== 1 || !modalSwipeFromHeader){
+      return;
     }
-  );
+    modalCurrentY = event.touches[0].clientY;
+  },
+  {passive:true}
+);
 
-
-$("sheet")
-  .addEventListener(
-    "touchend",
-    () => {
-
-      const distance =
-        modalCurrentY -
-        modalStartY;
-
-      if(
-        distance > 120
-      ){
-
-        closeModal();
-
-      }
-
+$("sheet").addEventListener(
+  "touchend",
+  () => {
+    if(!modalSwipeFromHeader){
+      return;
     }
-  );
+
+    const distance = modalCurrentY - modalStartY;
+
+    if(distance > 190){
+      closeModal();
+    }
+
+    modalSwipeFromHeader = false;
+  }
+);
 
 
 /* =========================================================
@@ -6763,17 +6617,8 @@ if(
    START
 ========================================================= */
 
+initializeProfiles();
 loadHome();
-
-
-
-/* Popcorn button delegation for dynamically rendered movie/TV modals. */
-document.addEventListener("click",function(e){
-  const b=e.target.closest && e.target.closest("#popcornWatchButton");
-  if(!b) return;
-  e.preventDefault();
-  openPopcornWatch(currentTitle?.type||"movie", currentSeriesId||"", currentTitle);
-});
 
 </script>
 
